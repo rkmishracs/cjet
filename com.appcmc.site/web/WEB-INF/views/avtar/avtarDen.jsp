@@ -939,7 +939,7 @@
                         <ul>
 
                             <li class="current"><a href="#">My Profile</a></li>
-                            <li><a href="#">Invite Others To Join Pridikt</a></li>
+                            <li><a href="${pageContext.request.contextPath}/resume">Upload Resume</a></li>
 
                         </ul>
                     </div>
