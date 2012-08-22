@@ -23,13 +23,13 @@ public class StudentProfileTest {
         /*StudentProfile studentProfile = (StudentProfile) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.STUDENT_PROFILE);
 
-        studentProfile.setEnrollmentNumber("CJET198902012");
-        studentProfile.setTitle("Developer");
+        studentProfile.setEnrollmentNumber("CJET235442012");
+        studentProfile.setTitle("Software Developer");
         studentProfile.setTotalExperience("3");
-        studentProfile.setKeySkills("JAVA ORACLE");
+        studentProfile.setKeySkills("JAVA HTML Java Script");
         studentProfile.setCurrentEmployer("CMC LTD");
         studentProfile.setRole("Developer");
-        studentProfile.setPreviousEmployer("Wipro");
+        studentProfile.setPreviousEmployer("Satyam");
         studentProfile.setCreatedOn(new java.util.Date());
         studentProfile.setCreatedBy(1L);
         studentProfile.setModifiedOn(new java.util.Date());
