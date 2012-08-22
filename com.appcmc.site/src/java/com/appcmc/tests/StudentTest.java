@@ -24,17 +24,15 @@ public class StudentTest {
             LOG.debug(std);
         }*/
         
-       /* List<Student> studentList = studentService.getByCurrentWeek();
-       // LOG.debug("=================Student List With Weeks Matches are : "+studentList.size());
-        
-        for(Student std : studentList){
-            LOG.debug(std.getId()+"\n");
-        }*/
-        
-        List<Student> studentList = studentService.getByCurrentMonth();
+        List<Student> studentList = studentService.getByCurrentWeek();
         for(Student std : studentList){
             LOG.debug(std.getId()+"\n");
         }
+        
+       /* List<Student> studentList = studentService.getByCurrentMonth();
+        for(Student std : studentList){
+            LOG.debug(std.getId()+"\n");
+        }*/
         
         /*List<Student> studentList = studentService.getByDay();
         for(Student std : studentList){
