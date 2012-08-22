@@ -449,22 +449,6 @@
                 color: #FFFFFF;
             }
             
-            #midContentDiv{
-                position: absolute;
-                top: 170px;
-                left: 205px;
-                width: 523px;
-                height:215px;
-            }
-            
-            .dupSignDiv{
-                position: absolute;
-                min-width: 585px;
-                padding: 9px 0 0;
-                border-bottom: 1px solid #B6C1CC;
-            }
-            
-            
   
         </style>
 
@@ -716,10 +700,7 @@
                         <div class="clear"></div>
                     </div>      
 
-                    <div id="midContentDiv" class="profilePer">
-                        <h3 style="font-size: 12.4px;font-weight: bolder;">Enrollment Notifications</h3>
-                        <div class="dupSignDiv"></div>
-                    </div> 
+                    
 
 
 
