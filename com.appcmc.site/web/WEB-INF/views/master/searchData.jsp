@@ -8,9 +8,19 @@
         <title>CMC | Student Monthly Report</title>
 
         <link rel="stylesheet" type="text/css"
-              href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.22.custom.css" />
+              href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
+        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
+        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
+
+        <script
+        type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
+
+       
         <!--  Two Style Tags Here  -->
         <!-- Style For Image -->
         <style>
@@ -20,27 +30,29 @@
                 top:10px;
                 left:180px;
             }
+            
+            #tabs{
+                position: absolute;
+                top: 160px;
+                width: 595px;
+            }
 
 
         </style>  
         <!-- Styles For Table with id studentDetail -->
-        <style>
-            body { font-size: 62.5%; }
-            label, input { display:block; }
-            input.text { margin-bottom:12px; width:95%; padding: .4em; }
-            fieldset { padding:0; border:0; margin-top:25px; }
-            h4{ font-size: 1.0em; margin: .6em 0; }
-            div#users-contain { width: 600px; margin: 20px 0;  }
-            div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-            div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
-            .ui-dialog .ui-state-error { padding: .3em; }
-
-        </style>
-        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
-        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
-        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
-        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
-
+        
+        
+        
+       
+        <script type="text/javascript">
+            $(document).ready(function(){
+                // Tabs
+		$('#tabs').tabs();
+            });
+            
+        </script>
+        
+    </head>
     <body>
         <div id="header">
             <div class="wrapper">
@@ -78,7 +90,18 @@
                         </form>
                         <div class="name"></div>
                     </div>
-                    
+                    <!-- Tabs -->
+		
+                    <div id="tabs">
+                            <ul>
+                                    <li><a href="#tabs-1">By EnrollmentNumber</a></li>
+                                    <li><a href="#tabs-2">By EnrollmentName</a></li>
+                                    <li><a href="#tabs-3">By Phone</a></li>
+                            </ul>
+                            <div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                            <div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+                            <div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+                    </div>
 
                 </div>
                 <div id="body2" class="col">
