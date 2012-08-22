@@ -132,10 +132,12 @@ CREATE TABLE `app_user_educational_qualifications` (
   `edu_two_university` varchar(255) default NULL,
   `edu_two_grade` varchar(255) default NULL,
   `edu_three_qualification` varchar(255) default NULL,
+  `edu_three_specialization` varchar(255) default NULL,
   `edu_three_year_of_pass` varchar(255) default NULL,
   `edu_three_university` varchar(255) default NULL,
   `edu_three_grade` varchar(255) default NULL,
   `edu_four_qualification` varchar(255) default NULL,
+  `edu_four_specialization` varchar(255) default NULL,
   `edu_four_year_of_pass` varchar(255) default NULL,
   `edu_four_university` varchar(255) default NULL,
   `edu_four_grade` varchar(255) default NULL,
@@ -156,9 +158,9 @@ CREATE TABLE `app_user_educational_qualifications` (
 
 /*!40000 ALTER TABLE `app_user_educational_qualifications` DISABLE KEYS*/;
 LOCK TABLES `app_user_educational_qualifications` WRITE;
-INSERT INTO `app_user_educational_qualifications` (`edu_uid`, `edu_guid`, `edu_enrollment_number`, `edu_one_qualification`, `edu_one_year_of_pass`, `edu_one_university`, `edu_one_grade`, `edu_two_qualification`, `edu_two_year_of_pass`, `edu_two_university`, `edu_two_grade`, `edu_three_qualification`, `edu_three_year_of_pass`, `edu_three_university`, `edu_three_grade`, `edu_four_qualification`, `edu_four_year_of_pass`, `edu_four_university`, `edu_four_grade`, `edu_additional_qualification`, `edu_created_on`, `edu_created_by`, `edu_modified_on`, `edu_modified_by`, `edu_active`) VALUES
-	('1','64027922-b3a9-42a9-bbed-0439633e0f9c','CJET235442012','SSC','2003','SSC','A','Inter','2005','Inter','B','B.sc','2008','AU','B','MCA','2011','AU','B','No','2012-08-21 11:34:55','1','2012-08-21 11:34:55','1',1),
-	('2','f39e2558-2ac5-4f20-b983-1a7282914a59','CJET212232012','SSC','2003','SSC','A','Inter','2005','Inter','B','B.sc','2008','JNTU','B','MCA','2011','JNTU','B','No','2012-08-21 11:55:54','1','2012-08-21 11:55:54','1',1);
+INSERT INTO `app_user_educational_qualifications` (`edu_uid`, `edu_guid`, `edu_enrollment_number`, `edu_one_qualification`, `edu_one_year_of_pass`, `edu_one_university`, `edu_one_grade`, `edu_two_qualification`, `edu_two_year_of_pass`, `edu_two_university`, `edu_two_grade`, `edu_three_qualification`, `edu_three_specialization`, `edu_three_year_of_pass`, `edu_three_university`, `edu_three_grade`, `edu_four_qualification`, `edu_four_specialization`, `edu_four_year_of_pass`, `edu_four_university`, `edu_four_grade`, `edu_additional_qualification`, `edu_created_on`, `edu_created_by`, `edu_modified_on`, `edu_modified_by`, `edu_active`) VALUES
+	('1','64027922-b3a9-42a9-bbed-0439633e0f9c','CJET235442012','SSC','2003','SSC','A','Inter','2005','Inter','B','B.sc','I.T','2008','AU','B','MCA','I.T','I.T','AU','B','No','2012-08-21 11:34:55','1','2012-08-21 11:34:55','1',1),
+	('2','f39e2558-2ac5-4f20-b983-1a7282914a59','CJET212232012','SSC','2003','SSC','A','Inter','2005','Inter','B','B.sc','C.S.E','2008','JNTU','B','MCA','C.S.E','2011','JNTU','B','No','2012-08-21 11:55:54','1','2012-08-21 11:55:54','1',1);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `app_user_educational_qualifications` ENABLE KEYS*/;
 
