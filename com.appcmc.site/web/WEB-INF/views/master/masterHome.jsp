@@ -449,6 +449,22 @@
                 color: #FFFFFF;
             }
             
+            #midContentDiv{
+                position: absolute;
+                top: 170px;
+                left: 205px;
+                width: 523px;
+                height:215px;
+            }
+            
+            .dupSignDiv{
+                position: absolute;
+                min-width: 585px;
+                padding: 9px 0 0;
+                border-bottom: 1px solid #B6C1CC;
+            }
+            
+            
   
         </style>
 
@@ -532,6 +548,7 @@
 
                     </div>
                     <!--End Prediction Module--> 
+                    
                     
                     <!--Change Password Response-->
                     <div id="changePasswordResponse">
@@ -694,13 +711,15 @@
                                 </div>                                
 
                             </div>
-
-
+                      
                         </sf:form>
                         <div class="clear"></div>
                     </div>      
 
-
+                    <div id="midContentDiv" class="profilePer">
+                        <h3 style="font-size: 12.4px;font-weight: bolder;">Enrollment Notifications</h3>
+                        <div class="dupSignDiv"></div>
+                    </div> 
 
 
 
@@ -720,8 +739,10 @@
                         <ul>
                             <li class="current"><a href="#" id="enrlLink"><s:message code="lbl.enrollment.link.enrollment"/></a></li>
                             <li><a href="${pageContext.request.contextPath}/reports/all"><s:message code="lbl.enrollment.link.studentView"/></a></li>
-                            <li><a href="#"><s:message code="lbl.enrollment.link.monthlyReport"/></a></li>
-                            <li><a href="#"><s:message code="lbl.enrollment.link.weeklyReport"/></a></li>
+                            <li><a href="${pageContext.request.contextPath}/reports/monthlyReport"><s:message code="lbl.enrollment.link.monthlyReport"/></a></li>
+                            <li><a href="${pageContext.request.contextPath}/reports/weeklyReport"><s:message code="lbl.enrollment.link.weeklyReport"/></a></li>
+                            <li><a href="${pageContext.request.contextPath}/reports/dailyReport"><s:message code="lbl.enrollment.link.dailyReport"/></a></li>
+                            <li><a href="${pageContext.request.contextPath}/search"><s:message code="lbl.enrollment.link.find"/></a></li>
                             <li><a href="#" id="change-password-link"><s:message code="lbl.enrollment.link.changePassword"/></a></li>
                         </ul>
                     </div>
