@@ -326,17 +326,13 @@
                         </div>
                         <div class="clear"></div>
                     </div>
-
-
-
-
                 </div>
                 <div id="body2" class="col">
 
                    
                     
                     <div id="right-cont-area">
-                        <div class="prdktr"><img src="resources/images/content/user-img-40.jpg" width="60" height="60" alt="" title=""/></div>
+                        <div class="prdktr"><img src="${pageContext.request.contextPath}/picture?id=${student.enrollmentNumber}" width="60" height="60" alt="" title=""/></div>
                         <div class="name">${student.firstName} ${student.lastName}</div>
                         <div class="details"> 
                             <div style="position: relative;width:250px;">
