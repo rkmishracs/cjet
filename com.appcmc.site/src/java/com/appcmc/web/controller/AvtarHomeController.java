@@ -20,6 +20,7 @@ import com.appcmc.web.forms.UpdateAvtarProfileForm;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.apache.catalina.startup.WebAnnotationSet;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -270,32 +271,65 @@ public class AvtarHomeController {
         return "success";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/updateProfilePic")
-    public String updateProfilePic(@ModelAttribute AvtarProfilePicForm avtarProfilePicForm) {        
+    @RequestMapping(method = RequestMethod.POST, value = "/avtarPic")
+    public String updateProfilePic(@ModelAttribute AvtarProfilePicForm avtarProfilePicForm,WebRequest request) {        
 
         studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
         student = studentService.findStudentByEnrollmentNumber(avtarProfilePicForm.getEnrollmentNumber());
         
+        
         if(student == null){
             // TO DO
-            return "";
+            return null;
         }
         
         byte[] profilePic = avtarProfilePicForm.getProfilePic().getBytes();
+        
+                
         // Set Remaining fields for the Student
         student.setId(student.getId());
         student.setGuid(student.getGuid());
         student.setProfilePic(profilePic);      
-
+        student.setActive(student.getActive());
+        student.setCategory(student.getCategory());
+        student.setCreatedBy(student.getCreatedBy());
+        student.setCreatedOn(student.getCreatedOn());
+        student.setDateOfBirth(student.getDateOfBirth());
+        student.setEmail(student.getEmail());
+        student.setEnrollmentNumber(student.getEnrollmentNumber());
+        student.setFatherName(student.getFatherName());
+        student.setFirstName(student.getFirstName());
+        student.setGender(student.getGender());
+        student.setIncome(student.getIncome());
+        student.setLastName(student.getLastName());
+        student.setMaritalStatus(student.getMaritalStatus());
+        student.setModifiedBy(student.getModifiedBy());
+        student.setModifiedOn((Date)AppContext.APPCONTEXT.getBean(ContextIdNames.DATE));
+        student.setMotherName(student.getMotherName());
+        student.setNationality(student.getNationality());
+        student.setOccupation(student.getOccupation());
         
-
-
-        return "";
+        
+        studentService.create(student);        
+        
+        student= studentService.findStudentByEnrollmentNumber(avtarProfilePicForm.getEnrollmentNumber());
+        request.setAttribute("student", student, WebRequest.SCOPE_REQUEST);
+            
+        
+        return "avtar/avtarProfilePic";
     }
-
+    
     @RequestMapping(method = RequestMethod.GET, value = "/avtarPic")
-    public String showAvtarProfilePic(@ModelAttribute AvtarProfilePicForm avtarProfilePicForm) {
+    public String showAvtarProfilePic(@ModelAttribute AvtarProfilePicForm avtarProfilePicForm,WebRequest request) {
         LOG.debug("In Avtar Profile Pic========================");
+        avtarProfilePicForm.setEnrollmentNumber(student.getEnrollmentNumber());
+        
+        
+        studentService =(StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
+        student = studentService.findStudentByEnrollmentNumber(student.getEnrollmentNumber());
+        request.setAttribute("student", student,WebRequest.SCOPE_REQUEST);
+        
+        
         return "/avtar/avtarProfilePic";
     }
 }
