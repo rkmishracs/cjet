@@ -22,6 +22,28 @@
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
+        <script type="text/javascript">
+            
+            
+                
+            $(document).ready(function(){
+                $("#picture-form").click(function(){
+                              
+                    setTimeout(function(){
+                     ("#ajax_loading").css('display','block');   
+                    },2000);
+                    
+                    
+                });
+                
+                
+            }
+            
+            
+            
+            
+            
+        </script>
 
     </head>
     <body>
@@ -58,7 +80,7 @@
 
                     <!--Begin Prediction Module-->
                     <div class="heading-review">
-                        <div class="prdktr"> <img src="../resources/images/content/user-img-40.jpg" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" /></div>
+                        <div class="prdktr"> <img src="${pageContext.request.contextPath}/picture?id=${student.enrollmentNumber}" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" /></div>
                         <form id="prdkt-compose-form" style="float:left; margin:15px 0 0 5px;">
                             <label class="title" style="width:371px;"><span id="firstNameText">${student.firstName}</span>&nbsp;<span id="lastNameText" >${student.lastName}</span></label>
 
@@ -91,39 +113,46 @@
                             <div id="tab1" class="tab_content2">
 
 
-                                <div class="st-blocked2" style="position: relative;left: 150px;" class="fileinputs">
+                                <div class="st-blocked2" style="position: relative;width:200px;left: 150px;" class="fileinputs">
 
                                     <label for="tags">Upload Picture</label>
-                                    <input type="file" class="input">
-                                    <br/>
-                                    <br/>
-                                    <a id="saveEnrl" class="button-h" href=""style="position: absolute;left:180px;width: 100px;">
-                                        <span>Upload</span>
-                                    </a>
+                                    <sf:form  id="picture-form" action="${pageContext.request.contextPath}/avtar/avtarPic" method="post" enctype="multipart/form-data" modelAttribute="avtarProfilePicForm" >
+                                        <div style="display: none">
+                                        <sf:input  path="enrollmentNumber" style="display"/></div>
+                                        <sf:input  type="file" path="profilePic" />
+                                        <br/>
+                                        <br/>
+                                        <input type="submit" value="Upload" class="button-dw" style="position: absolute;left:200px;"/>
+                                        <div id="ajax_loading" style="position: absolute;left: 300px; width: 100px;display:none ">
+                                            <img align="absmiddle" src="../resources/images/spinner.gif" style="left:200px;"/>&nbsp;Processing...
                                 </div>
-                                
+
+
+                                    </sf:form> 
+
+
+                                </div>
                             </div>
                         </div>
+                        <div class="m600-v-head" style="top: 20px;">
+
+
+
+                        </div>
+
+
+                        <!--End Pridikt Module-->
+
+                        <!--Begin Pridikt Module-->
+                        <div>
+                            <div class="clear"></div>
+                            <br /><br /><br /><br /><br /><br /><br />
+                        </div>
+                        <!--End Pridikt Module--> 
+
                     </div>
-                    <div class="m600-v-head" style="top: 20px;">
-
-
-
-                    </div>
-
-
-                    <!--End Pridikt Module-->
-
-                    <!--Begin Pridikt Module-->
-                    <div>
-                        <div class="clear"></div>
-                        <br /><br /><br /><br /><br /><br /><br />
-                    </div>
-                    <!--End Pridikt Module--> 
 
                 </div>
-                
             </div>
-        </div>
-   </body>
+    </body>
 </html>
