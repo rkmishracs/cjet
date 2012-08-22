@@ -29,6 +29,7 @@
 			type="java.lang.String" />
                 
                 <property column="EDU_THREE_QUALIFICATION" name="threeQualification" type="java.lang.String" />
+                <property column="EDU_THREE_SPECIALIZATION" name="threeSpecialization" type="java.lang.String" />
 		<property column="EDU_THREE_YEAR_OF_PASS" name="threeYearOfPass" type="java.lang.String" />
 		<property column="EDU_THREE_UNIVERSITY" name="threeUniversity"
 			type="java.lang.String" />
@@ -36,6 +37,7 @@
 			type="java.lang.String" />
                 
                 <property column="EDU_FOUR_QUALIFICATION" name="fourQualification" type="java.lang.String" />
+                <property column="EDU_FOUR_SPECIALIZATION" name="fourSpecialization" type="java.lang.String" />
 		<property column="EDU_FOUR_YEAR_OF_PASS" name="fourYearOfPass" type="java.lang.String" />
 		<property column="EDU_FOUR_UNIVERSITY" name="fourUniversity"
 			type="java.lang.String" />
