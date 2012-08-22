@@ -1,0 +1,10 @@
+#labels Phase-Requirements
+This project is aimed to automate CMC Student Enrollment Process.
+
+
+
+  CMC Ltd, is a IT Services Company, and it provides Education & Training Services to Students
+
+
+
+
