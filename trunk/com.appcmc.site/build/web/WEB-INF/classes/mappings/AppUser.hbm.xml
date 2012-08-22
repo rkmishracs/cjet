@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.appcmc.domain.sub.AppUser" table="APP_USER" discriminator-value="0">
+        <id column="USR_UID" name="id" type="java.lang.Long">
+            <generator class="native" />
+        </id>
+        <discriminator type="integer" formula="case when USR_UID &gt; 0 then 1 else 0 end" />
+        <property column="USR_GUID" name="guid" type="java.lang.String" />
+        <property column="USR_EMAIL" name="email" type="java.lang.String" />
+        <property column="USR_ENROLLMENT_NUMBER" name="enrollmentNumber" type="java.lang.String" />
+        <property column="USR_PASSWORD" name="password" type="java.lang.String" />
+        <property column="USR_SCREEN_NAME" name="screenName" type="java.lang.String" />
+        <property column="USR_FIRST_NAME" name="firstName" type="java.lang.String" />
+        <property column="USR_LAST_NAME" name="lastName" type="java.lang.String" />
+        <property column="USR_STATUS_ID" name="statusId" type="java.lang.Long" />
+        <property column="USR_GENDER" name="gender" type="java.lang.String" />
+		<property column="USR_SECURITY_QUESTION" name="securityQuestion" type="java.lang.String" />
+        <property column="USR_SECURITY_ANSWER" name="securityAnswer" type="java.lang.String" />
+        <property column="USR_TIME_ZONE" name="timeZone" type="java.lang.String" />
+        <property column="USR_TYPE" name="type" type="java.lang.String" />
+        <property column="USR_CREATED_ON" name="createdOn" type="java.util.Date" />
+        <property column="USR_CREATED_BY" name="createdBy" type="java.lang.Long" />
+        <property column="USR_MODIFIED_ON" name="modifiedOn" type="java.util.Date" />
+        <property column="USR_MODIFIED_BY" name="modifiedBy" type="java.lang.Long" />        
+        <property column="USR_ACTIVE" name="active" type="java.lang.Short" />
+        <subclass name="com.appcmc.domain.sub.impl.AppUserImpl" discriminator-value="1" />
+    </class>
+</hibernate-mapping>

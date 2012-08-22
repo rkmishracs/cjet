@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.appcmc.domain.sub.Course" table="APP_COURSE_MASTER"
+		discriminator-value="0">
+		<id column="COURSE_UID" name="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<discriminator type="integer"
+			formula="case when COURSE_UID &gt; 0 then 1 else 0 end" />
+		<property column="COURSE_GUID" name="guid" type="java.lang.String" />
+		<property column="COURSE_NAME" name="courseName" type="java.lang.String" />
+		<property column="COURSE_FEE" name="courseFee" type="java.lang.Double" />
+		<property column="COURSE_DURATION" name="duration" type="java.lang.String" />
+		<property column="COURSE_SERVICE_TAX" name="serviceTax" type="java.lang.Double" />
+		<property column="COURSE_SERVICETAX_AMOUNT" name="serviceTaxAmount"
+			type="java.lang.Double" />
+		<property column="COURSE_AFFIRMITIVE_PRICE" name="affirmitivePrice"
+			type="java.lang.Integer" />
+
+		<property column="COURSE_DISCOUNT" name="discount" type="java.lang.Double" />
+		<property column="COURSE_OUTSTANDING_DISCOUNT" name="outStandingDiscount"
+			type="java.lang.Double" />
+		<property column="COURSE_NUMBEROF_INSTALLMENTS" name="numberOfInstallments"
+			type="java.lang.Integer" />
+		<property column="COURSE_FEE_PER_INSTALLMENT" name="feePerInstallment"
+			type="java.lang.Double" />
+		<property column="COURSE_OUTSTANDING_FEE" name="outStandingCourseFee"
+			type="java.lang.Double" />
+		<property column="COURSE_FEE_AFTER_DISCOUNT" name="courseFeeAfterDiscount"
+			type="java.lang.Double" />
+
+		<property column="COURSE_CREATED_ON" name="createdOn" type="java.util.Date" />
+		<property column="COURSE_CREATED_BY" name="createdBy" type="java.lang.Long" />
+		<property column="COURSE_MODIFIED_ON" name="modifiedOn" type="java.util.Date" />
+		<property column="COURSE_MODIFIED_BY" name="modifiedBy" type="java.lang.Long" />
+		<property column="COURSE_ACTIVE" name="active" type="java.lang.Short" />
+
+		<subclass name="com.appcmc.domain.sub.impl.CourseImpl"
+			discriminator-value="1" />
+
+	</class>
+</hibernate-mapping>

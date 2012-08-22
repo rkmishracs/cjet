@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+  
+<hibernate-mapping>
+	<class name="com.appcmc.domain.sub.StudentProfile" table="APP_USER_PROFILE"
+		discriminator-value="0">
+		<id column="PROFILE_UID" name="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<discriminator type="integer"
+			formula="case when PROFILE_UID &gt; 0 then 1 else 0 end" />
+		<property column="PROFILE_GUID" name="guid" type="java.lang.String" />
+		<property column="PROFILE_ENROLLMENT_NUMBER" name="enrollmentNumber"
+			type="java.lang.String" />
+		<property column="PROFILE_TITLE" name="title" type="java.lang.String" />
+		<property column="PROFILE_TOTAL_EXPERIENCE" name="totalExperience" type="java.lang.String" />
+		<property column="PROFILE_KEY_SKILLS" name="keySkills"
+			type="java.lang.String" />
+		<property column="PROFILE_CURRENT_EMPLOYER" name="currentEmployer"
+			type="java.lang.String" />
+		<property column="PROFILE_ROLE" name="role"
+			type="java.lang.String" />
+		<property column="PROFILE_PREVIOUS_EMPLOYER" name="previousEmployer" type="java.lang.String" />
+
+		
+		<property column="PROFILE_CREATED_ON" name="createdOn" type="java.util.Date" />
+		<property column="PROFILE_CREATED_BY" name="createdBy" type="java.lang.Long" />
+		<property column="PROFILE_MODIFIED_ON" name="modifiedOn"
+			type="java.util.Date" />
+		<property column="PROFILE_MODIFIED_BY" name="modifiedBy"
+			type="java.lang.Long" />
+		<property column="PROFILE_ACTIVE" name="active" type="java.lang.Short" />
+
+		<subclass name="com.appcmc.domain.sub.impl.StudentProfileImpl"
+			discriminator-value="1" />
+
+	</class>
+</hibernate-mapping>

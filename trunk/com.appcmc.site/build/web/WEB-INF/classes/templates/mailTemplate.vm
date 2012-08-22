@@ -1,0 +1,10 @@
+<html>
+<body>
+<h3><font color='green'>Hi ${user.enrollmentNumber}, welcome to CMC!</font></h3>
+
+<div style="border:1px solid red;">
+   Your email address is <a href="mailto:${user.email}">${user.email}</a>.
+</div>
+</body>
+
+</html>

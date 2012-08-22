@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    
+    <context:property-placeholder location="classpath:/mail.properties" />
+    
+    <bean id="appUser" class="com.appcmc.domain.sub.impl.AppUserImpl"
+          scope="prototype">
+
+    </bean>
+              
+    <bean id="simpleDateFormat" class="java.text.SimpleDateFormat" scope="prototype">
+        <constructor-arg value="dd-MM-yyyy"/>
+    </bean>
+        
+    <bean id="date" class="java.util.Date" scope="prototype">
+        
+    </bean>
+        
+    <bean id="short" class="java.lang.Short" scope="prototype">
+        <constructor-arg value="1"/>
+    </bean>
+    
+    <bean id="studentProfile" class="com.appcmc.domain.sub.impl.StudentProfileImpl"
+          scope="prototype">
+
+    </bean> 
+    
+    <bean id="eduactionalQualifications" class="com.appcmc.domain.sub.impl.EducationalQualificationsImpl"
+          scope="prototype">
+
+    </bean> 
+    
+    <bean id="studentContacts" class="com.appcmc.domain.sub.impl.StudentContactsImpl"
+            scope="prototype">
+    </bean> 
+
+    <bean id="student" class="com.appcmc.domain.sub.impl.StudentImpl"
+          scope="prototype">
+
+
+    </bean>
+    <bean id="contacts" class="com.appcmc.domain.sub.impl.ContactsImpl"
+          scope="prototype">
+
+    </bean>
+    <bean id="course" class="com.appcmc.domain.sub.impl.CourseImpl"
+          scope="prototype">
+
+    </bean>
+    
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"
+          p:host="smtp.gmail.com"
+          p:username="${mail.username}"
+          p:password="${mail.password}">
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+            </props>
+        </property>
+    </bean>
+        
+        
+   
+
+    
+
+</beans>
