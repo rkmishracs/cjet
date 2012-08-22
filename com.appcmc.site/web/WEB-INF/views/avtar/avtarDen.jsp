@@ -278,6 +278,21 @@
 
                 
                 $( "#updateEdu" ).click(function(){
+                        
+                        
+                        var userId = $("#userId").val();
+                           $.ajax({
+
+                               type : "get",
+                               url : "${pageContext.request.contextPath}/avtar/updateEducationalQualifications",
+                               data : "id="+userId,
+                               success : function(response){
+                                   
+                                        alert(response);
+                                  }
+                                });
+                      
+
                     $( "#dialog-form-eduQualification" ).css('display','block');
                     $("#dialog-form-eduQualification").dialog({
                         title: "Update Educational Qualifications",
@@ -300,6 +315,26 @@
                  
                  
                 $( "#updateExp" ).click(function(){
+                
+                var userId = $("#userId").val();
+                            $.ajax({
+
+                                    type : "get",
+                                    url : "${pageContext.request.contextPath}/avtar/updateWorkExperience",
+                                    data : "id="+userId,
+                                    success : function(response){
+                                        
+                                        $("#updateTitle").val(response.title);
+                                        $("#updateTotalExp").val(response.totalExperience);
+                                        $("#enrollmentNumberExp").val(userId);
+                                        $("#updateKeySkills").val(response.keySkills);
+                                        $("#updateCurrentEmployer").val(response.currentEmployer);
+                                        $("#updateRole").val(response.role);
+                                        $("#updatePreviousEmployers").val(response.previousEmployer);
+
+                                    }
+                        });
+                
                     $("#dialog-form-updateExperience").css('display', 'block');
                     $("#dialog-form-updateExperience").dialog({
                         title: "Update Experience",
@@ -310,8 +345,33 @@
                         zIndex : 500,
                         buttons : {
                             "Update": function() {
-                          
-                                $( this ).dialog( "close" );
+                                
+                                
+                                $.ajax({
+
+                                    type : "post",
+                                    url : "${pageContext.request.contextPath}/avtar/updateWorkExperience",
+                                    data : $("#updateWorkExperience").serialize(),
+                                    success : function(response){
+                                        
+                                        $("#profileTitleText").empty()    
+                                        $("#totalExperienceText").empty()
+                                        $("#keySkillsText").empty()
+                                        $("#currentEmployerText").empty();
+                                        $("#roleText").empty();
+                                        $("#previousEmployersText").empty();
+                                        
+                                        $("#profileTitleText").append(document.createTextNode(response.title));
+                                        $("#totalExperienceText").append(document.createTextNode(response.totalExperience));
+                                        $("#keySkillsText").append(document.createTextNode(response.keySkills));
+                                        $("#currentEmployerText").append(document.createTextNode(response.currentEmployer));
+                                        $("#roleText").append(document.createTextNode(response.role));
+                                        $("#previousEmployersText").append(document.createTextNode(response.previousEmployer));
+
+                                        $("#dialog-form-updateExperience").dialog( "close" );
+                                    }
+                                 });
+                                
                             },
                             "Cancel": function() {
                                 $( this ).dialog( "close" );
@@ -574,72 +634,74 @@
 
         </div>   
 
-        <div id="dialog-form-updateExperience" style="display: none"> 
-            <div class ="signDiv" >
+        <div id="dialog-form-updateExperience" style="display: none">
+            <sf:form action="" method="POST" modelAttribute="updateWorkExperienceForm" id="updateWorkExperience">
+            <div class ="signDiv">
                 <label for="tags"><b>Profile </b></label>
             </div>
             <hr>
                 <div class ="signDiv"  >
                     <label for="tags">Profile Title</label>
-                    <input type="text"  class="updateExDiv"/>
+                    <sf:input path="title" cssClass="updateExDiv" id="updateTitle"/>
+                    
                 </div>
                 <div class ="signDiv"  >
                     <label for="tags">Total Experience</label>
                     <span style="float: left">
                         <span style="float: left">Months</span>
-                        <select type="text" path="profileTitle" style="float: left;">
-                            <option style="min-width: 30px;">0</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-
-                        </select>
+                        <sf:select path="totalExperienceMonths" cssStyle="float: left;">
+                            <sf:option value="0" cssStyle="min-width: 30px;"></sf:option>
+                            <sf:option value="1">1</sf:option>
+                            <sf:option value="2">2</sf:option>
+                            <sf:option value="3">3</sf:option>
+                            <sf:option value="4">4</sf:option>
+                            <sf:option value="5">5</sf:option>
+                            <sf:option value="6">6</sf:option>
+                            <sf:option value="7">7</sf:option>
+                            <sf:option value="8">8</sf:option>
+                            <sf:option value="9">9</sf:option>
+                            <sf:option value="10">10</sf:option>
+                            <sf:option value="11">11</sf:option>
+                        
+                        </sf:select>
                     </span>
                     <span style="float: left">
-
-
                         <span style="float: left">Years</span>
-                        <select type="text" path="profileTitle" style="float: left">
-
-                            <option style="min-width: 30px;">0</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>5+</option>
-
-                        </select>
+                        <sf:select path="totalExperienceYears" id="updateTotalExp" cssStyle="float: left">
+                            
+                            <sf:option value="0" cssStyle="min-width: 30px;"></sf:option>
+                            <sf:option value="1">1</sf:option>
+                            <sf:option value="2">2</sf:option>
+                            <sf:option value="3">3</sf:option>
+                            <sf:option value="4">4</sf:option>
+                            <sf:option value="5+">5+</sf:option>
+                            
+                        </sf:select>
                     </span>
 
                 </div>
                 <div class ="signDiv" >
                     <label for="tags">Key Skills</label>
-                    <input type="text" class="updateExDiv"/>
+                    <sf:input path="keySkills" cssClass="updateExDiv" id="updateKeySkills"/>
                 </div>
                 <div class ="signDiv" >
                     <label for="tags">Current Employer</label>
-                    <input type="text"  class="updateExDiv"/>
+                    <sf:input path="currentEmployer" cssClass="updateExDiv" id="updateCurrentEmployer"/>
 
                 </div>
                 <div class ="signDiv"  >
                     <label for="tags">Role</label>
-                    <input type="text" class="updateExDiv"/>
+                    <sf:input path="role" cssClass="updateExDiv" id="updateRole"/>
+                    <sf:hidden path="enrollmentNumber" id="enrollmentNumberExp"/>
 
                 </div>
                 <div class ="signDiv" >
                     <label for="tags">Previous Employers</label>
-                    <input type="text"  class="updateExDiv"/>
+                    <sf:input path="previousEmployers"  cssClass="updateExDiv" id="updatePreviousEmployers"/>
 
                 </div>
+                
+                </sf:form>
 
         </div>
 
@@ -746,37 +808,37 @@
                                 <tr>
                                     <td><h2 class="tags">Profile Title &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 42px;">My Profile title</div></h2></td>
+                                    <td><h2 class="tags"><div id="profileTitleText" style="position: absolute;left: 130px;top: 42px;">${studentProfile.title}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Total Experience &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 60px;">1-2</div></h2></td>
+                                    <td><h2 class="tags"><div id="totalExperienceText" style="position: absolute;left: 130px;top: 60px;">${studentProfile.totalExperience}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Key Skills &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 77px;">Java,HTML,CSS</div></h2></td>
+                                    <td><h2 class="tags"><div id="keySkillsText" style="position: absolute;left: 130px;top: 77px;">${studentProfile.keySkills}</div></h2></td>
                                 </tr>
                                 
                                 <tr>
                                     <td><h2 class="tags">Current Employer &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 96px;">Satyam</div></h2></td>
+                                    <td><h2 class="tags"><div id="currentEmployerText" style="position: absolute;left: 130px;top: 96px;">${studentProfile.currentEmployer}</div></h2></td>
                                 </tr>
                                 
                                 <tr>
                                     <td><h2 class="tags">Role &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 114px;">Software Developer</div></h2></td>
+                                    <td><h2 class="tags"><div id="roleText" style="position: absolute;left: 130px;top: 114px;">${studentProfile.role}</div></h2></td>
                                 </tr>
                                 
                                 <tr>
                                     <td><h2 class="tags">Previous Employers &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 133px;">A.U</div></h2></td>
+                                    <td><h2 class="tags"><div id="previousEmployersText" style="position: absolute;left: 130px;top: 133px;">${studentProfile.previousEmployer}</div></h2></td>
                                 </tr>
 
                             </table>
@@ -802,30 +864,29 @@
                                 <tr>
                                     <td><h2 class="tags">Qualification Held &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 42px;">P.G</div></h2></td>
+                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 42px;">${educationalQualifications.fourQualification}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Specialization &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 60px;">I.T</div></h2></td>
+                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 60px;">${educationalQualifications.fourSpecialization}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">University &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 77px;">A.U</div></h2></td>
+                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 77px;">${educationalQualifications.fourUniversity}</div></h2></td>
                                 </tr>
 
                             </table>
                             <p>&nbsp;</p>
                             <ul class="info">
-                                <li class="end"><div id="emailtext" style="position: relative; left: 4px;">Year Of Passing  :  2012</div></li>
+                                <li class="end"><div id="emailtext" style="position: relative; left: 4px;">Year Of Passing : ${educationalQualifications.fourYearOfPass}</div></li>
 
 
-                                <li><img src="../resources/images/symbol_percentage.jpg" width="16" height="13"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 19px;top: -18px;">72.35</div></li>
+                                <li><img src="../resources/images/symbol_percentage.jpg" width="16" height="13"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 25px;top: -18px;">${educationalQualifications.fourGrade}</div></li>
                             </ul>
-
 
                             <div style="position: relative;float: left;width: 480px;height: 24px;line-height: 22px;border-bottom: solid 1px #B6C1CC;margin: 0px 0px 10px 0px;*.z-index: -1;z-index: 530;"></div>
 
@@ -838,28 +899,28 @@
                                 <tr>
                                     <td><h2 class="tags">Qualification Held &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 201px;">P.G</div></h2></td>
+                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 201px;">${educationalQualifications.threeQualification}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Specialization &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 219px;">I.T</div></h2></td>
+                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 219px;">${educationalQualifications.threeSpecialization}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">University &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 237px;">A.U</div></h2></td>
+                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 237px;">${educationalQualifications.threeUniversity}</div></h2></td>
                                 </tr>
 
                             </table>
                             <p>&nbsp;</p>
                             <ul class="info">
-                                <li class="end"><div id="emailtext" style="position: relative; left: 4px;">Year Of Passing  :  2010</div></li>
+                                <li class="end"><div id="emailtext" style="position: relative; left: 4px;">Year Of Passing  :  ${educationalQualifications.threeYearOfPass}</div></li>
 
 
-                                <li><img src="../resources/images/symbol_percentage.jpg" width="20" height="13"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 19px;top: -18px;">74.69</div></li>
+                                <li><img src="../resources/images/symbol_percentage.jpg" width="20" height="13"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 25px;top: -18px;">${educationalQualifications.threeGrade}</div></li>
                             </ul>
 
                             <div style="position: relative;float: left;width: 480px;height: 24px;line-height: 22px;border-bottom: solid 1px #B6C1CC;margin: 0px 0px 10px 0px;*.z-index: -1;z-index: 530;"></div>
@@ -873,7 +934,7 @@
                                 <tr>
                                     <td><h2 class="tags">Qualification Held &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 360px;">P.G</div></h2></td>
+                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 360px;">${educationalQualifications.twoQualification}</div></h2></td>
                                 </tr>
 
                                 <tr>
@@ -885,15 +946,15 @@
                                 <tr>
                                     <td><h2 class="tags">Board &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 396px;">A.U</div></h2></td>
+                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 396px;">${educationalQualifications.twoUniversity}</div></h2></td>
                                 </tr>
 
                             </table>
                             <p>&nbsp;</p>
                             <ul class="info">
-                                <li class="end"><div id="emailtext" style="position: relative; left: 4px;">Year Of Passing  :  2007</div></li>
+                                <li class="end"><div id="emailtext" style="position: relative; left: 4px;">Year Of Passing  :  ${educationalQualifications.twoYearOfPass}</div></li>
 
-                                <li><img src="../resources/images/symbol_percentage.jpg" width="20" height="13"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 19px;top: -18px;">70.28</div></li>
+                                <li><img src="../resources/images/symbol_percentage.jpg" width="20" height="13"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 25px;top: -18px;">${educationalQualifications.twoGrade}</div></li>
                             </ul>
 
                             <div style="position: relative;float: left;width: 480px;height: 24px;line-height: 22px;border-bottom: solid 1px #B6C1CC;margin: 0px 0px 10px 0px;*.z-index: -1;z-index: 530;"></div>
@@ -907,16 +968,16 @@
                                 <tr>
                                     <td><h2 class="tags">Board &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 519px;">A.U</div></h2></td>
+                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 62px;top: 520px;">${educationalQualifications.oneQualification}</div></h2></td>
                                 </tr>
 
 
                             </table>
                             <p>&nbsp;</p>
                             <ul class="info">
-                                <li class="end"><div id="emailtext" style="position: relative; left: 4px;">Year Of Passing  :  2005</div></li>
+                                <li class="end"><div id="emailtext" style="position: relative; left: 4px;">Year Of Passing  :  ${educationalQualifications.oneYearOfPass}</div></li>
 
-                                <li><img src="../resources/images/symbol_percentage.jpg" width="20" height="13"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 19px;top: -18px;">71.65</div></li>
+                                <li><img src="../resources/images/symbol_percentage.jpg" width="20" height="13"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 25px;top: -18px;">${educationalQualifications.oneGrade}</div></li>
                             </ul>
 
 
