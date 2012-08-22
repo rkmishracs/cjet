@@ -22,28 +22,7 @@
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
-        <script type="text/javascript">
-            
-            
-                
-            $(document).ready(function(){
-                $("#picture-form").click(function(){
-                              
-                    setTimeout(function(){
-                     ("#ajax_loading").css('display','block');   
-                    },2000);
-                    
-                    
-                });
-                
-                
-            }
-            
-            
-            
-            
-            
-        </script>
+        
 
     </head>
     <body>
