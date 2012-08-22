@@ -6,7 +6,7 @@
 <title>Master | Enrollment Home</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.22.custom.css" />
+	href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
 <script
 	src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
