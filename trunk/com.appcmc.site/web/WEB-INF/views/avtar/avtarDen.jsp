@@ -9,7 +9,7 @@
 
 
         <link rel="stylesheet" type="text/css"
-              href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.22.custom.css" />
+              href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" type="text/css" />
         <style type="text/css">
@@ -54,19 +54,19 @@
                 left:48px;
             }
             #specializationId{
-                left:70px;
+                left:71px;
             }
             #yearOfPass{
-                left:61px;
+                left:58px;
             }
             #university{
                 left:91px;
             }
             #percentage{
-                left:14px;
+                left:17.5px;
             }
             #univ{
-                left:117px;
+                left:113px;
             }
             
 
@@ -283,6 +283,9 @@
                         title: "Update Educational Qualifications",
                         height: 590,
                         width: 850,
+                         modal: true,
+                        resizable: false,
+                        zIndex : 800,
                         buttons : {
                             "Submit": function() {
                                 $(this).dialog('close');
@@ -301,7 +304,10 @@
                     $("#dialog-form-updateExperience").dialog({
                         title: "Update Experience",
                         height: 410,
-                        width: 650,                          
+                        width: 650, 
+                         modal: true,
+                        resizable: false,
+                        zIndex : 500,
                         buttons : {
                             "Update": function() {
                           
@@ -530,10 +536,7 @@
                 </div>      
                         
                         
-                      <div class ="dupSignDiv">
-                <label for="tags">Year Of Passing</label>
-                <input class="inputStyle" type="text" id="yearOfPass" />
-                  </div>
+                   
                            
                         <div class ="dupSignDiv">
                             <label for="tags">Year Of Passing</label>
