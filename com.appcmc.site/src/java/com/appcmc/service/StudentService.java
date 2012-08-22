@@ -1,5 +1,6 @@
 package com.appcmc.service;
 
+import com.appcmc.domain.sub.AppUser;
 import java.util.List;
 
 import com.appcmc.domain.sub.Student;
@@ -20,5 +21,7 @@ public interface StudentService {
         List<Student> getByCurrentMonth();
         
         List<Student> getByDay();
+        
+        List<Student> findByName(String name);
 
 }
