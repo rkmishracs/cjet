@@ -192,4 +192,34 @@ public class StudentServiceImpl implements StudentService {
         }
         return studentDayList;
     }
+
+    @Override
+    public List<Student> findByName(String name) {
+        
+          
+         Session session = HibernateUtils.currentSession();
+        List<Student> studentList=null;
+        
+        try {
+            Query query = session
+                    .createQuery(StudentQueryUtils.GETALL);
+            studentList = query.list();
+            
+        } catch (Exception exception) {
+            LOG.warn("exception", exception);
+        } finally {
+            HibernateUtils.closeSession();
+        }
+        List<Student> list = new ArrayList<Student>();
+        for(Student std:studentList){
+            if(std.getFirstName().startsWith(name)||std.getLastName().startsWith(name)){
+                list.add(std);
+                LOG.debug(std.getFirstName() + "" + std.getLastName());
+            }
+        }
+            
+            
+               
+        return  list;
+    }
 }
