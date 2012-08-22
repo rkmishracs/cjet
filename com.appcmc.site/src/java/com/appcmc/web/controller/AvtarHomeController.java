@@ -6,17 +6,22 @@ package com.appcmc.web.controller;
 import com.appcmc.context.id.names.ContextIdNames;
 import com.appcmc.domain.sub.AppUser;
 import com.appcmc.domain.sub.Contacts;
+import com.appcmc.domain.sub.EducationalQualifications;
 import com.appcmc.domain.sub.Student;
 import com.appcmc.domain.sub.StudentContacts;
+import com.appcmc.domain.sub.StudentProfile;
 import com.appcmc.domain.sub.impl.StudentContactsImpl;
 import com.appcmc.service.AppUserService;
 import com.appcmc.service.ContactService;
+import com.appcmc.service.EducationalQualificationsService;
+import com.appcmc.service.StudentProfileService;
 import com.appcmc.service.StudentService;
 import com.appcmc.utils.AppCmcSpringContext;
 import com.appcmc.utils.AppContext;
 import com.appcmc.web.forms.AvtarProfilePicForm;
 import com.appcmc.web.forms.ChangePasswordForm;
 import com.appcmc.web.forms.UpdateAvtarProfileForm;
+import com.appcmc.web.forms.UpdateWorkExperienceForm;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,6 +52,10 @@ public class AvtarHomeController {
     private Contacts contacts = null;
     private StudentContacts studentContacts = null;
     private Date date = null;
+    private StudentProfile studentProfile = null;
+    private StudentProfileService studentProfileService = null;
+    private EducationalQualifications educationalQualifications = null;
+    private EducationalQualificationsService educationalQualificationsService = null;
 
     @RequestMapping(method = RequestMethod.GET)
     public String showAvtarHome(@ModelAttribute ChangePasswordForm changePasswordForm,
@@ -81,7 +90,7 @@ public class AvtarHomeController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/update-profile")
-    public String showProfile(@ModelAttribute UpdateAvtarProfileForm updateAvtarProfileForm, WebRequest request) {
+    public String showProfile(@ModelAttribute UpdateAvtarProfileForm updateAvtarProfileForm,UpdateWorkExperienceForm updateWorkExperienceForm, WebRequest request) {
         String id = appUser.getEnrollmentNumber();
         AppCmcSpringContext.init();
         studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
@@ -90,9 +99,17 @@ public class AvtarHomeController {
         studentContacts = (StudentContacts) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_CONTACTS);
 
         contacts = student.getContacts();
+        
+        studentProfileService = (StudentProfileService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);        
+        studentProfile = studentProfileService.findStudentProfileByEnrollmentNumber(id);
+        
+        educationalQualificationsService = (EducationalQualificationsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EDUCATIONAL_QUALIFICATIONS_SERVICE);
+        educationalQualifications = educationalQualificationsService.findEducationalQualificationsByEnrollmentNumber(id);
 
         request.setAttribute("contacts", contacts, WebRequest.SCOPE_REQUEST);
         request.setAttribute("student", student, WebRequest.SCOPE_REQUEST);
+        request.setAttribute("studentProfile", studentProfile, WebRequest.SCOPE_REQUEST);
+        request.setAttribute("educationalQualifications", educationalQualifications, WebRequest.SCOPE_REQUEST);
 
         return "/avtar/avtarDen";
     }
@@ -187,6 +204,45 @@ public class AvtarHomeController {
 
         return studentContacts;
     }
+    
+    @RequestMapping(method = RequestMethod.POST, value="/updateWorkExperience")
+    @ResponseBody
+    public StudentProfile updateWorkExperience(@ModelAttribute UpdateWorkExperienceForm updateWorkExperienceForm) {
+        
+        String enrollmentNumber = updateWorkExperienceForm.getEnrollmentNumber();
+        
+        AppCmcSpringContext.init();
+        
+        studentProfileService = (StudentProfileService)AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
+        
+        studentProfile = studentProfileService.findStudentProfileByEnrollmentNumber(enrollmentNumber);
+        
+        if(studentProfile == null){
+            
+            //ToDo
+            
+            return null;
+        }
+        
+        int months = Integer.parseInt(updateWorkExperienceForm.getTotalExperienceMonths());
+        int years = 12*Integer.parseInt(updateWorkExperienceForm.getTotalExperienceYears());
+        
+        int totalExperience = (months+years)/12;
+        
+        studentProfile.setEnrollmentNumber(enrollmentNumber);
+        studentProfile.setTitle(updateWorkExperienceForm.getTitle());
+        studentProfile.setTotalExperience(String.valueOf(totalExperience));
+        studentProfile.setKeySkills(updateWorkExperienceForm.getKeySkills());
+        studentProfile.setCurrentEmployer(updateWorkExperienceForm.getCurrentEmployer());
+        studentProfile.setRole(updateWorkExperienceForm.getRole());
+        studentProfile.setPreviousEmployer(updateWorkExperienceForm.getPreviousEmployers());
+        
+        studentProfileService.create(studentProfile);
+        
+        studentProfile = studentProfileService.findStudentProfileByEnrollmentNumber(enrollmentNumber);
+        
+        return studentProfile;
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/update", params = {"id"})
     @ResponseBody
@@ -224,6 +280,41 @@ public class AvtarHomeController {
 
 
         return studentContacts;
+    }
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/updateWorkExperience", params = {"id"})
+    @ResponseBody
+    public StudentProfile getWorkExperience(@RequestParam String id) {
+        LOG.debug("Avtar Id : " + id);
+
+        AppCmcSpringContext.init();
+        
+        studentProfileService = (StudentProfileService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
+        
+        studentProfile = studentProfileService.findStudentProfileByEnrollmentNumber(id);
+        
+        if(studentProfile == null){
+            
+            //ToDo
+            return null;
+        }
+
+
+        return studentProfile;
+    }
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/updateEducationalQualifications", params = {"id"})
+    @ResponseBody
+    public EducationalQualifications getEducationalQualifications(@RequestParam String id) {
+        LOG.debug("Avtar Id : " + id);
+
+        AppCmcSpringContext.init();
+        
+        educationalQualificationsService = (EducationalQualificationsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EDUCATIONAL_QUALIFICATIONS_SERVICE);
+        educationalQualifications = educationalQualificationsService.findEducationalQualificationsByEnrollmentNumber(id);
+
+
+        return educationalQualifications;
     }
 
     @ResponseBody
