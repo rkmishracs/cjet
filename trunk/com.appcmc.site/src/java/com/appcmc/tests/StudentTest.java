@@ -24,15 +24,18 @@ public class StudentTest {
             LOG.debug(std);
         }*/
         
-        List<Student> studentList = studentService.getByCurrentWeek();
-        for(Student std : studentList){
-            LOG.debug(std.getId()+"\n");
-        }
-        
+       
+        /*
        /* List<Student> studentList = studentService.getByCurrentMonth();
         for(Student std : studentList){
             LOG.debug(std.getId()+"\n");
         }*/
+       
+        
+        List<Student> students = studentService.findByName("ba");
+        for(Student std:students){
+            LOG.debug(std.getFirstName()+" "+std.getLastName()+"\n");
+        }
         
         /*List<Student> studentList = studentService.getByDay();
         for(Student std : studentList){
