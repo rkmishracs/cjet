@@ -18,10 +18,12 @@ public class EducationalQualificationsImpl implements EducationalQualifications 
     private String twoUniversity;
     private String twoGrade;
     private String threeQualification;
+    private String threeSpecialization;
     private String threeYearOfPass;
     private String threeUniversity;
     private String threeGrade;
     private String fourQualification;
+    private String fourSpecialization;
     private String fourYearOfPass;
     private String fourUniversity;
     private String fourGrade;
@@ -236,6 +238,23 @@ public class EducationalQualificationsImpl implements EducationalQualifications 
         this.active = active;
     }
 
+    public String getThreeSpecialization() {
+        return threeSpecialization;
+    }
+
+    public void setThreeSpecialization(String threeSpecialization) {
+        this.threeSpecialization = threeSpecialization;
+    }
+
+    public String getFourSpecialization() {
+        return fourSpecialization;
+    }
+
+    public void setFourSpecialization(String fourSpecialization) {
+        this.fourSpecialization = fourSpecialization;
+    }
+    
+    
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -264,6 +283,8 @@ public class EducationalQualificationsImpl implements EducationalQualifications 
         builder.append(", threeQualification=");
         builder.append(threeQualification);
         builder.append(", threeYearOfPass=");
+        builder.append(threeSpecialization);
+        builder.append(", threeSpecialization=");
         builder.append(threeYearOfPass);
         builder.append(", threeUniversity=");
         builder.append(threeUniversity);
@@ -272,6 +293,8 @@ public class EducationalQualificationsImpl implements EducationalQualifications 
         builder.append(", fourQualification=");
         builder.append(fourQualification);
         builder.append(", fourYearOfPass=");
+        builder.append(fourSpecialization);
+        builder.append(", fourSpecialization=");
         builder.append(fourYearOfPass);
         builder.append(", fourUniversity=");
         builder.append(fourUniversity);
