@@ -49,6 +49,10 @@ public interface EducationalQualifications extends Domain {
     void setThreeQualification(String threeQualification);
 
     String getThreeQualification();
+    
+    void setThreeSpecialization(String threeSpecialization);
+    
+    String getThreeSpecialization();
 
     void setThreeYearOfPass(String threeYearOfPass);
 
@@ -67,6 +71,10 @@ public interface EducationalQualifications extends Domain {
     void setFourQualification(String fourQualification);
 
     String getFourQualification();
+    
+    void setFourSpecialization(String fourSpecialization);
+    
+    String getFourSpecialization();
 
     void setFourYearOfPass(String fourYearOfPass);
 
