@@ -1,13 +1,12 @@
+<%@taglib  prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s"  uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@taglib  prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <title>CMC | Student Monthly Report</title>
+        <title>CMC | Monthly Report</title>
 
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
@@ -16,13 +15,23 @@
         <!--  Two Style Tags Here  -->
         <!-- Style For Image -->
         <style>
-            #penguin{
-                position:absolute;
-                top:0px;
-                top:10px;
-                left:180px;
+            
+            #exportPdfDiv{
+                position: absolute;
+                top: 123px;
+                left: 700px;
+                width:102px;
+                height: 34px;
             }
-
+            
+            #imgDiv{
+                position: absolute;
+                top: 10px;
+                left: 250px;
+                width: 100px;
+                height: 70px;
+            }
+            
 
         </style>  
         <!-- Styles For Table with id studentDetail -->
@@ -54,7 +63,7 @@
                 $("#studentDetail a").each(function(){
                     
                     $(this).mouseover(function(){
-                    
+                        
                         var enrlNo = $(this).attr('title');
                         $.ajax({
                             type : "GET",
@@ -62,18 +71,16 @@
                             data:  "enrlNo="+enrlNo,
         
                             success: function(msg){
-              	
-                  
-               
-                                $('#dialog').html('<table align="center" id="resTable">'+'<tr>'+'<td>'+'First Name:'+'</td>'+'<td>'+msg.firstName+'</td>'+'<td>'+''+'</td>'+'</tr>'+'<tr>'+'<td>'+'Last Name:'+'</td>'+'<td>'+msg.lastName+'</td>'+'<td>'+''+'</td>'+'</tr>'+'<tr>'+'<td>'+'Gender:'+'</td>'+'<td>'+msg.gender+'</td>'+'<td>'+''+'</td>'+'</tr>'+'<tr>'+'<td>'+'Address:'+'</td>'+'<td>'+msg.contacts.address+'</td>'+'<td>'+''+'</td>'+'</tr>'+'<tr>'+'<td>'+'Email:'+'</td>'+'<td>'+msg.email+'</td>'+'<td>'+''+'</td>'+'</tr>'+'<tr>'+'<td>'+'Mobile:'+'</td>'+'<td>'+msg.contacts.mobile+'</td>'+'<td>'+''+'</td>'+'</tr>'+'<tr>'+'<td>'+'Land Phone:'+'</td>'+'<td>'+msg.contacts.landPhone+'</td>'+'<td>'+''+'</td>'+'</tr>'+'</table>'+'<table id="imgTable" align="right" >'+'<tr>'+'<td>'+'<img  id="penguin"  src="${pageContext.request.contextPath}/resources/images/Penguins.jpg"/>'+'</td>'+'</tr>'+'</table>');
-                            }
+                                
+                                $('#dialog').html('<table align="center" id="resTable"><tr><td><b>First Name</b></td><td>'+msg.firstName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Last Name</b></td><td>'+msg.lastName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Gender</b></td><td>'+msg.gender+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Address</b></td><td>'+msg.contacts.address+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Email</b></td><td>'+msg.email+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Mobile</b></td><td>'+msg.contacts.mobile+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Land Phone&nbsp;&nbsp;</b></td><td>'+msg.contacts.landPhone+'</td></tr></table><div id="imgDiv"><img id="img" width="100" height="70" src="${pageContext.request.contextPath}/picture?id='+msg.enrollmentNumber+'"></div>');
+                           }
+                           
           
                         });
-                    
                         $('#dialog').dialog({
-                            autoOpen: false,
-                            width: 250,
-                            height:200
+                            width: 360,
+                            height:230,
+                            position : [850,100]
                         });
 
                         $('#dialog').dialog('open');
@@ -89,17 +96,6 @@
             });     
         </script>
                             
-        <style type="text/css">                    
-            
-            #exportPdfDiv{
-                position: absolute;
-                top: 123px;
-                left: 700px;
-                width:102px;
-                height: 34px;
-            }
-            
-        </style>
     </head>
     <body>
         <div id="header">
