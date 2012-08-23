@@ -27,9 +27,8 @@ public class ImageController extends HttpServlet {
     private static Logger LOG = Logger.getLogger(AvtarHomeController.class);
     @RequestMapping(method = RequestMethod.GET,params="id")
     public void showPicture(HttpServletResponse response,WebRequest request,@RequestParam String id) throws IOException {
-
-        response.setContentType("image/jpeg");
         
+        response.setContentType("image/jpeg");
 
         OutputStream outputStream = null;
         try {
