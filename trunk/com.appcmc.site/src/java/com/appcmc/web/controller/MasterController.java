@@ -20,9 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.appcmc.web.forms.EnrollmentForm;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,6 +44,7 @@ public class MasterController {
     private Student student = null;
     private Contacts contacts = null;
     private AppUser appUser = null;
+    private InputStream inputStream = null;
 
     private AppMailService appMailService = null;
 
@@ -50,6 +54,12 @@ public class MasterController {
     public String showMaster(@ModelAttribute EnrollmentForm enrollmentForm, ChangePasswordForm changePasswordForm) {
         LOG.debug("In Master Controller");        
         return "/master/masterHome";
+    }
+    
+    @RequestMapping(method = RequestMethod.GET, value="/showEnrollment")
+    public String showEnrollment(@ModelAttribute EnrollmentForm enrollmentForm, ChangePasswordForm changePasswordForm) {
+        LOG.debug("In Master Controller");        
+        return "/master/enrlHome";
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -116,7 +126,23 @@ public class MasterController {
         contacts.setModifiedBy(1L);
         contacts.setActive(new Short("1"));
 
+        String fileName =  request.getSession().getServletContext().getRealPath("/resources/images/content/user-img-40.jpg");
+        byte[] imageBytes = null;
+        
+        try {
+           inputStream = new FileInputStream(fileName);
+           
+           imageBytes = new byte[inputStream.available()];
+           
+           inputStream.read(imageBytes);
+           
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(MasterController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+        
         student.setContacts(contacts);
+        student.setProfilePic(imageBytes);
         student.setCreatedOn(date);
         student.setCreatedBy(1L);
         student.setModifiedOn(date);
@@ -151,7 +177,7 @@ public class MasterController {
         
         //Sending EnrollmentNumber  to the Student through java mail
         appMailService = (AppMailService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_MAIL_SERVICE);
-        String toAddress = appUser.getEmail();
+       
         appMailService.sendMail(appUser);
         
 
