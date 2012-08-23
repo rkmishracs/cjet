@@ -20,7 +20,7 @@ public class StudentProfileTest {
 
         StudentProfileService studentProfileService = (StudentProfileService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
 
-        /*StudentProfile studentProfile = (StudentProfile) AppContext.APPCONTEXT
+        StudentProfile studentProfile = (StudentProfile) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.STUDENT_PROFILE);
 
         studentProfile.setEnrollmentNumber("CJET235442012");
@@ -36,7 +36,7 @@ public class StudentProfileTest {
         studentProfile.setModifiedBy(1L);
         studentProfile.setActive(Short.parseShort("1"));
 
-        studentProfileService.create(studentProfile);*/
+        studentProfileService.create(studentProfile);
         
         /*studentProfile = studentProfileService.findStudentProfileByEnrollmentNumber("CJET198902012");
         
