@@ -1,8 +1,9 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@taglib  prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s"  uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@page language="java" import="java.util.*,com.appcmc.domain.sub.*" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
@@ -139,11 +140,8 @@
                     </div>
                     <!--  Created Table  --> 
                     <div id="users-contain" class="ui-widget">
-                        <% 
-                            List<Student> studentList = (List) request.getAttribute("studentsWeeklyList");
-                            int size = studentList.size();
-                        %>
-                        <h4>Number Of Students Enrolled In This Week : <%=size%></h4>
+                       
+                        <h4>Number Of Students Enrolled In This Week : <c:out value="${fn:length(studentsWeeklyList)}"/></h4>
                         <div id="exportPdfDiv"><a class="button-h" href="#" id="exportToPdf"><span>Export To PDF</span></a></div>
                         <div style="height:5px;"></div>
                         <table id="studentDetail" class="ui-widget ui-widget-content">
