@@ -338,7 +338,7 @@
                     $("#dialog-form-updateExperience").css('display', 'block');
                     $("#dialog-form-updateExperience").dialog({
                         title: "Update Experience",
-                        height: 410,
+                        height: 450,
                         width: 650, 
                          modal: true,
                         resizable: false,
@@ -346,13 +346,16 @@
                         buttons : {
                             "Update": function() {
                                 
-                                
                                 $.ajax({
 
                                     type : "post",
                                     url : "${pageContext.request.contextPath}/avtar/updateWorkExperience",
                                     data : $("#updateWorkExperience").serialize(),
                                     success : function(response){
+                                        
+                                        $("#ajax_loading_image").css("display",'block');
+                                        
+                                        setTimeout(function(){
                                         
                                         $("#profileTitleText").empty()    
                                         $("#totalExperienceText").empty()
@@ -369,7 +372,10 @@
                                         $("#previousEmployersText").append(document.createTextNode(response.previousEmployer));
 
                                         $("#dialog-form-updateExperience").dialog( "close" );
+                                        $("#ajax_loading_image").css("display",'none');
+                                        },2000);
                                     }
+                                    
                                  });
                                 
                             },
@@ -699,6 +705,10 @@
                     <label for="tags">Previous Employers</label>
                     <sf:input path="previousEmployers"  cssClass="updateExDiv" id="updatePreviousEmployers"/>
 
+                </div>
+                    
+                <div  id="ajax_loading_image" style="position: relative;top: 20px; width: 150px; height: 30px;display: none">
+                    <img align="absmiddle" src="../resources/images/spinner.gif"/>&nbsp;<s:message code="lbl.update.processing"/>
                 </div>
                 
                 </sf:form>
