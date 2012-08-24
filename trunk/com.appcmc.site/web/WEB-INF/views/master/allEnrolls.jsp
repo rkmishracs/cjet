@@ -11,28 +11,7 @@
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" type="text/css" />
-        <!--  Two Style Tags Here  -->
-        <!-- Style For Image -->
-        <style>
-            
-            #exportPdfDiv{
-                position: absolute;
-                top: 123px;
-                left: 700px;
-                width:102px;
-                height: 34px;
-            }
-            
-            #imgDiv{
-                position: absolute;
-                top: 10px;
-                left: 250px;
-                width: 100px;
-                height: 70px;
-            }
-            
-
-        </style>  
+        
         <!-- Styles For Table with id studentDetail -->
         <style>
             body { font-size: 62.5%; }
@@ -50,20 +29,13 @@
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
-
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
-
-        <!-- Script for MouseOver And Mouseout -->
-
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
                             
     </head>
 
-
     <body>
-
-
 
         <div id="header">
             <div class="wrapper">
