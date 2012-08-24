@@ -57,44 +57,7 @@
 
         <!-- Script for MouseOver And Mouseout -->
 
-        <script>
-            $(document).ready(function(){
-              
-                $("#studentDetail a").each(function(){
-                    
-                    $(this).mouseover(function(){
-                        
-                        var enrlNo = $(this).attr('title');
-                        $.ajax({
-                            type : "GET",
-                            url : "${pageContext.request.contextPath}/reports/studentEnrl",
-                            data:  "enrlNo="+enrlNo,
-        
-                            success: function(msg){
-                                
-                                $('#dialog').html('<table align="center" id="resTable"><tr><td><b>First Name</b></td><td>'+msg.firstName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Last Name</b></td><td>'+msg.lastName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Gender</b></td><td>'+msg.gender+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Address</b></td><td>'+msg.contacts.address+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Email</b></td><td>'+msg.email+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Mobile</b></td><td>'+msg.contacts.mobile+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Land Phone&nbsp;&nbsp;</b></td><td>'+msg.contacts.landPhone+'</td></tr></table><div id="imgDiv"><img id="img" width="100" height="70" src="${pageContext.request.contextPath}/picture?id='+msg.enrollmentNumber+'"></div>');
-                           }
-                           
-          
-                        });
-                        $('#dialog').dialog({
-                            width: 360,
-                            height:230,
-                            position : [850,100]
-                        });
-
-                        $('#dialog').dialog('open');
-                        return false;
-            
-                    }).mouseout(function(){
-    
-                        $("#dialog").dialog('close');
-                        return true;
-                    });
-                
-                });       
-            });     
-        </script>
+        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
                             
     </head>
     <body>
@@ -125,7 +88,8 @@
             <div class="wrapper">
                 <div id="body1" class="col"> 
 
-
+                    <input type="hidden" id="dailyReportHidden" value="${pageContext.request.contextPath}"/>
+                    
                     <!--Begin Prediction Module-->
                     <div class="heading-review">
                         <form id="prdkt-compose-form" style="float:left; margin:10px 0 0 10px;">
