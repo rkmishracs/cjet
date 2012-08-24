@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
@@ -14,41 +13,6 @@
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
-        
-        
-        <style type="text/css">
-            
-            #errorDiv{
-                position: absolute;
-                top:110px;
-                left:194px;
-                width:960px;
-                height: 598px;
-            }
-           
-            #errorInfo{
-                position:absolute;
-                top:330px;
-                left:194px;
-                width:590px;
-                height:95px;
-            }
-            
-            .errTxt1{
-                position:absolute;
-                font-size: 12pt;
-                font-weight: bold;
-                color: #5C6E80;
-            }
-            
-            .errTxt2{
-                position:absolute;
-                top:35px;
-                font-size: 12pt;
-                font-weight: bold;
-                color: #5C6E80;
-            }
-        </style>
         
     </head>
     
@@ -131,8 +95,6 @@
                 </div>
             </div>
         </div> 
-        
-        
        
     </body>
 </html>
