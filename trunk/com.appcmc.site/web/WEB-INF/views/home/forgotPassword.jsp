@@ -16,77 +16,10 @@
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
-         
-        
-        <script>
-            
-          //  <!-- Forgot Password Code -->
-            var username = null;
-            var answer = null;
-            var securityQuestion = null;
-            $(document).ready(function(){
-                $("#divForResponse").hide();
-                $("#divForResponse1").hide();
-                $("#genEnrl").click(function(){
-               
-                    username = $("#forgotUserText");
-                    answer   = $("#forgotUserAnswer");                
-                    securityQuestion = $("#chooserDialog option:selected");
-                    if(username.val()==""&&answer.val()==""&&securityQuestion.text()=="Please Select"){
-                        alert("Please Enter All The Details");
-                    }  else if(username.val()==""&&answer.val()==""){
-                        alert("Please Enter Username and Answer");   
-                    }else if(answer.val()=="" && securityQuestion.text()=="Please Select"){
-                        alert("Please Enter Security Question And Answer");
-                    }else if(username.val()=="" && securityQuestion.text()=="Please Select"){
-                        alert("Please Enter Username and SecurityQuestion ");
-                    }else if(securityQuestion.text()=="Please Select"){
-                        alert("Please Select A Security Question");
-                    }else if(answer.val()==""){
-                        alert("Please Enter Answer");
-                    }else if(username.val()==""){
-                        alert("Enter Username"); 
-                    }                  
-                    
-                      $.ajax({
-                                        
-                            type : "post",
-                            url : "${pageContext.request.contextPath}/sign-in/get-forgot-password",
-                            data : $("#forgotPassword").serialize(),
-                            success : function(response){
-                                if(response == 'password'){
-                                        
-                                        $("#divForResponse").show();
-                                        username.val("");
-                                        $("#chooserDialog").val("Please Select");
-                                        answer.val("");
-                                             setTimeout(function(){
-                                            $("#divForResponse").hide();
-                                        },3000)
-                                       }else{
-                                        username.val("");
-                                        $("#chooserDialog").val("Please Select");
-                                        answer.val("");
-                                       username.focus();
-                                        $("#divForResponse1").show(); 
-                                       setTimeout(function(){
-                                       $("#divForResponse1").hide();    
-                                        },3000);
-                               }
-                            }
-                                                
-                 });
-        
-                        
-                });
-                       
-                   
-            });
-              
-        </script>
+        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
     </head>
     <body>
-       
+       <input type="hidden" id="forgotPasswordHidden" value="${pageContext.request.contextPath}" />
         <div id="header">
             <div class="wrapper">
                 <div id="logo" class="grid_4 "><a href="index.html" tabindex="1"><img src="" width="112" height="34" alt="" /></a></div>
@@ -176,7 +109,7 @@
                                             <div class="st-blocked2">
                                                 <label for="tags"></label>
                                                 <div style="position: relative;left: 0px;top:8px;">
-                                                    <a class="button-h" href="#" id="genEnrl"><span>Submit</span></a>
+                                                    <a class="button-h" href="#" id="getEnrlPassword"><span>Submit</span></a>
                                                 </div>
                                             </div>
 
