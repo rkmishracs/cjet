@@ -2,6 +2,9 @@
 
 
 
+var username = null;
+var answer = null;
+var securityQuestion = null;
 
 $(document).ready(function(){
     
@@ -566,6 +569,222 @@ $(document).ready(function(){
                         
                     });               
                 });
+                
+                
+                
+        //Script for appHome.jsp
+        $("#signinLink").click(function(){
+		
+                    var $dialog = $("#signInForm"); 
+		
+                    $( "#dialog:ui-dialog" ).dialog( "destroy" );
+		
+                    var name = $( "#name" ),			
+                    password = $( "#password" ),
+                    allFields = $( [] ).add( name ).add( password ),
+                    tips = $( ".validateTips" );
+
+                    function updateTips( t ) {
+                        tips
+                        .text( t )
+                        .addClass( "ui-state-highlight" );
+                        setTimeout(function() {
+                            tips.removeClass( "ui-state-highlight", 1500 );
+                        }, 500 );
+                    }
+
+                    function checkLength( o, n, min, max ) {
+                        if ( o.val().length > max || o.val().length < min ) {
+                            o.addClass( "ui-state-error" );
+                            updateTips( "Length of " + n + " must be between " +
+                                min + " and " + max + "." );
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+
+                    function checkRegexp( o, regexp, n ) {
+                        if ( !( regexp.test( o.val() ) ) ) {
+                            o.addClass( "ui-state-error" );
+                            updateTips( n );
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+		
+                    $dialog.css('display','block');
+                    $dialog.dialog({
+                        title: "Sign In",                            
+                        height: 340,
+                        width: 450,
+                        modal: true,
+                        zIndex: 500,
+                        resizable: false,
+                        buttons: {
+                            "Sign In": function() {
+                                var bValid = true;
+                                allFields.removeClass( "ui-state-error" );
+
+                                bValid = bValid && checkLength( name, "username", 3, 20 );					
+                                bValid = bValid && checkLength( password, "password", 3, 20 );
+
+                                bValid = bValid && checkRegexp( name, /^[A-Za-z0-9_]{3,20}$/, "Username may consist of a-z, 0-9." );                             
+					
+                                bValid = bValid && checkRegexp( password, /^[A-Za-z0-9!@#$%^&*()_]{3,20}$/, "Password may consist of a-z, 0-9 and special characters." );
+
+                                if (bValid) {
+                                    // AJAX Call for Sign In
+					
+                            $('#ajax_loading').show();
+                                    $.ajax({
+                                        type : "POST",
+                                        url : $('#appHomeHidden').val()+"/sign-in",
+                                        data : $("#signForm").serialize(),
+                                        success : function(response) {
+                                            res = response;
+							
+                                            $("#status").ajaxComplete(function(event,request,settings) {
+								
+                                                $('#ajax_loading').hide();
+                                                // For Master Response
+                                                if (response == 'master') {
+									
+									
+                                                    $(".validateTips").hide();
+                                                    $("#login_response").empty();
+									
+                                                    var login_response = '<div id="logged_in">'
+                                                        + '<div style="width: 350px; float: left; margin-left: 70px;">'
+                                                        + '<div style="width: 40px; float: left;">'
+                                                        + '<img style="margin: 5px 5px 5px 0px;" src="resources/images/ajax-loader.gif">'
+                                                        + '</div>'
+                                                        + '<div style="margin: 5px 5px 5px 5px;width: 300px;color:#2A2A2A;font:18px Arial,Helvetica,sans-serif;">'
+                                                        + "You are successfully logged in! <br /> Please wait while you're redirected...</div></div>";
+	
+                                                    $(".ui-widget-header").hide();									
+                                                    $(".ui-dialog-buttonpane").hide();
+									
+                                                    $("#signInForm").dialog({
+                                                        width : 500,
+                                                        height : 220
+                                                    });
+											
+                                                    $(this).html(login_response);
+	
+                                                    setTimeout('showPage()',3000);
+                                                } else if (response == 'avtar') {
+                                                    // For Avtar Response
+									
+                                                    $(".validateTips").hide();
+                                                    $("#login_response").empty();
+									
+                                                    var login_response = '<div id="logged_in">'
+                                                        + '<div style="width: 350px; float: left; margin-left: 70px;">'
+                                                        + '<div style="width: 40px; float: left;">'
+                                                        + '<img style="margin: 5px 5px 5px 0px;" src="resources/images/ajax-loader.gif">'
+                                                        + '</div>'
+                                                        + '<div style="margin: 5px 5px 5px 5px;width: 300px;color:#2A2A2A;font:18px Arial,Helvetica,sans-serif;;">'
+                                                        + "You are successfully logged in! <br /> Please wait while you're redirected...</div></div>";
+									
+                                                    $(".ui-widget-header").hide();
+                                                    $(".ui-dialog-buttonpane").hide();
+									
+                                                    $("#signInForm").dialog({
+                                                        width : 500,
+                                                        height : 220
+                                                    });
+                                                    $(this).html(login_response);
+	
+                                                    setTimeout('showPage()',3000);
+	
+                                                } else {
+                                                    // For Invalid Authentication
+                                                    var login_response = response;
+                                                    $("#login_response").css("display","block");
+                                                    $('#login_response').html(login_response);
+                                                }
+                                                return false;
+                                            });
+
+                                        }
+                                    });
+                                }// Valid End
+                            },
+                            Cancel: function() {
+                                $( this ).dialog( "close" );
+                            }
+                        },
+                        close: function() {
+                            allFields.val( "" ).removeClass( "ui-state-error" );
+                        }
+                    });          
+		
+                    $dialog.dialog('open');
+                    return false;
+                });
+                
+        
+        //Script for forgotPassword.jsp
+        $("#divForResponse").hide();
+                $("#divForResponse1").hide();
+                $("#getEnrlPassword").click(function(){
+                    username = $("#forgotUserText");
+                    answer   = $("#forgotUserAnswer");                
+                    securityQuestion = $("#chooserDialog option:selected");
+                    if(username.val()==""&&answer.val()==""&&securityQuestion.text()=="Please Select"){
+                        alert("Please Enter All The Details");
+                    }  else if(username.val()==""&&answer.val()==""){
+                        alert("Please Enter Username and Answer");   
+                    }else if(answer.val()=="" && securityQuestion.text()=="Please Select"){
+                        alert("Please Enter Security Question And Answer");
+                    }else if(username.val()=="" && securityQuestion.text()=="Please Select"){
+                        alert("Please Enter Username and SecurityQuestion ");
+                    }else if(securityQuestion.text()=="Please Select"){
+                        alert("Please Select A Security Question");
+                    }else if(answer.val()==""){
+                        alert("Please Enter Answer");
+                    }else if(username.val()==""){
+                        alert("Enter Username"); 
+                    }                  
+                    
+                      $.ajax({
+                                        
+                            type : "post",
+                            url : $('#forgotPasswordHidden').val()+"/sign-in/get-forgot-password",
+                            data : $("#forgotPassword").serialize(),
+                            success : function(response){
+                                if(response == 'password'){
+                                        
+                                        $("#divForResponse").show();
+                                        username.val("");
+                                        $("#chooserDialog").val("Please Select");
+                                        answer.val("");
+                                             setTimeout(function(){
+                                            $("#divForResponse").hide();
+                                        },3000)
+                                       }else{
+                                        username.val("");
+                                        $("#chooserDialog").val("Please Select");
+                                        answer.val("");
+                                       username.focus();
+                                        $("#divForResponse1").show(); 
+                                       setTimeout(function(){
+                                       $("#divForResponse1").hide();    
+                                        },3000);
+                               }
+                            }
+                                                
+                 });
+        
+                        
+                });
+        
         
 });
+
+function showPage() {
+    window.location = $('#appHomeHidden').val()+"/"+ res;
+}
 
