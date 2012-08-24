@@ -23,9 +23,9 @@ import com.appcmc.utils.AppCmcSpringContext;
 import com.appcmc.utils.AppContext;
 import com.appcmc.web.forms.AvtarProfileForm;
 
-import com.appcmc.web.forms.ChangePasswordForm;
 
 import java.text.ParseException;
+
 
 
 /**
@@ -41,6 +41,7 @@ public class AvtarController {
 	private Student student = null;
 	private Contacts contacts = null;
 	private ContactService contactsService = null;
+        
 	private static Logger LOG = Logger.getLogger(AvtarController.class);
         
         @RequestMapping(method = RequestMethod.GET)
@@ -131,5 +132,8 @@ public class AvtarController {
 
 		return "/avtar/avtarDen";
 	}
+        
+        
+        
 
 }
