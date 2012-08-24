@@ -1870,3 +1870,42 @@ html ul.tabs2 li.active a {
     font-weight: bold;
     color: #5C6E80;
 }
+
+
+/*CSS for appHome.jsp*/
+.validateTips { border: 1px solid transparent; padding: 0.3em; }			
+
+#notification_error {
+    color: red;
+    height: auto;
+    padding: 4px;
+    text-align: center;
+}
+
+#login_response {
+    overflow: auto;
+    color: #FF0000
+}
+
+#ajax_loading {
+    position: relative;
+    top:0px;
+    left:30px;
+    width:100px;
+    display: none;
+    font-size: 12px;
+    font-family: Tahoma;
+}
+
+#logged_in {
+    padding: 5px;
+    margin: 23px 0 100px 43px;
+    padding: 5px;
+    text-align: center;
+    width: 400px;
+}
+
+#status {
+    margin-top: 20px;
+    width: 310px;
+}
