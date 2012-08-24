@@ -18,145 +18,10 @@
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
 
-
-        <script type="text/javascript">
-            $(document).ready(function(){
-                
-                $("#gender1").attr('checked', true);
-                $("#status2").attr('checked', true);
-                
-                var currentPassword = $( "#currentPassword" ),
-                
-                newPassword = $( "#newPassword" ),
-                confirmPassword = $( "#confirmPassword" ),
-                allFields = $( [] ).add( currentPassword ).add( newPassword ).add( confirmPassword ),
-                tips = $( ".validateTips" );
-                
-                $("#change-password-link").click(function(){
-                    $("#changePasswordDiv").css('display', 'block');
-                    
-                    function updateTips( t ) {
-                        tips
-                        .text( t )
-                        .addClass( "ui-state-highlight" );
-                        setTimeout(function() {
-                            tips.removeClass( "ui-state-highlight", 1500 );
-                        }, 500 );
-                    }
-                                
-                    function checkLength( o, n, min, max ) {
-                        if ( o.val().length > max || o.val().length < min ) {
-                            o.addClass( "ui-state-error" );
-                            updateTips( "Length of " + n + " must be between " +
-                                min + " and " + max + "." );
-                            return false;
-                        } else {
-                            return true;
-                        }
-                    }
-
-                    function checkRegexp( o, regexp, n ) {
-                        if ( !( regexp.test( o.val() ) ) ) {
-                            o.addClass( "ui-state-error" );
-                            updateTips( n );
-                            return false;
-                        } else {
-                            return true;
-                        }
-                    }
-                    
-                    $("#changePasswordDiv").dialog({
-                        title: "Change Password",                            
-                        height: 370,
-                        width: 450,
-                        modal: true,
-                        resizable: false,
-                        zIndex: 900,
-                        buttons : {
-                            Submit: function() {
-                                $("#currentPassword").removeClass( "ui-state-error" );
-                                $("#newPassword").removeClass( "ui-state-error" );
-                                $("#confirmPassword").removeClass( "ui-state-error" );    
-                                if($("#newPassword").val() != $("#confirmPassword").val()){
-                                    $(".validateTips").empty();
-                                    $(".validateTips").html("New Password And Confirm password Must Match");
-                                    $("#confirmPassword").val("");
-                                    $("#confirmPassword").focus();
-                                    $("#confirmPassword").addClass( "ui-state-error" );
-                                    return false;
-                                }
-                                  
-                                var bValid = true;
-                                allFields.removeClass( "ui-state-error" );
-
-					
-                                bValid = bValid && checkRegexp( currentPassword, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
-                                bValid = bValid && checkRegexp( newPassword, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
-                                bValid = bValid && checkRegexp( confirmPassword, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
-                                        
-                                        if(bValid){
-                                            $('#ajax_loading').show();
-                                            $("#currentPassword").removeClass( "ui-state-error" );
-                                            $("#newPassword").removeClass( "ui-state-error" );
-                                            $("#confirmPassword").removeClass( "ui-state-error" );
-                                            $.ajax({
-                                        
-                                                type : "post",
-                                                url : "${pageContext.request.contextPath}/master/changePassword",
-                                                data : $("#changePasswordForm").serialize(),
-                                                success : function(response){
-                                                    
-                                                    if(response == 'success'){
-                                                        setTimeout(function(){
-                                                            $('#ajax_loading').hide();
-                                                            $("#changePasswordDiv").dialog( "close" );
-                                                            $("#changePasswordResponse").css("display", "block");
-                                                            
-                                                            if($("#changePasswordResponse").css("display", "block")){
-                                                                setTimeout(function(){
-                                                                    $("#changePasswordResponse").fadeOut("slow");
-                                                                }, 2000);
-                                                            }
-                                                        }, 3000);
-                                                        
-                                                    }
-                                                    
-                                                    if(response == 'fail'){
-                                                         setTimeout(function(){
-                                                            $('#ajax_loading').hide();
-                                                            $(".validateTips").empty();
-                                                            $(".validateTips").css('color','red').html("You Have Entered Wrong Password");
-                                                            $("#currentPassword").addClass("ui-state-error");
-                                                            $("#currentPassword").val("");
-                                                            $("#currentPassword").focus();
-                                                        }, 3000);
-
-
-                                                    }
-                                                }
-
-                                            });
-                                  
-                                  } //Valid End
-                                  
-                                  
-                            },
-                             
-                            Cancel: function() {
-                                $( this ).dialog( "close" );
-                            }
-                            
-                        }
-                        
-                        
-                    });
-                    
-                
-                });
-                
-            });
+        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
+        
             
-        </script>
+        
 
         <style type="text/css">
 
@@ -167,7 +32,7 @@
             
             #changePasswordResponse{
                 position: absolute;
-                top: 155px;
+                top: 6px;
                 left: 365px;
                 width: 300px;
                 height: 35px;
@@ -195,7 +60,7 @@
                 font-family: Tahoma;
             }
         </style>
-
+        
 
     </head>
 
@@ -205,8 +70,10 @@
         <div id="changePasswordDiv" class="signDiv">
                         
                         <p class="validateTips"><s:message code="lbl.signin.allFieldsAreRequire"/></p>
-                         
+                        
                         <sf:form method="post" action="${pageContext.request.contextPath}/changePassword" modelAttribute="changePasswordForm" id="changePasswordForm">
+                            
+                            <sf:hidden path="" id="adminChangePasswordHidden" value="${pageContext.request.contextPath}" />
                             
                             <div class="signDiv">
                                         
@@ -260,6 +127,11 @@
                     </div>
                 </div>
             </div>
+                        
+                    <div id="changePasswordResponse">
+                        <span class="changePasswordSpan"><s:message code="lbl.passwordChangedSuccessfully"/></span>
+                    </div>
+                        
         </div>
         <div class="clear"></div>
         <div id="body">
@@ -273,6 +145,9 @@
                         <div class="name"></div>
 
                     </div>
+                        
+                        
+                        
                     <!--End Prediction Module--> 
                 </div>
                 <div id="body2" class="col">
