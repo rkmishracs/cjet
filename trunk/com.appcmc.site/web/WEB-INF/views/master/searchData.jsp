@@ -16,31 +16,9 @@
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
-
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
-
-        <!--  Two Style Tags Here  -->
-        <!-- Style For Image -->
-        <style>
-            #penguin{
-                position:absolute;
-                top:0px;
-                top:10px;
-                left:180px;
-            }
-
-            #tabs{
-                position: relative;
-                top: 0px;
-                width: 595px;
-            }
-
-
-        </style>  
-        <!-- Styles For Table with id studentDetail -->
-        
 
     </head>
     <body>
@@ -101,7 +79,7 @@
                                 <sf:form id="searchByEnrollmentNumberDiv" modelAttribute="findByEnrollmentNumberForm" action="" method="post">
                                     <label>Enter Enrollment Number</label><sf:input path="enrollmentId"/><a id="testEnrl" class="button-h" href="#" style="position: relative ;left: 20px;">
                                         <span>search</span>
-                                    </a><div id="ajax_loading" style="position: absolute;left: 450px; width: 200px;display: none ">
+                                    </a><div id="ajax_loading" style="position: absolute;top: 75px;left: 450px; width: 200px;display: none; ">
                                         <img align="absmiddle" src="${pageContext.request.contextPath}/resources/images/spinner.gif" />&nbsp;Processing...
                                     </div>
 
