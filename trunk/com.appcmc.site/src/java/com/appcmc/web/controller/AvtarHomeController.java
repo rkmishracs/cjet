@@ -25,7 +25,6 @@ import com.appcmc.web.forms.UpdateWorkExperienceForm;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.apache.catalina.startup.WebAnnotationSet;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -56,6 +55,7 @@ public class AvtarHomeController {
     private StudentProfileService studentProfileService = null;
     private EducationalQualifications educationalQualifications = null;
     private EducationalQualificationsService educationalQualificationsService = null;
+   
 
     @RequestMapping(method = RequestMethod.GET)
     public String showAvtarHome(@ModelAttribute ChangePasswordForm changePasswordForm,
@@ -423,4 +423,6 @@ public class AvtarHomeController {
         
         return "/avtar/avtarProfilePic";
     }
+    
+    
 }
