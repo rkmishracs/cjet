@@ -17,258 +17,13 @@
 
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
+        
+        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
 
 
-<script type="text/javascript" charset="utf-8">
-// <![CDATA[
-$(document).ready(function(){	
-    
-                $("#gender1").attr('checked', true);
-                $("#status2").attr('checked', true);
-                
-                var email = $("#email");
-                var aletrnativeEmail=$("#aletrnativeEmail")
-                var mobile = $("#mobile");
-                var landPhone=$("#landPhone");
-                var annualIncome = $("#annualIncome");
-                
-                allFields = $( [] ).add( email ).add( aletrnativeEmail ).add( landPhone ).add(mobile).add(annualIncome),
-                
-                function updateTips( t ) {
-                    tips
-                    .text( t )
-                    .addClass( "ui-state-highlight" );
-                    setTimeout(function() {
-                        tips.removeClass( "ui-state-highlight", 1500 );
-                    }, 500 );
-                }
+        <style type="text/css">
 
-                function checkLength( o, n, min, max ) {
-                    if ( o.val().length > max || o.val().length < min ) {
-                        o.addClass( "ui-state-error" );
-                        alert("Length of " + n + " must be between " +
-                            min + " and " + max + ".");
-                        updateTips( "Length of " + n + " must be between " +
-                            min + " and " + max + "." );
-                            
-                        return false;
-                    } else {
-                        return true;
-                    }
-                }
-
-                function checkRegexp( o, regexp, n ) {
-                    if ( !( regexp.test( o.val() ) ) ) {
-                        o.addClass( "ui-state-error" );
-                        alert(n);
-                        updateTips( n );
-                        
-                        return false;
-                    } else {
-                        return true;
-                    }
-                }
-                
-                
-                $("#enrlLink").click(function(){
-                    $("#enrlDiv").css('display','block');
-                    
-                });
-                
-                $("#canErl").click(function(){
-                    $("#enrlDiv").css('display','none');
-                    
-                });
-                
-                $('#date-picker').datepicker( {
-                    changeMonth: true,
-                    changeYear: true,                    
-                    dateFormat: 'dd-mm-yy',
-                    inline: true
-                });
-                
-                $("#genEnrl").click(function(){
-                    $("#loader").css('display','block');
-                    $.ajax({
-                        type : "get",
-                        url :"${pageContext.request.contextPath}/enrl-home/enrl-number",
-                        success:function(response){                            
-                            $("#enrollmentNumber").val(response);                            
-                            $("#loader").css('display','none');
-                        }
-                    });
-                    
-                });
-                
-                
-                //it's validation for mobile number and other
-           
-           
-                $("#mobile,#landPhone,#annualIncome").bind("keyup",function(){
-                    var $th = $(this);
-                    $th.val( $th.val().replace(/[^0-9]/g, function() { alert("Filed should contain numbers only"); return ''; } ) );
-                });
-                $("#firstName,#lastName,#nationality,#fatherName,#motherName,#ocupation,#city,#state,#country").bind("keyup",function(){
-                    var $th = $(this);
-                    $th.val( $th.val().replace(/[^a-zA-Z]/g, function() { alert("Field should contain characters only"); return ''; } ) );
-                }); 
-                $("#email,#aletrnativeEmail").bind("keyup", function(){
-                    var $th =$(this);
-                    $th.val($th.val().replace(/[^a-zA-Z0-9@._]/g,function(){alert("eg. ui@jquery.com"); return '';})) ;
-                });
-                
-                $("#tab1Next").click(function(){
-                    allFields.removeClass( "ui-state-error" );
-                    if($("#enrollmentNumber").val()== 0 || $("#email").val()== 0||$("#firstName").val() == 0||$("#lastName").val() == 0||$("#date-picker").val() == 0){
-                        if($("#enrollmentNumber").val() == null||$("#enrollmentNumber").val()== 0){
-                            alert("Enrollment Id should not be empty");
-                            return false;
-                        }   
-                        if($("#email").val() == null||$("#email").val()== 0){
-                            alert("Email should not be empty");
-                            return false;
-                        }                   
-                           
-                        if($("#firstName").val() == 0){
-                            alert("FirstName should not be empty");
-                            return false;
-                        }                
-                        if($("#lastName").val() == 0){
-                            alert("Last Name should not be empty");
-                            return false;
-                        }                   
-                        if($("#date-picker").val() == 0){
-                            alert("Date should not be empty");
-                            return false;
-                        }
-                    }else{
-                        
-                        checkLength( email, "email", 6, 80 );
-                        checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Email should be as john@cmc.com" );
-                         
-                     }
-                     $("#tab1").css("display", "none");
-                     $("li:eq(0)").removeClass();
-                     $("#tab2").css("display", "block");
-                     $("li:eq(1)").addClass("active");
-                    
-                });
-                
-                $("#tab2Next").click(function(){
-                    allFields.removeClass( "ui-state-error" );
-                    if($("#nationality").val() == 0||$("#fatherName").val() == 0||$("#motherName").val() == 0||$("#ocupation").val() == 0||$("#annualIncome").val() == 0){
-                        if($("#nationality").val() == 0){
-                            alert("Nationality should not be empty");
-                            return false;
-                        }                     
-                        if($("#fatherName").val() == 0){
-                            alert("Father Name should not be empty");
-                            return false;
-                        }                     
-                    
-                        if($("#motherName").val() == 0){
-                            alert("Mother Name should not be empty");
-                            return false;
-                        }                  
-                    
-                        if($("#ocupation").val() == 0){
-                            alert("Occupation  should not be empty");
-                            return false;
-                        }                  
-                    
-                        if($("#annualIncome").val() == 0){
-                            alert("Annual Income  should not be empty");
-                            return false;
-                        }
-                    }else{
-                        checkLength(annualIncome,"annualIncome",4,6);
-                    }
-                    
-                    $("#tab1").css("display", "none");
-                     $("li:eq(0)").removeClass();
-                     $("#tab2").css("display", "none");
-                     $("li:eq(1)").removeClass();
-                     $("#tab3").css("display", "block");
-                     $("li:eq(2)").addClass("active");
-                    
-                });
-                
-                $("#saveEnrl").click(function(){
-                
-                    allFields.removeClass( "ui-state-error" );
-                    
-                    if($("#mobile").val() == 0||$("#landPhone").val()== 0||$("#aletrnativeEmail").val() == 0||$("#city").val() == 0||$("#state").val() == 0||$("#country").val() == 0||$("#address").val() == 0){
-                     
-                        if($("#mobile").val() == 0){
-                            alert("Mobile Number should not be empty");
-                            return false;
-                        }
-                    
-                    
-                        if($("#landPhone").val()== 0){
-                            alert("Land Phone Number should not be empty");
-                            return false;
-                        }     
-                    
-                        if($("#aletrnativeEmail").val() == 0){
-                            alert("Alternative Email should not be empty");
-                            return false;
-                        }     
-                    
-                        if($("#city").val() == 0){
-                            alert("City should not be empty");
-                            return false;
-                        }     
-                        if($("#state").val() == 0){
-                            alert("State should not be empty");
-                            return false;
-                        }     
-                        if($("#country").val() == 0){
-                            alert("Country should not be empty");
-                            return false;
-                        }     
-                        if($("#address").val() == 0){
-                            alert("Address should not be empty");
-                            return false;
-                        }     
-                    }else{
-                        
-                        checkLength( aletrnativeEmail, "aletrnativeEmail", 6, 80 );			
-                        checkLength( mobile, "mobile", 10 , 10 );
-                        checkLength( landPhone, "landPhone", 7 , 12 );
-                        
-                        checkRegexp( aletrnativeEmail, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Alternative Email should be as john@cmc.com" );
-                
-		        
-                    }
-                   $("#ajax_loading_email").css("display", "block");
-                    
-                     
-                    $.ajax({
-                        type : "post",
-                        url : "${pageContext.request.contextPath}/master",
-                        data : $("#enrollmentForm").serialize(),
-                        success:function(response){
-                            $("#ajax_loading_email").css("display", "none");
-                            $("#emailResponse").css("display", "block");
-                            if($("#emailResponse").css("display", "block")){
-                                setTimeout(function(){
-                                    $("#emailResponse").fadeOut("slow");
-                                }, 3000);
-                            }
-                        }
-                        
-                    });
-                
-                });
-    
-});
-
-// ]]>
-</script>
-<style type="text/css">
-
-#ajax_loading {
+            #ajax_loading {
                 position: absolute;
                 top:245px;
                 left:30px;
@@ -312,7 +67,7 @@ $(document).ready(function(){
         </style>
 </head>
 <body>
-    
+    <input type="hidden" id="enrollmentFormHidden" value="${pageContext.request.contextPath}"/>
     <div id="header">
             <div class="wrapper">
                 <div id="logo" class="grid_4 "><a href="index.html" tabindex="1"><img src="" width="112" height="34" alt="" /></a></div>
@@ -345,7 +100,7 @@ $(document).ready(function(){
     
     <div id="body1" class="col"> 
 
-
+                    
                     <!--Begin Prediction Module-->
                     <div class="heading-review">
                         <form id="prdkt-compose-form" style="float:left; margin:10px 0 0 10px;">
@@ -358,8 +113,8 @@ $(document).ready(function(){
                     
                     <!--Begin Pridikt Module-->
                     <div id ="enrlDiv">
+                        
                         <sf:form method="POST" action="" modelAttribute="enrollmentForm" id="enrollmentForm">
-
                             <div class="container">
                                 <ul class="options tabs2">
                                     <li><a href="#tab1"><s:message code="lbl.enrollment.tabl"/></a></li>
