@@ -302,10 +302,10 @@
 
                                 <div id="tab2" class="tab_content">
                                     <div class="">
-                                        <a href="#">You are Not Updated Your Profile Since on 14-08-2012</a><br/>
-                                        <a href="#">You are Not Updated Your Profile Since 14-08-2012</a><br/>
-                                        <a href="#">You are Not Updated Your Profile Since 14-08-2012</a><br/>
-                                        <a href="#">You are Not Updated Your Profile Since 14-08-2012</a><br/>
+                                        <a href="#">Personal Information Updated On </a><br/>
+                                        <a href="#">Work Experience Updated On </a><br/>
+                                        <a href="#">Educational Qualification Updated On </a><br/>
+                                        <a href="#">Resume Posted On</a><br/>
 
                                         <div class="clear"></div><br />
 
