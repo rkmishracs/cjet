@@ -12,29 +12,6 @@
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" type="text/css" />
-        <!--  Two Style Tags Here  -->
-        <!-- Style For Image -->
-        <style>
-            
-            #exportPdfDiv{
-                position: absolute;
-                top: 123px;
-                left: 700px;
-                width:102px;
-                height: 34px;
-            }
-            
-            #imgDiv{
-                position: absolute;
-                top: 10px;
-                left: 250px;
-                width: 100px;
-                height: 70px;
-            }
-            
-
-        </style>  
-        <!-- Styles For Table with id studentDetail -->
         <style>
             body { font-size: 62.5%; }
             label, input { display:block; }
@@ -45,18 +22,14 @@
             div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
             div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
             .ui-dialog .ui-state-error { padding: .3em; }
-
         </style>
+        
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
-
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
-
-        <!-- Script for MouseOver And Mouseout -->
-
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
                             
     </head>
