@@ -1687,7 +1687,7 @@ html ul.tabs2 li.active a {
 
 .profilePer{
     position: relative;
-    
+
     /*float: right;*/
     width: 200px;
     height: 100px;
@@ -1697,13 +1697,13 @@ html ul.tabs2 li.active a {
     border-radius: 4px;
     -moz-border-radius: 4px;
     background: url(../images/design/module-back.png) repeat-x left bottom;
-    
+
 }
 
 .editLink{
-    
-     /*background-image: url(../images/follow-mem-bg.png);
-    background-repeat: no-repeat;*/
+
+    /*background-image: url(../images/follow-mem-bg.png);
+   background-repeat: no-repeat;*/
     float: right;
     height: 20px;
     width: 89px;
@@ -1725,7 +1725,7 @@ html ul.tabs2 li.active a {
     position:absolute;
     top:77px;
     left:153px;
-    
+
 }
 
 #forgotPassDiv{
@@ -1736,4 +1736,137 @@ html ul.tabs2 li.active a {
 }
 
 
- 
+/*CSS for allEnrolls.jsp, dailyReport.jsp, weeklyReport.jsp, monthlyReport.jsp*/
+#exportPdfDiv{
+    position: absolute;
+    top: 123px;
+    left: 700px;
+    width:102px;
+    height: 34px;
+}
+
+#imgDiv{
+    position: absolute;
+    top: 10px;
+    left: 250px;
+    width: 100px;
+    height: 70px;
+}
+
+
+/*CSS for enrlHome.jsp*/
+#ajax_loading {
+    position: absolute;
+    top:245px;
+    left:30px;
+    width:100px;
+    display: none;
+    font-size: 12px;
+    font-family: Tahoma;
+}
+
+#ajax_loading_email {
+    position: absolute;
+    top:553px;
+    left:520px;
+    width:100px;
+    display: none;
+    font-size: 12px;
+    font-family: Tahoma;
+}
+
+#emailResponse{
+    position: absolute;
+    top:544px;
+    left:575px;
+    width:208px;
+    height: 35px;
+    font-size: 9pt;
+    font-weight: bold;
+    display: none;
+    background-color: #74A027;
+}
+
+.emailResponse{
+    position: absolute;
+    top: 9px;
+    left: 18px;
+    width: 175px;
+    color: #FFFFFF;
+}
+
+
+/*CSS for masterHome.jsp*/
+#changePasswordDiv{
+    position: relative;
+    display: none;      
+}
+
+#changePasswordResponse{
+    position: absolute;
+    top: 6px;
+    left: 365px;
+    width: 300px;
+    height: 35px;
+    font-size: 11pt;
+    font-weight: bold;
+    display: none;
+    background-color: #74A027;
+}
+
+.changePasswordSpan{
+    position:absolute;
+    top:7px;
+    left:32px;
+    width:245px;
+    color: #FFFFFF;
+}
+
+#ajax_loading {
+    position: absolute;
+    top:245px;
+    left:30px;
+    width:100px;
+    display: none;
+    font-size: 12px;
+    font-family: Tahoma;
+}
+
+/*CSS for searchData.jsp*/
+#tabs{
+    position: relative;
+    top: 0px;
+    width: 595px;
+}
+
+/*CSS for 404_errorPage.jsp*/
+#errorDiv{
+    position: absolute;
+    top:110px;
+    left:194px;
+    width:960px;
+    height: 598px;
+}
+
+#errorInfo{
+    position:absolute;
+    top:330px;
+    left:194px;
+    width:590px;
+    height:95px;
+}
+
+.errTxt1{
+    position:absolute;
+    font-size: 12pt;
+    font-weight: bold;
+    color: #5C6E80;
+}
+
+.errTxt2{
+    position:absolute;
+    top:35px;
+    font-size: 12pt;
+    font-weight: bold;
+    color: #5C6E80;
+}
