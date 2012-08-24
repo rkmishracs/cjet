@@ -19,7 +19,7 @@
 
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
-
+        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
 
         <!--  Two Style Tags Here  -->
         <!-- Style For Image -->
@@ -40,79 +40,12 @@
 
         </style>  
         <!-- Styles For Table with id studentDetail -->
-
-
-
-
-        <script type="text/javascript">
-            $(document).ready(function(){
-                
-                $('#tabs').tabs();
-                $('#errorDiv').hide();
-                $('#studentResponse').hide();
-                $('#ajax_loading').hide();
-                $('#testEnrl').click(function(){
-                    $('#errorDiv').hide();
-                    $('#studentResponse').hide();
-                    
-                    $('#ajax_loading').css('display','block');
-                    
-                   
-                    $.ajax({
-                        type:"POST",
-                        url:"${pageContext.request.contextPath}/search",       
-                        data : $("#searchByEnrollmentNumberDiv").serialize(),
-                        dateFormat:'dd-MM-yyyy',
-                        success:function(response){
-                                                 
-                            
-                            
-                            setTimeout(function(){
-                                if(response.contacts){
-                                    $('#studentResponse').css('display','block');
-                                    $("#enrollmentNumber").text(response.enrollmentNumber);
-                                    $("#name").text(response.firstName+" "+response.lastName);
-                                    $("#gender").text(response.gender);
-                                    $("#dob").text(response.dateOfBirth);
-                                    var date= new Date(response.createdOn);
-                                    var month =date.getMonth()+1;
-                                    
-                                    $("#enrolledOn").text(date.getDate()+" / "+month  +" / "+date.getFullYear());
-                                    $("#email").text(response.email);
-                                    $("#phone").text(response.contacts.landPhone);
-                                    $("#mobile").text(response.contacts.mobile);
-                                    $("#address").text(response.contacts.address);
-                                    var dob= new Date(response.dateOfBirth);
-                                    month=dob.getMonth()+1;
-                                    $("#dob").text(dob.getDate()+" / "+month  +" / "+dob.getFullYear());
-                                    $("#imgDiv").html('<img width="80" height="80" alt="kiran"  src="${pageContext.request.contextPath}/picture?id='+response.enrollmentNumber+'"/>');        
-                                }else{
-                                    $('#errorDiv').css("display", "block");
-                                               
-                                 
-                                }
-                                $('#ajax_loading').css('display','none');
-                                    
-                            },1000);
-                                
-                                
-                            
-                            
-                            
-                                
-                                        
-                                    
-                                                          
-                        }
-                            
-                        
-                    });               
-                });
-            });
-        </script>
+        
 
     </head>
     <body>
+        <input type="hidden" id="searchDataHidden" value="${pageContext.request.contextPath}" />
+        
         <div id="header">
             <div class="wrapper">
                 <div id="logo" class="grid_4 "><a href="index.html" tabindex="1"><img src="" width="112" height="34" alt="" /></a></div>
