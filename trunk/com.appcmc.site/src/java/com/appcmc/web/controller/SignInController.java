@@ -20,7 +20,6 @@ import com.appcmc.service.ContactService;
 import com.appcmc.service.StudentService;
 import com.appcmc.utils.AppCmcSpringContext;
 import com.appcmc.utils.AppContext;
-import com.appcmc.web.forms.ChangePasswordForm;
 import com.appcmc.web.forms.EnrollmentForm;
 import com.appcmc.web.forms.ForgotPasswordForm;
 import com.appcmc.web.forms.SignInForm;
@@ -65,7 +64,7 @@ public class SignInController {
     public String doSigIn(@ModelAttribute SignInForm signInForm,
             @ModelAttribute EnrollmentForm enrollmentForm, WebRequest request) {
 
-        
+
         LOG.debug("In Sign In Controller");
         String userId = signInForm.getUserId();
         String password = signInForm.getPassword();
@@ -103,9 +102,11 @@ public class SignInController {
         }
 
         contacts = contactService.findByEnrollmentNumber(student.getEnrollmentNumber());
+
         LOG.debug("Contacts ========" + contacts);
 
         LOG.debug("======================In Student");
+
         request.setAttribute("user", appUser, WebRequest.SCOPE_SESSION);
         request.setAttribute("student", student, WebRequest.SCOPE_SESSION);
         request.setAttribute("contacts", contacts, WebRequest.SCOPE_SESSION);
