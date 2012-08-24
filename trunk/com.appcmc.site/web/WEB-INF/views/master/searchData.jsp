@@ -20,7 +20,7 @@
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
 
-       
+
         <!--  Two Style Tags Here  -->
         <!-- Style For Image -->
         <style>
@@ -30,28 +30,87 @@
                 top:10px;
                 left:180px;
             }
-            
+
             #tabs{
-                position: absolute;
-                top: 160px;
+                position: relative;
+                top: 0px;
                 width: 595px;
             }
 
 
         </style>  
         <!-- Styles For Table with id studentDetail -->
-        
-        
-        
-       
+
+
+
+
         <script type="text/javascript">
             $(document).ready(function(){
-                // Tabs
-		$('#tabs').tabs();
+                
+                $('#tabs').tabs();
+                $('#errorDiv').hide();
+                $('#studentResponse').hide();
+                $('#ajax_loading').hide();
+                $('#testEnrl').click(function(){
+                    $('#errorDiv').hide();
+                    $('#studentResponse').hide();
+                    
+                    $('#ajax_loading').css('display','block');
+                    
+                   
+                    $.ajax({
+                        type:"POST",
+                        url:"${pageContext.request.contextPath}/search",       
+                        data : $("#searchByEnrollmentNumberDiv").serialize(),
+                        dateFormat:'dd-MM-yyyy',
+                        success:function(response){
+                                                 
+                            
+                            
+                            setTimeout(function(){
+                                if(response.contacts){
+                                    $('#studentResponse').css('display','block');
+                                    $("#enrollmentNumber").text(response.enrollmentNumber);
+                                    $("#name").text(response.firstName+" "+response.lastName);
+                                    $("#gender").text(response.gender);
+                                    $("#dob").text(response.dateOfBirth);
+                                    var date= new Date(response.createdOn);
+                                    var month =date.getMonth()+1;
+                                    
+                                    $("#enrolledOn").text(date.getDate()+" / "+month  +" / "+date.getFullYear());
+                                    $("#email").text(response.email);
+                                    $("#phone").text(response.contacts.landPhone);
+                                    $("#mobile").text(response.contacts.mobile);
+                                    $("#address").text(response.contacts.address);
+                                    var dob= new Date(response.dateOfBirth);
+                                    month=dob.getMonth()+1;
+                                    $("#dob").text(dob.getDate()+" / "+month  +" / "+dob.getFullYear());
+                                    $("#imgDiv").html('<img width="80" height="80" alt="kiran"  src="${pageContext.request.contextPath}/picture?id='+response.enrollmentNumber+'"/>');        
+                                }else{
+                                    $('#errorDiv').css("display", "block");
+                                               
+                                 
+                                }
+                                $('#ajax_loading').css('display','none');
+                                    
+                            },1000);
+                                
+                                
+                            
+                            
+                            
+                                
+                                        
+                                    
+                                                          
+                        }
+                            
+                        
+                    });               
+                });
             });
-            
         </script>
-        
+
     </head>
     <body>
         <div id="header">
@@ -75,7 +134,7 @@
                 </div>
             </div>
         </div>
-                        
+
         <div class="clear"></div>
         <div id="body">
             <div class="wrapper">
@@ -91,16 +150,84 @@
                         <div class="name"></div>
                     </div>
                     <!-- Tabs -->
-		
+                    <div class="signDiv">
+                        &nbsp;
+                    </div>
+
+
+
                     <div id="tabs">
-                            <ul>
-                                    <li><a href="#tabs-1">By EnrollmentNumber</a></li>
-                                    <li><a href="#tabs-2">By EnrollmentName</a></li>
-                                    <li><a href="#tabs-3">By Phone</a></li>
-                            </ul>
-                            <div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                            <div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
-                            <div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+                        <ul>
+                            <li><a href="#tabs-1">By EnrollmentNumber</a></li>
+                            <li><a href="#tabs-2">By EnrollmentName</a></li>
+                            <li><a href="#tabs-3">By Phone</a></li>
+                        </ul>
+                        <div id="tabs-1">
+
+                            <div class="st-blocked2">
+                                <sf:form id="searchByEnrollmentNumberDiv" modelAttribute="findByEnrollmentNumberForm" action="" method="post">
+                                    <label>Enter Enrollment Number</label><sf:input path="enrollmentId"/><a id="testEnrl" class="button-h" href="#" style="position: relative ;left: 20px;">
+                                        <span>search</span>
+                                    </a><div id="ajax_loading" style="position: absolute;left: 450px; width: 200px;display: none ">
+                                        <img align="absmiddle" src="${pageContext.request.contextPath}/resources/images/spinner.gif" />&nbsp;Processing...
+                                    </div>
+
+
+                                </sf:form>
+
+                            </div>
+
+                            <div class="st-blocked2" id="errorDiv" style="color:red">
+                                <span>No Record matched with Enrollment Number.</span>
+                            </div>
+                            </br>
+
+                            <div id="studentResponse" class="ui-tabs-panel ui-widget-content ui-corner-bottom" style="position: relative;width: 500px;left:20px;;background: snow ;border-radius: 8px 8px 8px 8px;border: 1px solid #DFD9C3;">
+                                </br>
+                                <h2 align="middle"><u>Student Details</u></h2>
+
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <table style="position: relative;left:20px;width: 350px;border: 20px #898989;">
+                                                <tr><td ><label>Enrollment Number</label></td><td><label>:</label></td><td><label id="enrollmentNumber">111</label></td></tr>                                                                                                          
+                                                <tr><td><label>Name</label></td><td><label>:</label></td><td><label id="name">111</label></td></tr>             
+                                                <tr><td><label>Gender</label></td><td><label>:</label></td><td><label id="gender">111</label></td></tr>
+                                                <tr><td><label>Date Of Birth</label></td><td><label>:</label></td><td><label id="dob"></label></td></tr>
+                                                <tr><td><label>Enrolled on</label></td><td><label>:</label></td><td><label id="enrolledOn">111</label></td></tr>
+                                                <tr><td><label>Email</label></td><td><label>:</label></td><td><label id="email">111</label></td></tr>
+                                                <tr><td><label>Phone</label></td><td><label>:</label></td><td><label id="phone">111</label></td></tr>
+                                                <tr><td><label>Mobile</label></td><td><label>:</label></td><td><label id="mobile">:&nbsp;&nbsp;111</label></td></tr>
+                                                <tr><td><label>Address</label></td><td><label>:</label></td><td><label id="address">111</label></td></tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <div  class="prdktr" style="position: relative; height: 60px;top:-30px;width:60px;left:30px;" id="imgDiv" >
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+
+
+                                </br>
+                                </br>
+
+
+                            </div>
+
+                        </div>
+                        <div id="tabs-2">
+
+                            Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.
+
+
+
+
+
+                        </div>
+                        <div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
                     </div>
 
                 </div>
@@ -126,8 +253,8 @@
                 <div class="clear"></div>
             </div>
         </div>                
-                        
-                        
+
+
         <div id="footer">
             <div class="wrapper">
                 <div id="footer1" class="col"> <span class="linkgroup"><s:message code="lbl.footer.link.aboutUs"/></span>
