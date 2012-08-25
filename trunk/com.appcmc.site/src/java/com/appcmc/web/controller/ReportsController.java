@@ -105,7 +105,7 @@ public class ReportsController {
         LOG.debug("=================In dailyReports Controller");
         AppCmcSpringContext.init();
         studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
-        List<Student> studentDailyList = studentService.getByCurrentWeek();
+        List<Student> studentDailyList = studentService.getByDay();
         Iterator<Student> iterator = studentDailyList.iterator();
         while(iterator.hasNext()){
             student = iterator.next();
