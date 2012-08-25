@@ -515,7 +515,7 @@ $(document).ready(function(){
          });
          
          
-         // Script for serachData.jsp
+         // Script for searchData.jsp
          $('#tabs').tabs();
                 $('#errorDiv').hide();
                 $('#studentResponse').hide();
@@ -554,7 +554,7 @@ $(document).ready(function(){
                                     var dob= new Date(response.dateOfBirth);
                                     month=dob.getMonth()+1;
                                     $("#dob").text(dob.getDate()+" / "+month  +" / "+dob.getFullYear());
-                                    $("#imgDiv").html('<img width="80" height="80" alt="kiran"  src="${pageContext.request.contextPath}/picture?id='+response.enrollmentNumber+'"/>');        
+                                    $("#imgDiv").html('<img width="80" height="80" alt="kiran"  src="'+$('#searchDataHidden').val()+'/picture?id='+response.enrollmentNumber+'"/>');        
                                 }else{
                                     $('#errorDiv').css("display", "block");
                                                
@@ -779,6 +779,446 @@ $(document).ready(function(){
                  });
         
                         
+                });
+                
+                
+        //Script for avtarHome.jsp
+        var currentPassword = $( "#currentPassword" ),
+                newPassword = $( "#newPassword" ),
+                confirmPassword = $( "#confirmPassword" ),
+                allFields = $( [] ).add( currentPassword ).add( newPassword ).add( confirmPassword ),
+                tips = $( ".validateTips" );
+                
+                
+                $("#change-password-link").click(function(){
+                    $("#changePasswordDiv").css('display', 'block');
+                    
+                    function updateTips( t ) {
+                        tips
+                        .text( t )
+                        .addClass( "ui-state-highlight" );
+                        setTimeout(function() {
+                            tips.removeClass( "ui-state-highlight", 1500 );
+                        }, 500 );
+                    }
+                                
+                    function checkLength( o, n, min, max ) {
+                        if ( o.val().length > max || o.val().length < min ) {
+                            o.addClass( "ui-state-error" );
+                            updateTips( "Length of " + n + " must be between " +
+                                min + " and " + max + "." );
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+
+                    function checkRegexp( o, regexp, n ) {
+                        if ( !( regexp.test( o.val() ) ) ) {
+                            o.addClass( "ui-state-error" );
+                            updateTips( n );
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+                    
+                    $("#changePasswordDiv").dialog({
+                        title: "Change Password",                            
+                        height: 370,
+                        width: 450,
+                        modal: true,
+                        resizable: false,
+                        zIndex: 900,
+                        buttons : {
+                            Submit: function() {
+                                $("#currentPassword").removeClass( "ui-state-error" );
+                                $("#newPassword").removeClass( "ui-state-error" );
+                                $("#confirmPassword").removeClass( "ui-state-error" );    
+                                if($("#newPassword").val() != $("#confirmPassword").val()){
+                                    $(".validateTips").empty();
+                                    $(".validateTips").html("New Password And Confirm password Must Match");
+                                    $("#confirmPassword").val("");
+                                    $("#confirmPassword").focus();
+                                    $("#confirmPassword").addClass( "ui-state-error" );
+                                    return false;
+                                }
+                                  
+                                var bValid = true;
+                                allFields.removeClass( "ui-state-error" );
+
+					
+                                bValid = bValid && checkRegexp( currentPassword, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+                                bValid = bValid && checkRegexp( newPassword, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+                                bValid = bValid && checkRegexp( confirmPassword, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+                                        
+                                        if(bValid){
+                                            $('#ajax_loading').show();
+                                            $("#currentPassword").removeClass( "ui-state-error" );
+                                            $("#newPassword").removeClass( "ui-state-error" );
+                                            $("#confirmPassword").removeClass( "ui-state-error" );
+                                            $.ajax({
+                                        
+                                                type : "post",
+                                                url : $('#avtarHomeHidden').val()+"/avtar/changePassword",
+                                                data : $("#changePasswordForm").serialize(),
+                                                success : function(response){
+                                                    
+                                                    if(response == 'success'){
+                                                        setTimeout(function(){
+                                                            $('#ajax_loading').hide();
+                                                            $("#changePasswordDiv").dialog( "close" );
+                                                            $("#changePasswordResponse").css("display", "block");
+                                                            
+                                                            if($("#changePasswordResponse").css("display", "block")){
+                                                                setTimeout(function(){
+                                                                    $("#changePasswordResponse").fadeOut("slow");
+                                                                }, 2000);
+                                                            }
+                                                        }, 3000);
+                                                        
+                                                    }
+                                                    
+                                                    if(response == 'fail'){
+                                                         setTimeout(function(){
+                                                            $('#ajax_loading').hide();
+                                                            $(".validateTips").empty();
+                                                            $(".validateTips").css('color','red').html("You Have Entered Wrong Password");
+                                                            $("#currentPassword").addClass("ui-state-error");
+                                                            $("#currentPassword").val("");
+                                                            $("#currentPassword").focus();
+                                                        }, 3000);
+
+
+                                                    }
+                                                }
+
+                                            });
+                                  
+                                  } //Valid End
+                                  
+                                  
+                            },
+                             
+                            Cancel: function() {
+                                $( this ).dialog( "close" );
+                            }
+                            
+                        }
+                        
+                        
+                    });
+                    
+                
+                });
+                
+                
+        //Script for avtarDen.jsp
+        $("#dialog-form-eduQualification").hide();
+                $("#dialog-form-updateExperience").hide();
+                
+                var firstName = $("#firstName");
+                var lastName = $("#lastName");
+                var gender = $("input[name='gender']");
+                var dateOfBirth = $("#dateOfBirth");
+                var nationality = $("#nationality");
+                var email = $("#email");
+                var enrollmentNumber = $("#enrollmentNumber");
+                var alternateEmail = $("#alternativeEmail");
+                var mobileNumber = $("#mobileNumber");
+                var landPhone = $("#landPhone");
+                var pin=$("#pin");
+                var address = $("#address");
+               
+
+                allFields = $( [] ).add( firstName ).add( lastName ).add(gender).add(dateOfBirth).add(email).add(alternateEmail).add(mobileNumber).add(landPhone).add(pin).add(mobileNumber).add(address),
+                tips = $( ".validateTips" );
+            
+        
+
+
+                function updateTips( t ) {
+                    tips
+                    .text( t )
+                    .addClass( "ui-state-highlight" );
+                    setTimeout(function() {
+                        tips.removeClass( "ui-state-highlight", 1500 );
+                    }, 500 );
+                }
+
+                function checkLength( o, n, min, max ) {
+                    if ( o.val().length > max || o.val().length < min ) {
+                        o.addClass( "ui-state-error" );
+                        updateTips( "Length of " + n + " must be between " +
+                            min + " and " + max + "." );
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+                function checkRegexp( o, regexp, n ) {
+                    if ( !( regexp.test( o.val() ) ) ) {
+                        o.addClass( "ui-state-error" );
+                        updateTips( n );
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+              
+                $("#editPerInfo").css('color', '#FFFFFF');
+                $("#editPerInfo").click(function(){
+                 
+                    var userId = $("#userId").val();
+                    $.ajax({
+                        
+                        type : "get",
+                        url : $('#avtarDenHidden').val()+"/avtar/update",
+                        data : "id="+userId,
+                        success : function(response){
+                            firstName.val(response.firstName);
+                            lastName.val(response.lastName);
+                            if(response.gender == "Female"){
+                                $("#female").attr('checked', true);
+                            }else{
+                                $("#male").attr('checked', true);
+                            }
+                            
+                            dateOfBirth.val(response.dateOfBirth);
+                            nationality.val(response.nationality);
+                            email.val(response.email);
+                            enrollmentNumber.val(response.enrollmentNumber);
+                            alternateEmail.val(response.alternativeEmail);
+                            mobileNumber.val(response.mobile);
+                            landPhone.val(response.landPhone);
+                            address.val(response.address);
+                            pin.val(response.pin);
+                            
+                        }
+              
+                    });
+                 
+                    $('#dateOfBirth').datepicker( {
+                        changeMonth: true,
+                        changeYear: true,                    
+                        dateFormat: 'dd-mm-yy',
+                        inline: true
+                    });
+                    $( "#dialog:ui-dialog" ).dialog( "destroy" );
+                    $( "#dialog-form-perInfo" ).css('display','block');
+                    $( "#dialog-form-perInfo" ).dialog({
+                        title: "Update Personal Information",
+                        height: 658,
+                        width: 420,
+                        modal: true,
+                        resizable: false,
+                        zIndex : 900,
+                        buttons : {
+                            "Update": function() {
+                                
+                                $("#ajax_loading").css("display",'block');
+                               
+                                var bValid = true;
+                                allFields.removeClass( "ui-state-error" );
+                                                             
+
+                                bValid = bValid && checkLength( firstName, "First Name", 3, 16 );
+                                bValid = bValid && checkLength( lastName, "Last Name", 3, 16 );
+                                bValid = bValid && checkLength( dateOfBirth, "Date Of Birth", 8, 16 );
+                                bValid = bValid && checkLength( nationality, "Date Of Birth", 5, 16 );
+                                bValid = bValid && checkLength( email, "E-mail", 6, 80 );
+                                bValid = bValid && checkLength( alternateEmail, "Alternative E-mail", 6, 80 );
+                                bValid = bValid && checkLength( mobileNumber, "Mobile Number", 10, 16 );
+                                bValid = bValid && checkLength( landPhone, "Land Phone", 7, 11 );
+                                bValid = bValid && checkLength( pin, "Pin", 6, 7 );
+                                bValid = bValid && checkLength( address, "Address", 10, 30 );
+                                
+                                bValid = bValid && checkRegexp( firstName, /^[a-z]([0-9a-z_])+$/i, "First Name may consist of a-z,begin with a letter." );
+                                bValid = bValid && checkRegexp( lastName, /^[a-z]([0-9a-z_])+$/i, "Last Name may consist of a-z, begin with a letter." );
+                                bValid = bValid && checkRegexp( dateOfBirth, /^(\d{1,2})-(\d{1,2})-(\d{4})+$/i, "Date Of Birth Should in the form of DD-MM-YYYY" );
+                                bValid = bValid && checkRegexp( nationality, /^[a-z]([0-9a-z_])+$/i, "Nationality may consist of a-z,begin with a letter." );
+                                // From jquery.validate.js (by joern), contributed by Scott Gonzalez: http://projects.scottsplayground.com/email_address_validation/
+                                bValid = bValid && checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@cmc.com" );
+                                bValid = bValid && checkRegexp( alternateEmail, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@cmc.com" );
+                                bValid = bValid && checkRegexp( mobileNumber, /^[0-9]+$/i, "Mobile Number may consist of 0-9,begin with a number." );
+                                bValid = bValid && checkRegexp( landPhone, /^[0-9]+$/i, "Land Phone may consist of 0-9,begin with a number." );
+                                bValid = bValid && checkRegexp( pin, /^[0-9]+$/i, "Pin may consist of 0-9,begin with a number." );
+                                
+                                setTimeout(function(){
+                     
+                                    if ( bValid ) {
+                                    
+                                        $.ajax({
+                        
+                                            type : "post",
+                                            url : $('#avtarDenHidden').val()+"/avtar",
+                                            data : $("#updateForm").serialize(),
+                                            success : function(response){
+                                        
+                                                if(response){
+                                                    
+                                                
+                                                    $("#firstNameText").empty()    
+                                                    $("#lastNameText").empty()
+                                                    $("#addressText").empty()
+                                                    $("#pinText").empty();
+                                                    $("#nationalityText").empty();
+                                                    $("#genderText").empty();
+                                                    $("#emailtext").empty();
+                                                    $("#mobileNumberText").empty();
+                                                    $("#landPhoneText").empty();
+                                                    $("#dateOfBirthText").empty();
+                                                
+                                                
+                                                    $("#firstNameText").append(document.createTextNode(response.firstName));
+                                                    $("#lastNameText").append(document.createTextNode(response.lastName));
+                                                    $("#addressText").append(document.createTextNode(response.address));
+                                                    $("#pinText").append(document.createTextNode(response.pin));
+                                                    $("#nationalityText").append(document.createTextNode(response.nationality));
+                                                    $("#genderText").append(document.createTextNode(response.gender));
+                                                    $("#emailtext").append(document.createTextNode(response.email+","+response.alternativeEmail));
+                                                    $("#mobileNumberText").append(document.createTextNode(response.mobile));
+                                                    $("#landPhoneText").append(document.createTextNode(response.landPhone));
+                                                    $("#dateOfBirthText").append(document.createTextNode(response.dateOfBirth));
+                                                
+                                                                              
+                                                    $( "#dialog-form-perInfo" ).dialog("close");
+                                                    $("#ajax_loading").css("display",'none');
+                                           
+                                                }
+                                        
+                                            }
+                                    
+                                        })
+                                   
+                                    }else{
+                                        $("#ajax_loading").css("display",'none');
+                                    }
+                                },2000);
+                            
+                            },
+                            "Cancel": function() {
+                                $( this ).dialog( "close" );
+                            }
+                       
+                        }
+                        
+                    });
+                    
+                });
+
+                
+                $( "#updateEdu" ).click(function(){
+                        
+                        
+                        var userId = $("#userId").val();
+                           $.ajax({
+
+                               type : "get",
+                               url : $('#avtarDenHidden').val()+"/avtar/updateEducationalQualifications",
+                               data : "id="+userId,
+                               success : function(response){
+                                   
+                                        alert(response);
+                                  }
+                                });
+                      
+
+                    $( "#dialog-form-eduQualification" ).css('display','block');
+                    $("#dialog-form-eduQualification").dialog({
+                        title: "Update Educational Qualifications",
+                        height: 590,
+                        width: 850,
+                         modal: true,
+                        resizable: false,
+                        zIndex : 800,
+                        buttons : {
+                            "Submit": function() {
+                                $(this).dialog('close');
+                            },"Cancel": function(){
+                                $(this).dialog('close');
+                            }
+                        }
+                        
+                    });
+                        
+                });
+                 
+                 
+                $( "#updateExp" ).click(function(){
+                
+                var userId = $("#userId").val();
+                            $.ajax({
+
+                                    type : "get",
+                                    url : $('#avtarDenHidden').val()+"/avtar/updateWorkExperience",
+                                    data : "id="+userId,
+                                    success : function(response){
+                                        
+                                        $("#updateTitle").val(response.title);
+                                        $("#updateTotalExp").val(response.totalExperience);
+                                        $("#enrollmentNumberExp").val(userId);
+                                        $("#updateKeySkills").val(response.keySkills);
+                                        $("#updateCurrentEmployer").val(response.currentEmployer);
+                                        $("#updateRole").val(response.role);
+                                        $("#updatePreviousEmployers").val(response.previousEmployer);
+
+                                    }
+                        });
+                
+                    $("#dialog-form-updateExperience").css('display', 'block');
+                    $("#dialog-form-updateExperience").dialog({
+                        title: "Update Experience",
+                        height: 450,
+                        width: 650, 
+                         modal: true,
+                        resizable: false,
+                        zIndex : 500,
+                        buttons : {
+                            "Update": function() {
+                                
+                                $.ajax({
+
+                                    type : "post",
+                                    url : $('#avtarDenHidden').val()+"/avtar/updateWorkExperience",
+                                    data : $("#updateWorkExperience").serialize(),
+                                    success : function(response){
+                                        
+                                        $("#ajax_loading_image").css("display",'block');
+                                        
+                                        setTimeout(function(){
+                                        
+                                        $("#profileTitleText").empty()    
+                                        $("#totalExperienceText").empty()
+                                        $("#keySkillsText").empty()
+                                        $("#currentEmployerText").empty();
+                                        $("#roleText").empty();
+                                        $("#previousEmployersText").empty();
+                                        
+                                        $("#profileTitleText").append(document.createTextNode(response.title));
+                                        $("#totalExperienceText").append(document.createTextNode(response.totalExperience));
+                                        $("#keySkillsText").append(document.createTextNode(response.keySkills));
+                                        $("#currentEmployerText").append(document.createTextNode(response.currentEmployer));
+                                        $("#roleText").append(document.createTextNode(response.role));
+                                        $("#previousEmployersText").append(document.createTextNode(response.previousEmployer));
+
+                                        $("#dialog-form-updateExperience").dialog( "close" );
+                                        $("#ajax_loading_image").css("display",'none');
+                                        },2000);
+                                    }
+                                    
+                                 });
+                                
+                            },
+                            "Cancel": function() {
+                                $( this ).dialog( "close" );
+                            }
+                       
+                        }
+                        
+                    });
+                    
                 });
         
         
