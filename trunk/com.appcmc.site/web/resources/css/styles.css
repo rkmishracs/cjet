@@ -1887,7 +1887,7 @@ html ul.tabs2 li.active a {
     color: #FF0000
 }
 
-#ajax_loading {
+#appHome_Ajax_Loading {
     position: relative;
     top:0px;
     left:30px;
