@@ -95,7 +95,7 @@
                         </div>    
                         <input type="hidden" id ="ctxPath" value="${pageContext.request.contextPath}"/>
 
-                        <div id="ajax_loading">
+                        <div id="appHome_Ajax_Loading">
                             <img align="absmiddle" src="resources/images/spinner.gif">&nbsp;Processing...
                         </div>
                     </sf:form>
