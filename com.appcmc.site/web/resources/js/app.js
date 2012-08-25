@@ -408,7 +408,7 @@ $(document).ready(function(){
          
          
          //Script for dailyReport.jsp
-         $("#studentDetail a").each(function(){
+         $("#studentDailyReport a").each(function(){
                     
                     $(this).mouseover(function(){
                         
@@ -444,7 +444,7 @@ $(document).ready(function(){
          
          
          //Script for monthlyReport.jsp
-         $("#studentDetail a").each(function(){
+         $("#studentMonthlyReport a").each(function(){
                     
                     $(this).mouseover(function(){
                         
@@ -480,7 +480,7 @@ $(document).ready(function(){
          
          
          //Script for weeklyReport.jsp
-         $("#studentDetail a").each(function(){
+         $("#studentWeeklyReport a").each(function(){
                     
                     $(this).mouseover(function(){
                         
