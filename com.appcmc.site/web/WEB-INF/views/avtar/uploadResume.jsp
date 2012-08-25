@@ -7,22 +7,10 @@
     <head>
         <title>Pridikt</title>
 
-
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" type="text/css" />
-        <style type="text/css">
-
-            .updateExDiv{
-                min-width: 350px;
-            }
-            span{
-                margin-right:  10px;
-            }
-
-
-        </style>
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
@@ -30,65 +18,9 @@
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
-
-        <style>
-            .dupSignDiv{
-                display: block;
-                min-height: 20px;
-                min-width: 400px;
-                padding: 9px 0 0;
-            }
-
-            .m600-v-head1{
-                border-bottom: 1px solid #B6C1CC;
-                float: left;
-                height: 10px;
-                line-height: 22px;
-                margin: 1 0 10px;
-                position: relative;
-                width: 800px;
-
-            }
-
-            #qualificationId{
-                left:48px;
-            }
-            #specializationId{
-                left:71px;
-            }
-            #yearOfPass{
-                left:58px;
-            }
-            #university{
-                left:91px;
-            }
-            #percentage{
-                left:17.5px;
-            }
-            #univ{
-                left:113px;
-            }
-            
-
-        </style>
-
-        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
-        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
-        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
-        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
-        <script
-        type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
-
-        <script>
-            
-          
-        </script>
-
-
+        
     </head>
     <body>
-       
-
        
         <div id="header">
             <div class="wrapper">
