@@ -20,7 +20,6 @@
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
         
-        
         <script> 
             
             $(document).ready(function(){
@@ -158,45 +157,34 @@
             
             
         </script>
-        
+                                                
         <style>
-            
             #changePasswordDiv{
-                position: relative;
-                display: none;      
-            }
-            
-            #changePasswordResponse{
-                position: absolute;
-                top: 6px;
-                left: 365px;
-                width: 300px;
-                height: 35px;
-                font-size: 11pt;
-                font-weight: bold;
-                display: none;
-                background-color: #74A027;
-            }
-            
-            .changePasswordSpan{
-                position:absolute;
-                top:7px;
-                left:32px;
-                width:245px;
-                color: #FFFFFF;
-            }
-            
-            #ajax_loading {
-                position: absolute;
-                top:245px;
-                left:30px;
-                width:100px;
-                display: none;
-                font-size: 12px;
-                font-family: Tahoma;
-            }
-        </style>
+    position: relative;
+    display: none;      
+}
 
+#changePasswordResponse{
+    position: absolute;
+    top: 6px;
+    left: 365px;
+    width: 300px;
+    height: 35px;
+    font-size: 11pt;
+    font-weight: bold;
+    display: none;
+    background-color: #74A027;
+}
+
+.changePasswordSpan{
+    position:absolute;
+    top:7px;
+    left:32px;
+    width:245px;
+    color: #FFFFFF;
+}
+        </style>
+        
     </head>
     <body>
         
