@@ -85,6 +85,7 @@ public class ReportsController {
         return "/master/monthlyReport";
     }
     
+    
     @RequestMapping(method= RequestMethod.GET, value="/weeklyReport")
     public String weeklyReport(WebRequest request){
         LOG.debug("=================In weeklyReports Controller");
