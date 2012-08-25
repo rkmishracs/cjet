@@ -11,7 +11,8 @@
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
-        <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
+        <link href="${pageContext.request.contextPath}/resources/css/newstyle.css" rel="stylesheet" type="text/css" />
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
@@ -222,15 +223,12 @@
                     </td> 
 
                     <td style="position:absolute ;top:211px;">
-                       
-                        
-                <div class ="dupSignDiv">
-                <label for="tags"><u><b>SSC:</b></u></label>
-                </div>      
-                        
-                        
-                   
-                           
+
+
+                        <div class ="dupSignDiv">
+                            <label for="tags"><u><b>SSC:</b></u></label>
+                        </div>      
+
                         <div class ="dupSignDiv">
                             <label for="tags">Year Of Passing</label>
                             <input class="inputStyle" type="text" id="yearOfPass" />
@@ -269,118 +267,109 @@
 
         <div id="dialog-form-updateExperience" style="display: none">
             <sf:form action="" method="POST" modelAttribute="updateWorkExperienceForm" id="updateWorkExperience">
-            <div class ="signDiv">
-                <label for="tags"><b>Profile </b></label>
-            </div>
-            <hr>
-                <div class ="signDiv"  >
-                    <label for="tags">Profile Title</label>
-                    <sf:input path="title" cssClass="updateExDiv" id="updateTitle"/>
-                    
+                <div class ="signDiv">
+                    <label for="tags"><b>Profile </b></label>
                 </div>
-                <div class ="signDiv"  >
-                    <label for="tags">Total Experience</label>
-                    <span style="float: left">
-                        <span style="float: left">Months</span>
-                        <sf:select path="totalExperienceMonths" cssStyle="float: left;">
-                            <sf:option value="0" cssStyle="min-width: 30px;"></sf:option>
-                            <sf:option value="1">1</sf:option>
-                            <sf:option value="2">2</sf:option>
-                            <sf:option value="3">3</sf:option>
-                            <sf:option value="4">4</sf:option>
-                            <sf:option value="5">5</sf:option>
-                            <sf:option value="6">6</sf:option>
-                            <sf:option value="7">7</sf:option>
-                            <sf:option value="8">8</sf:option>
-                            <sf:option value="9">9</sf:option>
-                            <sf:option value="10">10</sf:option>
-                            <sf:option value="11">11</sf:option>
-                        
-                        </sf:select>
-                    </span>
-                    <span style="float: left">
-                        <span style="float: left">Years</span>
-                        <sf:select path="totalExperienceYears" id="updateTotalExp" cssStyle="float: left">
-                            
-                            <sf:option value="0" cssStyle="min-width: 30px;"></sf:option>
-                            <sf:option value="1">1</sf:option>
-                            <sf:option value="2">2</sf:option>
-                            <sf:option value="3">3</sf:option>
-                            <sf:option value="4">4</sf:option>
-                            <sf:option value="5+">5+</sf:option>
-                            
-                        </sf:select>
-                    </span>
+                <hr>
+                    <div class ="signDiv"  >
+                        <label for="tags">Profile Title</label>
+                        <sf:input path="title" cssClass="updateExDiv" id="updateTitle"/>
 
-                </div>
-                <div class ="signDiv" >
-                    <label for="tags">Key Skills</label>
-                    <sf:input path="keySkills" cssClass="updateExDiv" id="updateKeySkills"/>
-                </div>
-                <div class ="signDiv" >
-                    <label for="tags">Current Employer</label>
-                    <sf:input path="currentEmployer" cssClass="updateExDiv" id="updateCurrentEmployer"/>
+                    </div>
+                    <div class ="signDiv"  >
+                        <label for="tags">Total Experience</label>
+                        <span style="float: left">
+                            <span style="float: left">Months</span>
+                            <sf:select path="totalExperienceMonths" cssStyle="float: left;">
+                                <sf:option value="0" cssStyle="min-width: 30px;"></sf:option>
+                                <sf:option value="1">1</sf:option>
+                                <sf:option value="2">2</sf:option>
+                                <sf:option value="3">3</sf:option>
+                                <sf:option value="4">4</sf:option>
+                                <sf:option value="5">5</sf:option>
+                                <sf:option value="6">6</sf:option>
+                                <sf:option value="7">7</sf:option>
+                                <sf:option value="8">8</sf:option>
+                                <sf:option value="9">9</sf:option>
+                                <sf:option value="10">10</sf:option>
+                                <sf:option value="11">11</sf:option>
 
-                </div>
-                <div class ="signDiv"  >
-                    <label for="tags">Role</label>
-                    <sf:input path="role" cssClass="updateExDiv" id="updateRole"/>
-                    <sf:hidden path="enrollmentNumber" id="enrollmentNumberExp"/>
+                            </sf:select>
+                        </span>
+                        <span style="float: left">
+                            <span style="float: left">Years</span>
+                            <sf:select path="totalExperienceYears" id="updateTotalExp" cssStyle="float: left">
 
-                </div>
-                <div class ="signDiv" >
-                    <label for="tags">Previous Employers</label>
-                    <sf:input path="previousEmployers"  cssClass="updateExDiv" id="updatePreviousEmployers"/>
+                                <sf:option value="0" cssStyle="min-width: 30px;"></sf:option>
+                                <sf:option value="1">1</sf:option>
+                                <sf:option value="2">2</sf:option>
+                                <sf:option value="3">3</sf:option>
+                                <sf:option value="4">4</sf:option>
+                                <sf:option value="5+">5+</sf:option>
 
-                </div>
-                    
-                <div  id="ajax_loading_image" style="position: relative;top: 20px; width: 150px; height: 30px;display: none">
-                    <img align="absmiddle" src="../resources/images/spinner.gif"/>&nbsp;<s:message code="lbl.update.processing"/>
-                </div>
-                
+                            </sf:select>
+                        </span>
+
+                    </div>
+                    <div class ="signDiv" >
+                        <label for="tags">Key Skills</label>
+                        <sf:input path="keySkills" cssClass="updateExDiv" id="updateKeySkills"/>
+                    </div>
+                    <div class ="signDiv" >
+                        <label for="tags">Current Employer</label>
+                        <sf:input path="currentEmployer" cssClass="updateExDiv" id="updateCurrentEmployer"/>
+
+                    </div>
+                    <div class ="signDiv"  >
+                        <label for="tags">Role</label>
+                        <sf:input path="role" cssClass="updateExDiv" id="updateRole"/>
+                        <sf:hidden path="enrollmentNumber" id="enrollmentNumberExp"/>
+
+                    </div>
+                    <div class ="signDiv" >
+                        <label for="tags">Previous Employers</label>
+                        <sf:input path="previousEmployers"  cssClass="updateExDiv" id="updatePreviousEmployers"/>
+
+                    </div>
+
+                    <div  id="ajax_loading_image" style="position: relative;top: 20px; width: 150px; height: 30px;display: none">
+                        <img align="absmiddle" src="../resources/images/spinner.gif"/>&nbsp;<s:message code="lbl.update.processing"/>
+                    </div>
+
                 </sf:form>
 
         </div>
 
-        <div id="header">
-            <div class="wrapper">
-                <div id="logo" class="grid_4 "><a href="index.html" tabindex="1"><img src="" width="112" height="34" alt="" /></a></div>
-                <div id="search">
-                    <!--      
-                            <form>
-                            <input id="searchfield" name="search-term" type="text" value="Search" tabindex="2" />
-                            <a href="somejavascript"><img src="../resources/images/design/transp.gif" width="22" height="22" alt="Search" /></a>
-                          </form>-->
-                </div>
-                <div id="nav"> <a href="${pageContext.request.contextPath}/avtar" class="home" tabindex="3">Home</a> <a href="${pageContext.request.contextPath}/sign-in/out" class="inbox" style="width:100px;">SignOut</a>
-                    <div class="profilewrapper">
-                        <!--        <div class="profile" onclick="MM_showHideLayers('profilemenu','','show')"><img class="profilethumb" src="../resources/images/design/user-thumb20.jpg" width="20" height="20" alt="Geoff Rego" title="Geoff Rego" /><span>Geoff Rego</span></div>-->
-                        <!-- Profile Menu starts here -->
-                        <div id="profilemenu" style="visibility: hidden">
-                            <div class="profilemenuwrapper">
-                                <div class="profile" onclick="MM_showHideLayers('profilemenu','','hide')"><img class="profilethumb" src="../resources/images/design/user-thumb20.jpg" width="20" height="20" alt="Geoff Rego" title="Geoff Rego" /><span>Geoff Rego</span></div>
-                                <a href="profile.htm">Public Profile</a> <a href="profile-edit.htm">Edit Profile</a> <a href="sign-out.htm">Sign-out</a> </div>
-                        </div>
-                        <!-- Profile Menu ends here --> 
 
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="clear"></div>
-        <div id="body">
+        <div id="body" style="background-color: white;margin: auto;width: 960px;">
+            <div class="logo" style="position: relative;top: -12px;">
+                <img src="resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" />
+            </div>
+
+            <div class="menu_nav">
+                <ul>
+                    <li class="active"><a href="${pageContext.request.contextPath}/avtar">Home</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
+                </ul>
+                <div class="clr"></div>
+            </div>
             <div class="wrapper">
                 <div id="body1" class="col"> 
 
 
                     <!--Begin Prediction Module-->
                     <div class="heading-review">
-                        <div class="prdktr"> <img src="${pageContext.request.contextPath}/picture?id=${student.enrollmentNumber}" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" /><span style="margin: 5px;border: 5px; "><a href="${pageContext.request.contextPath}/avtar/avtarPic">Edit Picture</a></span></div>
+                        <div class="prdktr"> <img src="${pageContext.request.contextPath}/picture?id=${student.enrollmentNumber}" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" /><span style="margin: 5px;border: 5px; "><a href="${pageContext.request.contextPath}/avtar/avtarPic">Edit Picture</a></span>
+                        </div>
                         <form id="prdkt-compose-form" style="float:left; margin:15px 0 0 5px;">
                             <label class="title" style="width:371px;"><span id="firstNameText">${student.firstName}</span>&nbsp;<span id="lastNameText" >${student.lastName}</span></label>
                             <div class="editLink"><a href="#" id="editPerInfo" class=""><s:message code="lbl.avatar.link.edit"/></a></div>
                             <input type="hidden" value="${student.enrollmentNumber}" id="userId"/>
-                            
+
                         </form>
                         <div class="name">
                             <s:message code="lbl.avatar.dateOfBirth"/><div id="dateOfBirthText" style="position: absolute;left: 180px;top: 71px;"><fmt:formatDate  dateStyle="default"  pattern="dd-MM-yyyy" value="${student.dateOfBirth}"/></div>
@@ -388,12 +377,12 @@
                                 <s:message code="lbl.avatar.gender"/><div id="genderText"style="position: absolute;top: 0px;left: 60px;">${student.gender}</div>
                             </div>
                         </div>
-                            
+
                     </div>
-                            
+
                     <!--Begin View Header-->
                     <div class="m600-v-head">
-                        
+
 
 
                     </div>
@@ -427,15 +416,15 @@
                     </div>
 
                     <!--End Pridikt Module-->
-                    
-                    
+
+
                     <div class="m600-prdkt">
                         <div class="prdktr"> <img src="../resources/images/work-experience.jpg" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
                             <div class="name" style="position: relative;left: 5px;">Experience</div>
 
                         </div>
                         <div class="prdkt-box">
-                            
+
                             <h3 style="font-size: 12.4px;font-weight: bolder;text-decoration: underline;">Work Experience<div style="position: absolute;left: 430px;top: 4px;"><a href="#" id="updateExp">Edit</a></div></h3>
 
                             <p>&nbsp;</p>
@@ -459,19 +448,19 @@
                                     <td>:</td>
                                     <td><h2 class="tags"><div id="keySkillsText" style="position: absolute;left: 130px;top: 77px;">${studentProfile.keySkills}</div></h2></td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td><h2 class="tags">Current Employer &nbsp;</h2></td>
                                     <td>:</td>
                                     <td><h2 class="tags"><div id="currentEmployerText" style="position: absolute;left: 130px;top: 96px;">${studentProfile.currentEmployer}</div></h2></td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td><h2 class="tags">Role &nbsp;</h2></td>
                                     <td>:</td>
                                     <td><h2 class="tags"><div id="roleText" style="position: absolute;left: 130px;top: 114px;">${studentProfile.role}</div></h2></td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td><h2 class="tags">Previous Employers &nbsp;</h2></td>
                                     <td>:</td>
@@ -479,11 +468,11 @@
                                 </tr>
 
                             </table>
-                            
+
                         </div>
-                        
+
                     </div>
-                    
+
 
                     <div class="m600-prdkt">
                         <div class="prdktr"> <img src="../resources/images/graduate.jpg" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
