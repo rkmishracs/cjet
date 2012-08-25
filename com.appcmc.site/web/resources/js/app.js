@@ -637,7 +637,7 @@ $(document).ready(function(){
                                 if (bValid) {
                                     // AJAX Call for Sign In
 					
-                            $('#ajax_loading').show();
+                            $('#appHome_Ajax_Loading').show();
                                     $.ajax({
                                         type : "POST",
                                         url : $('#appHomeHidden').val()+"/sign-in",
@@ -647,7 +647,7 @@ $(document).ready(function(){
 							
                                             $("#status").ajaxComplete(function(event,request,settings) {
 								
-                                                $('#ajax_loading').hide();
+                                                $('#appHome_Ajax_Loading').hide();
                                                 // For Master Response
                                                 if (response == 'master') {
 									
