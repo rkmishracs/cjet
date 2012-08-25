@@ -77,7 +77,7 @@
                         <h4>Number Of Students Enrolled Today : <c:out value="${fn:length(studentsDailyList)}"/></h4>
                         <div id="exportPdfDiv"><a class="button-h" href="#" id="exportToPdf"><span>Export To PDF</span></a></div>
                         <div style="height:5px;"></div>
-                        <table id="studentDetail" class="ui-widget ui-widget-content">
+                        <table id="studentDailyReport" class="ui-widget ui-widget-content">
                             <thead>
                                 <tr class="ui-widget-header ">
                                     <th>Enrollment Number</th>
