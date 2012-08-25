@@ -1910,7 +1910,7 @@ html ul.tabs2 li.active a {
     width: 310px;
 }
 
-/*CSS for avtarHome.jsp
+/*CSS for avtarHome.jsp*/
 #changePasswordDiv{
     position: relative;
     display: none;      
@@ -1944,7 +1944,7 @@ html ul.tabs2 li.active a {
     display: none;
     font-size: 12px;
     font-family: Tahoma;
-}*/
+}
 
 
 /*CSS for avtarDen.jsp, uploadResume.jsp*/
