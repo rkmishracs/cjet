@@ -55,25 +55,12 @@
                 <div id="ajax_loading">
                     <img align="absmiddle" src="resources/images/spinner.gif">&nbsp;<s:message code="lbl.txt.Processing"/>
                 </div>
+                
             </sf:form>
 
 
         </div>
-        <div class="logo" style="position: relative;top: -12px;">
-            <img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" />
-        </div>
-
-        <div class="menu_nav">
-            <ul>
-                <li class="active"><a href="${pageContext.request.contextPath}/master">Home</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
-            </ul>
-            <div class="clr"></div>
-        </div>
-
+        
         <!--
 
 <div id="header">
@@ -101,13 +88,29 @@
        </div>
    </div>
         -->   
-        <div id="changePasswordResponse">
+        
+       
+        <div class="clear"></div>
+        <div id="body" style="background-color: white;">
+            <div id="changePasswordResponse">
             <span class="changePasswordSpan"><s:message code="lbl.passwordChangedSuccessfully"/></span>
         </div>
 
+            <div class="logo" style="position: relative;top: -12px;">
+            <img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" />
         </div>
-        <div class="clear"></div>
-        <div id="body" style="background-color: white;">
+
+        <div class="menu_nav">
+            <ul>
+                <li class="active"><a href="${pageContext.request.contextPath}/master">Home</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
+            </ul>
+            <div class="clr"></div>
+        </div>
+
             <div class="wrapper">
                 <div id="body1" class="col"> 
                     <!--Begin Prediction Module-->
