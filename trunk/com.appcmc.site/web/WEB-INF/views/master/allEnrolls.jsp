@@ -11,6 +11,7 @@
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/resources/css/newstyle.css" rel="stylesheet" type="text/css" />
         
         <!-- Styles For Table with id studentDetail -->
         <style>
@@ -36,6 +37,23 @@
     </head>
 
     <body>
+        
+        <div class="logo" style="position: relative;top: -12px;">
+            <img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" />
+        </div>
+
+        <div class="menu_nav">
+            <ul>
+                <li class="active"><a href="${pageContext.request.contextPath}/master">Home</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
+            </ul>
+            <div class="clr"></div>
+        </div>
+        
+        <!--
 
         <div id="header">
             <div class="wrapper">
@@ -54,10 +72,10 @@
                         </div>
                         <!-- Profile Menu ends here --> 
 
-                    </div>
+                   <!-- </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="clear"></div>
         <div id="body">
             <div class="wrapper">
