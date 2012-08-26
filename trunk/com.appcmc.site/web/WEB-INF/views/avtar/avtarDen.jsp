@@ -24,6 +24,7 @@
 
     </head>
     <body>
+        
         <input type="hidden" id="avtarDenHidden" value="${pageContext.request.contextPath}" />
         <div id="dialog-form-perInfo" style="display:none;">
 
@@ -342,9 +343,9 @@
 
 
         <div class="clear"></div>
-        <div id="body" style="background-color: white;margin: auto;width: 960px;">
+        <div id="body" style="background-color: white;">
             <div class="logo" style="position: relative;top: -12px;">
-                <img src="resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" />
+                <img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" />
             </div>
 
             <div class="menu_nav">
@@ -357,6 +358,7 @@
                 </ul>
                 <div class="clr"></div>
             </div>
+            
             <div class="wrapper">
                 <div id="body1" class="col"> 
 
@@ -383,8 +385,6 @@
                     <!--Begin View Header-->
                     <div class="m600-v-head">
 
-
-
                     </div>
 
 
@@ -396,11 +396,30 @@
                         </div>
                         <!--Begin Pridiktion Info Box-->
                         <div class="prdkt-box">
-                            <h2 class="tags"><s:message code="lbl.avatar.address"/>&nbsp;<div id="addressText" style="position: absolute;left: 70px;top: 6px;">${contacts.address}</div></h2>
-                            <p>&nbsp;</p>
-                            <h2 class="tags"><s:message code="lbl.avatar.pin"/>&nbsp;<div id="pinText" style="position: absolute;left: 40px;top: 39px;">${contacts.pinCode}</div></h2>
-                            <p>&nbsp;</p>
-                            <h2 class="tags"><s:message code="lbl.avatar.nationality"/><div id="nationalityText" style="position: absolute;left: 80px;top: 73.5px;">${student.nationality}</div></h2>
+                            
+                            <table cellpadding="10" cellspacing="5">
+
+                                <tr style="position: ">
+                                    <td><h2 class="tags"><s:message code="lbl.avatar.address"/>&nbsp;</h2></td>
+                                    <td><h2 class="tags"><div id="addressText" style="position: relative;">${contacts.address}</div></h2></td>
+                                </tr>
+                               
+
+                                <tr>
+                                    <td><h2 class="tags"><s:message code="lbl.avatar.pin"/>&nbsp;</h2></td>
+                                    <td><h2 class="tags"><div id="pinText" style="position: relative;">${contacts.pinCode}</div></h2></td>
+                                </tr>
+
+                                <tr>
+                                    <td><h2 class="tags"><s:message code="lbl.avatar.nationality"/></h2></td>
+                                    
+                                    <td><h2 class="tags"><div id="keySkillsText" style="position: relative;">${student.nationality}</div></h2></td>
+                                </tr>
+                            </table>
+                            
+                            
+                            
+                            <h2 class="tags"><div id="nationalityText" style="position: absolute;left: 80px;top: 73.5px;"></div></h2>
                             <p>&nbsp;</p>
 
                             <ul class="info">
