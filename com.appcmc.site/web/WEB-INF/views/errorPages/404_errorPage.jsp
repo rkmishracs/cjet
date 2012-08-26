@@ -5,8 +5,9 @@
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
-        <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" type="text/css" />
-
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
+        <link href="${pageContext.request.contextPath}/resources/css/newstyle.css" rel="stylesheet" type="text/css" />
+        
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
@@ -14,38 +15,23 @@
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
         
+        
     </head>
     
     <body>
-        <div id="header">
-            <div class="wrapper">
-                <div id="logo" class="grid_4 "><a href="index.html" tabindex="1"><img src="" width="112" height="34" alt="" /></a></div>
+        <div class="logo" style="position: relative;top: -12px;">
+            <img src="resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" />
+        </div>
 
-                <div id="search">
-                    <!--      <form>
-                            <input id="searchfield" name="search-term" type="text" value="Search" tabindex="2" />
-                            <a href="somejavascript"><img src="resources/images/design/transp.gif" width="22" height="22" alt="Search" /></a>
-                          </form>-->
-                </div>
-
-                <div id="nav"> <a href="${pageContext.request.contextPath}/appHome" class="home" tabindex="3">Home</a> 
-                    <div class="profilewrapper">
-
-
-                        <!--<div class="profile" onclick="MM_showHideLayers('profilemenu','','show')"><img class="profilethumb" src="resources/images/design/user-thumb20.jpg" width="20" height="20" alt="Geoff Rego" title="Geoff Rego" /><span>Geoff Rego</span></div>-->
-                        <!-- Profile Menu starts here -->
-                        <div id="profilemenu" style="visibility: hidden">
-                            <div class="profilemenuwrapper">
-                                <div class="profile" onclick="MM_showHideLayers('profilemenu','','hide')"><img class="profilethumb" src="resources/images/design/user-thumb20.jpg" width="20" height="20" alt="Geoff Rego" title="Geoff Rego" /><span>Geoff Rego</span></div>
-                                <a href="profile.htm">Public Profile</a> <a href="profile-edit.htm">Edit Profile</a> <a href="sign-out.htm">Sign-out</a> </div>
-                        </div>
-
-
-                        <!-- Profile Menu ends here --> 
-
-                    </div>
-                </div>
-            </div>
+        <div class="menu_nav">
+            <ul>
+                <li class="active"><a href="${pageContext.request.contextPath}/appHome">Home</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#" id="signinLink">Sign In</a></li>
+            </ul>
+            <div class="clr"></div>
         </div>
         
         <div class="clear"></div>
