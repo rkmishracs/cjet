@@ -177,6 +177,7 @@ label {
     display: inline-block;
     position: relative;
     float: left;
+    color: black;
     clear: both;
     margin: 0px 0px 6px 0px;
     padding: 0px 10px 0px 0px;
@@ -624,11 +625,13 @@ ul.options li a:hover {
     clear: both;
     min-height: 600px;
     background: url(../images/flag_tile.jpg) repeat-x center top;
+    background-color: white;
 }
 #body1 {
     width: 600px;
     margin: 10px 20px 10px 10px;
     float: left;
+    
 }
 #body2 {
     width: 320px;
@@ -1362,7 +1365,7 @@ ul.tabs2 li a:hover {
     text-decoration: none;
 }
 html ul.tabs2 li.active { /*--Makes sure that the active tab does not listen to the hover properties--*/
-    background: #6d9920;
+    background: #6495ED;
     border-bottom: 1px solid #6d9920; /*--Makes the active tab look like it's connected with its content--*/
     border-top: solid 1px #CCC;
     border-left: solid 1px #CCC;
@@ -1998,4 +2001,7 @@ html ul.tabs2 li.active a {
 span{
     margin-right:  10px;
 }
-
+#exportToPdf{
+    position: relative;
+    top: 35px;
+}
