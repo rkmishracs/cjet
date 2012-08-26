@@ -52,7 +52,7 @@ $(document).ready(function(){
                     
              $("#changePasswordDiv").dialog({
                 title: "Change Password",                            
-                height: 370,
+                height: 380,
                 width: 450,
                 modal: true,
                 resizable: false,
@@ -617,7 +617,7 @@ $(document).ready(function(){
                     $dialog.css('display','block');
                     $dialog.dialog({
                         title: "Sign In",                            
-                        height: 340,
+                        height: 360,
                         width: 450,
                         modal: true,
                         zIndex: 500,
@@ -825,7 +825,7 @@ $(document).ready(function(){
                     
                     $("#changePasswordDiv").dialog({
                         title: "Change Password",                            
-                        height: 370,
+                        height: 400,
                         width: 450,
                         modal: true,
                         resizable: false,
@@ -1132,7 +1132,7 @@ $(document).ready(function(){
                         width: 850,
                          modal: true,
                         resizable: false,
-                        zIndex : 800,
+                        zIndex : 491,
                         buttons : {
                             "Submit": function() {
                                 $(this).dialog('close');
@@ -1174,7 +1174,7 @@ $(document).ready(function(){
                         width: 650, 
                          modal: true,
                         resizable: false,
-                        zIndex : 500,
+                        zIndex : 491,
                         buttons : {
                             "Update": function() {
                                 
