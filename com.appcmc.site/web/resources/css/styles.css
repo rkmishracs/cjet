@@ -1942,7 +1942,7 @@ html ul.tabs2 li.active a {
 
 #ajax_loading {
     position: absolute;
-    top:245px;
+    top:270px;
     left:30px;
     width:100px;
     display: none;
