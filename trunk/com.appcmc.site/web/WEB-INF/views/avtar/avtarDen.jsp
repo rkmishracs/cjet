@@ -24,7 +24,7 @@
 
     </head>
     <body>
-        
+
         <input type="hidden" id="avtarDenHidden" value="${pageContext.request.contextPath}" />
         <div id="dialog-form-perInfo" style="display:none;">
 
@@ -340,10 +340,8 @@
                 </sf:form>
 
         </div>
-
-
         <div class="clear"></div>
-        <div id="body" style="background-color: white;">
+        <div id="body">
             <div class="logo" style="position: relative;top: -12px;">
                 <img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" />
             </div>
@@ -358,11 +356,9 @@
                 </ul>
                 <div class="clr"></div>
             </div>
-            
+
             <div class="wrapper">
                 <div id="body1" class="col"> 
-
-
                     <!--Begin Prediction Module-->
                     <div class="heading-review">
                         <div class="prdktr"> <img src="${pageContext.request.contextPath}/picture?id=${student.enrollmentNumber}" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" /><span style="margin: 5px;border: 5px; "><a href="${pageContext.request.contextPath}/avtar/avtarPic">Edit Picture</a></span>
@@ -396,14 +392,14 @@
                         </div>
                         <!--Begin Pridiktion Info Box-->
                         <div class="prdkt-box">
-                            
-                            <table cellpadding="10" cellspacing="5">
 
-                                <tr style="position: ">
+                            <table>
+
+                                <tr>
                                     <td><h2 class="tags"><s:message code="lbl.avatar.address"/>&nbsp;</h2></td>
                                     <td><h2 class="tags"><div id="addressText" style="position: relative;">${contacts.address}</div></h2></td>
                                 </tr>
-                               
+
 
                                 <tr>
                                     <td><h2 class="tags"><s:message code="lbl.avatar.pin"/>&nbsp;</h2></td>
@@ -412,16 +408,11 @@
 
                                 <tr>
                                     <td><h2 class="tags"><s:message code="lbl.avatar.nationality"/></h2></td>
-                                    
-                                    <td><h2 class="tags"><div id="keySkillsText" style="position: relative;">${student.nationality}</div></h2></td>
+
+                                    <td><h2 class="tags"><div id="nationality" style="position: relative;">${student.nationality}</div></h2></td>
                                 </tr>
                             </table>
-                            
-                            
-                            
-                            <h2 class="tags"><div id="nationalityText" style="position: absolute;left: 80px;top: 73.5px;"></div></h2>
                             <p>&nbsp;</p>
-
                             <ul class="info">
                                 <li class="timestamp"><img src="../resources/images/email-icon.gif" width="12" height="9"/> <div id="emailtext" style="position: relative;top: -17px; left: 15px;">${contacts.email}, ${contacts.alternativeEmail}</div></li>
 
@@ -444,49 +435,48 @@
                         </div>
                         <div class="prdkt-box">
 
-                            <h3 style="font-size: 12.4px;font-weight: bolder;text-decoration: underline;">Work Experience<div style="position: absolute;left: 430px;top: 4px;"><a href="#" id="updateExp">Edit</a></div></h3>
+                            <div><h2 class="tags">Work Experience</h2></div><div style="position: absolute;left: 430px;top: 4px;"><a href="#" id="updateExp">Edit</a></div>
 
-                            <p>&nbsp;</p>
-
-                            <table cellpadding="10" cellspacing="5">
+                            <table id="workExperienceTable">
 
                                 <tr>
                                     <td><h2 class="tags">Profile Title &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="profileTitleText" style="position: absolute;left: 130px;top: 42px;">${studentProfile.title}</div></h2></td>
+                                    <td><h2 class="tags"><div id="profileTitleText">${studentProfile.title}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Total Experience &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="totalExperienceText" style="position: absolute;left: 130px;top: 60px;">${studentProfile.totalExperience}</div></h2></td>
+                                    <td><h2 class="tags"><div id="totalExperienceText">${studentProfile.totalExperience}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Key Skills &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="keySkillsText" style="position: absolute;left: 130px;top: 77px;">${studentProfile.keySkills}</div></h2></td>
+                                    <td><h2 class="tags"><div id="keySkillsText">${studentProfile.keySkills}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Current Employer &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="currentEmployerText" style="position: absolute;left: 130px;top: 96px;">${studentProfile.currentEmployer}</div></h2></td>
+                                    <td><h2 class="tags"><div id="currentEmployerText">${studentProfile.currentEmployer}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Role &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="roleText" style="position: absolute;left: 130px;top: 114px;">${studentProfile.role}</div></h2></td>
+                                    <td><h2 class="tags"><div id="roleText">${studentProfile.role}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Previous Employers &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="previousEmployersText" style="position: absolute;left: 130px;top: 133px;">${studentProfile.previousEmployer}</div></h2></td>
+                                    <td><h2 class="tags"><div id="previousEmployersText">${studentProfile.previousEmployer}</div></h2></td>
                                 </tr>
 
                             </table>
+                            &nbsp;
 
                         </div>
 
@@ -500,63 +490,60 @@
                         </div>
                         <div class="prdkt-box">
 
-                            <h3 style="font-size: 12.4px;font-weight: bolder;text-decoration: underline;">Highest Qualification<div style="position: absolute;left: 430px;top: 4px;"><a href="#" id="updateEdu">Edit</a></div></h3>
+                            <div><h2 class="tags">Highest Qualification</h2></div><div style="position: absolute;left: 430px;top: 4px;"><a href="#" id="updateEdu">Edit</a></div>
 
-                            <p>&nbsp;</p>
-
-                            <table cellpadding="10" cellspacing="5">
+                            <table id="highestQualificationTable">
 
                                 <tr>
                                     <td><h2 class="tags">Qualification Held &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 42px;">${educationalQualifications.fourQualification}</div></h2></td>
+                                    <td><h2 class="tags"><div id="fourQualification">${educationalQualifications.fourQualification}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Specialization &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 60px;">${educationalQualifications.fourSpecialization}</div></h2></td>
+                                    <td><h2 class="tags"><div id="fourSpecialization">${educationalQualifications.fourSpecialization}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">University &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 77px;">${educationalQualifications.fourUniversity}</div></h2></td>
+                                    <td><h2 class="tags"><div id="fourUniversity">${educationalQualifications.fourUniversity}</div></h2></td>
                                 </tr>
 
                             </table>
                             <p>&nbsp;</p>
                             <ul class="info">
-                                <li class="end"><div id="emailtext" style="position: relative; left: 4px;">Year Of Passing : ${educationalQualifications.fourYearOfPass}</div></li>
+                                <li class="end"><div id="emailtext"><div>Year Of Passing : </div><div>${educationalQualifications.fourYearOfPass}</div></div></li>
 
 
                                 <li><img src="../resources/images/symbol_percentage.jpg" width="16" height="13"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 25px;top: -18px;">${educationalQualifications.fourGrade}</div></li>
                             </ul>
+                        
 
-                            <div style="position: relative;float: left;width: 480px;height: 24px;line-height: 22px;border-bottom: solid 1px #B6C1CC;margin: 0px 0px 10px 0px;*.z-index: -1;z-index: 530;"></div>
-
-                            <h3 style="font-size: 12.4px;font-weight: bolder;text-decoration: underline;">2nd Highest Qualification</h3>
-
-                            <p>&nbsp;</p>
-
-                            <table cellpadding="10" cellspacing="5">
+                            <div id="line" ></div>
+                            
+                            <div><h2 class="tags">Second Highest Qualification</h2></div>
+                           
+                            <table id="highestQualificationTable">
 
                                 <tr>
                                     <td><h2 class="tags">Qualification Held &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 201px;">${educationalQualifications.threeQualification}</div></h2></td>
+                                    <td><h2 class="tags"><div id="threeQualification">${educationalQualifications.threeQualification}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Specialization &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 219px;">${educationalQualifications.threeSpecialization}</div></h2></td>
+                                    <td><h2 class="tags"><div id="threeSpecialization">${educationalQualifications.threeSpecialization}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">University &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 237px;">${educationalQualifications.threeUniversity}</div></h2></td>
+                                    <td><h2 class="tags"><div id="threeUniversity">${educationalQualifications.threeUniversity}</div></h2></td>
                                 </tr>
 
                             </table>
@@ -568,30 +555,28 @@
                                 <li><img src="../resources/images/symbol_percentage.jpg" width="20" height="13"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 25px;top: -18px;">${educationalQualifications.threeGrade}</div></li>
                             </ul>
 
-                            <div style="position: relative;float: left;width: 480px;height: 24px;line-height: 22px;border-bottom: solid 1px #B6C1CC;margin: 0px 0px 10px 0px;*.z-index: -1;z-index: 530;"></div>
+                            <div id="line"></div>
+                            
+                            <div><h2 class="tags">Intermediate(10+2)</h2></div>
 
-                            <h3 style="font-size: 12.4px;font-weight: bolder;text-decoration: underline;">Intermediate(10+2)</h3>
-
-                            <p>&nbsp;</p>
-
-                            <table cellpadding="10" cellspacing="5">
+                            <table id="highestQualificationTable">
 
                                 <tr>
                                     <td><h2 class="tags">Qualification Held &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 360px;">${educationalQualifications.twoQualification}</div></h2></td>
+                                    <td><h2 class="tags"><div id="twoQualification">${educationalQualifications.twoQualification}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Specialization &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 379px;">I.T</div></h2></td>
+                                    <td><h2 class="tags"><div id="twoSpecialization">I.T</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Board &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 130px;top: 396px;">${educationalQualifications.twoUniversity}</div></h2></td>
+                                    <td><h2 class="tags"><div id="twoUniversity">${educationalQualifications.twoUniversity}</div></h2></td>
                                 </tr>
 
                             </table>
@@ -602,18 +587,16 @@
                                 <li><img src="../resources/images/symbol_percentage.jpg" width="20" height="13"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 25px;top: -18px;">${educationalQualifications.twoGrade}</div></li>
                             </ul>
 
-                            <div style="position: relative;float: left;width: 480px;height: 24px;line-height: 22px;border-bottom: solid 1px #B6C1CC;margin: 0px 0px 10px 0px;*.z-index: -1;z-index: 530;"></div>
-
-                            <h3 style="font-size: 12.4px;font-weight: bolder;text-decoration: underline;">SSC(10th Class)</h3>
-
-                            <p>&nbsp;</p>
-
-                            <table cellpadding="10" cellspacing="5">
+                            <div id="line"></div>
+                            
+                            <div><h2 class="tags">SSC(10th Class)</h2></div>
+                            
+                            <table id="highestQualificationTable">
 
                                 <tr>
                                     <td><h2 class="tags">Board &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="qualificationHeld" style="position: absolute;left: 62px;top: 520px;">${educationalQualifications.oneQualification}</div></h2></td>
+                                    <td><h2 class="tags"><div id="oneQualification">${educationalQualifications.oneQualification}</div></h2></td>
                                 </tr>
 
 
@@ -638,6 +621,7 @@
                     </div>
                     <!--End Pridikt Module--> 
 
+
                 </div>
                 <div id="body2" class="col">
 
@@ -654,43 +638,44 @@
                     <br />
                     <br />
                 </div>
-            </div>
-        </div>
-        <div class="clear"></div>
-        </div>
-        </div>
-        <div id="footer">
-            <div class="wrapper">
-                <div id="footer1" class="col"> <span class="linkgroup">About Us</span>
-                    <ul>
-                        <li><a href="company.html">Our Company</a></li>
-                        <li><a href="team.html">Our Team</a></li>
-                        <li><a href="press.html">Press Coverage</a></li>
-                    </ul>
-                </div>
-                <div id="footer2" class="col"> <span class="linkgroup">Support</span>
-                    <ul>
-                        <li><a href="help.html">Help Center</a></li>
-                        <li><a href="what-is-a-pridiktion.html">What Is a Prediction?</a></li>
-                        <li><a href="how-to-prodikt.html">How to</a></li>
-                    </ul>
-                </div>
-                <div id="footer2" class="col"> <span class="linkgroup">Follow Us</span>
-                    <ul>
-                        <li><a href="pridikt-blog">Blog</a></li>
-                        <li><a href="pridikt-on-twitter.html">Twitter</a></li>
-                        <li><a href="pridikt-on-facebook.html">Facebook</a></li>
-                    </ul>
-                </div>
-                <div id="footer2" class="col"> <span class="linkgroup">Legal</span>
-                    <ul>
-                        <li><a href="pridikt-rules.html">Detailed Rules</a></li>
-                        <li><a href="terms.html">Terms and Conditions</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
 
             </div>
-        </div>
+            <div class="clear"></div>
+
+
+            <div id="footer">
+                <div class="wrapper">
+                    <div id="footer1" class="col"> <span class="linkgroup">About Us</span>
+                        <ul>
+                            <li><a href="company.html">Our Company</a></li>
+                            <li><a href="team.html">Our Team</a></li>
+                            <li><a href="press.html">Press Coverage</a></li>
+                        </ul>
+                    </div>
+                    <div id="footer2" class="col"> <span class="linkgroup">Support</span>
+                        <ul>
+                            <li><a href="help.html">Help Center</a></li>
+                            <li><a href="what-is-a-pridiktion.html">What Is a Prediction?</a></li>
+                            <li><a href="how-to-prodikt.html">How to</a></li>
+                        </ul>
+                    </div>
+                    <div id="footer2" class="col"> <span class="linkgroup">Follow Us</span>
+                        <ul>
+                            <li><a href="pridikt-blog">Blog</a></li>
+                            <li><a href="pridikt-on-twitter.html">Twitter</a></li>
+                            <li><a href="pridikt-on-facebook.html">Facebook</a></li>
+                        </ul>
+                    </div>
+                    <div id="footer2" class="col"> <span class="linkgroup">Legal</span>
+                        <ul>
+                            <li><a href="pridikt-rules.html">Detailed Rules</a></li>
+                            <li><a href="terms.html">Terms and Conditions</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
     </body>
 </html>
