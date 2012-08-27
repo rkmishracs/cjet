@@ -251,9 +251,9 @@ $(document).ready(function(){
                          
                      }
                      $("#tab1").css("display", "none");
-                     $("li:eq(0)").removeClass();
+                     $("#listOne").removeClass();
                      $("#tab2").css("display", "block");
-                     $("li:eq(1)").addClass("active");
+                     $("#listTwo").addClass("active");
                     
                 });
                 
@@ -288,11 +288,11 @@ $(document).ready(function(){
                     }
                     
                     $("#tab1").css("display", "none");
-                     $("li:eq(0)").removeClass();
+                     $("#listOne").removeClass();
                      $("#tab2").css("display", "none");
-                     $("li:eq(1)").removeClass();
+                     $("#listTwo").removeClass();
                      $("#tab3").css("display", "block");
-                     $("li:eq(2)").addClass("active");
+                     $("#listThree").addClass("active");
                     
                 });
                 
@@ -390,9 +390,9 @@ $(document).ready(function(){
           
                         });
                         $('#dialog').dialog({
-                            width: 360,
-                            height:230,
-                            position : [850,100]
+                            width: 320,
+                            height:270,
+                            position : [830,180]
                         });
 
                         $('#dialog').dialog('open');
@@ -426,9 +426,9 @@ $(document).ready(function(){
           
                         });
                         $('#dialog').dialog({
-                            width: 360,
-                            height:230,
-                            position : [850,100]
+                             width: 320,
+                            height:270,
+                            position : [830,180]
                         });
 
                         $('#dialog').dialog('open');
@@ -462,9 +462,9 @@ $(document).ready(function(){
           
                         });
                         $('#dialog').dialog({
-                            width: 360,
-                            height:230,
-                            position : [850,100]
+                            width: 320,
+                            height:270,
+                            position : [830,180]
                         });
 
                         $('#dialog').dialog('open');
@@ -498,9 +498,9 @@ $(document).ready(function(){
           
                         });
                         $('#dialog').dialog({
-                            width: 360,
-                            height:230,
-                            position : [850,100]
+                             width: 320,
+                            height:270,
+                            position : [830,180]
                         });
 
                         $('#dialog').dialog('open');
