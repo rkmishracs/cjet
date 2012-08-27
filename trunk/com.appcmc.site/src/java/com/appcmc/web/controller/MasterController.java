@@ -6,9 +6,13 @@ package com.appcmc.web.controller;
 import com.appcmc.context.id.names.ContextIdNames;
 import com.appcmc.domain.sub.AppUser;
 import com.appcmc.domain.sub.Contacts;
+import com.appcmc.domain.sub.EducationalQualifications;
 import com.appcmc.domain.sub.Student;
+import com.appcmc.domain.sub.StudentProfile;
 import com.appcmc.service.AppMailService;
 import com.appcmc.service.AppUserService;
+import com.appcmc.service.EducationalQualificationsService;
+import com.appcmc.service.StudentProfileService;
 import com.appcmc.service.StudentService;
 import com.appcmc.utils.AppCmcSpringContext;
 import com.appcmc.utils.AppContext;
@@ -41,10 +45,14 @@ public class MasterController {
     private Logger LOG = Logger.getLogger(MasterController.class);
     private StudentService studentService = null;
     private AppUserService appUserService = null;
+    private EducationalQualificationsService educationalQualificationsService = null;
     private Student student = null;
+    private StudentProfile studentProfile = null;
     private Contacts contacts = null;
     private AppUser appUser = null;
     private InputStream inputStream = null;
+    private EducationalQualifications educationalQualifications = null;
+    StudentProfileService studentProfileService= null;
 
     private AppMailService appMailService = null;
 
@@ -75,7 +83,8 @@ public class MasterController {
         appUserService = (AppUserService) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.APP_USER_SERVICE);
         
-       
+        educationalQualifications =(EducationalQualifications) AppContext.APPCONTEXT
+                .getBean(ContextIdNames.EDUCATIONAL_QUALIFICATIONS);
 
         student = (Student) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.STUDENT);
@@ -175,10 +184,67 @@ public class MasterController {
 
         appUserService.create(appUser);
         
+        
+        educationalQualifications.setEnrollmentNumber(enrollmentForm.getEnrollmentNumber());
+        educationalQualifications.setActive(new Short("1"));
+        educationalQualifications.setAdditionalQualification("Not filled");
+        educationalQualifications.setCreatedBy(1L);
+        educationalQualifications.setCreatedOn(date);
+        educationalQualifications.setFourGrade("Not Available");
+        educationalQualifications.setFourQualification("Not Available");
+        educationalQualifications.setFourSpecialization("Not Available");
+        educationalQualifications.setFourUniversity("Not Available");
+        educationalQualifications.setFourYearOfPass("Not Available");
+        educationalQualifications.setModifiedBy(1L);
+        educationalQualifications.setModifiedOn(date);
+        educationalQualifications.setOneGrade("Not Available");
+        educationalQualifications.setOneQualification("Not Available");
+        educationalQualifications.setOneUniversity("Not Available");
+        educationalQualifications.setOneYearOfPass("Not Available");
+        educationalQualifications.setThreeGrade("Not Available");
+        educationalQualifications.setThreeQualification("Not Available");
+        educationalQualifications.setThreeYearOfPass("Not Available");
+        educationalQualifications.setTwoGrade("Not Available");
+        educationalQualifications.setTwoQualification("Not Available");
+        educationalQualifications.setTwoUniversity("Not Available");
+        educationalQualifications.setTwoYearOfPass("Not Available");
+        
+        
+        educationalQualificationsService=(EducationalQualificationsService)AppContext.APPCONTEXT.getBean(ContextIdNames.EDUCATIONAL_QUALIFICATIONS_SERVICE);
+        
+        educationalQualificationsService.create(educationalQualifications);
+        
+        studentProfile =(StudentProfile) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE);
+        studentProfile.setActive(new Short("1"));
+        studentProfile.setCreatedBy(1L);
+        studentProfile.setCreatedOn(date);
+        studentProfile.setCurrentEmployer("Not updated");
+        studentProfile.setEnrollmentNumber(enrollmentForm.getEnrollmentNumber());
+        studentProfile.setKeySkills("Not updated");
+        studentProfile.setModifiedBy(1L);
+        studentProfile.setModifiedOn(date);
+        studentProfile.setPreviousEmployer("Not Updated");
+        studentProfile.setRole("Not updated");
+        studentProfile.setTitle("Not Updated");
+        studentProfile.setTotalExperience("Not Updated");
+        studentProfile.setResume(null);
+       
+        studentProfileService=(StudentProfileService)AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
+        studentProfileService.create(studentProfile);
+        
+        
+        
+        
+        
+        
+        
         //Sending EnrollmentNumber  to the Student through java mail
         appMailService = (AppMailService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_MAIL_SERVICE);
        
         appMailService.sendMail(appUser);
+        
+        
+        
         
 
        
