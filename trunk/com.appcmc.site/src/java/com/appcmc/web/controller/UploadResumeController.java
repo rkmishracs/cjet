@@ -14,8 +14,6 @@ import com.appcmc.utils.AppContext;
 import com.appcmc.web.forms.AvtarResumeForm;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.PrintWriter;
-import javax.servlet.http.HttpServletResponse;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
@@ -31,7 +29,6 @@ import org.apache.poi.hwpf.HWPFDocumentCore;
 
 import org.apache.poi.hwpf.converter.WordToHtmlConverter;
 import org.apache.poi.hwpf.converter.WordToHtmlUtils;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
