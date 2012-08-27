@@ -23,6 +23,7 @@ public class StudentProfileImpl implements StudentProfile {
     private String currentEmployer;
     private String role;
     private String previousEmployer;
+    private byte[] resume;
     private Date createdOn;
     private Long createdBy;
     private Date modifiedOn;
@@ -105,6 +106,14 @@ public class StudentProfileImpl implements StudentProfile {
         this.previousEmployer = previousEmployer;
     }
 
+    public byte[] getResume() {
+        return resume;
+    }
+
+    public void setResume(byte[] resume) {
+        this.resume = resume;
+    }
+
     public Date getCreatedOn() {
         return createdOn;
     }
@@ -145,38 +154,53 @@ public class StudentProfileImpl implements StudentProfile {
         this.active = active;
     }
 
-    @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("StudentProfileImpl [id=");
-        builder.append(id);
-        builder.append(", guid=");
-        builder.append(guid);
-        builder.append(", enrollmentNumber=");
-        builder.append(enrollmentNumber);
-        builder.append(", title=");
-        builder.append(title);
-        builder.append(", totalExperience=");
-        builder.append(totalExperience);
-        builder.append(", keySkills=");
-        builder.append(keySkills);
-        builder.append(", currentEmployer=");
-        builder.append(currentEmployer);
-        builder.append(", role=");
-        builder.append(role);
-        builder.append(", previousEmployer=");
-        builder.append(previousEmployer);
-        builder.append(", createdOn=");
-        builder.append(createdOn);
-        builder.append(", createdBy=");
-        builder.append(createdBy);
-        builder.append(", modifiedOn=");
-        builder.append(modifiedOn);
-        builder.append(", modifiedBy=");
-        builder.append(modifiedBy);
-        builder.append(", active=");
-        builder.append(active);
-        builder.append("]");
-        return builder.toString();
+        StringBuilder toStringBuilder = new StringBuilder();
+        toStringBuilder.append(super.toString());
+        toStringBuilder.append("\n");
+        toStringBuilder.append("\nid: ");
+        toStringBuilder.append(id);
+        toStringBuilder.append("\nguid: ");
+        toStringBuilder.append(guid);
+        toStringBuilder.append("\nenrollmentNumber: ");
+        toStringBuilder.append(enrollmentNumber);
+        toStringBuilder.append("\ntitle: ");
+        toStringBuilder.append(title);
+        toStringBuilder.append("\ntotalExperience: ");
+        toStringBuilder.append(totalExperience);
+        toStringBuilder.append("\nkeySkills: ");
+        toStringBuilder.append(keySkills);
+        toStringBuilder.append("\ncurrentEmployer: ");
+        toStringBuilder.append(currentEmployer);
+        toStringBuilder.append("\nrole: ");
+        toStringBuilder.append(role);
+        toStringBuilder.append("\npreviousEmployer: ");
+        toStringBuilder.append(previousEmployer);
+        toStringBuilder.append("\nresume: ");
+        if (resume != null) {
+            toStringBuilder.append("\nSize: ");
+            toStringBuilder.append(resume.length);
+            for (int i = 0; i < resume.length; ++i) {
+                toStringBuilder.append("\nIndex ");
+                toStringBuilder.append(i);
+                toStringBuilder.append(": ");
+                toStringBuilder.append(resume[i]);
+            }
+        } else {
+            toStringBuilder.append("NULL");
+        }
+        toStringBuilder.append("\ncreatedOn: ");
+        toStringBuilder.append(createdOn);
+        toStringBuilder.append("\ncreatedBy: ");
+        toStringBuilder.append(createdBy);
+        toStringBuilder.append("\nmodifiedOn: ");
+        toStringBuilder.append(modifiedOn);
+        toStringBuilder.append("\nmodifiedBy: ");
+        toStringBuilder.append(modifiedBy);
+        toStringBuilder.append("\nactive: ");
+        toStringBuilder.append(active);
+        return toStringBuilder.toString();
     }
+
+  
 }
