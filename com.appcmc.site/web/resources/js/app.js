@@ -50,9 +50,9 @@ $(document).ready(function(){
                 }
             }
                     
-             $("#changePasswordDiv").dialog({
+             $("#changePasswordAdminDiv").dialog({
                 title: "Change Password",                            
-                height: 380,
+                height: 400,
                 width: 450,
                 modal: true,
                 resizable: false,
@@ -85,13 +85,13 @@ $(document).ready(function(){
                             $("#confirmPassword").removeClass( "ui-state-error" );
                             $.ajax({
                                 type : "post",
-                                url : $('#adminChangePasswordHidden').val()+"/master/changePassword",
+                                url : $("#adminChangePasswordHidden").val()+"/master/changePassword",
                                 data : $("#changePasswordForm").serialize(),
                                 success : function(response){
                                     if(response == 'success'){
                                         setTimeout(function(){
                                         $('#ajax_loading').hide();
-                                        $("#changePasswordDiv").dialog( "close" );
+                                        $("#changePasswordAdminDiv").dialog( "close" );
                                         $("#changePasswordResponse").css("display", "block");
                                             if($("#changePasswordResponse").css("display", "block")){
                                                 setTimeout(function(){
