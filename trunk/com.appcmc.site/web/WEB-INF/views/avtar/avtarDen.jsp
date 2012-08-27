@@ -343,7 +343,7 @@
         <div class="clear"></div>
         <div id="body">
             <div class="logo" style="position: relative;top: -12px;">
-                <img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" />
+                <a href="${pageContext.request.contextPath}/avtar"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" /></a>
             </div>
 
             <div class="menu_nav">
@@ -410,7 +410,7 @@
                                 <tr>
                                     <td><h2 class="tags"><s:message code="lbl.avatar.nationality"/></h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="nationality">${student.nationality}</div></h2></td>
+                                    <td><h2 class="tags"><div id="nationalityText">${student.nationality}</div></h2></td>
                                 </tr>
 
                             </table>

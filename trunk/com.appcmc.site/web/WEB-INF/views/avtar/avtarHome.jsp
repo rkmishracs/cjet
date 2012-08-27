@@ -67,7 +67,7 @@
         <div class="clear"></div>
         <div id="body" style="background-color: white;">
             <div class="logo" style="position: relative;top: -12px;">
-            <img src="resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" />
+            <a href="${pageContext.request.contextPath}/avtar"><img src="resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" /></a>
         </div>
 
         <div class="menu_nav">
