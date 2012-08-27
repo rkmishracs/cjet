@@ -1332,7 +1332,7 @@ ul.tabs2 {
     float: left;
     list-style: none;
     height: 31px; /*--Set height of tabs--*/
-    border-bottom: 3px solid #6d9920;
+    border-bottom: 3px solid #6B9EDD;
     width: 100%;
 }
 ul.tabs2 li {
@@ -1365,8 +1365,8 @@ ul.tabs2 li a:hover {
     text-decoration: none;
 }
 html ul.tabs2 li.active { /*--Makes sure that the active tab does not listen to the hover properties--*/
-    background: #6495ED;
-    border-bottom: 1px solid #6d9920; /*--Makes the active tab look like it's connected with its content--*/
+    background: #6B9EDD;
+    border-bottom: 1px solid #6B9EDD; /*--Makes the active tab look like it's connected with its content--*/
     border-top: solid 1px #CCC;
     border-left: solid 1px #CCC;
     border-right: solid 1px #CCC;
