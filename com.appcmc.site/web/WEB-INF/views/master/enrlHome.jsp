@@ -89,9 +89,9 @@
                         <sf:form method="POST" action="" modelAttribute="enrollmentForm" id="enrollmentForm">
                             <div class="container">
                                 <ul class="options tabs2">
-                                    <li><a href="#tab1"><s:message code="lbl.enrollment.tabl"/></a></li>
-                                    <li><a href="#tab2"><s:message code="lbl.enrollment.tab2"/></a></li>
-                                    <li><a href="#tab3"><s:message code="lbl.enrollment.tab3"/></a></li>
+                                    <li id="listOne"><a href="#tab1"><s:message code="lbl.enrollment.tabl"/></a></li>
+                                    <li id="listTwo"><a href="#tab2"><s:message code="lbl.enrollment.tab2"/></a></li>
+                                    <li id="listThree"><a href="#tab3"><s:message code="lbl.enrollment.tab3"/></a></li>
 
                                 </ul>
 
