@@ -630,6 +630,7 @@
 
                             <li class="current"><a href="#">My Profile</a></li>
                             <li><a href="${pageContext.request.contextPath}/resume">Upload Resume</a></li>
+                            <li><a href="#">View Resume Details</a></li>
 
                         </ul>
                     </div>
