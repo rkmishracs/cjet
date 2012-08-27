@@ -90,6 +90,7 @@
                         <!-- Forgot Password Label -->
                         <ul class="options tabs2" id="lblForgot">
                             <li><a href="#tab1" id="lblTag">Upload Resume</a></li>
+                            
                         </ul>
                         <div class="tab_container2">
 
@@ -140,6 +141,7 @@
                         <ul>
 
                             <li class="current"><a href="#">Upload Resume</a></li>
+                            <li><a href="#" id="">View Resume Details</a></li>
                             
 
                         </ul>
