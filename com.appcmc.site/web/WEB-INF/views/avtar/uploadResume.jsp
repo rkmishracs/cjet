@@ -96,19 +96,18 @@
 
 
                             <div id="tab1" class="tab_content2">
-
-
+                                <sf:form modelAttribute="avtarResumeForm" action="" method="POST" enctype="multipart/form-data">
+                                    <sf:hidden path="enrollmentNumber" value="${student.enrollmentNumber}"/>
                                 <div class="st-blocked2" style="position: relative;left: 150px;" class="fileinputs">
-
+                                    
                                     <label for="tags">Upload Resume</label>
-                                    <input type="file" class="input">
+                                    <sf:input type="file" path ="resumeDoc" class="input"/>
                                     <br/>
                                     <br/>
-                                    <a id="saveEnrl" class="button-h" href=""style="position: absolute;left:180px;width: 100px;">
-                                        <span>Upload</span>
-                                    </a>
+                                    <input type="submit" value="Upload" class="button-h" style="position: absolute;left:180px;width: 100px;"/>
+                                   
                                 </div>
-                                
+                                </sf:form>
                             </div>
                         </div>
                     </div>
@@ -141,7 +140,7 @@
                         <ul>
 
                             <li class="current"><a href="#">Upload Resume</a></li>
-                            <li><a href="#" id="">View Resume Details</a></li>
+                            <li><a href="${pageContext.request.contextPath}/resume/view" id="">View Resume Details</a></li>
                             
 
                         </ul>
