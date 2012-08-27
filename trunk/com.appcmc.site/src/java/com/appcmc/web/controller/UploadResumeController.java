@@ -130,19 +130,23 @@ public class UploadResumeController {
     @RequestMapping(method = RequestMethod.POST)
     public String postResume(@ModelAttribute AvtarResumeForm avtarResumeForm) {
 
-        LOG.debug("================in Post Resume");
+        AppCmcSpringContext.init();
+        LOG.debug("================in Post Resume"+avtarResumeForm.getEnrollmentNumber());
         String enrollmentNumber = avtarResumeForm.getEnrollmentNumber();
         studentProfileService = (StudentProfileService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
         studentProfile = studentProfileService.findStudentProfileByEnrollmentNumber(enrollmentNumber);
 
         if (studentProfile == null) {
             // TO DO
+            
+            LOG.debug("====================Student Profile Null");
             return "";
         }
 
 
         byte[] resume = avtarResumeForm.getResumeDoc().getBytes();
 
+        LOG.debug("Bytes ================="+resume.length);
         studentProfile.setId(studentProfile.getId());
         studentProfile.setGuid(studentProfile.getGuid());
         studentProfile.setEnrollmentNumber(studentProfile.getEnrollmentNumber());
