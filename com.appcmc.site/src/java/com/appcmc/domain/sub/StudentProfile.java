@@ -40,4 +40,8 @@ public interface StudentProfile extends Domain{
     
     String getPreviousEmployer();
     
+    public void setResume(byte[] resume);
+    
+    public byte[] getResume();
+    
 }
