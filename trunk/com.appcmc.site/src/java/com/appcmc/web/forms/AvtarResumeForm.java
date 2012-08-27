@@ -11,7 +11,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
  * @author Sudarsan
  */
 public class AvtarResumeForm {
-    
+
     private String enrollmentNumber;
     private CommonsMultipartFile resumeDoc;
 
