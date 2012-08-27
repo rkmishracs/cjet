@@ -1139,7 +1139,7 @@ ul.options li a:hover {
     clear: both;
     padding-top: 20px;
     height: 80px;
-    background: #6495ED;
+    background: #6B9EDD;
     color: black;
     font-size: 12px;
 }
@@ -1801,9 +1801,8 @@ html ul.tabs2 li.active a {
 
 
 /*CSS for masterHome.jsp*/
-#changePasswordDiv{
-    position: relative;
-    display: none;      
+#changePasswordAdminDiv{
+    display: none;
 }
 
 #changePasswordResponse{
@@ -2004,4 +2003,95 @@ span{
 #exportToPdf{
     position: relative;
     top: 35px;
+}
+#profileTitleText{
+    position: relative;
+    left: 50px;
+    
+}
+#totalExperienceText{
+    position: relative;
+    left: 50px;
+    
+}
+#keySkillsText{
+    position: relative;
+    left: 50px;
+    
+}
+#currentEmployerText{
+   position: relative;
+   left: 50px;
+   
+}
+#roleText{
+    position: relative;
+    left: 50px;
+   
+}
+#previousEmployersText{
+    position: relative;
+    left: 50px;
+    
+}
+#highestQualificationTable{
+    position: relative;
+    top: 10px;
+}
+#fourQualification{
+    position: relative;
+    left: 50px;
+}
+#fourSpecialization{
+    position: relative;
+    left: 50px;
+}
+#fourUniversity{
+    position: relative;
+    left: 50px;
+}
+#threeQualification{
+    position: absolute;
+    left: 142px;
+    top: 5px;
+}
+#threeSpecialization{
+    position: absolute;
+    top: 27px;
+    left: 142px;
+}
+#threeUniversity{
+    position: absolute;
+    top: 48px;
+    left: 142px;
+}
+#line{
+    position: relative;
+    float: left;
+    width: 480px;
+    height: 24px;
+    line-height: 22px;
+    border-bottom: solid 1px #B6C1CC;
+    margin: 0px 0px 10px 0px;
+    z-index: 530;
+}
+#twoQualification{
+    position: relative;
+    left: 50px;
+}
+#twoSpecialization{
+    position: relative;
+    left: 50px;
+}
+#twoUniversity{
+    position: relative;
+    left: 50px;
+}
+#oneQualification{
+    position: relative;
+    left: 50px;
+}
+#workExperienceTable{
+    position: relative;
+    top: 10px;
 }
