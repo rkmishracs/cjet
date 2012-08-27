@@ -387,30 +387,32 @@
                     <div class="m600-prdkt"> 
 
                         <div class="prdktr"> <img src="../resources/images/contacts.png" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
-                            <div class="name"><s:message code="lbl.avatar.contactDetails"/></div>
+                            <div id="contactDetails" class="name"><s:message code="lbl.avatar.contactDetails"/></div>
 
                         </div>
                         <!--Begin Pridiktion Info Box-->
                         <div class="prdkt-box">
-
-                            <table>
+                            
+                            <table id="workExperienceTable">
 
                                 <tr>
                                     <td><h2 class="tags"><s:message code="lbl.avatar.address"/>&nbsp;</h2></td>
-                                    <td><h2 class="tags"><div id="addressText" style="position: relative;">${contacts.address}</div></h2></td>
+                                    <td>:</td>
+                                    <td><h2 class="tags"><div id="addressText">${contacts.address}</div></h2></td>
                                 </tr>
-
-
+                                
                                 <tr>
                                     <td><h2 class="tags"><s:message code="lbl.avatar.pin"/>&nbsp;</h2></td>
-                                    <td><h2 class="tags"><div id="pinText" style="position: relative;">${contacts.pinCode}</div></h2></td>
+                                    <td>:</td>
+                                    <td><h2 class="tags"><div id="pinText">${contacts.pinCode}</div></h2></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags"><s:message code="lbl.avatar.nationality"/></h2></td>
-
-                                    <td><h2 class="tags"><div id="nationality" style="position: relative;">${student.nationality}</div></h2></td>
+                                    <td>:</td>
+                                    <td><h2 class="tags"><div id="nationality">${student.nationality}</div></h2></td>
                                 </tr>
+
                             </table>
                             <p>&nbsp;</p>
                             <ul class="info">
@@ -421,10 +423,8 @@
                             </ul>
 
                         </div>
-                        <!--End Pridiktion Info Box--> 
 
                     </div>
-
                     <!--End Pridikt Module-->
 
 
@@ -435,7 +435,7 @@
                         </div>
                         <div class="prdkt-box">
 
-                            <div><h2 class="tags">Work Experience</h2></div><div style="position: absolute;left: 430px;top: 4px;"><a href="#" id="updateExp">Edit</a></div>
+                            <div><h2 class="tags" id="profileHeading">Work Experience</h2></div><div style="position: absolute;left: 430px;top: 4px;"><a href="#" id="updateExp">Edit</a></div>
 
                             <table id="workExperienceTable">
 
@@ -485,12 +485,12 @@
 
                     <div class="m600-prdkt">
                         <div class="prdktr"> <img src="../resources/images/graduate.jpg" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
-                            <div class="name">Educational Qualifications</div>
+                            <div class="name" id="educationalQualifications">Educational Qualifications</div>
 
                         </div>
                         <div class="prdkt-box">
 
-                            <div><h2 class="tags">Highest Qualification</h2></div><div style="position: absolute;left: 430px;top: 4px;"><a href="#" id="updateEdu">Edit</a></div>
+                            <div><h2 class="tags" id="profileHeading">Highest Qualification</h2></div><div style="position: absolute;left: 430px;top: 4px;"><a href="#" id="updateEdu">Edit</a></div>
 
                             <table id="highestQualificationTable">
 
@@ -524,7 +524,7 @@
 
                             <div id="line" ></div>
                             
-                            <div><h2 class="tags">Second Highest Qualification</h2></div>
+                            <div><h2 class="tags" id="profileHeading">Second Highest Qualification</h2></div>
                            
                             <table id="highestQualificationTable">
 
@@ -557,7 +557,7 @@
 
                             <div id="line"></div>
                             
-                            <div><h2 class="tags">Intermediate(10+2)</h2></div>
+                            <div><h2 class="tags" id="profileHeading">Intermediate(10+2)</h2></div>
 
                             <table id="highestQualificationTable">
 
@@ -589,7 +589,7 @@
 
                             <div id="line"></div>
                             
-                            <div><h2 class="tags">SSC(10th Class)</h2></div>
+                            <div><h2 class="tags" id="profileHeading">SSC(10th Class)</h2></div>
                             
                             <table id="highestQualificationTable">
 
@@ -634,9 +634,6 @@
 
                         </ul>
                     </div>
-                    <br />
-                    <br />
-                    <br />
                     <br />
                 </div>
 
