@@ -189,6 +189,8 @@ public class MasterController {
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST, value = "/changePassword")
     public String changePasswordAction(@ModelAttribute ChangePasswordForm changePasswordForm) {
+        
+        LOG.debug("===============In changePasswordAction Post");
 
 
         String userName = changePasswordForm.getUserName();
@@ -198,7 +200,7 @@ public class MasterController {
 
         appUserService = (AppUserService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_USER_SERVICE);
 
-        LOG.debug("===============In changePasswordAction Post");
+        
             
         appUser = appUserService.authenticate(userName, currentPassword);
         
