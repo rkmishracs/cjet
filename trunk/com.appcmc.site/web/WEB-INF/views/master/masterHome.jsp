@@ -91,8 +91,8 @@
         <div class="clear"></div>
         <div id="body" style="background-color: white;">
             <div id="changePasswordResponse">
-            <span class="changePasswordSpan"><s:message code="lbl.passwordChangedSuccessfully"/></span>
-        </div>
+                <span class="changePasswordSpan"><s:message code="lbl.passwordChangedSuccessfully"/></span>
+            </div>
 
             <div class="logo" style="position: relative;top: -12px;">
             <img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" />
