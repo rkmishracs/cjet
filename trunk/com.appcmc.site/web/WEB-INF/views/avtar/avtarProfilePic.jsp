@@ -21,8 +21,8 @@
 
     </head>
     <body>
-        <div class="logo" style="position: relative;top: -12px;">
-            <a href="${pageContext.request.contextPath}/avtar"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="112" height="64" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" /></a>
+        <div class="logo" style="position: relative;top: 5px; left: 15px;">
+            <a href="${pageContext.request.contextPath}/avtar"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
             </div>
 
             <div class="menu_nav">
@@ -35,33 +35,6 @@
                 </ul>
                 <div class="clr"></div>
             </div>
-                <!--
-        <div id="header">
-            <div class="wrapper">
-                <div id="logo" class="grid_4 "><a href="index.html" tabindex="1"><img src="" width="112" height="34" alt="" /></a></div>
-                <div id="search">
-                    <!--      
-                            <form>
-                            <input id="searchfield" name="search-term" type="text" value="Search" tabindex="2" />
-                            <a href="somejavascript"><img src="../resources/images/design/transp.gif" width="22" height="22" alt="Search" /></a>
-                          </form>-->
-               <!-- </div>
-                <div id="nav"> <a href="${pageContext.request.contextPath}/avtar" class="home" tabindex="3">Home</a> <a href="${pageContext.request.contextPath}/sign-in/out" class="inbox" style="width:100px;">SignOut</a>
-                    <div class="profilewrapper">
-                        <!--        <div class="profile" onclick="MM_showHideLayers('profilemenu','','show')"><img class="profilethumb" src="../resources/images/design/user-thumb20.jpg" width="20" height="20" alt="Geoff Rego" title="Geoff Rego" /><span>Geoff Rego</span></div>-->
-                        <!-- Profile Menu starts here -->
-                     <!--   <div id="profilemenu" style="visibility: hidden">
-                            <div class="profilemenuwrapper">
-                                <div class="profile" onclick="MM_showHideLayers('profilemenu','','hide')"><img class="profilethumb" src="../resources/images/design/user-thumb20.jpg" width="20" height="20" alt="Geoff Rego" title="Geoff Rego" /><span>Geoff Rego</span></div>
-                                <a href="profile.htm">Public Profile</a> <a href="profile-edit.htm">Edit Profile</a> <a href="sign-out.htm">Sign-out</a> </div>
-                        </div>
-                        <!-- Profile Menu ends here --> 
-<!--
-                    </div>
-                </div>
-            </div>
-        </div>--> 
-
         <div id="body">
             <div class="wrapper">
                 <div id="body1" class="col"> 
