@@ -60,7 +60,7 @@ p.spec {
 }
 a {
 	color:#97c950;
-	text-decoration:underline;
+	
 }
 a.rm, a.com {
 	padding:0;
@@ -120,7 +120,7 @@ a.rm, a.com {
 }
 .menu_nav ul li.active a, .menu_nav ul li a:hover {
 	text-decoration:none;
-	background:#6495ED;
+	background:#6B9EDD;
 }
 .content {
 	padding:13px;
