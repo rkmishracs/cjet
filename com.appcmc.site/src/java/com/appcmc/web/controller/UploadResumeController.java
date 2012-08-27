@@ -115,6 +115,8 @@ public class UploadResumeController {
             out.close();
 
             String result = new String(out.toByteArray());
+            
+            LOG.debug(result);
 
             request.setAttribute("paras", result, WebRequest.SCOPE_REQUEST);
         } catch (Exception exception) {
