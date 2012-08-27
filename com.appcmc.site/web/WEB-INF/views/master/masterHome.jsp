@@ -23,14 +23,12 @@
 
 
     <body>
-
-        <div id="changePasswordDiv" class="signDiv">
+        <input type="hidden" id="adminChangePasswordHidden" value="${pageContext.request.contextPath}"/>
+        <div id="changePasswordAdminDiv" class="signDiv">
 
             <p class="validateTips"><s:message code="lbl.signin.allFieldsAreRequire"/></p>
 
             <sf:form method="post" action="${pageContext.request.contextPath}/changePassword" modelAttribute="changePasswordForm" id="changePasswordForm">
-
-                <sf:hidden path="" id="adminChangePasswordHidden" value="${pageContext.request.contextPath}" />
 
                 <div class="signDiv">
 
