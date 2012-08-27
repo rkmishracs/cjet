@@ -727,7 +727,7 @@ ul.options li a:hover {
     background: url(../images/design/module-back.png) repeat-x left bottom;
 }
 .m600-prdkt .prdkt-box .tags {
-    font-size: 11px;
+    font-size: 12px;
     margin: 0px;
     padding: 0px;
 }
@@ -2043,18 +2043,18 @@ span{
 }
 #threeQualification{
     position: absolute;
-    left: 142px;
-    top: 5px;
+    left: 150px;
+    top: 3px;
 }
 #threeSpecialization{
     position: absolute;
-    top: 27px;
-    left: 142px;
+    top: 25px;
+    left: 150px;
 }
 #threeUniversity{
     position: absolute;
-    top: 48px;
-    left: 142px;
+    top: 46px;
+    left: 150px;
 }
 #line{
     position: relative;
@@ -2085,4 +2085,32 @@ span{
 #workExperienceTable{
     position: relative;
     top: 10px;
+}
+#contactDetails{
+    position: relative;
+    left: -8px;
+    text-align: center;
+    width: 90px;
+}
+#profileHeading{
+    font-weight: 900;
+    text-decoration: underline;
+}
+#educationalQualifications{
+    position: relative;
+    left: -11px;
+    text-align: center;
+    width: 100px;
+}
+#addressText{
+    position: relative;
+    left: 50px;
+}
+#nationality{
+    position: relative;
+    left: 50px;
+}
+#pinText{
+    position: relative;
+    left: 50px;
 }
