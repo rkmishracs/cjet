@@ -53,12 +53,12 @@
                 <div id="ajax_loading">
                     <img align="absmiddle" src="resources/images/spinner.gif">&nbsp;<s:message code="lbl.txt.Processing"/>
                 </div>
-                
+
             </sf:form>
 
 
         </div>
-       
+
         <div class="clear"></div>
         <div id="body" style="background-color: white;">
             <div id="changePasswordResponse">
@@ -67,18 +67,18 @@
 
             <div class="logo" style="position: relative;top: 5px; left: 15px;">
                 <a href="${pageContext.request.contextPath}/master"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
-        </div>
+            </div>
 
-        <div class="menu_nav">
-            <ul>
-                <li class="active"><a href="${pageContext.request.contextPath}/master">Home</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
-            </ul>
-            <div class="clr"></div>
-        </div>
+            <div class="menu_nav">
+                <ul>
+                    <li class="active"><a href="${pageContext.request.contextPath}/master">Home</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
+                </ul>
+                <div class="clr"></div>
+            </div>
 
             <div class="wrapper">
                 <div id="body1" class="col"> 
@@ -88,11 +88,20 @@
                             <label class="title" style="width:371px;"><s:message code="lbl.dashboard"/></label>
                         </form>
                         <div class="name"></div>
-
                     </div>
 
+                    <div class="profilePer" id="reportsInfo" >
 
-
+                        <div id="reportsInfoHeading">Enrollment Details
+                            
+                        </div>
+                        <table id="first">
+                            <tr><td class="studentDetailsFont">Student Enrolled</td><td>:</td><td >${studentCount}</td></tr><tr><td class="studentDetailsFont">Student Monthly:</td><td>:</td><td>${StudentMonthlyCount}</td></tr>
+                        </table>
+                        <table id="second" >
+                            <tr><td class="studentDetailsFont">Student Weekly</td><td>:</td><td >${studentWeeklyCount}</td></tr><tr><td class="studentDetailsFont">Student Daily</td><td>:</td><td>${studentDayCount}</td></tr>
+                        </table>
+                    </div>
                     <!--End Prediction Module--> 
                 </div>
                 <div id="body2" class="col">
