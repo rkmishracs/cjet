@@ -12,20 +12,6 @@
 
         <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" type="text/css" />
         <link href="${pageContext.request.contextPath}/resources/css/newstyle.css" rel="stylesheet" type="text/css" />
-        
-        <!-- Styles For Table with id studentDetail -->
-        <style>
-            body { font-size: 62.5%; }
-            label, input { display:block; }
-            input.text { margin-bottom:12px; width:95%; padding: .4em; }
-            fieldset { padding:0; border:0; margin-top:25px; }
-            h4{ font-size: 1.0em; margin: .6em 0; }
-            div#users-contain { width: 600px; margin: 20px 0;  }
-            div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-            div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
-            .ui-dialog .ui-state-error { padding: .3em; }
-
-        </style>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
@@ -119,7 +105,7 @@
                         </table>
                     </div>  
 
-                    <div id="dialog" title="Student Details">
+                    <div id="studentViewDialog" title="Student Details">
 
 
                     </div>
