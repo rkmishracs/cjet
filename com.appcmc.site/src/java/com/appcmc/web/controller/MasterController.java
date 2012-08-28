@@ -28,11 +28,14 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.WebRequest;
 
 /**
  * @author Sudarsan
@@ -52,21 +55,35 @@ public class MasterController {
     private AppUser appUser = null;
     private InputStream inputStream = null;
     private EducationalQualifications educationalQualifications = null;
-    StudentProfileService studentProfileService= null;
-
+    StudentProfileService studentProfileService = null;
     private AppMailService appMailService = null;
-
     private Date date = null;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String showMaster(@ModelAttribute EnrollmentForm enrollmentForm, ChangePasswordForm changePasswordForm) {
-        LOG.debug("In Master Controller");        
+    public String showMaster(@ModelAttribute EnrollmentForm enrollmentForm, ChangePasswordForm changePasswordForm, WebRequest request) {
+
+        LOG.debug("In Master Controller");
+
+        studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
+
+
+        List<Student> studentList = studentService.getAll();
+        List<Student> studentMonthlyEnrollment = studentService.getByCurrentMonth();
+        List<Student> studentWeeklyEnrollment = studentService.getByCurrentWeek();
+        List<Student> studentDayEnrollment = studentService.getByDay();
+
+        request.setAttribute("studentCount", studentList.size(), WebRequest.SCOPE_REQUEST);
+        request.setAttribute("studentWeeklyCount", studentWeeklyEnrollment.size(), WebRequest.SCOPE_REQUEST);
+        request.setAttribute("StudentMonthlyCount", studentMonthlyEnrollment.size(), WebRequest.SCOPE_REQUEST);
+        request.setAttribute("studentDayCount", studentDayEnrollment.size(), WebRequest.SCOPE_REQUEST);
+
+
         return "/master/masterHome";
     }
-    
-    @RequestMapping(method = RequestMethod.GET, value="/showEnrollment")
+
+    @RequestMapping(method = RequestMethod.GET, value = "/showEnrollment")
     public String showEnrollment(@ModelAttribute EnrollmentForm enrollmentForm, ChangePasswordForm changePasswordForm) {
-        LOG.debug("In Master Controller");        
+        LOG.debug("In Master Controller");
         return "/master/enrlHome";
     }
 
@@ -82,8 +99,8 @@ public class MasterController {
 
         appUserService = (AppUserService) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.APP_USER_SERVICE);
-        
-        educationalQualifications =(EducationalQualifications) AppContext.APPCONTEXT
+
+        educationalQualifications = (EducationalQualifications) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.EDUCATIONAL_QUALIFICATIONS);
 
         student = (Student) AppContext.APPCONTEXT
@@ -100,16 +117,16 @@ public class MasterController {
         student.setEmail(enrollmentForm.getEmail());
         student.setFirstName(enrollmentForm.getFirstName());
         student.setLastName(enrollmentForm.getLastName());
-        SimpleDateFormat simpleDateFormat = (SimpleDateFormat)AppContext.APPCONTEXT.getBean(ContextIdNames.SIMPLE_DATE_FORMAT);
-                
+        SimpleDateFormat simpleDateFormat = (SimpleDateFormat) AppContext.APPCONTEXT.getBean(ContextIdNames.SIMPLE_DATE_FORMAT);
+
         try {
-            
+
             Date dateOfBirth = simpleDateFormat.parse(enrollmentForm.getDateOfBirth());
             student.setDateOfBirth(dateOfBirth);
         } catch (ParseException e) {
             LOG.warn("STUDENT TEST", e);
         }
-        date = (Date)AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
+        date = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
         student.setGender(enrollmentForm.getGender());
         student.setNationality(enrollmentForm.getNationality());
         student.setCategory(enrollmentForm.getCategorey());
@@ -135,21 +152,21 @@ public class MasterController {
         contacts.setModifiedBy(1L);
         contacts.setActive(new Short("1"));
 
-        String fileName =  request.getSession().getServletContext().getRealPath("/resources/images/content/user-img-40.jpg");
+        String fileName = request.getSession().getServletContext().getRealPath("/resources/images/content/user-img-40.jpg");
         byte[] imageBytes = null;
-        
+
         try {
-           inputStream = new FileInputStream(fileName);
-           
-           imageBytes = new byte[inputStream.available()];
-           
-           inputStream.read(imageBytes);
-           
+            inputStream = new FileInputStream(fileName);
+
+            imageBytes = new byte[inputStream.available()];
+
+            inputStream.read(imageBytes);
+
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(MasterController.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-        
+
+
         student.setContacts(contacts);
         student.setProfilePic(imageBytes);
         student.setCreatedOn(date);
@@ -173,7 +190,7 @@ public class MasterController {
         appUser.setLastName(student.getLastName());
         appUser.setStatusId(1L);
         appUser.setGender(student.getGender());
-        
+
         appUser.setTimeZone("timeZone");
         appUser.setType("student");
         appUser.setCreatedOn(date);
@@ -183,8 +200,8 @@ public class MasterController {
         appUser.setActive(new Short("1"));
 
         appUserService.create(appUser);
-        
-        
+
+
         educationalQualifications.setEnrollmentNumber(enrollmentForm.getEnrollmentNumber());
         educationalQualifications.setActive(new Short("1"));
         educationalQualifications.setAdditionalQualification("Not filled");
@@ -208,13 +225,13 @@ public class MasterController {
         educationalQualifications.setTwoQualification("Not Available");
         educationalQualifications.setTwoUniversity("Not Available");
         educationalQualifications.setTwoYearOfPass("Not Available");
-        
-        
-        educationalQualificationsService=(EducationalQualificationsService)AppContext.APPCONTEXT.getBean(ContextIdNames.EDUCATIONAL_QUALIFICATIONS_SERVICE);
-        
+
+
+        educationalQualificationsService = (EducationalQualificationsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EDUCATIONAL_QUALIFICATIONS_SERVICE);
+
         educationalQualificationsService.create(educationalQualifications);
-        
-        studentProfile =(StudentProfile) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE);
+
+        studentProfile = (StudentProfile) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE);
         studentProfile.setActive(new Short("1"));
         studentProfile.setCreatedBy(1L);
         studentProfile.setCreatedOn(date);
@@ -228,26 +245,26 @@ public class MasterController {
         studentProfile.setTitle("Not Updated");
         studentProfile.setTotalExperience("Not Updated");
         studentProfile.setResume(null);
-       
-        studentProfileService=(StudentProfileService)AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
+
+        studentProfileService = (StudentProfileService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
         studentProfileService.create(studentProfile);
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
         //Sending EnrollmentNumber  to the Student through java mail
         appMailService = (AppMailService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_MAIL_SERVICE);
-       
-        appMailService.sendMail(appUser);
-        
-        
-        
-        
 
-       
+        appMailService.sendMail(appUser);
+
+
+
+
+
+
 
         return "Enrollment Genarated";
     }
@@ -255,7 +272,7 @@ public class MasterController {
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST, value = "/changePassword")
     public String changePasswordAction(@ModelAttribute ChangePasswordForm changePasswordForm) {
-        
+
         LOG.debug("===============In changePasswordAction Post");
 
 
@@ -266,16 +283,16 @@ public class MasterController {
 
         appUserService = (AppUserService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_USER_SERVICE);
 
-        
-            
+
+
         appUser = appUserService.authenticate(userName, currentPassword);
-        
-        if(appUser == null){
+
+        if (appUser == null) {
             // TO DO
             LOG.debug("===============User Not Available");
             return "fail";
         }
-        date =  (Date)AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
+        date = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
         appUser.setId(appUser.getId());
         appUser.setGuid(appUser.getGuid());
         appUser.setEmail(appUser.getEmail());
@@ -292,8 +309,8 @@ public class MasterController {
         appUser.setCreatedBy(appUser.getCreatedBy());
         appUser.setModifiedOn(date);
         appUser.setActive(appUser.getActive());
-        
+
         appUserService.create(appUser);
         return "success";
     }
-    }
+}
