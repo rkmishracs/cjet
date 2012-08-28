@@ -384,23 +384,23 @@ $(document).ready(function(){
         
                             success: function(msg){
                                 
-                                $('#dialog').html('<table align="center" id="resTable"><tr><td><b>First Name</b></td><td>'+msg.firstName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Last Name</b></td><td>'+msg.lastName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Gender</b></td><td>'+msg.gender+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Address</b></td><td>'+msg.contacts.address+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Email</b></td><td>'+msg.email+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Mobile</b></td><td>'+msg.contacts.mobile+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Land Phone&nbsp;&nbsp;</b></td><td>'+msg.contacts.landPhone+'</td></tr></table><div id="imgDiv"><img id="img" width="100" height="70" src="'+$('#allEnrollsHidden').val()+'/picture?id='+msg.enrollmentNumber+'"></div>');
+                                $('#studentViewDialog').html('<table align="center" id="resTable"><tr><td><b>First Name</b></td><td>'+msg.firstName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Last Name</b></td><td>'+msg.lastName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Gender</b></td><td>'+msg.gender+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Address</b></td><td>'+msg.contacts.address+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Email</b></td><td>'+msg.email+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Mobile</b></td><td>'+msg.contacts.mobile+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Land Phone&nbsp;&nbsp;</b></td><td>'+msg.contacts.landPhone+'</td></tr></table><div id="imgDiv"><img id="img" width="100" height="70" src="'+$('#allEnrollsHidden').val()+'/picture?id='+msg.enrollmentNumber+'"></div>');
                            }
                            
           
                         });
-                        $('#dialog').dialog({
-                            width: 320,
-                            height:270,
-                            position : [830,180]
+                        $('#studentViewDialog').dialog({
+                            width: 330,
+                            height:330,
+                            position : [810,180]
                         });
 
-                        $('#dialog').dialog('open');
+                        $('#studentViewDialog').dialog('open');
                         return false;
             
                     }).mouseout(function(){
     
-                        $("#dialog").dialog('close');
+                        $("#studentViewDialog").dialog('close');
                         return true;
                     });
                 
@@ -420,23 +420,24 @@ $(document).ready(function(){
         
                             success: function(msg){
                                 
-                                $('#dialog').html('<table align="center" id="resTable"><tr><td><b>First Name</b></td><td>'+msg.firstName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Last Name</b></td><td>'+msg.lastName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Gender</b></td><td>'+msg.gender+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Address</b></td><td>'+msg.contacts.address+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Email</b></td><td>'+msg.email+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Mobile</b></td><td>'+msg.contacts.mobile+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Land Phone&nbsp;&nbsp;</b></td><td>'+msg.contacts.landPhone+'</td></tr></table><div id="imgDiv"><img id="img" width="100" height="70" src="'+$('#dailyReportHidden').val()+'/picture?id='+msg.enrollmentNumber+'"></div>');
+                                $('#studentDailyDialog').html('<table align="center" id="resTable"><tr><td><b>First Name</b></td><td>'+msg.firstName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Last Name</b></td><td>'+msg.lastName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Gender</b></td><td>'+msg.gender+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Address</b></td><td>'+msg.contacts.address+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Email</b></td><td>'+msg.email+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Mobile</b></td><td>'+msg.contacts.mobile+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Land Phone&nbsp;&nbsp;</b></td><td>'+msg.contacts.landPhone+'</td></tr></table><div id="imgDiv"><img id="img" width="100" height="70" src="'+$('#dailyReportHidden').val()+'/picture?id='+msg.enrollmentNumber+'"></div>');
                            }
                            
           
                         });
-                        $('#dialog').dialog({
-                             width: 320,
-                            height:270,
-                            position : [830,180]
+                        $('#studentDailyDialog').dialog({
+                             width: 330,
+                            height:330,
+                            position : [810,180]
+                            
                         });
 
-                        $('#dialog').dialog('open');
+                        $('#studentDailyDialog').dialog('open');
                         return false;
             
                     }).mouseout(function(){
     
-                        $("#dialog").dialog('close');
+                        $("#studentDailyDialog").dialog('close');
                         return true;
                     });
                 
@@ -456,23 +457,23 @@ $(document).ready(function(){
         
                             success: function(msg){
                                 
-                                $('#dialog').html('<table align="center" id="resTable"><tr><td><b>First Name</b></td><td>'+msg.firstName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Last Name</b></td><td>'+msg.lastName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Gender</b></td><td>'+msg.gender+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Address</b></td><td>'+msg.contacts.address+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Email</b></td><td>'+msg.email+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Mobile</b></td><td>'+msg.contacts.mobile+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Land Phone&nbsp;&nbsp;</b></td><td>'+msg.contacts.landPhone+'</td></tr></table><div id="imgDiv"><img id="img" width="100" height="70" src="'+$('#monthlyReportHidden').val()+'/picture?id='+msg.enrollmentNumber+'"></div>');
+                                $('#studentMonthlyDialog').html('<table align="center" id="resTable"><tr><td><b>First Name</b></td><td>'+msg.firstName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Last Name</b></td><td>'+msg.lastName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Gender</b></td><td>'+msg.gender+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Address</b></td><td>'+msg.contacts.address+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Email</b></td><td>'+msg.email+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Mobile</b></td><td>'+msg.contacts.mobile+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Land Phone&nbsp;&nbsp;</b></td><td>'+msg.contacts.landPhone+'</td></tr></table><div id="imgDiv"><img id="img" width="100" height="70" src="'+$('#monthlyReportHidden').val()+'/picture?id='+msg.enrollmentNumber+'"></div>');
                            }
                            
           
                         });
-                        $('#dialog').dialog({
-                            width: 320,
-                            height:270,
-                            position : [830,180]
+                        $('#studentMonthlyDialog').dialog({
+                            width: 330,
+                            height:330,
+                            position : [810,180]
                         });
 
-                        $('#dialog').dialog('open');
+                        $('#studentMonthlyDialog').dialog('open');
                         return false;
             
                     }).mouseout(function(){
     
-                        $("#dialog").dialog('close');
+                        $("#studentMonthlyDialog").dialog('close');
                         return true;
                     });
                 
@@ -492,23 +493,23 @@ $(document).ready(function(){
         
                             success: function(msg){
                                 
-                                $('#dialog').html('<table align="center" id="resTable"><tr><td><b>First Name</b></td><td>'+msg.firstName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Last Name</b></td><td>'+msg.lastName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Gender</b></td><td>'+msg.gender+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Address</b></td><td>'+msg.contacts.address+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Email</b></td><td>'+msg.email+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Mobile</b></td><td>'+msg.contacts.mobile+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Land Phone&nbsp;&nbsp;</b></td><td>'+msg.contacts.landPhone+'</td></tr></table><div id="imgDiv"><img id="img" width="100" height="70" src="'+$('#weeklyReportHidden').val()+'/picture?id='+msg.enrollmentNumber+'"></div>');
+                                $('#studentWeeklyDialog').html('<table align="center" id="resTable"><tr><td><b>First Name</b></td><td>'+msg.firstName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Last Name</b></td><td>'+msg.lastName+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Gender</b></td><td>'+msg.gender+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Address</b></td><td>'+msg.contacts.address+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Email</b></td><td>'+msg.email+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Mobile</b></td><td>'+msg.contacts.mobile+'</td></tr><tr><td>&nbsp;</td></tr><tr><td><b>Land Phone&nbsp;&nbsp;</b></td><td>'+msg.contacts.landPhone+'</td></tr></table><div id="imgDiv"><img id="img" width="100" height="70" src="'+$('#weeklyReportHidden').val()+'/picture?id='+msg.enrollmentNumber+'"></div>');
                            }
                            
           
                         });
-                        $('#dialog').dialog({
-                             width: 320,
-                            height:270,
-                            position : [830,180]
+                        $('#studentWeeklyDialog').dialog({
+                             width: 330,
+                            height:330,
+                            position : [810,180]
                         });
 
-                        $('#dialog').dialog('open');
+                        $('#studentWeeklyDialog').dialog('open');
                         return false;
             
                     }).mouseout(function(){
     
-                        $("#dialog").dialog('close');
+                        $("#studentWeeklyDialog").dialog('close');
                         return true;
                     });
                 
