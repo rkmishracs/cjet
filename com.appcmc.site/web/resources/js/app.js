@@ -518,7 +518,7 @@ $(document).ready(function(){
          
          // Script for searchData.jsp
          $('#tabs').tabs();
-                $('#errorDiv').hide();
+                $('#SearchNumberErrorDiv').hide();
                 $('#studentResponse').hide();
                 $('#ajax_loading').hide();
                 $('#testEnrl').click(function(){
@@ -537,8 +537,9 @@ $(document).ready(function(){
                                                  
                             
                             
-                            setTimeout(function(){
+                           
                                 if(response.contacts){
+                                     setTimeout(function(){
                                     $('#studentResponse').css('display','block');
                                     $("#enrollmentNumber").text(response.enrollmentNumber);
                                     $("#name").text(response.firstName+" "+response.lastName);
@@ -556,14 +557,13 @@ $(document).ready(function(){
                                     month=dob.getMonth()+1;
                                     $("#dob").text(dob.getDate()+" / "+month  +" / "+dob.getFullYear());
                                     $("#imgDiv").html('<img width="80" height="80" alt="kiran"  src="'+$('#searchDataHidden').val()+'/picture?id='+response.enrollmentNumber+'"/>');        
+                                     },1000);
                                 }else{
-                                    $('#errorDiv').css("display", "block");
-                                               
-                                 
+                                    $('#SearchNumberErrorDiv').css("display", "block");
                                 }
                                 $('#ajax_loading').css('display','none');
                                     
-                            },1000);
+                           
                                 
                         }
                             
