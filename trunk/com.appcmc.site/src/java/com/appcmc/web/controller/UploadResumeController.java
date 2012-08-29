@@ -135,7 +135,7 @@ public class UploadResumeController {
     }
     
     @RequestMapping(method = RequestMethod.POST)
-    public String postResume(@ModelAttribute AvtarResumeForm avtarResumeForm) {
+    public String postResume(@ModelAttribute AvtarResumeForm avtarResumeForm, WebRequest request) {
         
         AppCmcSpringContext.init();
         LOG.debug("================in Post Resume" + avtarResumeForm.getEnrollmentNumber());
@@ -169,7 +169,8 @@ public class UploadResumeController {
         
         studentProfileService.create(studentProfile);
         
-        return "/resume";
+        request.setAttribute("successMessage", "Resume Uploaded Successfully", WebRequest.SCOPE_REQUEST);
+        return "avtar/uploadResume";
     }
     
     @RequestMapping(method = RequestMethod.GET, value = "/iframe")
