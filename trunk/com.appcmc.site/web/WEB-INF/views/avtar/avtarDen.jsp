@@ -16,7 +16,6 @@
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
-        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
@@ -359,6 +358,10 @@
 
             <div class="wrapper">
                 <div id="body1" class="col"> 
+                    <div id="updateEducationResponseDiv">
+                        <span class="updateEducationResponseClass">Update Successfully</span>
+                    </div>
+                    
                     <!--Begin Prediction Module-->
                     <div class="heading-review">
                         <div class="prdktr"> <img src="${pageContext.request.contextPath}/picture?id=${student.enrollmentNumber}" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" /><span style="margin: 5px;border: 5px; "><a href="${pageContext.request.contextPath}/avtar/avtarPic">Edit Picture</a></span>
@@ -490,7 +493,7 @@
                         </div>
                         <div class="prdkt-box">
 
-                            <div><h2 class="tags" id="profileHeading">Highest Qualification</h2></div><div style="position: absolute;left: 430px;top: 4px;"><a href="#" id="updateEdu">Edit</a></div>
+                            <div><h2 class="tags" id="profileHeading">Highest Qualification</h2></div><div style="position: absolute;left: 430px;top: 4px;"><a href="${pageContext.request.contextPath}/avtar/eduEdit" id="updateEdu">Edit</a></div>
 
                             <table id="highestQualificationTable">
 
@@ -515,7 +518,7 @@
                             </table>
                             <p>&nbsp;</p>
                             <ul class="info">
-                                <li class="end"><div id="emailtext"><div>Year Of Passing : </div><div>${educationalQualifications.fourYearOfPass}</div></div></li>
+                                <li class="end"><div id="emailtext">Year Of Passing : ${educationalQualifications.fourYearOfPass}</div></li>
 
 
                                 <li><img src="../resources/images/symbol_percentage.jpg" width="16" height="13"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 25px;top: -18px;">${educationalQualifications.fourGrade}</div></li>
@@ -638,6 +641,7 @@
                 </div>
 
             </div>
+        
             <div class="clear"></div>
 
 
