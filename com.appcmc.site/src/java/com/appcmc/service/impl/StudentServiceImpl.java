@@ -1,5 +1,7 @@
 package com.appcmc.service.impl;
 
+import com.appcmc.context.id.names.ContextIdNames;
+import com.appcmc.domain.sub.Contacts;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -10,7 +12,10 @@ import org.hibernate.Transaction;
 import com.appcmc.domain.sub.Student;
 import com.appcmc.domain.sub.impl.StudentImpl;
 import com.appcmc.query.utils.StudentQueryUtils;
+import com.appcmc.service.ContactService;
 import com.appcmc.service.StudentService;
+import com.appcmc.utils.AppCmcSpringContext;
+import com.appcmc.utils.AppContext;
 import com.appcmc.utils.HibernateUtils;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -158,7 +163,7 @@ public class StudentServiceImpl implements StudentService {
                     Date createdDate = std.getCreatedOn();
                     createdCalendar.setTime(createdDate);
                     if (createdCalendar.get(Calendar.YEAR) == presentCalendar.get(Calendar.YEAR) && createdCalendar.get(Calendar.MONTH) == presentCalendar.get(Calendar.MONTH)) {
-                            studentMonthList.add(std);
+                        studentMonthList.add(std);
                     }
 
                 }
@@ -181,7 +186,7 @@ public class StudentServiceImpl implements StudentService {
                     Date createdDate = std.getCreatedOn();
                     createdCalendar.setTime(createdDate);
                     if (createdCalendar.get(Calendar.YEAR) == presentCalendar.get(Calendar.YEAR) && createdCalendar.get(Calendar.MONTH) == presentCalendar.get(Calendar.MONTH)) {
-                        if(createdCalendar.get(Calendar.DAY_OF_MONTH) == presentCalendar.get(Calendar.DAY_OF_MONTH)){
+                        if (createdCalendar.get(Calendar.DAY_OF_MONTH) == presentCalendar.get(Calendar.DAY_OF_MONTH)) {
                             studentDayList.add(std);
                         }
                     }
@@ -195,31 +200,69 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Student> findByName(String name) {
-        
-          
-         Session session = HibernateUtils.currentSession();
-        List<Student> studentList=null;
-        
+
+
+        Session session = HibernateUtils.currentSession();
+        List<Student> studentList = null;
+
         try {
             Query query = session
                     .createQuery(StudentQueryUtils.GETALL);
             studentList = query.list();
-            
+
         } catch (Exception exception) {
             LOG.warn("exception", exception);
         } finally {
             HibernateUtils.closeSession();
         }
         List<Student> list = new ArrayList<Student>();
-        for(Student std:studentList){
-            if(std.getFirstName().startsWith(name)||std.getLastName().startsWith(name)){
+        for (Student std : studentList) {
+            if (std.getFirstName().startsWith(name) || std.getLastName().startsWith(name)) {
                 list.add(std);
                 LOG.debug(std.getFirstName() + "" + std.getLastName());
             }
         }
-            
-            
-               
-        return  list;
+        return list;
+    }
+
+    @Override
+    public List<Student> pagenator(Integer count) {
+        Integer pageSize = 2;
+        Session session = HibernateUtils.currentSession();
+        List<Student> studentList = null;
+        try {
+            Query query = session.createQuery(StudentQueryUtils.GETALL);
+            query.setFirstResult(pageSize * (count - 1));
+            query.setMaxResults(pageSize);
+            studentList = query.list();
+        } catch (Exception exception) {
+            LOG.warn("exception", exception);
+        } finally {
+            HibernateUtils.closeSession();
+        }
+
+        return studentList;
+    }
+
+    @Override
+    public List<Student> findByMobile(String mobile) {
+
+        AppCmcSpringContext.init();
+        ContactService contactService = (ContactService) AppContext.APPCONTEXT.getBean(ContextIdNames.CONTACT_SERVICE);
+        List<Student> studentList = new ArrayList<Student>();
+        List<Contacts> contactList = null;
+        Student student = null;
+        try {
+            contactList = contactService.findByMobile(mobile);
+            String enrollmentNumber = null;
+            for (Contacts contacts : contactList) {
+                enrollmentNumber = contacts.getEnrollmentNumber();
+                student = findStudentByEnrollmentNumber(enrollmentNumber);
+                studentList.add(student);
+            }
+        } catch (Exception exception) {
+            LOG.warn("exception", exception);
+        }
+        return studentList;
     }
 }
