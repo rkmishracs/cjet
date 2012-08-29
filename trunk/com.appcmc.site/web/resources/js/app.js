@@ -1280,6 +1280,21 @@ $(document).ready(function(){
         var fourthYearOfPass = $("#editForthHighestYearOfPassing");
         var fourthUniversty = $("#editForthHighestUniversity");
         var fourthGrade = $("#editForthHighestPercentage");
+        
+        $("#editFirstHighestYearOfPassing,#editFirstHighestPercentage,#editSecondHighestYearOfPassing,#editSecondHighestPercentage,#editThirdHighestYearOfPassing,#editThirdHighestPercentage,#editForthHighestYearOfPassing,#editForthHighestPercentage").click(function(){
+            var $th = $(this);
+            if( $th.val() == 'Not Available'){
+                $th.val("");
+            }
+        });
+        
+          $("#editFirstHighestUniversity,#editSecondHighestUniversity,#editThirdHighestUniversity,#editForthHighestUniversity").click(function(){
+              var $th = $(this);
+              if( $th.val() == 'Not Available'){
+                $th.val("");
+            }
+          });
+              
 
         $("#editFirstHighestYearOfPassing,#editFirstHighestPercentage,#editSecondHighestYearOfPassing,#editSecondHighestPercentage,#editThirdHighestYearOfPassing,#editThirdHighestPercentage,#editForthHighestYearOfPassing,#editForthHighestPercentage").bind("keyup",function(){
             var $th = $(this);
