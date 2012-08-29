@@ -5,32 +5,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <title>CMC | Home</title>
-        
+
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
         <link href="${pageContext.request.contextPath}/resources/css/newstyle.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />
         <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"/>
-        
+
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
-        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
-        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
-        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
-        
+
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
 
     </head>
     <body>
-        
+
         <div class="logo" style="position: relative;top: 5px; left: 15px;">
-            <a href="${pageContext.request.contextPath}/appHome"><img src="resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
+            <a href="${pageContext.request.contextPath}/appHome"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
         </div>
 
         <div class="menu_nav">
@@ -45,50 +42,12 @@
         </div>
 
         <input type="hidden" id="appHomeHidden" value="${pageContext.request.contextPath}" />
-        
-        <!--
 
-        <div id="header">
-            <div class="wrapper">
-                <div id="logo" class="grid_4 "style="position:absolute;height:40px;width:120px;top:-6px;" ><a href="index.html" tabindex="1"><img src="resources/images/CMC_LOGO.jpg" width="112" height="47" alt="" style="border-radius:6px 6px 6px 6px;border-color:#312e25 ;zIndex:600" /></a></div>
-
-                
-                <div id="search">
-                    <!--      <form>
-                            <input id="searchfield" name="search-term" type="text" value="Search" tabindex="2" />
-                            <a href="somejavascript"><img src="resources/images/design/transp.gif" width="22" height="22" alt="Search" /></a>
-                          </form>-->
-                      <!--
-  </div>
-        
-
-                <div id="nav"> <a href="index.html" class="home" tabindex="3">Home</a> <a href="#" class="home" id="signinLink" style="width:100px;">Sign In</a>
-                    <div class="profilewrapper">
-
-
-                        <!--<div class="profile" onclick="MM_showHideLayers('profilemenu','','show')"><img class="profilethumb" src="resources/images/design/user-thumb20.jpg" width="20" height="20" alt="Geoff Rego" title="Geoff Rego" /><span>Geoff Rego</span></div>-->
-                        <!-- Profile Menu starts here -->
-                       <!--
-         <div id="profilemenu" style="visibility: hidden">
-                            <div class="profilemenuwrapper">
-                                <div class="profile" onclick="MM_showHideLayers('profilemenu','','hide')"><img class="profilethumb" src="resources/images/design/user-thumb20.jpg" width="20" height="20" alt="Geoff Rego" title="Geoff Rego" /><span>Geoff Rego</span></div>
-                                <a href="profile.htm">Public Profile</a> <a href="profile-edit.htm">Edit Profile</a> <a href="sign-out.htm">Sign-out</a> </div>
-                        </div>
-
-
-                        <!-- Profile Menu ends here --> 
-
-                       <!--
-     </div>
-                </div>
-            </div>
-        </div>
--->
         <div class="clear"></div>
         <div id="body" style="background-color: white;">
-            
-            
-            
+
+
+
             <div id="signInForm" style="display:none;">
 
                 <p class="validateTips"><s:message code="lbl.signin.allFieldsAreRequire"/></p>
@@ -135,8 +94,6 @@
                                     <li><img src="${pageContext.request.contextPath}/resources/images/header1.jpg" alt="wallpaper-13732" id="wows1_0"/></li>
                                     <li><img src="${pageContext.request.contextPath}/resources/images/header2.jpg" alt="wallpaper-15497" id="wows1_1"/></li>
                                     <li><img src="${pageContext.request.contextPath}/resources/images/cmcbgfinal1.jpg" alt="wallpaper-28280" id="wows1_2"/></li>
-                                    <li><img src="${pageContext.request.contextPath}/resources/images/pic_3.jpg" alt="wallpaper-28280" id="wows1_2"/></li>
-                                    <li><img src="${pageContext.request.contextPath}/resources/images/pic_4.jpg" alt="wallpaper-28280" id="wows1_2"/></li>
                                     <li><img src="${pageContext.request.contextPath}/resources/images/pic_5.jpg" alt="wallpaper-28280" id="wows1_2"/></li>
                                 </ul>
                             </div>
@@ -144,8 +101,6 @@
                                     <a href="#" title="wallpaper-13732"><img src="${pageContext.request.contextPath}/resources/images/toolheader1.jpg" alt="wallpaper-13732"/>1</a>
                                     <a href="#" title="wallpaper-15497"><img src="${pageContext.request.contextPath}/resources/images/toolheader2.jpg" alt="wallpaper-15497"/>2</a>
                                     <a href="#" title="wallpaper-28280"><img src="${pageContext.request.contextPath}/resources/images/toolcmcbgfinal1.jpg" alt="wallpaper-28280"/>3</a>
-                                    <a href="#" title="wallpaper-28280"><img src="${pageContext.request.contextPath}/resources/images/toolpic_3.jpg" alt="wallpaper-28280"/>3</a>
-                                    <a href="#" title="wallpaper-28280"><img src="${pageContext.request.contextPath}/resources/images/toolpic_4.jpg" alt="wallpaper-28280"/>3</a>
                                     <a href="#" title="wallpaper-28280"><img src="${pageContext.request.contextPath}/resources/images/toolpic_5.jpg" alt="wallpaper-28280"/>3</a>
                                 </div></div>
                             <div class="ws_shadow"></div>
