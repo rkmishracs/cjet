@@ -23,5 +23,9 @@ public interface StudentService {
         List<Student> getByDay();
         
         List<Student> findByName(String name);
+        
+        List<Student> findByMobile(String mobile);
+        
+        List<Student> pagenator(Integer count);
 
 }
