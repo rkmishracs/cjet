@@ -1387,11 +1387,12 @@ $(document).ready(function(){
                     }
 
                 });
-            }
-        
 
-  
-        });
+                
+              
+
+            }
+});
         
         //Script for uploadResume.jsp
         $("#uploadButton").click(function(){
@@ -1416,6 +1417,14 @@ $(document).ready(function(){
                 $("#errorUploadPicDiv").css('display', 'none');
             }
         });
+       
+       $("#sendEmailProfileMessage").click(function(){
+                   if($("#toUserEmail").val() == 0||$("#fromUserEmail").val() == 0||$("#resumeFile").val() == 0||$("#emailProfileText").val() == 0){
+                    alert("Nothing Should Be Left Blank");    
+               }
+                  
+                  
+              });
 });
 
    
