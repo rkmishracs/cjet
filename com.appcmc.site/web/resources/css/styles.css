@@ -680,7 +680,7 @@ ul.options li a:hover {
 
 #body {
     clear: both;
-    min-height: 600px;
+    min-height: 670px;
 
     background-color: white;
 }
@@ -2018,27 +2018,6 @@ html ul.tabs2 li.active a {
     width: 800px;
 
 }
-
-#qualificationId{
-    left:48px;
-}
-
-#specializationId{
-    left:71px;
-}
-
-#yearOfPass{
-    left:58px;
-}
-
-#university{
-    left:91px;
-}
-
-#percentage{
-    left:17.5px;
-}
-
 #univ{
     left:113px;
 }
@@ -2172,6 +2151,148 @@ span{
 #pinText{
     position: relative;
     left: 50px;
+}
+
+/* editEducation Page Styles*/
+#editEducationDiv{
+    position: relative;
+    top: 25px;
+}
+#firstHighestQualificationDiv{
+    position: relative;
+    top: 20px;
+
+}
+#profileHeadingForEditEducation{
+    font-weight: 900;
+}
+#editHighestQualificationHeading{
+    font-size: 14px;
+}
+#editFirstHighestQualification{
+    left: 50px;
+}
+#editFirstHighestSpecialization{
+    left: 50px;
+}
+#editFirstHighestYearOfPassing{
+    left: 50px;
+}
+#editFirstHighestUniversity{
+    left: 50px;
+}
+#editFirstHighestPercentage{
+    left: 50px;
+}
+#editFirstHighestQualificationTableDiv{
+    position: relative;
+    top: 20px;
+}
+#secondHighestQualificationDiv{
+    position: relative;
+    top: -157px;
+    left: 470px;
+}
+#editSecondHighestQualificationTableDiv{
+    position: relative;
+    top: 20px;
+}
+#editSecondHighestQualification{
+    left: 50px;
+}
+#editSecondHighestSpecialization{
+    left: 50px;
+}
+#editSecondHighestYearOfPassing{
+    left: 50px;
+}
+#editSecondHighestUniversity{
+    left: 50px;
+}
+#editSecondHighestPercentage{
+    left: 50px;
+}
+#thirdHighestQualificationDiv{
+    position: relative;
+    top: -110px;
+}
+#editThirdHighestQualificationTableDiv{
+    position: relative;
+    top: 20px;
+}
+#editThirdHighestQualification{
+    left: 50px;
+}
+#editThirdHighestSpecialization{
+    left: 50px;
+}
+#editThirdHighestYearOfPassing{
+    left: 50px;
+}
+#editThirdHighestUniversity{
+    left: 50px;
+}
+#editThirdHighestPercentage{
+    left: 50px;
+}
+#fourthHighestQualificationDiv{
+    position: relative;
+    top: -286px;
+    left: 470px;
+}
+#editForthHighestQualificationTableDiv{
+    position: relative;
+    top: 20px;
+}
+#editForthHighestYearOfPassing{
+    left: 50px;
+}
+#editForthHighestUniversity{
+    left: 50px;
+}
+#editForthHighestPercentage{
+    left: 50px;
+}
+#editEducationSubmitDiv{
+    position: relative;
+    top:-188px;
+    left: 489px;
+}
+#editAdditionalQualificationsDiv{
+    position: relative;
+    top: -200px;
+}
+#editForthHighestQualification{
+    left: 50px;
+}
+#lineForEditEducationPage{
+    position: relative;
+    float: left;
+    width: 600px;
+    height: 24px;
+    line-height: 22px;
+    border-bottom: solid 1px #B6C1CC;
+    margin: 0px 0px 10px 0px;
+    z-index: 530;
+}
+#updateEducationResponseDiv{
+    position: absolute;
+    top: -91px;
+    left: 180px;
+    width: 300px;
+    height: 35px;
+    font-size: 11pt;
+    font-weight: bold;
+    display: none;
+    background-color: #6B9EDD;
+}
+.updateEducationResponseClass{
+    position:absolute;
+    top:7px;
+    left:32px;
+    width:245px;
+    height:20px;
+    color: #FFFFFF;    
 }
 /* Master Home Styles*/
 
