@@ -22,7 +22,7 @@
 
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
-
+          
     </head>
     <body>
 
@@ -109,13 +109,38 @@
                         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/script.js"></script>
 
                     </div>
+                    <div class="fl lhs" >    
+    	             <div class="Hire fl mrgn_b10">
+                         <h4 style="margin-top:15px;">Hot Employers</h4>
+                         <div class="employersLine"></div>
+                     <ul class="hireUL tipLst" id="hiring" style="position: relative;width: 400px;height: 300px;">                
+                         <li style="position: relative;"><img src="resources/images/hiring.jpg"/></li>
+   	             </ul>
+                        
+                         <div class="cl"></div>
+                     </div>
+                        <div class="featured fl text" >
+                            <h4 style="margin-top:15px;">Featured Employers</h4>
+                            <div class="empLine"></div>
+                            <div class="cl"></div>
+                        </div>   
+                        
+                        <div id="upcomingEventDiv">
+                         <h4>Upcoming Events</h4>
+                            
+                        </div>
+                        
+                    </div>
+                        
+                        
                 </div>
                 <div id="body2" class="col">
 
                 </div>
+                        </div>
                 <div class="clear"></div>
             </div>
-        </div>
+        
 
         <div id="footer">
             <div class="wrapper">
@@ -149,5 +174,6 @@
                 </div>
             </div>
         </div>
+                        
     </body>
 </html>
