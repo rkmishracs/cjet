@@ -95,11 +95,11 @@
                             
                         </div>
                         <table id="first">
-                            <tr><td>Total Students Enrolled</td><td>:</td><td >0</td></tr><tr><td >Students Enrolled In This Month</td><td>:</td><td>0</td></tr>
+                            <tr><td>Total Students Enrolled</td><td>:</td><td>${studentCount}</td></tr><tr><td >Students Enrolled In This Month</td><td>:</td><td>${StudentMonthlyCount}</td></tr>
                         </table>
                         <table id="second" >
 
-                            <tr><td>Students Enrolled In This Week</td><td>:</td><td >0</td></tr><tr><td>Students Enrolled Today</td><td>:</td><td>0</td></tr>
+                            <tr><td>Students Enrolled In This Week</td><td>:</td><td >${studentWeeklyCount}</td></tr><tr><td>Students Enrolled Today</td><td>:</td><td>${studentDayCount}</td></tr>
                         </table>
                     </div>
                     <!--End Prediction Module--> 
