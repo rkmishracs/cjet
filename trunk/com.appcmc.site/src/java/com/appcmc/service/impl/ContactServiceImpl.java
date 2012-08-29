@@ -11,6 +11,7 @@ import com.appcmc.domain.sub.Contacts;
 import com.appcmc.query.utils.ContactsQueryUtils;
 import com.appcmc.service.ContactService;
 import com.appcmc.utils.HibernateUtils;
+import java.util.List;
 import org.hibernate.Query;
 
 /**
@@ -84,5 +85,24 @@ public class ContactServiceImpl implements ContactService {
             
             return contacts;
         }
+
+    @Override
+    public List<Contacts> findByMobile(String mobile) {
+         List<Contacts> contactList = null;
+            
+            Session session = HibernateUtils.currentSession();
+            
+            try{
+                Query query = session.createQuery(ContactsQueryUtils.FIND_CONTACTS_BY_MOBILE);
+                query.setParameter("Mobile", mobile);
+                contactList = (List<Contacts>) query.list();
+            }catch(Exception exception){
+                LOG.debug("Contacts Ex", exception);
+            }finally{
+                HibernateUtils.closeSession();
+            }
+        
+        return contactList;
+    }
 
 }
