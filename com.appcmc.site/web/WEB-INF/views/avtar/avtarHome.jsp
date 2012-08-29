@@ -144,6 +144,36 @@
                         </div>
                         <div class="clear"></div>
                     </div>
+                    <div class="interviewPer">
+                        <div id="interviewDetailDiv" style="position: relative; top: -170px;">
+                        <p>Interview Details</p>
+                        <div class="detailLine"></div>
+                        <table>
+                            <tr>
+                                <td>Number Of Offers</td> 
+                                <td>&nbsp;</td>
+                            </tr>
+                             <tr>
+                                 <td>Given By CMC</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td> ----</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>10</td>
+                            </tr>
+                            <br></br>
+                            <tr>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Number Of Interviews</td>
+                            </tr>
+                            <tr>
+                                <td>Attended</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td> ----</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>7</td>
+                            </tr>
+                            
+                            
+                        </table>
+                        
+                        
+                       
+                        </div>
+                    </div>
                 </div>
                 <div id="body2" class="col">
 
@@ -183,9 +213,8 @@
                     <div class="right-nav">
                         <ul>
                             <li class="current"><a href="${pageContext.request.contextPath}/avtar/update-profile">Update Personal Information</a></li>
-                            <li><a href="#">Preview</a></li>
-                            <li><a href="#">E-Mail</a></li>
-                            <li><a href="#">Print</a></li>
+                            <li><a href="${pageContext.request.contextPath}/emailProfile">Email Profile</a></li>
+                            <li><a href="${pageContext.request.contextPath}/profileView">Print Profile</a></li>
                             <li><a href="#" id="change-password-link">Change Password</a>
                         </ul>
                     </div>
