@@ -13,7 +13,6 @@
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
-        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
@@ -23,6 +22,9 @@
 
 
     <body>
+        <div id="changePasswordResponse">
+                <span class="changePasswordSpan"><s:message code="lbl.passwordChangedSuccessfully"/></span>
+            </div>
         <input type="hidden" id="adminChangePasswordHidden" value="${pageContext.request.contextPath}"/>
         <div id="changePasswordAdminDiv" class="signDiv">
 
@@ -61,9 +63,6 @@
 
         <div class="clear"></div>
         <div id="body" style="background-color: white;">
-            <div id="changePasswordResponse">
-                <span class="changePasswordSpan"><s:message code="lbl.passwordChangedSuccessfully"/></span>
-            </div>
 
             <div class="logo" style="position: relative;top: 5px; left: 15px;">
                 <a href="${pageContext.request.contextPath}/master"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>

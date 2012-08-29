@@ -39,33 +39,6 @@
 
         <input type="hidden" id="enrollmentFormHidden" value="${pageContext.request.contextPath}"/>
 
-        <!--
-        <div id="header">
-                <div class="wrapper">
-                    <div id="logo" class="grid_4 "><a href="index.html" tabindex="1"><img src="" width="112" height="34" alt="" /></a></div>
-                    <div id="search">
-        <!--      
-                <form>
-                <input id="searchfield" name="search-term" type="text" value="Search" tabindex="2" />
-                <a href="somejavascript"><img src="resources/images/design/transp.gif" width="22" height="22" alt="Search" /></a>
-              </form>-->
-        <!--    </div>
-            <div id="nav"> <a href="${pageContext.request.contextPath}/master" class="home" tabindex="3"><s:message code="lbl.link.signin.welcome"/><c:out value="${user.firstName}"/></a> <a href="${pageContext.request.contextPath}/sign-in/out" class="home" style="width:100px;"><s:message code="lbl.link.signin.signOut"/></a>
-                <div class="profilewrapper">
-        <!--        <div class="profile" onclick="MM_showHideLayers('profilemenu','','show')"><img class="profilethumb" src="resources/images/design/user-thumb20.jpg" width="20" height="20" alt="Geoff Rego" title="Geoff Rego" /><span>Geoff Rego</span></div>-->
-        <!-- Profile Menu starts here -->
-        <!--     <div id="profilemenu" style="visibility: hidden">
-                 <div class="profilemenuwrapper">
-                     <div class="profile" onclick="MM_showHideLayers('profilemenu','','hide')"><img class="profilethumb" src="resources/images/design/user-thumb20.jpg" width="20" height="20" alt="Geoff Rego" title="Geoff Rego" /><span><s:message code="lbl.link.signin.geoffRego"/></span></div>
-                     <a href="profile.htm"><s:message code="lbl.link.signin.publicProfile"/></a> <a href="profile-edit.htm"><s:message code="lbl.link.signin.editProfile"/></a> <a href="sign-out.htm"><s:message code="lbl.link.signin.signOut"/></a> </div>
-             </div>
-        <!-- Profile Menu ends here --> 
-        <!--
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        -->
         <div class="clear"></div>
         <div id="body">
             <div class="wrapper">
