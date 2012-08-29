@@ -16,10 +16,11 @@
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
-        
+        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
 
     </head>
     <body>
+        
         <div class="logo" style="position: relative;top: 5px; left: 15px;">
             <a href="${pageContext.request.contextPath}/avtar"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
             </div>
@@ -80,10 +81,12 @@
                                     <sf:form  id="picture-form" action="${pageContext.request.contextPath}/avtar/avtarPic" method="post" enctype="multipart/form-data" modelAttribute="avtarProfilePicForm" >
                                         <div style="display: none">
                                         <sf:input  path="enrollmentNumber" style="display"/></div>
-                                        <sf:input  type="file" path="profilePic" />
+                                        <sf:input  id="uploadPicTxt" type="file" value="uploadPicTxt" path="profilePic" />
                                         <br/>
                                         <br/>
-                                        <input type="submit" value="Upload" class="button-dw" style="position: absolute;left:200px;"/>
+                                        <input type="submit" id="uploadPicButton" value="Upload" class="button-dw" style="position: absolute;left:200px;"/>
+                                        <div id="errorUploadPicDiv">You Have To Browse Your Picture</div>
+                                        <div id="successProfilePic">${successProfilePic}</div>
                                         <div id="ajax_loading" style="position: absolute;left: 300px; width: 100px;display:none ">
                                             <img align="absmiddle" src="../resources/images/spinner.gif" style="left:200px;"/>&nbsp;Processing...
                                 </div>
