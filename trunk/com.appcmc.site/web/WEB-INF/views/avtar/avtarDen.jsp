@@ -358,9 +358,7 @@
 
             <div class="wrapper">
                 <div id="body1" class="col"> 
-                    <div id="updateEducationResponseDiv">
-                        <span class="updateEducationResponseClass">Update Successfully</span>
-                    </div>
+                    
                     
                     <!--Begin Prediction Module-->
                     <div class="heading-review">
