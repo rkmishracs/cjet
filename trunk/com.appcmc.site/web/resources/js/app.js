@@ -189,7 +189,6 @@ $(document).ready(function(){
         dateFormat: 'dd-mm-yy',
         inline: true
     });
-                
 
     $("#genEnrl").click(function(){
         $("#loader").css('display','block');
@@ -199,13 +198,6 @@ $(document).ready(function(){
             success : function(response){                            
                 $("#enrollmentNumber").val(response);                            
                 $("#loader").css('display','none');
-                            
-                            
-                            
-                            
-                            
-                            
-                            
             }
         });
                     
@@ -215,6 +207,7 @@ $(document).ready(function(){
     //it's validation for mobile number and other
            
            
+
 
     $("#mobile,#landPhone,#annualIncome,#pinCode").bind("keyup",function(){
         var $th = $(this);
@@ -237,6 +230,7 @@ $(document).ready(function(){
             return '';
         })) ;
     });
+
 
                 
     $("#tab1Next").click(function(){
@@ -590,6 +584,9 @@ $(document).ready(function(){
                     
                    
 
+                        
+   
+
             $.ajax({
                 type: "POST",
                 url: $('#searchDataHidden').val()+"/search",       
@@ -619,15 +616,17 @@ $(document).ready(function(){
                         },1000);
                     }else{
                         $('#SearchNumberErrorDiv').css("display", "block");
+
                     }
                     $('#ajax_loading').css('display','none');
-                                    
+                      
            
                                 
 
                 }
             });
         });
+
 
                                     
             
@@ -1179,7 +1178,7 @@ $(document).ready(function(){
                 }
                         
             });
-                    
+
         });
 
         $( "#updateExp" ).click(function(){
@@ -1190,6 +1189,7 @@ $(document).ready(function(){
                 url : $('#avtarDenHidden').val()+"/avtar/updateWorkExperience",
                 data : "id="+userId,
                 success : function(response){
+
                                         
                     $("#updateTitle").val(response.title);
                     $("#updateTotalExp").val(response.totalExperience);
@@ -1252,8 +1252,11 @@ $(document).ready(function(){
                        
                 }
                         
+
+
             });
         });
+
                 
                 
         // Script for editEducation.jsp
@@ -1286,6 +1289,7 @@ $(document).ready(function(){
             } ) );
         });
         
+
         $("#editFirstHighestUniversity,#editSecondHighestUniversity,#editThirdHighestUniversity,#editForthHighestUniversity").bind("keyup",function(){
             var $th = $(this);
             $th.val( $th.val().replace(/[^a-zA-Z]/g, function() {
@@ -1381,14 +1385,41 @@ $(document).ready(function(){
                             }
                         }
                     }
+
                 });
             }
         
+
   
         });
         
+        //Script for uploadResume.jsp
+        $("#uploadButton").click(function(){
+            if($("#uploadResumeTxt").val() == ""){
+                //alert(uploadResumeTxt);
+                $("#errorUploadDiv").css('display', 'block');
+                return false;
+            }
+            if($("#uploadResumeTxt").val() != ""){
+                $("#errorUploadDiv").css('display', 'none');
+            }
+        });
         
-    });
+
+        //Script for avtarProfilePic.jsp
+        $("#uploadPicButton").click(function(){
+            if($("#uploadPicTxt").val() == ""){
+                $("#errorUploadPicDiv").css('display', 'block');
+                return false;
+            }
+            if($("#uploadPicTxt").val() != ""){
+                $("#errorUploadPicDiv").css('display', 'none');
+            }
+        });
+});
+
+   
+
 
 
 
