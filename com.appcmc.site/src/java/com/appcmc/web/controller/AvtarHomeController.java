@@ -392,7 +392,7 @@ public class AvtarHomeController {
         
         student= studentService.findStudentByEnrollmentNumber(avtarProfilePicForm.getEnrollmentNumber());
         request.setAttribute("student", student, WebRequest.SCOPE_REQUEST);
-            
+        request.setAttribute("successProfilePic", "Profile Picture Changed Successfully", WebRequest.SCOPE_REQUEST);    
         
         return "avtar/avtarProfilePic";
     }
