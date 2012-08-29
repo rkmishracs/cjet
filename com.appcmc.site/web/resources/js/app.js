@@ -521,6 +521,7 @@ $(document).ready(function(){
                 $('#SearchNumberErrorDiv').hide();
                 $('#studentResponse').hide();
                 $('#ajax_loading').hide();
+                $("#tableResponseDiv").hide();
                 $('#testEnrl').click(function(){
                     $('#errorDiv').hide();
                     $('#studentResponse').hide();
@@ -568,8 +569,22 @@ $(document).ready(function(){
                         }
                             
                         
-                    });               
+                    });
                 });
+                                    
+            
+                $("#searchByMobileLink").click(function(){
+                    $.ajax({
+                        type: "POST",
+                        url: $('#searchDataHidden').val()+"/search/searchByMobile",       
+                        data : $("#searchByMobileNumber").serialize(),
+                        success:function(response){
+                            $("#tableResponseDiv").show();
+                            $("#tableResponseDiv").html(response);
+                        }
+                    });
+                });
+
                 
                 
                 
