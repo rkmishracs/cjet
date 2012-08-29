@@ -190,6 +190,25 @@ $(document).ready(function(){
         inline: true
     });
                 
+<<<<<<< .mine
+    $("#genEnrl").click(function(){
+        $("#loader").css('display','block');
+        $.ajax({
+            type : "get",
+            url : $('#enrollmentFormHidden').val()+"/enrl-home/enrl-number",
+            success : function(response){                            
+                $("#enrollmentNumber").val(response);                            
+                $("#loader").css('display','none');
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+            }
+        });
+=======
     $("#genEnrl").click(function(){
         $("#loader").css('display','block');
         $.ajax({
@@ -200,6 +219,7 @@ $(document).ready(function(){
                 $("#loader").css('display','none');
             }
         });
+>>>>>>> .r211
                     
     });
                 
@@ -207,6 +227,29 @@ $(document).ready(function(){
     //it's validation for mobile number and other
            
            
+<<<<<<< .mine
+    $("#mobile,#landPhone,#annualIncome,#pinCode").bind("keyup",function(){
+        var $th = $(this);
+        $th.val( $th.val().replace(/[^0-9]/g, function() {
+            alert("Filed should contain numbers only");
+            return '';
+        } ) );
+    });
+    $("#firstName,#lastName,#nationality,#fatherName,#motherName,#ocupation,#city,#state,#country").bind("keyup",function(){
+        var $th = $(this);
+        $th.val( $th.val().replace(/[^a-zA-Z/ /]/g, function() {
+            alert("Field should contain characters only");
+            return '';
+        } ) );
+    }); 
+    $("#email,#aletrnativeEmail").bind("keyup", function(){
+        var $th =$(this);
+        $th.val($th.val().replace(/[^a-zA-Z0-9@._]/g,function(){
+            alert("eg. ui@jquery.com");
+            return '';
+        })) ;
+    });
+=======
     $("#mobile,#landPhone,#annualIncome").bind("keyup",function(){
         var $th = $(this);
         $th.val( $th.val().replace(/[^0-9]/g, function() {
@@ -228,6 +271,7 @@ $(document).ready(function(){
             return '';
         })) ;
     });
+>>>>>>> .r211
                 
     $("#tab1Next").click(function(){
         allFields.removeClass( "ui-state-error" );
@@ -305,11 +349,18 @@ $(document).ready(function(){
                     
     });
                 
+
     $("#saveEnrl").click(function(){
+        $("#saveEnrl").css("display","none");
+
+    
                 
         allFields.removeClass( "ui-state-error" );
                     
-        if($("#mobile").val() == 0||$("#landPhone").val()== 0||$("#aletrnativeEmail").val() == 0||$("#city").val() == 0||$("#state").val() == 0||$("#country").val() == 0||$("#address").val() == 0){
+
+        if($("#mobile").val() == 0||$("#landPhone").val()== 0||$("#aletrnativeEmail").val() == 0||$("#city").val() == 0||$("#state").val() == 0||$("#country").val() == 0||$("#address").val() == 0||$("#pinCode").val() == 0){
+
+       
                      
             if($("#mobile").val() == 0){
                 alert("Mobile Number should not be empty");
@@ -327,6 +378,7 @@ $(document).ready(function(){
                 return false;
             }     
                     
+
             if($("#city").val() == 0){
                 alert("City should not be empty");
                 return false;
@@ -343,7 +395,13 @@ $(document).ready(function(){
                 alert("Address should not be empty");
                 return false;
             }     
+             if($("#pinCode").val() == 0){
+                alert("Pincode should not be empty");
+                return false;
+            }    
         }else{
+
+    
                         
             checkLength( aletrnativeEmail, "aletrnativeEmail", 6, 80 );			
             checkLength( mobile, "mobile", 10 , 10 );
@@ -366,7 +424,38 @@ $(document).ready(function(){
                 if($("#emailResponse").css("display", "block")){
                     setTimeout(function(){
                         $("#emailResponse").fadeOut("slow");
+                        $("#enrollmentNumber").val("");
+                        $("#email").val("");
+                        $("#firstName").val(""); 
+                        $("#lastName").val("");
+                        $("#date-picker").val(""); 
+
+                        $("#fatherName").val("") ;
+                        $("#aletrnativeEmail").val("");
+                        $("#motherName").val("") ;
+                        $("#ocupation").val("") ;
+                    
+                        $("#annualIncome").val("");
+                        $("#mobile").val(""); 
+                    
+                        $("#landPhone").val("");
+                        $("#nationality").val("");
+                    
+                        $("#city").val("");
+                        $("#state").val("");
+                        $("#country").val("");
+                        $("#address").val(""); 
+                        $("#pinCode").val("");
+                        $("#tab3").css("display", "none");
+                        $("#tab1").css("display", "block");
+                        $("#saveEnrl").css("display","block");
+
                     }, 3000);
+
+                    
+                                
+                                
+                                
                 }
             }
                         
@@ -525,6 +614,7 @@ $(document).ready(function(){
     });
          
      
+
          // Script for searchData.jsp
          $('#tabs').tabs();
                 $('#SearchNumberErrorDiv').hide();
@@ -534,26 +624,58 @@ $(document).ready(function(){
                 $('#testEnrl').click(function(){
                     $('#errorDiv').hide();
                     $('#studentResponse').hide();
+
                     
         $('#ajax_loading').css('display','block');
                     
                    
+<<<<<<< .mine
+        $.ajax({
+            type: "POST",
+            url: $('#searchDataHidden').val()+"/search",       
+            data : $("#searchByEnrollmentNumberDiv").serialize(),
+            dateFormat:'dd-MM-yyyy',
+            success:function(response){
+                                                 
+                            
+                            
+                           
+=======
         $.ajax({
             type: "POST",
             url: $('#searchDataHidden').val()+"/search",       
             data : $("#searchByEnrollmentNumberDiv").serialize(),
             dateFormat:'dd-MM-yyyy',
             success:function(response){                     
-                                if(response.contacts){
-                                     setTimeout(function(){
-                                    $('#studentResponse').css('display','block');
-                                    $("#enrollmentNumber").text(response.enrollmentNumber);
-                                    $("#name").text(response.firstName+" "+response.lastName);
-                                    $("#gender").text(response.gender);
-                                    $("#dob").text(response.dateOfBirth);
-                                    var date= new Date(response.createdOn);
-                                    var month =date.getMonth()+1;
+>>>>>>> .r211
+                if(response.contacts){
+                    setTimeout(function(){
+                        $('#studentResponse').css('display','block');
+                        $("#enrollmentNumber").text(response.enrollmentNumber);
+                        $("#name").text(response.firstName+" "+response.lastName);
+                        $("#gender").text(response.gender);
+                        $("#dob").text(response.dateOfBirth);
+                        var date= new Date(response.createdOn);
+                        var month =date.getMonth()+1;
 
+<<<<<<< .mine
+                        $("#enrolledOn").text(date.getDate()+" / "+month  +" / "+date.getFullYear());
+                        $("#email").text(response.email);
+                        $("#phone").text(response.contacts.landPhone);
+                        $("#mobile").text(response.contacts.mobile);
+                        $("#address").text(response.contacts.address);
+                        var dob= new Date(response.dateOfBirth);
+                        month=dob.getMonth()+1;
+                        $("#dob").text(dob.getDate()+" / "+month  +" / "+dob.getFullYear());
+                        $("#imgDiv").html('<img width="80" height="80" alt="kiran"  src="'+$('#searchDataHidden').val()+'/picture?id='+response.enrollmentNumber+'"/>');        
+                    },1000);
+                }else{
+                    $('#SearchNumberErrorDiv').css("display", "block");
+                }
+                $('#ajax_loading').css('display','none');
+                                    
+                           
+=======
                                     $("#enrolledOn").text(date.getDate()+" / "+month  +" / "+date.getFullYear());
                                     $("#email").text(response.email);
                                     $("#phone").text(response.contacts.landPhone);
@@ -569,10 +691,21 @@ $(document).ready(function(){
                     }
                     $('#ajax_loading').css('display','none');
                                    
+>>>>>>> .r211
                                 
+<<<<<<< .mine
+            }
+                            
+                        
+
+        });               
+    });
+
+=======
             }
                   });
                 });
+>>>>>>> .r211
                                     
             
                 $("#searchByMobileLink").click(function(){
@@ -1128,6 +1261,52 @@ $(document).ready(function(){
 
     $( "#updateExp" ).click(function(){
                 
+<<<<<<< .mine
+    $( "#updateEdu" ).click(function(){
+                        
+                        
+        var userId = $("#userId").val();
+        $.ajax({
+=======
+        var userId = $("#userId").val();
+        $.ajax({
+>>>>>>> .r211
+
+<<<<<<< .mine
+            type : "get",
+            url : $('#avtarDenHidden').val()+"/avtar/updateEducationalQualifications",
+            data : "id="+userId,
+            success : function(response){
+                                   
+                alert(response);
+            }
+        });
+                      
+
+        $( "#dialog-form-eduQualification" ).css('display','block');
+        $("#dialog-form-eduQualification").dialog({
+            title: "Update Educational Qualifications",
+            height: 590,
+            width: 850,
+            modal: true,
+            resizable: false,
+            zIndex : 491,
+            buttons : {
+                "Submit": function() {
+                    $(this).dialog('close');
+                },
+                "Cancel": function(){
+                    $(this).dialog('close');
+                }
+            }
+                        
+        });
+                        
+    });
+                 
+                 
+    $( "#updateExp" ).click(function(){
+                
         var userId = $("#userId").val();
         $.ajax({
 
@@ -1135,6 +1314,12 @@ $(document).ready(function(){
             url : $('#avtarDenHidden').val()+"/avtar/updateWorkExperience",
             data : "id="+userId,
             success : function(response){
+=======
+            type : "get",
+            url : $('#avtarDenHidden').val()+"/avtar/updateWorkExperience",
+            data : "id="+userId,
+            success : function(response){
+>>>>>>> .r211
                                         
                 $("#updateTitle").val(response.title);
                 $("#updateTotalExp").val(response.totalExperience);
@@ -1199,6 +1384,9 @@ $(document).ready(function(){
                         
         });
                     
+<<<<<<< .mine
+    });
+=======
     });
                 
                 
@@ -1231,6 +1419,7 @@ $(document).ready(function(){
             return '';
         } ) );
     });
+>>>>>>> .r211
         
     $("#editFirstHighestUniversity,#editSecondHighestUniversity,#editThirdHighestUniversity,#editForthHighestUniversity").bind("keyup",function(){
         var $th = $(this);
