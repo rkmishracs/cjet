@@ -21,6 +21,7 @@ import com.appcmc.utils.AppContext;
 import com.appcmc.web.forms.AvtarProfilePicForm;
 import com.appcmc.web.forms.ChangePasswordForm;
 import com.appcmc.web.forms.UpdateAvtarProfileForm;
+import com.appcmc.web.forms.UpdateEducationalQualificationsForm;
 import com.appcmc.web.forms.UpdateWorkExperienceForm;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -116,7 +117,7 @@ public class AvtarHomeController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public StudentContacts updateAvtarProfile(@ModelAttribute UpdateAvtarProfileForm updateAvtarProfileForm) {
+    public StudentContacts updateAvtarProfile(@ModelAttribute UpdateAvtarProfileForm updateAvtarProfileForm,UpdateEducationalQualificationsForm updateEducationalQualificationsForm) {
 
         String enrollmentNumber = updateAvtarProfileForm.getEnrollmentNumber();
 
@@ -303,20 +304,6 @@ public class AvtarHomeController {
         return studentProfile;
     }
     
-    @RequestMapping(method = RequestMethod.GET, value = "/updateEducationalQualifications", params = {"id"})
-    @ResponseBody
-    public EducationalQualifications getEducationalQualifications(@RequestParam String id) {
-        LOG.debug("Avtar Id : " + id);
-
-        AppCmcSpringContext.init();
-        
-        educationalQualificationsService = (EducationalQualificationsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EDUCATIONAL_QUALIFICATIONS_SERVICE);
-        educationalQualifications = educationalQualificationsService.findEducationalQualificationsByEnrollmentNumber(id);
-
-
-        return educationalQualifications;
-    }
-
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST, value = "/changePassword")
     public String changePasswordAvtar(@ModelAttribute ChangePasswordForm changePasswordForm) {
@@ -425,4 +412,69 @@ public class AvtarHomeController {
     }
     
     
+    @RequestMapping(method = RequestMethod.GET, value = "/eduEdit")
+    public String avtraEducationEdit(@ModelAttribute UpdateEducationalQualificationsForm updateEducationalQualificationsForm,WebRequest request) {
+        
+        LOG.debug("In Avtar Home Controller For EDu");
+
+        appUser = (AppUser) request.getAttribute("user", WebRequest.SCOPE_SESSION);
+        if (appUser == null) {
+            return "home";
+        }
+
+        String id = appUser.getEnrollmentNumber();
+
+        AppCmcSpringContext.init();
+        studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
+
+        student = studentService.findStudentByEnrollmentNumber(id);
+        
+         LOG.debug("Avtar Id : " + id);
+        
+        educationalQualificationsService = (EducationalQualificationsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EDUCATIONAL_QUALIFICATIONS_SERVICE);
+        educationalQualifications = educationalQualificationsService.findEducationalQualificationsByEnrollmentNumber(id);
+
+        request.setAttribute("student", student, WebRequest.SCOPE_REQUEST);
+        request.setAttribute("educationalQualifications", educationalQualifications, WebRequest.SCOPE_REQUEST);
+
+        
+        return "/avtar/editEducation";
+    }
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.POST, value = "/updateEducation")
+    public String updateEducationalQualifications(@ModelAttribute UpdateEducationalQualificationsForm updateEducationalQualificationsForm,WebRequest request) {
+        
+        String id = updateEducationalQualificationsForm.getEnrollmentNumber();
+        
+        LOG.debug("Avtar Id in EduEdit: " + id);
+        
+        educationalQualificationsService = (EducationalQualificationsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EDUCATIONAL_QUALIFICATIONS_SERVICE);
+        educationalQualifications = educationalQualificationsService.findEducationalQualificationsByEnrollmentNumber(id);
+        
+        educationalQualifications.setOneQualification(updateEducationalQualificationsForm.getOneQualification());
+        educationalQualifications.setOneUniversity(updateEducationalQualificationsForm.getOneUniversity());
+        educationalQualifications.setOneYearOfPass(updateEducationalQualificationsForm.getOneYearOfPass());
+        educationalQualifications.setOneGrade(updateEducationalQualificationsForm.getOneGrade());
+        
+        educationalQualifications.setTwoQualification(updateEducationalQualificationsForm.getTwoQualification());
+        educationalQualifications.setTwoUniversity(updateEducationalQualificationsForm.getTwoUniversity());
+        educationalQualifications.setTwoYearOfPass(updateEducationalQualificationsForm.getTwoYearOfPass());
+        educationalQualifications.setTwoGrade(updateEducationalQualificationsForm.getTwoGrade());
+        
+        educationalQualifications.setThreeQualification(updateEducationalQualificationsForm.getThreeQualification());
+        educationalQualifications.setThreeSpecialization(updateEducationalQualificationsForm.getThreeSpecialization());
+        educationalQualifications.setThreeUniversity(updateEducationalQualificationsForm.getThreeUniversity());
+        educationalQualifications.setThreeYearOfPass(updateEducationalQualificationsForm.getThreeYearOfPass());
+        educationalQualifications.setThreeGrade(updateEducationalQualificationsForm.getThreeGrade());
+        
+        educationalQualifications.setFourQualification(updateEducationalQualificationsForm.getFourQualification());
+        educationalQualifications.setFourSpecialization(updateEducationalQualificationsForm.getFourSpecialization());
+        educationalQualifications.setFourUniversity(updateEducationalQualificationsForm.getFourUniversity());
+        educationalQualifications.setFourYearOfPass(updateEducationalQualificationsForm.getFourYearOfPass());
+        educationalQualifications.setFourGrade(updateEducationalQualificationsForm.getFourGrade());
+        
+        educationalQualificationsService.create(educationalQualifications);
+        
+        return "success";
+    }
 }
