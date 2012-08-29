@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
         <link href="${pageContext.request.contextPath}/resources/css/newstyle.css" rel="stylesheet" type="text/css" />
 
-
+           
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
@@ -74,11 +74,11 @@
                     <!--End Pridikt Module--> 
 
 
-
-                    <iframe src="${pageContext.request.contextPath}/resume/iframe" width="700" height="300">
+                    <div id="iframeDiv" style="position: relative ; top: -100px; left:-20px;">
+                    <iframe src="${pageContext.request.contextPath}/resume/iframe" width="870" height="380">
                         <p>Your browser does not support iframes.</p>
                     </iframe>
-
+                    </div>
 
 
 
