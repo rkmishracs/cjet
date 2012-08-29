@@ -6,6 +6,63 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     vertical-align: baseline;
     background: transparent;
 }
+
+body {
+	margin:0;
+	padding:0;
+	width:100%;
+	color:#959595;
+	font:normal 12px/1.8em Arial, Helvetica, sans-serif;
+	background:#687591;
+}
+html, #body {
+	padding:0;
+	margin:0 auto;
+	width:1000px;
+}
+
+.logo {
+	float:left;
+	width:300px;
+	height:51px;
+	padding:15px;
+	margin:0 auto;
+}
+.header, .content, .menu_nav, .fbg, .footer, form, ol, ol li, ul, .content .mainbar, .content .sidebar {
+	margin:0;
+	padding:0;
+}
+.menu_nav {
+	margin:0;
+	padding:0;
+	height:81px;
+        background-color: white;
+}
+.menu_nav ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+	float:right;
+}
+.menu_nav ul li {
+	margin:0;
+	padding:25px 5px 0 0;
+	float:left;
+}
+.menu_nav ul li a {
+	display:block;
+	margin:0 5px 0 0;
+	padding:10px 15px;
+	color:#fff;
+	text-decoration:none;
+	font-size:13px;
+	line-height:16px;
+	background:#cccccc;
+}
+.menu_nav ul li.active a, .menu_nav ul li a:hover {
+	text-decoration:none;
+	background:#6B9EDD;
+}
 ol, ul {
     list-style: none;/*position: relative; ensures that IE displays first three bullets, but causes other problems */
 }
@@ -624,7 +681,7 @@ ul.options li a:hover {
 #body {
     clear: both;
     min-height: 600px;
-    background: url(../images/flag_tile.jpg) repeat-x center top;
+    
     background-color: white;
 }
 #body1 {
