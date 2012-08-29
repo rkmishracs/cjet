@@ -92,14 +92,15 @@
 
                     <div class="profilePer" id="reportsInfo" >
 
-                        <div id="reportsInfoHeading">Enrollment Details
+                        <div id="reportsInfoHeading" id="profileHeading">Enrollment Details
                             
                         </div>
                         <table id="first">
-                            <tr><td class="studentDetailsFont">Student Enrolled</td><td>:</td><td >${studentCount}</td></tr><tr><td class="studentDetailsFont">Student Monthly:</td><td>:</td><td>${StudentMonthlyCount}</td></tr>
+                            <tr><td>Total Students Enrolled</td><td>:</td><td >0</td></tr><tr><td >Students Enrolled In This Month</td><td>:</td><td>0</td></tr>
                         </table>
                         <table id="second" >
-                            <tr><td class="studentDetailsFont">Student Weekly</td><td>:</td><td >${studentWeeklyCount}</td></tr><tr><td class="studentDetailsFont">Student Daily</td><td>:</td><td>${studentDayCount}</td></tr>
+
+                            <tr><td>Students Enrolled In This Week</td><td>:</td><td >0</td></tr><tr><td>Students Enrolled Today</td><td>:</td><td>0</td></tr>
                         </table>
                     </div>
                     <!--End Prediction Module--> 
