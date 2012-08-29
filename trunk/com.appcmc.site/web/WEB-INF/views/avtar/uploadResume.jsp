@@ -18,9 +18,10 @@
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
-        
+        <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
     </head>
     <body>
+        <input type="hidden" id="uploadResumeHidden" value="${pageContext.request.contextPath}"/>
         <div class="logo" style="position: relative;top: 5px; left: 15px;">
             <a href="${pageContext.request.contextPath}/avtar"><img src="resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
             </div>
@@ -95,16 +96,17 @@
 
 
                             <div id="tab1" class="tab_content2">
-                                <sf:form modelAttribute="avtarResumeForm" action="" method="POST" enctype="multipart/form-data">
+                                <sf:form modelAttribute="avtarResumeForm" action="${pageContext.request.contextPath}/resume" method="POST" enctype="multipart/form-data">
                                     <sf:hidden path="enrollmentNumber" value="${student.enrollmentNumber}"/>
                                 <div class="st-blocked2" style="position: relative;left: 150px;" class="fileinputs">
                                     
                                     <label for="tags">Upload Resume</label>
-                                    <sf:input type="file" path ="resumeDoc" class="input"/>
+                                    <sf:input type="file" id="uploadResumeTxt" path ="resumeDoc" class="input"/>
                                     <br/>
                                     <br/>
-                                    <input type="submit" value="Upload" class="button-h" style="position: absolute;left:180px;width: 100px;"/>
-                                   
+                                    <input type="submit" id="uploadButton" value="Upload" class="button-h" style="position: absolute;left:180px;width: 100px;"/>
+                                    <div id="errorUploadDiv">You Have To Browse Your Resume</div>
+                                    <div id="successUploadDiv">${successMessage}</div>
                                 </div>
                                 </sf:form>
                             </div>
