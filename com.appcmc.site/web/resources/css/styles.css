@@ -680,8 +680,13 @@ ul.options li a:hover {
 
 #body {
     clear: both;
+<<<<<<< .mine
+    min-height: 600px;
+
+=======
     min-height: 670px;
 
+>>>>>>> .r232
     background-color: white;
 }
 #body1 {
@@ -1749,6 +1754,7 @@ html ul.tabs2 li.active a {
     position: relative;
 
     /*float: right;*/
+    top:12px;
     width: 200px;
     height: 100px;
     color: black;
@@ -1793,18 +1799,18 @@ html ul.tabs2 li.active a {
     position:relative;
     top:50px;
     height:auto;
-    left:-60px;
+    left:-180px;
 }
 
 
 /*CSS for allEnrolls.jsp, dailyReport.jsp, weeklyReport.jsp, monthlyReport.jsp*/
 #exportPdfDiv{
-    position: absolute;
+    position: relative;
     top: 123px;
-    left: 700px;
+    left: 500px;
     width:102px;
     height: 34px;
-    margin-right: 10px;
+    margin-right: 8px;
     font-size: 75.5%;
 }
 
@@ -2031,7 +2037,7 @@ span{
 }
 #exportToPdf{
     position: relative;
-    top: 35px;
+    top: -156px;
 }
 #profileTitleText{
     position: relative;
@@ -2312,6 +2318,83 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     margin: 0px;
 }
 
+
+
+
+
+/*App Home Styles */
+.fl {
+    float: left;
+}
+.lhs { 
+    position: relative;
+    top:23px;
+    width: 728px;
+    height: auto;
+}
+.Hire {
+    width: 323px;
+    margin: 0 20px 0 0;
+}
+.mrgn_b10 {
+    margin-bottom: 10px
+}
+.hireUL li{
+    display: inline;
+    float: left;
+    margin: 0 10px 10px 0;
+}
+.cl {
+    clear: both;
+    overflow: hidden;
+    height: 0;
+}
+.Hire1 {
+    width: 323px;
+    margin: 0 20px 0 0;
+}
+.mrgn_b11 {
+    margin-bottom: 10px
+}
+.employersLine{
+    position: relative;
+    float: left;
+    width: 290px;
+    height:5px;
+    line-height: 22px;
+    border-bottom: solid 1px #B6C1CC;
+    margin: 0px 0px 10px 0px;
+    *.z-index: -1;
+}   
+
+.empLine{
+    position: relative;
+    float: left;
+    width: 225px;
+    height:5px;
+    line-height: 18px;
+    border-bottom: solid 1px #B6C1CC;
+    margin: 0px 0px 10px 0px;
+    *.z-index: -1;
+}   
+
+
+
+#upcomingEventDiv{
+    position: absolute;
+    top:17px;
+    width:250px;
+    left:668px;
+    height:286px;
+    border: 1px solid #B6C1CC;
+}
+
+#upcomingEventDiv h4{
+    background: url(resources/images/resBlk_HD.gif) repeat-x 0 0;
+    text-align: center;
+    border-bottom: 1px solid #B6C1CC;
+}
+
 #reportsInfo{
     position: relative; width: 520px;top:110px;  height: 100px;
     font:normal 12px/1.8em Arial, Helvetica, sans-serif;
@@ -2361,6 +2444,43 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 }
 
 
+/*Styles For Interview Details Label for avtarHome */
+.interviewPer{
+    position: relative;
+
+    /*float: right;*/
+    top:50px;
+    width:200px;
+    height: 200px;
+    color: black;
+    /*margin-left: 10px;*/
+    padding: 5px 70px 5px 7px;
+    border: solid 1px #8E9DB0;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    background: url(../images/design/module-back.png) repeat-x left bottom;
+
+}
+
+.detailLine{
+position: relative;
+    float: left;
+    width: 250px;
+    height:5px;
+    line-height: 20px;
+    border-bottom: solid 1px #B6C1CC;
+    margin: 0px 0px 10px 0px;
+    *.z-index: -1;
+}
+
+
+
+#emailProfileToUser{
+    position: relative;
+    top:20px;
+    left:50px;
+}
+
 /*CSS for uploadResume.jsp*/
 #errorUploadDiv{
     position: relative;
@@ -2399,3 +2519,4 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     font-weight: bold;
     font-size: 10pt;
 }
+
