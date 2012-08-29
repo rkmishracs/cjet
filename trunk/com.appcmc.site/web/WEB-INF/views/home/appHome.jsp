@@ -7,7 +7,7 @@
         <title>CMC | Home</title>
 
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
-        <link href="${pageContext.request.contextPath}/resources/css/newstyle.css" rel="stylesheet" type="text/css" />
+        
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />
         <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"/>
 
@@ -15,6 +15,10 @@
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+
+      
+        
+
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
         <script
@@ -42,11 +46,11 @@
         </div>
 
         <input type="hidden" id="appHomeHidden" value="${pageContext.request.contextPath}" />
-
-        <div class="clear"></div>
+       <div class="clear"></div>
         <div id="body" style="background-color: white;">
-
-
+       
+            
+            
 
             <div id="signInForm" style="display:none;">
 
