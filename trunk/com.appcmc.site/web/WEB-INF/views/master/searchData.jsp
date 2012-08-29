@@ -21,9 +21,9 @@
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
 
+
     </head>
     <body>
-        
         <div class="logo" style="position: relative;top: 5px; left: 15px;">
             <a href="${pageContext.request.contextPath}/master"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
         </div>
@@ -38,9 +38,9 @@
             </ul>
             <div class="clr"></div>
         </div>
-        
+
         <input type="hidden" id="searchDataHidden" value="${pageContext.request.contextPath}" />
-       
+
 
         <div class="clear"></div>
         <div id="body">
@@ -73,7 +73,7 @@
 
                             <div class="st-blocked2">
                                 <sf:form id="searchByEnrollmentNumberDiv" modelAttribute="findByEnrollmentNumberForm" action="" method="post">
-                                    <label>Enter Enrollment Number</label><sf:input path="enrollmentId"/><a id="testEnrl" class="button-h" href="#" style="position: relative ;left: 20px;">
+                                    <label>Enter Enrollment Number</label><sf:input path="enrollmentId"/><a id="testEnrl" class="button-h" href="#" style="position: relative ;left: 20px;top: -3px;">
                                         <span>search</span>
                                     </a><div id="ajax_loading" style="position: absolute;top: 75px;left: 450px; width: 200px;display: none; ">
                                         <img align="absmiddle" src="${pageContext.request.contextPath}/resources/images/spinner.gif" />&nbsp;Processing...
@@ -134,7 +134,35 @@
 
 
                         </div>
-                        <div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+
+                        <div id="tabs-3" style="height: auto;">
+
+                            <div class="st-blocked2">
+                                <sf:form id="searchByMobileNumber" modelAttribute="findByMobileForm" action="" method="post">
+                                    <label>Enter Mobile Number</label><sf:input path="mobile"/><a id="searchByMobileLink" class="button-h" href="#" style="position: relative ;left: 20px;top: -3px;">
+                                        <span>search</span>
+                                    </a><div id="ajax_loading" style="position: absolute;top: 75px;left: 450px; width: 200px;display: none; ">
+                                        <img align="absmiddle" src="${pageContext.request.contextPath}/resources/images/spinner.gif" />&nbsp;Processing...
+                                    </div>
+
+
+                                </sf:form>
+
+                            </div>
+                            
+                            <div id="tableResponseDiv" class="ui-widget-content" >
+                                    
+                                </div>
+                           
+
+
+                            
+                            
+                            
+
+
+
+                        </div>
                     </div>
 
                 </div>
@@ -193,7 +221,7 @@
                     </ul>
                 </div>
             </div>
-        </div>                        
+        </div>
+
     </body>
-</html>
 </html>
