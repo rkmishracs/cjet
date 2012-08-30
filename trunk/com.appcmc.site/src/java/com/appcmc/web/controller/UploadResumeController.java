@@ -147,8 +147,15 @@ public class UploadResumeController {
             // TO DO
             LOG.debug("====================Student Profile Null");
             return "";
-        }        
-        
+        }
+        String resumeName = avtarResumeForm.getResumeDoc().getOriginalFilename();
+        LOG.debug("==========Resume Name : "+resumeName);
+        if(!resumeName.endsWith(".doc")){
+            LOG.debug("============Failure");
+            request.setAttribute("errorMessage", "You Must Upload Only '.doc' files", WebRequest.SCOPE_REQUEST);
+            return "avtar/uploadResume";
+        }
+        LOG.debug("============Success");
         byte[] resume = avtarResumeForm.getResumeDoc().getBytes();
         
         studentProfile.setId(studentProfile.getId());
