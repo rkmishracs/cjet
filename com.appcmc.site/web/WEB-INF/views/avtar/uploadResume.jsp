@@ -70,7 +70,7 @@
 
                     <!--Begin Prediction Module-->
                     <div class="heading-review">
-                        <div class="prdktr"><img src="resources/images/content/user-img-40.jpg" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" /><span style="margin: 5px;border: 5px; "><a href="${pageContext.request.contextPath}/avtar/avtarPic"></a></span></div>
+                        <div class="prdktr"><img src="${pageContext.request.contextPath}/picture?id=${student.enrollmentNumber}" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" /><span style="margin: 5px;border: 5px; "><a href="${pageContext.request.contextPath}/avtar/avtarPic"></a></span></div>
                         <form id="prdkt-compose-form" style="float:left; margin:15px 0 0 5px;">
                             <label class="title" style="width:371px;"><span id="firstNameText">${student.firstName}</span>&nbsp;<span id="lastNameText" >${student.lastName}</span></label>
                            
@@ -104,9 +104,10 @@
                                     <sf:input type="file" id="uploadResumeTxt" path ="resumeDoc" class="input"/>
                                     <br/>
                                     <br/>
-                                    <input type="submit" id="uploadButton" value="Upload" class="button-h" style="position: absolute;left:180px;width: 100px;"/>
+                                    <input type="submit" id="uploadButton" value="Upload" class="button-h" style="position: relative;top: 18px;left:180px;width: 100px;"/>
                                     <div id="errorUploadDiv">You Have To Browse Your Resume</div>
                                     <div id="successUploadDiv">${successMessage}</div>
+                                    <div id="errorInfoDiv">${errorMessage}</div>
                                 </div>
                                 </sf:form>
                             </div>
