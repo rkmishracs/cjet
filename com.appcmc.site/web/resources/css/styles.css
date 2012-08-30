@@ -2478,8 +2478,8 @@ position: relative;
 /*CSS for uploadResume.jsp*/
 #errorUploadDiv{
     position: relative;
-    top:2px;
-    left:-43px;
+    top:-28px;
+    left:130px;
     width: 190px;
     color: red;
     display: none;
@@ -2487,10 +2487,20 @@ position: relative;
 
 #successUploadDiv{
     position: relative;
-    top:2px;
-    left:-53px;
+    top:-28px;
+    left:130px;
     width: 210px;
     color: #6B9EDD;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+#errorInfoDiv{
+    position: relative;
+    top:-28px;
+    left:130px;
+    width: 210px;
+    color: red;
     font-weight: bold;
     font-size: 10pt;
 }
@@ -2498,16 +2508,16 @@ position: relative;
 /*CSS for avtarProfilePic.jsp*/
 #errorUploadPicDiv{
     position: relative;
-    top:2px;
-    left:-43px;
+    top:-28px;
+    left:130px;
     width: 190px;
     color: red;
     display: none;
 }
 #successProfilePic{
     position: relative;
-    top:2px;
-    left:-73px;
+    top:-28px;
+    left:130px;
     width: 250px;
     color: #6B9EDD;
     font-weight: bold;
