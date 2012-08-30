@@ -84,7 +84,7 @@
                                         <sf:input  id="uploadPicTxt" type="file" value="uploadPicTxt" path="profilePic" />
                                         <br/>
                                         <br/>
-                                        <input type="submit" id="uploadPicButton" value="Upload" class="button-dw" style="position: absolute;left:200px;"/>
+                                        <input type="submit" id="uploadPicButton" value="Upload" class="button-dw" style="position: relative;top: 18px;left:200px;"/>
                                         <div id="errorUploadPicDiv">You Have To Browse Your Picture</div>
                                         <div id="successProfilePic">${successProfilePic}</div>
                                         <div id="ajax_loading" style="position: absolute;left: 300px; width: 100px;display:none ">
