@@ -26,7 +26,7 @@ public class StudentTest {
         
        
         /*
-       /* List<Student> studentList = studentService.getByCurrentMonth();
+       /*List<Student> studentList = studentService.getByCurrentMonth();
         for(Student std : studentList){
             LOG.debug(std.getId()+"\n");
         }*/
@@ -42,9 +42,15 @@ public class StudentTest {
             LOG.debug(std.getId()+"\n");
         }*/
         
-        List<Student> students = studentService.findByMobile("9966632943");
+        /*List<Student> students = studentService.findByMobile("9966632943");
         for(Student std:students){
             LOG.debug(std);
+        }*/
+        
+        List<Student> studentList = studentService.getByCurrentWeek();
+        LOG.debug(studentList.size());
+        for(Student std : studentList){
+            LOG.debug(std.getId()+"\n");
         }
         
     }
