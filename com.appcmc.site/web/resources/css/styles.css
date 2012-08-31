@@ -1374,7 +1374,7 @@ html ul.tabs li.active a {
 .tab_content {
     padding: 5px 12px;
     clear:both;
-    height:auto;
+    min-height:90px;
 }
 .tab_content .input {
     border:1px solid #b8ced7;
