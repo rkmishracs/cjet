@@ -12,7 +12,7 @@
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
-        
+
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
@@ -343,7 +343,7 @@
         <div id="body">
             <div class="logo" style="position: relative;top: 5px; left: 15px;">
                 <a href="${pageContext.request.contextPath}/avtar"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
-        </div>
+            </div>
 
             <div class="menu_nav">
                 <ul>
@@ -358,8 +358,8 @@
 
             <div class="wrapper">
                 <div id="body1" class="col"> 
-                    
-                    
+
+
                     <!--Begin Prediction Module-->
                     <div class="heading-review">
                         <div class="prdktr"> <img src="${pageContext.request.contextPath}/picture?id=${student.enrollmentNumber}" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" /><span style="margin: 5px;border: 5px; "><a href="${pageContext.request.contextPath}/avtar/avtarPic">Edit Picture</a></span>
@@ -393,25 +393,44 @@
                         </div>
                         <!--Begin Pridiktion Info Box-->
                         <div class="prdkt-box">
-                            
-                            <table id="workExperienceTable">
+
+                            <div id="addressDiv">
+                                <h2 class="tags"><s:message code="lbl.avatar.address"/>&nbsp;<span id="semi-columnDiv">:</span></h2>
+                                <div id="addressText">
+
+                                    <!--// Update Holder -->
+                                    <div id="updateHolder">
+                                        <div id="updateContainer">
+                                            <div id="updateContent">
+                                                <!-- //// You can add all your contents here ////-->
+                                                ${contacts.address}
+
+                                            </div>
+                                            <!--// don't remove this: the scrollbar and scrollscrubber place holder -->
+                                            <div id="updateScollBar">
+                                                <div id="updateScollScrubber">
+                                                </div>
+                                            </div>
+                                            <!-- scrollbar end //-->
+                                        </div><!-- end of updateContainer //-->
+                                    </div><!-- end of updateHolder //-->
+
+
+                                </div>
+
+                            </div>
+                            <table>
 
                                 <tr>
-                                    <td><h2 class="tags"><s:message code="lbl.avatar.address"/>&nbsp;</h2></td>
-                                    <td>:</td>
-                                    <td><h2 class="tags"><div id="addressText">${contacts.address}</div></h2></td>
-                                </tr>
-                                
-                                <tr>
                                     <td><h2 class="tags"><s:message code="lbl.avatar.pin"/>&nbsp;</h2></td>
-                                    <td>:</td>
-                                    <td><h2 class="tags"><div id="pinText">${contacts.pinCode}</div></h2></td>
+                                    <td><span id="semi-columnDiv">:</span></td>
+                                    <td><div id="pinText">${contacts.pinCode}</div></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags"><s:message code="lbl.avatar.nationality"/></h2></td>
-                                    <td>:</td>
-                                    <td><h2 class="tags"><div id="nationalityText">${student.nationality}</div></h2></td>
+                                    <td><span id="semi-columnDiv">:</span></td>
+                                    <td><div id="nationalityText">${student.nationality}</div></td>
                                 </tr>
 
                             </table>
@@ -420,13 +439,14 @@
                                 <li class="timestamp"><img src="../resources/images/email-icon.gif" width="12" height="9"/> <div id="emailtext" style="position: relative;top: -17px; left: 15px;">${contacts.email}, ${contacts.alternativeEmail}</div></li>
 
                                 <li class="location"><div id="mobileNumberText" style="position: relative;">${contacts.mobile}</div></li>
-                                <li><img src="../resources/images/phone_icon.gif" width="20" height="15"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 30px;top: -18px;">${contacts.landPhone}</div></li>
+                                <li class="landPhone"><img src="../resources/images/phone_icon.gif" width="20" height="15"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 30px;top: -18px;">${contacts.landPhone}</div></li>
                             </ul>
 
                         </div>
 
                     </div>
                     <!--End Pridikt Module-->
+
 
 
                     <div class="m600-prdkt">
@@ -438,42 +458,82 @@
 
                             <div><h2 class="tags" id="profileHeading">Work Experience</h2></div><div style="position: absolute;left: 430px;top: 4px;"><a href="#" id="updateExp">Edit</a></div>
 
+                            <div id="profileTitleDiv">
+
+                                <h2 class="tags">Profile Title &nbsp; <span id="semi-columnDiv">:</span></h2>
+                                <div id="profileTitleText">
+
+                                    <!--// Update Holder -->
+                                    <div id="updateHolder">
+                                        <div id="updateContainer">
+                                            <div id="updateContent">
+                                                <!-- //// You can add all your contents here ////-->
+                                                ${studentProfile.title}
+
+                                            </div>
+                                            <!--// don't remove this: the scrollbar and scrollscrubber place holder -->
+                                            <div id="updateScollBar">
+                                                <div id="updateScollScrubber">
+                                                </div>
+                                            </div>
+                                            <!-- scrollbar end //-->
+                                        </div><!-- end of updateContainer //-->
+                                    </div><!-- end of updateHolder //-->
+
+                                </div>
+
+                            </div>
+
                             <table id="workExperienceTable">
-
-                                <tr>
-                                    <td><h2 class="tags">Profile Title &nbsp;</h2></td>
-                                    <td>:</td>
-                                    <td><h2 class="tags"><div id="profileTitleText">${studentProfile.title}</div></h2></td>
-                                </tr>
-
                                 <tr>
                                     <td><h2 class="tags">Total Experience &nbsp;</h2></td>
-                                    <td>:</td>
-                                    <td><h2 class="tags"><div id="totalExperienceText">${studentProfile.totalExperience}</div></h2></td>
+                                    <td>&nbsp; &nbsp; :</td>
+                                    <td><div id="totalExperienceText">${studentProfile.totalExperience}</div></td>
                                 </tr>
+                            </table>
 
-                                <tr>
-                                    <td><h2 class="tags">Key Skills &nbsp;</h2></td>
-                                    <td>:</td>
-                                    <td><h2 class="tags"><div id="keySkillsText">${studentProfile.keySkills}</div></h2></td>
-                                </tr>
+                            <div id="keySkillsDiv">
+                                <h2 class="tags">Key Skills &nbsp; &nbsp; &nbsp;<span id="semi-columnDiv">:</span></h2>
+                                <div id="keySkillsText">
 
+                                    <!--// Update Holder -->
+                                    <div id="updateHolder">
+                                        <div id="updateContainer">
+                                            <div id="updateContent">
+                                                <!-- //// You can add all your contents here ////-->
+                                                ${studentProfile.keySkills}
+
+                                            </div>
+                                            <!--// don't remove this: the scrollbar and scrollscrubber place holder -->
+                                            <div id="updateScollBar">
+                                                <div id="updateScollScrubber">
+                                                </div>
+                                            </div>
+                                            <!-- scrollbar end //-->
+                                        </div><!-- end of updateContainer //-->
+                                    </div><!-- end of updateHolder //-->
+
+                                </div>
+                            </div>
+
+
+                            <table
                                 <tr>
                                     <td><h2 class="tags">Current Employer &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="currentEmployerText">${studentProfile.currentEmployer}</div></h2></td>
+                                    <td><div id="currentEmployerText">${studentProfile.currentEmployer}</div></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Role &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="roleText">${studentProfile.role}</div></h2></td>
+                                    <td><div id="roleText">${studentProfile.role}</div></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Previous Employers &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="previousEmployersText">${studentProfile.previousEmployer}</div></h2></td>
+                                    <td><div id="previousEmployersText">${studentProfile.previousEmployer}</div></td>
                                 </tr>
 
                             </table>
@@ -482,7 +542,7 @@
                         </div>
 
                     </div>
-
+                    <div id="semi-columnDiv"></div>
 
                     <div class="m600-prdkt">
                         <div class="prdktr"> <img src="../resources/images/graduate.jpg" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
@@ -493,27 +553,29 @@
 
                             <div><h2 class="tags" id="profileHeading">Highest Qualification</h2></div><div style="position: absolute;left: 430px;top: 4px;"><a href="${pageContext.request.contextPath}/avtar/eduEdit" id="updateEdu">Edit</a></div>
 
+
                             <table id="highestQualificationTable">
 
                                 <tr>
                                     <td><h2 class="tags">Qualification Held &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="fourQualification">${educationalQualifications.fourQualification}</div></h2></td>
+                                    <td><div id="fourQualification">${educationalQualifications.fourQualification}</div></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Specialization &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="fourSpecialization">${educationalQualifications.fourSpecialization}</div></h2></td>
+                                    <td><div id="fourSpecialization">${educationalQualifications.fourSpecialization}</div></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">University &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="fourUniversity">${educationalQualifications.fourUniversity}</div></h2></td>
+                                    <td><div id="fourUniversity">${educationalQualifications.fourUniversity}</div></td>
                                 </tr>
 
                             </table>
+                            <p>&nbsp;</p>
                             <p>&nbsp;</p>
                             <ul class="info">
                                 <li class="end"><div id="emailtext">Year Of Passing : ${educationalQualifications.fourYearOfPass}</div></li>
@@ -521,33 +583,34 @@
 
                                 <li><img src="../resources/images/symbol_percentage.jpg" width="16" height="13"/>&nbsp;<div id="landPhoneText" style="position: relative;left: 25px;top: -18px;">${educationalQualifications.fourGrade}</div></li>
                             </ul>
-                        
+
 
                             <div id="line" ></div>
-                            
+
                             <div><h2 class="tags" id="profileHeading">Second Highest Qualification</h2></div>
-                           
+
                             <table id="highestQualificationTable">
 
                                 <tr>
                                     <td><h2 class="tags">Qualification Held &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="threeQualification">${educationalQualifications.threeQualification}</div></h2></td>
+                                    <td><div id="threeQualification">${educationalQualifications.threeQualification}</div></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Specialization &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="threeSpecialization">${educationalQualifications.threeSpecialization}</div></h2></td>
+                                    <td><div id="threeSpecialization">${educationalQualifications.threeSpecialization}</div></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">University &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="threeUniversity">${educationalQualifications.threeUniversity}</div></h2></td>
+                                    <td><div id="threeUniversity">${educationalQualifications.threeUniversity}</div></td>
                                 </tr>
 
                             </table>
+                            <p>&nbsp;</p>
                             <p>&nbsp;</p>
                             <ul class="info">
                                 <li class="end"><div id="emailtext" style="position: relative; left: 4px;">Year Of Passing  :  ${educationalQualifications.threeYearOfPass}</div></li>
@@ -557,7 +620,7 @@
                             </ul>
 
                             <div id="line"></div>
-                            
+
                             <div><h2 class="tags" id="profileHeading">Intermediate(10+2)</h2></div>
 
                             <table id="highestQualificationTable">
@@ -565,22 +628,23 @@
                                 <tr>
                                     <td><h2 class="tags">Qualification Held &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="twoQualification">${educationalQualifications.twoQualification}</div></h2></td>
+                                    <td><div id="twoQualification">${educationalQualifications.twoQualification}</div></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Specialization &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="twoSpecialization">I.T</div></h2></td>
+                                    <td><div id="twoSpecialization">I.T</div></td>
                                 </tr>
 
                                 <tr>
                                     <td><h2 class="tags">Board &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="twoUniversity">${educationalQualifications.twoUniversity}</div></h2></td>
+                                    <td><div id="twoUniversity">${educationalQualifications.twoUniversity}</div></td>
                                 </tr>
 
                             </table>
+                            <p>&nbsp;</p>
                             <p>&nbsp;</p>
                             <ul class="info">
                                 <li class="end"><div id="emailtext" style="position: relative; left: 4px;">Year Of Passing  :  ${educationalQualifications.twoYearOfPass}</div></li>
@@ -589,19 +653,20 @@
                             </ul>
 
                             <div id="line"></div>
-                            
+
                             <div><h2 class="tags" id="profileHeading">SSC(10th Class)</h2></div>
-                            
+
                             <table id="highestQualificationTable">
 
                                 <tr>
                                     <td><h2 class="tags">Board &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><h2 class="tags"><div id="oneQualification">${educationalQualifications.oneQualification}</div></h2></td>
+                                    <td><div id="oneQualification">${educationalQualifications.oneQualification}</div></td>
                                 </tr>
 
 
                             </table>
+                            <p>&nbsp;</p>
                             <p>&nbsp;</p>
                             <ul class="info">
                                 <li class="end"><div id="emailtext" style="position: relative; left: 4px;">Year Of Passing  :  ${educationalQualifications.oneYearOfPass}</div></li>
@@ -639,7 +704,7 @@
                 </div>
 
             </div>
-        
+
             <div class="clear"></div>
 
 
