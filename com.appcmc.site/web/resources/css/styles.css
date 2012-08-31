@@ -2035,7 +2035,8 @@ span{
 }
 #profileTitleText{
     position: relative;
-    left: 50px;
+    left: 172px;
+    top: -22px;
 
 }
 #totalExperienceText{
@@ -2045,7 +2046,8 @@ span{
 }
 #keySkillsText{
     position: relative;
-    left: 50px;
+    left: 172px;
+    top: -23px;
 
 }
 #currentEmployerText{
@@ -2070,35 +2072,38 @@ span{
 #fourQualification{
     position: relative;
     left: 50px;
+    width: 300px;
 }
 #fourSpecialization{
     position: relative;
     left: 50px;
+    width: 300px;
 }
 #fourUniversity{
     position: relative;
     left: 50px;
+    width: 300px;
 }
 #threeQualification{
-    position: absolute;
-    left: 150px;
-    top: 3px;
+    position: relative;
+    left: 50px;
+    width: 300px;
 }
 #threeSpecialization{
-    position: absolute;
-    top: 25px;
-    left: 150px;
+    position: relative;
+    left: 50px;
+    width: 300px;
 }
 #threeUniversity{
-    position: absolute;
-    top: 46px;
-    left: 150px;
+    position: relative;
+    left: 50px;
+    width: 300px;
 }
 #line{
     position: relative;
     float: left;
     width: 480px;
-    height: 24px;
+    height: 6px;
     line-height: 22px;
     border-bottom: solid 1px #B6C1CC;
     margin: 0px 0px 10px 0px;
@@ -2107,22 +2112,25 @@ span{
 #twoQualification{
     position: relative;
     left: 50px;
+    width: 300px;
 }
 #twoSpecialization{
     position: relative;
     left: 50px;
+    width: 300px;
 }
 #twoUniversity{
     position: relative;
     left: 50px;
+    width: 300px;
 }
 #oneQualification{
     position: relative;
     left: 50px;
+    width: 300px;
 }
 #workExperienceTable{
     position: relative;
-    top: 10px;
 }
 #contactDetails{
     position: relative;
@@ -2142,7 +2150,8 @@ span{
 }
 #addressText{
     position: relative;
-    left: 50px;
+    left: 116px;
+    top: -25px
 }
 #nationalityText{
     position: relative;
@@ -2528,3 +2537,72 @@ position: relative;
     min-height: 90px;
     
 }
+#profileTitleDiv{
+    position: relative;
+    top: 30px;
+}
+#semi-columnDiv{
+    position: relative;
+    left : 42px;
+}
+
+#profileTitleDiv{
+    position: relative;
+    top: 20px;
+}
+
+.landPhone{
+    position: relative;
+    left: 377px;
+    top: -16px;
+}
+
+/*Style for Scroll Bar ---- Start*/
+
+#updateHolder {
+       background-color: green;
+       width: 300px;  /* <= For Width: change the width value */
+       color: #333;
+       margin-top: 10px;
+       overflow: hidden;
+       }
+ 
+       #updateContainer {
+       background-color: white;
+       position: relative;
+       cursor: pointer;
+       }
+ 
+       #updateContent {
+       width: 100%;
+       position: absolute;
+       }
+ 
+       #updateScollBar {
+       background: none;
+       position: absolute;
+       width: 10px;
+       right: 0;
+       bottom: 0;
+       cursor: default;
+       }
+ 
+       #updateScollScrubber {
+       display: none;
+       background-color: black;
+       zoom: 1;
+       filter: alpha(opacity=40); /* For IE8 and earlier */
+       opacity: 0.4;
+       width: 8px;
+       height: 100px;
+       -moz-border-radius: 7px; /* Firefox */
+       -webkit-border-radius: 7px; /* Safari, Chrome */
+       border-radius: 7px; /* CSS3 */
+       position: absolute;
+       }
+ 
+       #updateScollBar, #updateContainer, #updateHolder {
+       height: 76px; /* <= For Height: change the height value */
+       }
+
+/*End for Scroll Bar Style*/
