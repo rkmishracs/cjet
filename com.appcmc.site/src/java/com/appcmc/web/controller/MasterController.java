@@ -220,6 +220,8 @@ public class MasterController {
         educationalQualifications.setOneYearOfPass("Not Available");
         educationalQualifications.setThreeGrade("Not Available");
         educationalQualifications.setThreeQualification("Not Available");
+        educationalQualifications.setThreeSpecialization("Not Available");
+        educationalQualifications.setThreeUniversity("Not Available");
         educationalQualifications.setThreeYearOfPass("Not Available");
         educationalQualifications.setTwoGrade("Not Available");
         educationalQualifications.setTwoQualification("Not Available");
