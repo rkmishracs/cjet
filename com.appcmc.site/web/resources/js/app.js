@@ -1438,11 +1438,12 @@ $(document).ready(function(){
 	scrollFaceHeight = scrubber.outerHeight();
 
 	initPosition = 0;
-	initContentPos = $('#updateHolder').offset().top;
+	
 	// Calculate the movement ration with content height and scrollbar height
 	moveVal = (contentHeight - scrollHeight)/(scrollHeight - scrollFaceHeight);
 
 	$("#updateContainer").mouseenter(function() {
+            initContentPos = $('#updateHolder').offset().top;
 		// Enable Scrollbar only when the content height is greater then the view port area.
 		if(contentHeight > scrollHeight) {
 			// Show scrollbar on mouse over
