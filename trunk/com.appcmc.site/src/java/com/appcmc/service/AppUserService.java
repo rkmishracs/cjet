@@ -15,5 +15,7 @@ public interface AppUserService {
 	void create(AppUser appUser);
 
 	AppUser findByEnrollmentNumber(String enrollmentNumber);
+        
+        AppUser findByGuid(String guid);
 
 }
