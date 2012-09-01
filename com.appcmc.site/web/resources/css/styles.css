@@ -2611,6 +2611,9 @@ position: relative;
 
 /*End for Scroll Bar Style*/
 
+  
+   
+
 
 /*Style for Scroll Bar Profile Title ---- Start*/
 
@@ -2713,3 +2716,15 @@ position: relative;
        }
 
 /*End for Scroll Bar Style*/
+
+/* Forgot Page Line*/
+ .forgotLine {
+    position: relative;
+    float: left;
+    width: 950px;
+    height: 0px;
+    line-height: 30px;
+    border-bottom: solid 1px #B6C1CC;
+    margin: 0px 0px 10px 0px;
+    *.z-index: -1;
+}
