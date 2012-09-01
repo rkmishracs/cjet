@@ -71,7 +71,7 @@
                         </div>
                         <div class="signDiv">
                             <label for="tags"></label>
-                            <input type="checkbox">Keep Me Signed In</input>
+                            <sf:checkbox path="rememberMe" value="rememberMe"/>Keep Me Signed In
                         </div>
                         <div class="signDiv">
                             <label for="tags"></label>   
