@@ -17,6 +17,7 @@
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
+        
     </head>
     <body>
         <div class="logo" style="position: relative;top: 5px; left: 15px;">
@@ -31,6 +32,7 @@
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
                 </ul>
+               
                 <div class="clr"></div>
             </div>
        <input type="hidden" id="forgotPasswordHidden" value="${pageContext.request.contextPath}" />
@@ -41,7 +43,8 @@
                 
 
                 <div id="body1" class="col"> 
-
+                    <div class="forgotLine">
+                    </div>
 
                 </div>
                 
