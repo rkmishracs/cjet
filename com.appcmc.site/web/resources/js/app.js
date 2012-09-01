@@ -8,6 +8,38 @@ var securityQuestion = null;
 
 $(document).ready(function(){
     
+    function updateTips( t ) {
+        tips
+        .text( t )
+        .addClass( "ui-state-highlight" );
+        setTimeout(function() {
+            tips.removeClass( "ui-state-highlight", 1500 );
+        }, 500 );
+    }
+                                
+    function checkLength( o, n, min, max ) {
+        if ( o.val().length > max || o.val().length < min ) {
+            o.addClass( "ui-state-error" );
+            updateTips( "Length of " + n + " must be between " +
+                min + " and " + max + "." );
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function checkRegexp( o, regexp, n ) {
+        if ( !( regexp.test( o.val() ) ) ) {
+            o.addClass( "ui-state-error" );
+            updateTips( n );
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+   
+    
     // Script for masterHome.jsp
     $("#gender1").attr('checked', true);
     $("#status2").attr('checked', true);
@@ -20,36 +52,7 @@ $(document).ready(function(){
                 
     $("#change-password-link").click(function(){
         $("#changePasswordDiv").css('display', 'block');
-        function updateTips( t ) {
-            tips
-            .text( t )
-            .addClass( "ui-state-highlight" );
-            setTimeout(function() {
-                tips.removeClass( "ui-state-highlight", 1500 );
-            }, 500 );
-        }
-                                
-        function checkLength( o, n, min, max ) {
-            if ( o.val().length > max || o.val().length < min ) {
-                o.addClass( "ui-state-error" );
-                updateTips( "Length of " + n + " must be between " +
-                    min + " and " + max + "." );
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        function checkRegexp( o, regexp, n ) {
-            if ( !( regexp.test( o.val() ) ) ) {
-                o.addClass( "ui-state-error" );
-                updateTips( n );
-                return false;
-            } else {
-                return true;
-            }
-        }
-                    
+       
         $("#changePasswordAdminDiv").dialog({
             title: "Change Password",                            
             height: 400,
@@ -129,48 +132,7 @@ $(document).ready(function(){
     $("#gender1").attr('checked', true);
     $("#status2").attr('checked', true);
                 
-    var email = $("#email");
-    var aletrnativeEmail=$("#aletrnativeEmail")
-    var mobile = $("#mobile");
-    var landPhone=$("#landPhone");
-    var annualIncome = $("#annualIncome");
-                
-    allFields = $( [] ).add( email ).add( aletrnativeEmail ).add( landPhone ).add(mobile).add(annualIncome),
-                
-    function updateTips( t ) {
-        tips
-        .text( t )
-        .addClass( "ui-state-highlight" );
-        setTimeout(function() {
-            tips.removeClass( "ui-state-highlight", 1500 );
-        }, 500 );
-    }
-
-    function checkLength( o, n, min, max ) {
-        if ( o.val().length > max || o.val().length < min ) {
-            o.addClass( "ui-state-error" );
-            alert("Length of " + n + " must be between " +
-                min + " and " + max + ".");
-            updateTips( "Length of " + n + " must be between " +
-                min + " and " + max + "." );
-                            
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    function checkRegexp( o, regexp, n ) {
-        if ( !( regexp.test( o.val() ) ) ) {
-            o.addClass( "ui-state-error" );
-            alert(n);
-            updateTips( n );
-                        
-            return false;
-        } else {
-            return true;
-        }
-    }
+  
                 
                 
     $("#enrlLink").click(function(){
@@ -206,8 +168,17 @@ $(document).ready(function(){
                 
     //it's validation for mobile number and other
            
+    var email = $("#email");
+    var aletrnativeEmail=$("#aletrnativeEmail")
+    var mobile = $("#mobile");
+    var landPhone=$("#landPhone");
+    var annualIncome = $("#annualIncome");
+    
+    
            
-
+    allFields = $( [] ).add( email ).add( aletrnativeEmail ).add( landPhone ).add(mobile).add(annualIncome),
+                
+    
 
     $("#mobile,#landPhone,#annualIncome,#pinCode").bind("keyup",function(){
         var $th = $(this);
@@ -226,15 +197,18 @@ $(document).ready(function(){
     $("#email,#aletrnativeEmail").bind("keyup", function(){
         var $th =$(this);
         $th.val($th.val().replace(/[^a-zA-Z0-9@._]/g,function(){
-            alert("eg. ui@jquery.com");
+            alert("Email should be as john@cmc.com");
             return '';
         })) ;
     });
-
-
+    
                 
     $("#tab1Next").click(function(){
+        allFields = $( [] ).add( "#enrollmentNumber" ).add( "#email" ).add( "#firstName" ).add("#lastName").add("#date-picker"),
         allFields.removeClass( "ui-state-error" );
+        tips = $( ".validateTips" );
+       
+       
         if($("#enrollmentNumber").val()== 0 || $("#email").val()== 0||$("#firstName").val() == 0||$("#lastName").val() == 0||$("#date-picker").val() == 0){
             if($("#enrollmentNumber").val() == null||$("#enrollmentNumber").val()== 0){
                 alert("Enrollment Id should not be empty");
@@ -258,19 +232,24 @@ $(document).ready(function(){
                 return false;
             }
         }else{
-                        
-            checkLength( email, "email", 6, 80 );
-            checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Email should be as john@cmc.com" );
-                         
+            var bValid=true;
+            bValid=bValid&&checkLength( email, "email", 6, 80 );
+            bValid=bValid&&checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Email should be as john@cmc.com" );
+          
+            if(bValid){
+                $("#valid").html("");
+                $("#tab1").css("display", "none");
+                $("#listOne").removeClass();
+                $("#tab2").css("display", "block");
+                $("#listTwo").addClass("active");
+            }
         }
-        $("#tab1").css("display", "none");
-        $("#listOne").removeClass();
-        $("#tab2").css("display", "block");
-        $("#listTwo").addClass("active");
-                    
+        
+       
     });
                 
     $("#tab2Next").click(function(){
+        allFields = $( [] ).add( "#nationality" ).add( "#fatherName" ).add( "#motherName" ).add("#ocupation").add("#annualIncome"),
         allFields.removeClass( "ui-state-error" );
         if($("#nationality").val() == 0||$("#fatherName").val() == 0||$("#motherName").val() == 0||$("#ocupation").val() == 0||$("#annualIncome").val() == 0){
             if($("#nationality").val() == 0){
@@ -297,23 +276,28 @@ $(document).ready(function(){
                 return false;
             }
         }else{
-            checkLength(annualIncome,"annualIncome",4,6);
+            var bValid=true;
+            bValid=bValid&&checkLength(annualIncome,"annualIncome",4,6);
+            if(bValid){
+                $("#valid").html("");
+                $("#tab1").css("display", "none");
+                $("#listOne").removeClass();
+                $("#tab2").css("display", "none");
+                $("#listTwo").removeClass();
+                $("#tab3").css("display", "block");
+                $("#listThree").addClass("active");
+                    
+            }
         }
                     
-        $("#tab1").css("display", "none");
-        $("#listOne").removeClass();
-        $("#tab2").css("display", "none");
-        $("#listTwo").removeClass();
-        $("#tab3").css("display", "block");
-        $("#listThree").addClass("active");
-                    
+      
     });
                 
 
     $("#saveEnrl").click(function(){
-        $("#saveEnrl").css("display","none");
-
-                
+       
+        allFields = $( [] ).add( "#mobile" ).add( "#landPhone" ).add( "#aletrnativeEmail" ).add("#city").add("#state").add("#country").add("#country").add("#pinCode");
+       
         allFields.removeClass( "ui-state-error" );
                     
 
@@ -359,65 +343,70 @@ $(document).ready(function(){
             }    
         }else{
 
-
-                        
-            checkLength( aletrnativeEmail, "aletrnativeEmail", 6, 80 );			
-            checkLength( mobile, "mobile", 10 , 10 );
-            checkLength( landPhone, "landPhone", 7 , 12 );
-                        
-            checkRegexp( aletrnativeEmail, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Alternative Email should be as john@cmc.com" );
                 
+            var bValid=true;
+            bValid=bValid&&checkLength( aletrnativeEmail, "aletrnativeEmail", 6, 80 );			
+            bValid=bValid&&checkLength( mobile, "mobile", 10 , 10 );
+            bValid=bValid&&checkLength( landPhone, "landPhone", 7 , 12 );
+                        
+            bValid=bValid&&checkRegexp( aletrnativeEmail, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Alternative Email should be as john@cmc.com" );
+            if(bValid){
+                $("#valid").html("");
+                $("#saveEnrl").css("display","none");
+                $("#ajax_loading_email").css("display", "block");
+                                 
+
+                $.ajax({
+                    type : "post",
+                    url : $('#enrollmentFormHidden').val()+"/master",
+                    data : $("#enrollmentForm").serialize(),
+                    success:function(response){
+                        $("#ajax_loading_email").css("display", "none");
+                        $("#emailResponse").css("display", "block");
+                        if($("#emailResponse").css("display", "block")){
+                            setTimeout(function(){
+                                $("#emailResponse").fadeOut("slow");
+                                $("#enrollmentNumber").val("");
+                                $("#email").val("");
+                                $("#firstName").val(""); 
+                                $("#lastName").val("");
+                                $("#date-picker").val(""); 
+
+                                $("#fatherName").val("") ;
+                                $("#aletrnativeEmail").val("");
+                                $("#motherName").val("") ;
+                                $("#ocupation").val("") ;
+                    
+                                $("#annualIncome").val("");
+                                $("#mobile").val(""); 
+                    
+                                $("#landPhone").val("");
+                                $("#nationality").val("");
+                    
+                                $("#city").val("");
+                                $("#state").val("");
+                                $("#country").val("");
+                                $("#address").val(""); 
+                                $("#pinCode").val("");
+                                $("#tab3").css("display", "none");
+                                $("#tab1").css("display", "block");
+                                $("#saveEnrl").css("display","block");
+                
+
+                            }, 3000);
+                        }
+                    }     
+                           
+                
+                });
+                   
+                   
+                   
+            }
 		        
         }
         
-        $("#ajax_loading_email").css("display", "block");
-                    
-                     
-
-        $.ajax({
-            type : "post",
-            url : $('#enrollmentFormHidden').val()+"/master",
-            data : $("#enrollmentForm").serialize(),
-            success:function(response){
-                $("#ajax_loading_email").css("display", "none");
-                $("#emailResponse").css("display", "block");
-                if($("#emailResponse").css("display", "block")){
-                    setTimeout(function(){
-                        $("#emailResponse").fadeOut("slow");
-                        $("#enrollmentNumber").val("");
-                        $("#email").val("");
-                        $("#firstName").val(""); 
-                        $("#lastName").val("");
-                        $("#date-picker").val(""); 
-
-                        $("#fatherName").val("") ;
-                        $("#aletrnativeEmail").val("");
-                        $("#motherName").val("") ;
-                        $("#ocupation").val("") ;
-                    
-                        $("#annualIncome").val("");
-                        $("#mobile").val(""); 
-                    
-                        $("#landPhone").val("");
-                        $("#nationality").val("");
-                    
-                        $("#city").val("");
-                        $("#state").val("");
-                        $("#country").val("");
-                        $("#address").val(""); 
-                        $("#pinCode").val("");
-                        $("#tab3").css("display", "none");
-                        $("#tab1").css("display", "block");
-                        $("#saveEnrl").css("display","block");
-
-                        
-
-                    }, 3000);
-                }
-            }     
-                           
-                
-        });
+      
     });
         
        
@@ -617,13 +606,17 @@ $(document).ready(function(){
                 }else{
                     $('#SearchNumberErrorDiv').css("display", "block");
 
+
                 }
                 $('#ajax_loading').css('display','none');
                       
            
                                 
 
+
+
             }
+
         });
     });
 
@@ -657,35 +650,7 @@ $(document).ready(function(){
         allFields = $( [] ).add( name ).add( password ),
         tips = $( ".validateTips" );
 
-        function updateTips( t ) {
-            tips
-            .text( t )
-            .addClass( "ui-state-highlight" );
-            setTimeout(function() {
-                tips.removeClass( "ui-state-highlight", 1500 );
-            }, 500 );
-        }
-
-        function checkLength( o, n, min, max ) {
-            if ( o.val().length > max || o.val().length < min ) {
-                o.addClass( "ui-state-error" );
-                updateTips( "Length of " + n + " must be between " +
-                    min + " and " + max + "." );
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        function checkRegexp( o, regexp, n ) {
-            if ( !( regexp.test( o.val() ) ) ) {
-                o.addClass( "ui-state-error" );
-                updateTips( n );
-                return false;
-            } else {
-                return true;
-            }
-        }
+       
 		
         $dialog.css('display','block');
         $dialog.dialog({
@@ -866,35 +831,7 @@ $(document).ready(function(){
     $("#change-password-link").click(function(){
         $("#changePasswordDiv").css('display', 'block');
                     
-        function updateTips( t ) {
-            tips
-            .text( t )
-            .addClass( "ui-state-highlight" );
-            setTimeout(function() {
-                tips.removeClass( "ui-state-highlight", 1500 );
-            }, 500 );
-        }
-                                
-        function checkLength( o, n, min, max ) {
-            if ( o.val().length > max || o.val().length < min ) {
-                o.addClass( "ui-state-error" );
-                updateTips( "Length of " + n + " must be between " +
-                    min + " and " + max + "." );
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        function checkRegexp( o, regexp, n ) {
-            if ( !( regexp.test( o.val() ) ) ) {
-                o.addClass( "ui-state-error" );
-                updateTips( n );
-                return false;
-            } else {
-                return true;
-            }
-        }
+      
                     
         $("#changePasswordDiv").dialog({
             title: "Change Password",                            
@@ -1010,35 +947,7 @@ $(document).ready(function(){
         
 
 
-    function updateTips( t ) {
-        tips
-        .text( t )
-        .addClass( "ui-state-highlight" );
-        setTimeout(function() {
-            tips.removeClass( "ui-state-highlight", 1500 );
-        }, 500 );
-    }
-
-    function checkLength( o, n, min, max ) {
-        if ( o.val().length > max || o.val().length < min ) {
-            o.addClass( "ui-state-error" );
-            updateTips( "Length of " + n + " must be between " +
-                min + " and " + max + "." );
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    function checkRegexp( o, regexp, n ) {
-        if ( !( regexp.test( o.val() ) ) ) {
-            o.addClass( "ui-state-error" );
-            updateTips( n );
-            return false;
-        } else {
-            return true;
-        }
-    }
+   
               
     $("#editPerInfo").css('color', '#FFFFFF');
     $("#editPerInfo").click(function(){
@@ -1422,312 +1331,405 @@ $(document).ready(function(){
     });
         
 
+                
+    //Script for avtarProfilePic.jsp
+    $("#uploadPicButton").click(function(){
+        if($("#uploadPicTxt").val() == ""){
+            $("#errorUploadPicDiv").css('display', 'block');
+            return false;
+        }
+        if($("#uploadPicTxt").val() != ""){
+            $("#errorUploadPicDiv").css('display', 'none');
+        }
+    });
+       
+    $("#sendEmailProfileMessage").click(function(){
+        if($("#toUserEmail").val() == 0||$("#fromUserEmail").val() == 0||$("#resumeFile").val() == 0||$("#emailProfileText").val() == 0){
+            alert("Nothing Should Be Left Blank");    
+        }
+                  
+                  
+    });
+                       
     //Script for Scroll Bar AdressText
     
     $(function(){
 
-	_offsetY = 0;
-	_startY = 0;
+        _offsetY = 0;
+        _startY = 0;
 	
-	// To resize the height of the scroll scrubber when scroll height increases. 
-	setScrubberHeight();
+        // To resize the height of the scroll scrubber when scroll height increases. 
+        setScrubberHeight();
 
-	var contentDiv = document.getElementById('updateContainer');
-	scrubber = $('#updateScollScrubber');
-	scrollHeight = $('#updateScollBar').outerHeight();
-	contentHeight = $('#updateContent').outerHeight();
-	scrollFaceHeight = scrubber.outerHeight();
+        var contentDiv = document.getElementById('updateContainer');
+        scrubber = $('#updateScollScrubber');
+        scrollHeight = $('#updateScollBar').outerHeight();
+        contentHeight = $('#updateContent').outerHeight();
+        scrollFaceHeight = scrubber.outerHeight();
 
-	initPosition = 0;
+        initPosition = 0;
 	
-	// Calculate the movement ration with content height and scrollbar height
-	moveVal = (contentHeight - scrollHeight)/(scrollHeight - scrollFaceHeight);
+        // Calculate the movement ration with content height and scrollbar height
+        moveVal = (contentHeight - scrollHeight)/(scrollHeight - scrollFaceHeight);
 
-	$("#updateContainer").mouseenter(function() {
+        $("#updateContainer").mouseenter(function() {
             initContentPos = $('#updateHolder').offset().top;
             $("#updateScollBar, #updateContainer, #updateHolder").css("height", "76px");
-		// Enable Scrollbar only when the content height is greater then the view port area.
-		if(contentHeight > scrollHeight) {
-			// Show scrollbar on mouse over
-			scrubber.fadeToggle("fast");
-			scrubber.bind("mousedown", onMouseDown);
-		}
+            // Enable Scrollbar only when the content height is greater then the view port area.
+            if(contentHeight > scrollHeight) {
+                // Show scrollbar on mouse over
+                scrubber.fadeToggle("fast");
+                scrubber.bind("mousedown", onMouseDown);
+            }
 
-	}).mouseleave(function() {
-		$("#updateScollBar, #updateContainer, #updateHolder").css("height", "15px");
-		if(contentHeight > scrollHeight) {
-			// Hide Scrollbar on mouse out.
-			scrubber.fadeToggle("slow");
-			$('#updateHolder').unbind("mousemove", onMouseMove); 
-			  scrubber.unbind("mousedown", onMouseDown);
-		}
-	});
+        }).mouseleave(function() {
+            $("#updateScollBar, #updateContainer, #updateHolder").css("height", "15px");
+            if(contentHeight > scrollHeight) {
+                // Hide Scrollbar on mouse out.
+                scrubber.fadeToggle("slow");
+                $('#updateHolder').unbind("mousemove", onMouseMove); 
+                scrubber.unbind("mousedown", onMouseDown);
+            }
+        });
 
 
-	function onMouseDown(event) {
-		$('#updateHolder').bind("mousemove", onMouseMove);
-		$('#updateHolder').bind("mouseup", onMouseUp);
-		_offsetY = scrubber.offset().top;
-		_startY = event.pageY + initContentPos;
-		// Disable the text selection inside the update area. Otherwise the text will be selected while dragging on the scrollbar.
-		contentDiv.onselectstart = function () { return false; } // ie
-		contentDiv.onmousedown = function () { return false; } // mozilla
-	}
+        function onMouseDown(event) {
+            $('#updateHolder').bind("mousemove", onMouseMove);
+            $('#updateHolder').bind("mouseup", onMouseUp);
+            _offsetY = scrubber.offset().top;
+            _startY = event.pageY + initContentPos;
+            // Disable the text selection inside the update area. Otherwise the text will be selected while dragging on the scrollbar.
+            contentDiv.onselectstart = function () {
+                return false;
+            } // ie
+            contentDiv.onmousedown = function () {
+                return false;
+            } // mozilla
+        }
 			
-	function onMouseMove(event) {
+        function onMouseMove(event) {
 		
-		// Checking the upper and bottom limit of the scroll area
-		if((scrubber.offset().top >= initContentPos) && (scrubber.offset().top <= (initContentPos+scrollHeight - scrollFaceHeight))) {
-			// Move the scrubber on mouse drag
-			scrubber.css({top: (_offsetY + event.pageY - _startY)});
-			// Move the content area according to the scrubber movement.
-			$('#updateContent').css({top: ((initContentPos - scrubber.offset().top) * moveVal)});   
-		}else{
-			// Reset when upper and lower limits are excced.
-			if(scrubber.offset().top <= initContentPos){
-				scrubber.css({top: 0});
-				$('#updateContent').css({top: 0});
-			}
+            // Checking the upper and bottom limit of the scroll area
+            if((scrubber.offset().top >= initContentPos) && (scrubber.offset().top <= (initContentPos+scrollHeight - scrollFaceHeight))) {
+                // Move the scrubber on mouse drag
+                scrubber.css({
+                    top: (_offsetY + event.pageY - _startY)
+                });
+                // Move the content area according to the scrubber movement.
+                $('#updateContent').css({
+                    top: ((initContentPos - scrubber.offset().top) * moveVal)
+                });   
+            }else{
+                // Reset when upper and lower limits are excced.
+                if(scrubber.offset().top <= initContentPos){
+                    scrubber.css({
+                        top: 0
+                    });
+                    $('#updateContent').css({
+                        top: 0
+                    });
+                }
 
-			if(scrubber.offset().top > (initContentPos + scrollHeight - scrollFaceHeight)) {
+                if(scrubber.offset().top > (initContentPos + scrollHeight - scrollFaceHeight)) {
 
-				scrubber.css({top: (scrollHeight-scrollFaceHeight-1)});
-				$('#updateContent').css({top: (scrollHeight - contentHeight + initPosition)});
-			}
+                    scrubber.css({
+                        top: (scrollHeight-scrollFaceHeight-1)
+                    });
+                    $('#updateContent').css({
+                        top: (scrollHeight - contentHeight + initPosition)
+                    });
+                }
 
-			$('#updateHolder').trigger('mouseup');
-		}
+                $('#updateHolder').trigger('mouseup');
+            }
 
-	}
+        }
 
-	function onMouseUp(event) {
-		$('#updateHolder').unbind("mousemove", onMouseMove);
-		contentDiv.onselectstart = function () { return true; } // ie
-		contentDiv.onmousedown = function () { return true; } // mozilla
-	}
+        function onMouseUp(event) {
+            $('#updateHolder').unbind("mousemove", onMouseMove);
+            contentDiv.onselectstart = function () {
+                return true;
+            } // ie
+            contentDiv.onmousedown = function () {
+                return true;
+            } // mozilla
+        }
 
-	function setScrubberHeight() {
-		cH = $('#updateContent').outerHeight();
-		sH = $('#updateScollBar').outerHeight();
+        function setScrubberHeight() {
+            cH = $('#updateContent').outerHeight();
+            sH = $('#updateScollBar').outerHeight();
 
-		if(cH > sH) {
-			// Set the min height of the scroll scrubber to 20
-			if(sH / ( cH / sH ) < 20) {
-				$('#updateScollScrubber').css({height: 20 });
-			}else{
-				$('#updateScollScrubber').css({height: sH / ( cH / sH ) });
-			}
-		}
-	}
+            if(cH > sH) {
+                // Set the min height of the scroll scrubber to 20
+                if(sH / ( cH / sH ) < 20) {
+                    $('#updateScollScrubber').css({
+                        height: 20
+                    });
+                }else{
+                    $('#updateScollScrubber').css({
+                        height: sH / ( cH / sH )
+                    });
+                }
+            }
+        }
 
-});
+                            
+    });
 
 
-// End for Bar
+    // End for Bar
 
 
-//Script for Scroll Bar Profile Title Text
+    //Script for Scroll Bar Profile Title Text
     
     $(function(){
 
-	_offsetY = 0;
-	_startY = 0;
+        _offsetY = 0;
+        _startY = 0;
 	
-	// To resize the height of the scroll scrubber when scroll height increases. 
-	setScrubberHeight();
+        // To resize the height of the scroll scrubber when scroll height increases. 
+        setScrubberHeight();
 
-	var contentDiv = document.getElementById('updateContainerProfileTitle');
-	scrubber = $('#updateScollScrubberProfileTitle');
-	scrollHeight = $('#updateScollBarProfileTitle').outerHeight();
-	contentHeight = $('#updateContentProfileTitle').outerHeight();
-	scrollFaceHeight = scrubber.outerHeight();
+        var contentDiv = document.getElementById('updateContainerProfileTitle');
+        scrubber = $('#updateScollScrubberProfileTitle');
+        scrollHeight = $('#updateScollBarProfileTitle').outerHeight();
+        contentHeight = $('#updateContentProfileTitle').outerHeight();
+        scrollFaceHeight = scrubber.outerHeight();
 
-	initPosition = 0;
+        initPosition = 0;
 	
-	// Calculate the movement ration with content height and scrollbar height
-	moveVal = (contentHeight - scrollHeight)/(scrollHeight - scrollFaceHeight);
+        // Calculate the movement ration with content height and scrollbar height
+        moveVal = (contentHeight - scrollHeight)/(scrollHeight - scrollFaceHeight);
 
-	$("#updateContainerProfileTitle").mouseenter(function() {
+        $("#updateContainerProfileTitle").mouseenter(function() {
             initContentPos = $('#updateHolderProfileTitle').offset().top;
             $("#updateScollBarProfileTitle, #updateContainerProfileTitle, #updateHolderProfileTitle").css("height", "76px");
-		// Enable Scrollbar only when the content height is greater then the view port area.
-		if(contentHeight > scrollHeight) {
-			// Show scrollbar on mouse over
-			scrubber.fadeToggle("fast");
-			scrubber.bind("mousedown", onMouseDown);
-		}
+            // Enable Scrollbar only when the content height is greater then the view port area.
+            if(contentHeight > scrollHeight) {
+                // Show scrollbar on mouse over
+                scrubber.fadeToggle("fast");
+                scrubber.bind("mousedown", onMouseDown);
+            }
 
-	}).mouseleave(function() {
-		$("#updateScollBarProfileTitle, #updateContainerProfileTitle, #updateHolderProfileTitle").css("height", "15px");
-		if(contentHeight > scrollHeight) {
-			// Hide Scrollbar on mouse out.
-			scrubber.fadeToggle("slow");
-			$('#updateHolderProfileTitle').unbind("mousemove", onMouseMove); 
-			  scrubber.unbind("mousedown", onMouseDown);
-		}
-	});
+        }).mouseleave(function() {
+            $("#updateScollBarProfileTitle, #updateContainerProfileTitle, #updateHolderProfileTitle").css("height", "15px");
+            if(contentHeight > scrollHeight) {
+                // Hide Scrollbar on mouse out.
+                scrubber.fadeToggle("slow");
+                $('#updateHolderProfileTitle').unbind("mousemove", onMouseMove); 
+                scrubber.unbind("mousedown", onMouseDown);
+            }
+        });
 
 
-	function onMouseDown(event) {
-		$('#updateHolderProfileTitle').bind("mousemove", onMouseMove);
-		$('#updateHolderProfileTitle').bind("mouseup", onMouseUp);
-		_offsetY = scrubber.offset().top;
-		_startY = event.pageY + initContentPos;
-		// Disable the text selection inside the update area. Otherwise the text will be selected while dragging on the scrollbar.
-		contentDiv.onselectstart = function () { return false; } // ie
-		contentDiv.onmousedown = function () { return false; } // mozilla
-	}
+        function onMouseDown(event) {
+            $('#updateHolderProfileTitle').bind("mousemove", onMouseMove);
+            $('#updateHolderProfileTitle').bind("mouseup", onMouseUp);
+            _offsetY = scrubber.offset().top;
+            _startY = event.pageY + initContentPos;
+            // Disable the text selection inside the update area. Otherwise the text will be selected while dragging on the scrollbar.
+            contentDiv.onselectstart = function () {
+                return false;
+            } // ie
+            contentDiv.onmousedown = function () {
+                return false;
+            } // mozilla
+        }
 			
-	function onMouseMove(event) {
+        function onMouseMove(event) {
 		
-		// Checking the upper and bottom limit of the scroll area
-		if((scrubber.offset().top >= initContentPos) && (scrubber.offset().top <= (initContentPos+scrollHeight - scrollFaceHeight))) {
-			// Move the scrubber on mouse drag
-			scrubber.css({top: (_offsetY + event.pageY - _startY)});
-			// Move the content area according to the scrubber movement.
-			$('#updateContentProfileTitle').css({top: ((initContentPos - scrubber.offset().top) * moveVal)});   
-		}else{
-			// Reset when upper and lower limits are excced.
-			if(scrubber.offset().top <= initContentPos){
-				scrubber.css({top: 0});
-				$('#updateContentProfileTitle').css({top: 0});
-			}
+            // Checking the upper and bottom limit of the scroll area
+            if((scrubber.offset().top >= initContentPos) && (scrubber.offset().top <= (initContentPos+scrollHeight - scrollFaceHeight))) {
+                // Move the scrubber on mouse drag
+                scrubber.css({
+                    top: (_offsetY + event.pageY - _startY)
+                });
+                // Move the content area according to the scrubber movement.
+                $('#updateContentProfileTitle').css({
+                    top: ((initContentPos - scrubber.offset().top) * moveVal)
+                });   
+            }else{
+                // Reset when upper and lower limits are excced.
+                if(scrubber.offset().top <= initContentPos){
+                    scrubber.css({
+                        top: 0
+                    });
+                    $('#updateContentProfileTitle').css({
+                        top: 0
+                    });
+                }
 
-			if(scrubber.offset().top > (initContentPos + scrollHeight - scrollFaceHeight)) {
+                if(scrubber.offset().top > (initContentPos + scrollHeight - scrollFaceHeight)) {
 
-				scrubber.css({top: (scrollHeight-scrollFaceHeight-1)});
-				$('#updateContentProfileTitle').css({top: (scrollHeight - contentHeight + initPosition)});
-			}
+                    scrubber.css({
+                        top: (scrollHeight-scrollFaceHeight-1)
+                    });
+                    $('#updateContentProfileTitle').css({
+                        top: (scrollHeight - contentHeight + initPosition)
+                    });
+                }
 
-			$('#updateHolderProfileTitle').trigger('mouseup');
-		}
+                $('#updateHolderProfileTitle').trigger('mouseup');
+            }
 
-	}
+        }
 
-	function onMouseUp(event) {
-		$('#updateHolderProfileTitle').unbind("mousemove", onMouseMove);
-		contentDiv.onselectstart = function () { return true; } // ie
-		contentDiv.onmousedown = function () { return true; } // mozilla
-	}
+        function onMouseUp(event) {
+            $('#updateHolderProfileTitle').unbind("mousemove", onMouseMove);
+            contentDiv.onselectstart = function () {
+                return true;
+            } // ie
+            contentDiv.onmousedown = function () {
+                return true;
+            } // mozilla
+        }
 
-	function setScrubberHeight() {
-		cH = $('#updateContentProfileTitle').outerHeight();
-		sH = $('#updateScollBarProfileTitle').outerHeight();
+        function setScrubberHeight() {
+            cH = $('#updateContentProfileTitle').outerHeight();
+            sH = $('#updateScollBarProfileTitle').outerHeight();
 
-		if(cH > sH) {
-			// Set the min height of the scroll scrubber to 20
-			if(sH / ( cH / sH ) < 20) {
-				$('#updateScollScrubberProfileTitle').css({height: 20 });
-			}else{
-				$('#updateScollScrubberProfileTitle').css({height: sH / ( cH / sH ) });
-			}
-		}
-	}
+            if(cH > sH) {
+                // Set the min height of the scroll scrubber to 20
+                if(sH / ( cH / sH ) < 20) {
+                    $('#updateScollScrubberProfileTitle').css({
+                        height: 20
+                    });
+                }else{
+                    $('#updateScollScrubberProfileTitle').css({
+                        height: sH / ( cH / sH )
+                    });
+                }
+            }
+        }
 
-});
+    });
 
 
-// End for Bar
+    // End for Bar
 
-//Script for Scroll Bar Key Skills
+    //Script for Scroll Bar Key Skills
     
     $(function(){
 
-	_offsetY = 0;
-	_startY = 0;
+        _offsetY = 0;
+        _startY = 0;
 	
-	// To resize the height of the scroll scrubber when scroll height increases. 
-	setScrubberHeight();
+        // To resize the height of the scroll scrubber when scroll height increases. 
+        setScrubberHeight();
 
-	var contentDiv = document.getElementById('updateContainerKeySkills');
-	scrubber = $('#updateScollScrubberKeySkills');
-	scrollHeight = $('#updateScollBarKeySkills').outerHeight();
-	contentHeight = $('#updateContentKeySkills').outerHeight();
-	scrollFaceHeight = scrubber.outerHeight();
+        var contentDiv = document.getElementById('updateContainerKeySkills');
+        scrubber = $('#updateScollScrubberKeySkills');
+        scrollHeight = $('#updateScollBarKeySkills').outerHeight();
+        contentHeight = $('#updateContentKeySkills').outerHeight();
+        scrollFaceHeight = scrubber.outerHeight();
 
-	initPosition = 0;
+        initPosition = 0;
 	
-	// Calculate the movement ration with content height and scrollbar height
-	moveVal = (contentHeight - scrollHeight)/(scrollHeight - scrollFaceHeight);
+        // Calculate the movement ration with content height and scrollbar height
+        moveVal = (contentHeight - scrollHeight)/(scrollHeight - scrollFaceHeight);
 
-	$("#updateContainerKeySkills").mouseenter(function() {
+        $("#updateContainerKeySkills").mouseenter(function() {
             initContentPos = $('#updateHolderKeySkills').offset().top;
             $("#updateScollBarKeySkills, #updateContainerKeySkills, #updateHolderKeySkills").css("height", "76px");
-		// Enable Scrollbar only when the content height is greater then the view port area.
-		if(contentHeight > scrollHeight) {
-			// Show scrollbar on mouse over
-			scrubber.fadeToggle("fast");
-			scrubber.bind("mousedown", onMouseDown);
-		}
+            // Enable Scrollbar only when the content height is greater then the view port area.
+            if(contentHeight > scrollHeight) {
+                // Show scrollbar on mouse over
+                scrubber.fadeToggle("fast");
+                scrubber.bind("mousedown", onMouseDown);
+            }
 
-	}).mouseleave(function() {
-		$("#updateScollBarKeySkills, #updateContainerKeySkills, #updateHolderKeySkills").css("height", "15px");
-		if(contentHeight > scrollHeight) {
-			// Hide Scrollbar on mouse out.
-			scrubber.fadeToggle("slow");
-			$('#updateHolderKeySkills').unbind("mousemove", onMouseMove); 
-			  scrubber.unbind("mousedown", onMouseDown);
-		}
-	});
+        }).mouseleave(function() {
+            $("#updateScollBarKeySkills, #updateContainerKeySkills, #updateHolderKeySkills").css("height", "15px");
+            if(contentHeight > scrollHeight) {
+                // Hide Scrollbar on mouse out.
+                scrubber.fadeToggle("slow");
+                $('#updateHolderKeySkills').unbind("mousemove", onMouseMove); 
+                scrubber.unbind("mousedown", onMouseDown);
+            }
+        });
 
 
-	function onMouseDown(event) {
-		$('#updateHolderKeySkills').bind("mousemove", onMouseMove);
-		$('#updateHolderKeySkills').bind("mouseup", onMouseUp);
-		_offsetY = scrubber.offset().top;
-		_startY = event.pageY + initContentPos;
-		// Disable the text selection inside the update area. Otherwise the text will be selected while dragging on the scrollbar.
-		contentDiv.onselectstart = function () { return false; } // ie
-		contentDiv.onmousedown = function () { return false; } // mozilla
-	}
+        function onMouseDown(event) {
+            $('#updateHolderKeySkills').bind("mousemove", onMouseMove);
+            $('#updateHolderKeySkills').bind("mouseup", onMouseUp);
+            _offsetY = scrubber.offset().top;
+            _startY = event.pageY + initContentPos;
+            // Disable the text selection inside the update area. Otherwise the text will be selected while dragging on the scrollbar.
+            contentDiv.onselectstart = function () {
+                return false;
+            } // ie
+            contentDiv.onmousedown = function () {
+                return false;
+            } // mozilla
+        }
 			
-	function onMouseMove(event) {
+        function onMouseMove(event) {
 		
-		// Checking the upper and bottom limit of the scroll area
-		if((scrubber.offset().top >= initContentPos) && (scrubber.offset().top <= (initContentPos+scrollHeight - scrollFaceHeight))) {
-			// Move the scrubber on mouse drag
-			scrubber.css({top: (_offsetY + event.pageY - _startY)});
-			// Move the content area according to the scrubber movement.
-			$('#updateContentKeySkills').css({top: ((initContentPos - scrubber.offset().top) * moveVal)});   
-		}else{
-			// Reset when upper and lower limits are excced.
-			if(scrubber.offset().top <= initContentPos){
-				scrubber.css({top: 0});
-				$('#updateContentKeySkills').css({top: 0});
-			}
+            // Checking the upper and bottom limit of the scroll area
+            if((scrubber.offset().top >= initContentPos) && (scrubber.offset().top <= (initContentPos+scrollHeight - scrollFaceHeight))) {
+                // Move the scrubber on mouse drag
+                scrubber.css({
+                    top: (_offsetY + event.pageY - _startY)
+                });
+                // Move the content area according to the scrubber movement.
+                $('#updateContentKeySkills').css({
+                    top: ((initContentPos - scrubber.offset().top) * moveVal)
+                });   
+            }else{
+                // Reset when upper and lower limits are excced.
+                if(scrubber.offset().top <= initContentPos){
+                    scrubber.css({
+                        top: 0
+                    });
+                    $('#updateContentKeySkills').css({
+                        top: 0
+                    });
+                }
 
-			if(scrubber.offset().top > (initContentPos + scrollHeight - scrollFaceHeight)) {
+                if(scrubber.offset().top > (initContentPos + scrollHeight - scrollFaceHeight)) {
 
-				scrubber.css({top: (scrollHeight-scrollFaceHeight-1)});
-				$('#updateContentKeySkills').css({top: (scrollHeight - contentHeight + initPosition)});
-			}
+                    scrubber.css({
+                        top: (scrollHeight-scrollFaceHeight-1)
+                    });
+                    $('#updateContentKeySkills').css({
+                        top: (scrollHeight - contentHeight + initPosition)
+                    });
+                }
 
-			$('#updateHolderKeySkills').trigger('mouseup');
-		}
+                $('#updateHolderKeySkills').trigger('mouseup');
+            }
 
-	}
+        }
 
-	function onMouseUp(event) {
-		$('#updateHolderKeySkills').unbind("mousemove", onMouseMove);
-		contentDiv.onselectstart = function () { return true; } // ie
-		contentDiv.onmousedown = function () { return true; } // mozilla
-	}
+        function onMouseUp(event) {
+            $('#updateHolderKeySkills').unbind("mousemove", onMouseMove);
+            contentDiv.onselectstart = function () {
+                return true;
+            } // ie
+            contentDiv.onmousedown = function () {
+                return true;
+            } // mozilla
+        }
 
-	function setScrubberHeight() {
-		cH = $('#updateContentKeySkills').outerHeight();
-		sH = $('#updateScollBarKeySkills').outerHeight();
+        function setScrubberHeight() {
+            cH = $('#updateContentKeySkills').outerHeight();
+            sH = $('#updateScollBarKeySkills').outerHeight();
 
-		if(cH > sH) {
-			// Set the min height of the scroll scrubber to 20
-			if(sH / ( cH / sH ) < 20) {
-				$('#updateScollScrubberKeySkills').css({height: 20 });
-			}else{
-				$('#updateScollScrubberKeySkills').css({height: sH / ( cH / sH ) });
-			}
-		}
-	}
+            if(cH > sH) {
+                // Set the min height of the scroll scrubber to 20
+                if(sH / ( cH / sH ) < 20) {
+                    $('#updateScollScrubberKeySkills').css({
+                        height: 20
+                    });
+                }else{
+                    $('#updateScollScrubberKeySkills').css({
+                        height: sH / ( cH / sH )
+                    });
+                }
+            }
+        }
 
-});
+    });
 
 
 // End for Bar
