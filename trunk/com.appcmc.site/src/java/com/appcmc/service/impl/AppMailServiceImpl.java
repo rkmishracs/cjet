@@ -61,6 +61,7 @@ public class AppMailServiceImpl implements AppMailService {
                 model.put("user", appUser);
                 String text = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "/mailTemplate.vm", model);
                 mimeMessageHelper.setText(text, true);
+                mimeMessageHelper.setText("Your Password is:"+appUser.getPassword(),true);
             }
         };
 
