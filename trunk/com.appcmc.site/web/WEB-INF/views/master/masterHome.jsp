@@ -121,6 +121,7 @@
                             <li><a href="${pageContext.request.contextPath}/reports/dailyReport"><s:message code="lbl.enrollment.link.dailyReport"/></a></li>
                             <li><a href="${pageContext.request.contextPath}/search"><s:message code="lbl.enrollment.link.find"/></a></li>
                             <li><a href="#" id="change-password-link"><s:message code="lbl.enrollment.link.changePassword"/></a></li>
+                            <li><a href="${pageContext.request.contextPath}/reports/viewAllProfiles" id="">View All Profiles</a></li>
                         </ul>
                     </div>
                 </div>
