@@ -22,10 +22,12 @@ public class AppUserTest {
 		AppUserService appUserService = (AppUserService) AppContext.APPCONTEXT
 				.getBean(ContextIdNames.APP_USER_SERVICE);
 
-		AppUser appUser = appUserService.authenticate("gani_451983@gmail.com",
+		/*AppUser appUser = appUserService.authenticate("gani_451983@gmail.com",
 				"pwd");
 
-		LOG.debug(appUser);
+		LOG.debug(appUser);*/
+                AppUser appUser = appUserService.findByGuid("6f71f6f2-6065-4562-98bf-9e2f5e22e437");
+                LOG.debug(appUser);
 
 	}
 }
