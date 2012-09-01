@@ -15,6 +15,7 @@ import com.appcmc.context.id.names.ContextIdNames;
 import com.appcmc.domain.sub.AppUser;
 import com.appcmc.domain.sub.Contacts;
 import com.appcmc.domain.sub.Student;
+import com.appcmc.service.AppMailService;
 import com.appcmc.service.AppUserService;
 import com.appcmc.service.ContactService;
 import com.appcmc.service.StudentService;
@@ -23,6 +24,8 @@ import com.appcmc.utils.AppContext;
 import com.appcmc.web.forms.EnrollmentForm;
 import com.appcmc.web.forms.ForgotPasswordForm;
 import com.appcmc.web.forms.SignInForm;
+import org.apache.commons.logging.Log;
+import org.springframework.mail.javamail.MimeMailMessage;
 
 /**
  * @author Sudarsan
@@ -37,6 +40,7 @@ public class SignInController {
     private StudentService studentService = null;
     private Student student = null;
     private ContactService contactService = null;
+    private AppMailService appMailService = null;
     private Contacts contacts = null;
 
     @RequestMapping(method = RequestMethod.GET)
@@ -130,10 +134,11 @@ public class SignInController {
         AppCmcSpringContext.init();
 
         appUserService = (AppUserService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_USER_SERVICE);
-
+        
         AppUser appUser = appUserService.findByEnrollmentNumber(userName);
-
-
+             
+             
+           
         if (appUser == null) {
             return "Invalid Data";
 
@@ -141,6 +146,10 @@ public class SignInController {
 
         if (appUser.getSecurityQuestion().equalsIgnoreCase(securityQuestion) && appUser.getSecurityAnswer().equalsIgnoreCase(answer)) {
             //String password = appUser.getPassword();
+            
+            appMailService = (AppMailService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_MAIL_SERVICE);
+            appMailService.sendMail(appUser);
+
             return "password";
         } else {
             return "Invalid Security Question Or Answer";
