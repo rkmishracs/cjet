@@ -24,8 +24,11 @@ import com.appcmc.utils.AppContext;
 import com.appcmc.web.forms.EnrollmentForm;
 import com.appcmc.web.forms.ForgotPasswordForm;
 import com.appcmc.web.forms.SignInForm;
-import org.apache.commons.logging.Log;
-import org.springframework.mail.javamail.MimeMailMessage;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 
 /**
  * @author Sudarsan
@@ -49,14 +52,34 @@ public class SignInController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/out")
-    public String doSignOut(WebRequest request) {
+    public String doSignOut(HttpServletRequest req, WebRequest request, HttpServletResponse response) {
 
         AppUser appUser = (AppUser) request.getAttribute("user",
                 WebRequest.SCOPE_SESSION);
 
         if (appUser == null) {
             return "redirect:/appHome";
+        }
 
+
+        LOG.debug("==================In doSignOut");
+
+        Cookie[] cokkies = req.getCookies();
+
+        if (cokkies != null) {
+
+
+            for (int i = 0; i < cokkies.length; i++) {
+                Cookie c = cokkies[i];
+                if (c.getName().equals("guid")) {
+                    LOG.debug("==================Cookie is there");
+                    Cookie c1 = new Cookie(c.getName(), "0");
+                    c1.setMaxAge(0);
+                    LOG.debug("================" + c1.getMaxAge());
+                    response.addCookie(c1);
+                }
+
+            }
         }
 
         request.removeAttribute("user", WebRequest.SCOPE_SESSION);
@@ -66,12 +89,13 @@ public class SignInController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public String doSigIn(@ModelAttribute SignInForm signInForm,
-            @ModelAttribute EnrollmentForm enrollmentForm, WebRequest request) {
+            @ModelAttribute EnrollmentForm enrollmentForm, WebRequest request, HttpServletResponse response) {
 
 
         LOG.debug("In Sign In Controller");
         String userId = signInForm.getUserId();
         String password = signInForm.getPassword();
+        String rememberMe = signInForm.getRememberMe();
 
         AppCmcSpringContext.init();
 
@@ -84,6 +108,13 @@ public class SignInController {
             request.setAttribute("dbError", "Invalid UserId/Password",
                     WebRequest.SCOPE_SESSION);
             return "Invalid UserName/Password";
+        }
+
+        if (rememberMe != null) {
+            Cookie cookie = new Cookie("guid", appUser.getGuid());
+            cookie.setMaxAge(24 * 60 * 60);
+            response.addCookie(cookie);
+
         }
 
         if (appUser.getType().equalsIgnoreCase("admin")) {
@@ -134,11 +165,11 @@ public class SignInController {
         AppCmcSpringContext.init();
 
         appUserService = (AppUserService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_USER_SERVICE);
-        
+
         AppUser appUser = appUserService.findByEnrollmentNumber(userName);
-             
-             
-           
+
+
+
         if (appUser == null) {
             return "Invalid Data";
 
@@ -146,7 +177,7 @@ public class SignInController {
 
         if (appUser.getSecurityQuestion().equalsIgnoreCase(securityQuestion) && appUser.getSecurityAnswer().equalsIgnoreCase(answer)) {
             //String password = appUser.getPassword();
-            
+
             appMailService = (AppMailService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_MAIL_SERVICE);
             appMailService.sendMail(appUser);
 
