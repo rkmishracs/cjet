@@ -1,4 +1,4 @@
 
 <%
-	response.sendRedirect(request.getContextPath() + "/appHome");
+	response.sendRedirect(request.getContextPath() + "/");
 %>
