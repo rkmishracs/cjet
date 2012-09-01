@@ -2514,6 +2514,17 @@ position: relative;
     font-size: 10pt;
 }
 
+/*CSS for viewResume.jsp*/
+#errorResumeDiv{
+    position: relative;
+    top:-70px;
+    left:140px;
+    width: 370px;
+    color: red;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
 /*CSS for avtarProfilePic.jsp*/
 #errorUploadPicDiv{
     position: relative;
