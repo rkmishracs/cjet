@@ -7,9 +7,12 @@ package com.appcmc.web.controller;
 import com.appcmc.context.id.names.ContextIdNames;
 import com.appcmc.domain.sub.Contacts;
 import com.appcmc.domain.sub.Student;
+import com.appcmc.domain.sub.StudentProfile;
+import com.appcmc.service.StudentProfileService;
 import com.appcmc.service.StudentService;
 import com.appcmc.utils.AppCmcSpringContext;
 import com.appcmc.utils.AppContext;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.log4j.Logger;
@@ -31,6 +34,8 @@ public class ReportsController {
     private Contacts contacts = null;
     private StudentService studentService = null;
     private Student student = null;
+    private StudentProfileService studentProfileService = null;
+    private StudentProfile  studentProfile = null;
     static Logger LOG = Logger.getLogger(ReportsController.class);
     @RequestMapping(method= RequestMethod.GET )
     public String reports(){
@@ -111,5 +116,26 @@ public class ReportsController {
         }
         request.setAttribute("studentsDailyList", studentDailyList, WebRequest.SCOPE_REQUEST);
         return "/master/dailyReport";
+    }
+    @RequestMapping(method= RequestMethod.GET, value="/viewAllProfiles")
+    public String viewAllProfiles(WebRequest request){
+        LOG.debug("=================In dailyReports Controller");
+        AppCmcSpringContext.init();
+        studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
+        List<Student> studentList = studentService.getAll();
+        List<Contacts> contactsList = new ArrayList<Contacts>();
+        
+        studentProfileService = (StudentProfileService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
+        List<StudentProfile> studentProfiles = studentProfileService.getAll();
+        
+        for(Student std:studentList){
+            contactsList.add(std.getContacts());
+        }
+        
+        request.setAttribute("student", studentList, WebRequest.SCOPE_REQUEST);
+        request.setAttribute("contacts", contactsList, WebRequest.SCOPE_REQUEST);
+        request.setAttribute("studentProfile", studentProfiles, WebRequest.SCOPE_REQUEST);
+        
+        return "/master/viewAllProfiles";
     }
 }
