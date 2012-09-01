@@ -5,16 +5,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <title>Pridikt</title>
+        <title>CMC | View Resume</title>
 
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
 
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
-        
 
-           
+
+
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
@@ -73,12 +73,19 @@
                     </div>
                     <!--End Pridikt Module--> 
 
+                    <c:if test="${errorResumeMessage != null}">
+                        <div id="errorResumeDiv">${errorResumeMessage}&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/resume" style="color: blue">Upload Now</a></div>
+                    </c:if>
+                    
+                    <c:if test="${errorResumeMessage == null}">
+                        <div id="iframeDiv" style="position: relative ; top: -100px; left:-20px;">
+                            <iframe src="${pageContext.request.contextPath}/resume/iframe" width="870" height="380">
+                                <p>Your browser does not support iframes.</p>
+                            </iframe>
+                        </div>
+                    </c:if>
 
-                    <div id="iframeDiv" style="position: relative ; top: -100px; left:-20px;">
-                    <iframe src="${pageContext.request.contextPath}/resume/iframe" width="870" height="380">
-                        <p>Your browser does not support iframes.</p>
-                    </iframe>
-                    </div>
+
 
 
 
