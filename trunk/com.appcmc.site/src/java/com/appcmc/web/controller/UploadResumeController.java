@@ -86,6 +86,12 @@ public class UploadResumeController {
             return "";
         }
         
+        if(studentProfile.getResume() == null){
+                LOG.debug("=============Resume Not Yet Updated");
+                request.setAttribute("errorResumeMessage", "You Haven't Uploaded Your Resume Yet !..", WebRequest.SCOPE_REQUEST);
+                return "/avtar/viewResume";
+        }
+        
         ByteArrayInputStream bais = null;
         OutputStream outputStream = null;
         try {
@@ -149,13 +155,10 @@ public class UploadResumeController {
             return "";
         }
         String resumeName = avtarResumeForm.getResumeDoc().getOriginalFilename();
-        LOG.debug("==========Resume Name : "+resumeName);
         if(!resumeName.endsWith(".doc")){
-            LOG.debug("============Failure");
             request.setAttribute("errorMessage", "You Must Upload Only '.doc' files", WebRequest.SCOPE_REQUEST);
             return "avtar/uploadResume";
         }
-        LOG.debug("============Success");
         byte[] resume = avtarResumeForm.getResumeDoc().getBytes();
         
         studentProfile.setId(studentProfile.getId());
