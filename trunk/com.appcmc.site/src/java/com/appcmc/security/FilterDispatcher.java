@@ -57,18 +57,27 @@ public class FilterDispatcher implements Filter {
         AppUser user = (AppUser) session.getAttribute("user");
 
 
-
         if (uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_MASTER)
+                || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_MASTER_ENROLLMENT)
+                || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.App_USER_MASTER_VIEW_ALL_PROFILES)
+                || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_MASTER_VIEW_ALL_ENROLLS)
+                || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_MASTER_VIEW_ALL_MONTHLY_REPORTS)
+                || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_MASTER_VIEW_ALL_WEEKLY_REPORTS)
+                || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_MASTER_VIEW_ALL_DAILY_REPORTS)
+                || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_MASTER_SEARCH)
                 || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_AVTAR)
-                || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_AVTAR_UPDATE_PROFILE)) {
+                || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_AVTAR_UPDATE_PROFILE)
+                || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_AVTAR_UPLOAD_RESUME)
+                || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_AVTAR_VIEW_RESUME)
+                || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_AVTAR_EMAIL_RESUME)
+                || uri.equalsIgnoreCase(req.getContextPath() + ProtectedAppURIS.APP_USER_AVTAR_UPDATE_EDUCATION)) {
 
             if (user == null) {
                 res.sendRedirect(req.getContextPath() + "/appHome");
+
                 return;
             }
-
         }
-
 
         if (uri.equalsIgnoreCase(req.getContextPath() + "/")) {
             String guid = null;
@@ -118,8 +127,6 @@ public class FilterDispatcher implements Filter {
             res.sendRedirect(req.getContextPath() + "/avtar");
             return;
         }
-
-
         chain.doFilter(req, res);
     }
 
