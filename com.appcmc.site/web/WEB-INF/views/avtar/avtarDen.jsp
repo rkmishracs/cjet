@@ -395,7 +395,7 @@
                         <div class="prdkt-box">
 
                             <div id="addressDiv">
-                                <h2 class="tags"><s:message code="lbl.avatar.address"/>&nbsp;<span id="semi-columnDiv">:</span></h2>
+                                <h2 class="tags"><s:message code="lbl.avatar.address"/>&nbsp;<span id="semi-columnDiv">&nbsp;&nbsp;:</span></h2>
                                 <div id="addressText">
 
                                     <!--// Update Holder -->
@@ -460,20 +460,20 @@
 
                             <div id="profileTitleDiv">
 
-                                <h2 class="tags">Profile Title &nbsp; <span id="semi-columnDiv">:</span></h2>
+                                <h2 class="tags">Profile Title &nbsp;<span id="semi-columnDiv">:</span></h2>
                                 <div id="profileTitleText">
 
                                     <!--// Update Holder -->
-                                    <div id="updateHolder">
-                                        <div id="updateContainer">
-                                            <div id="updateContent">
+                                    <div id="updateHolderProfileTitle">
+                                        <div id="updateContainerProfileTitle">
+                                            <div id="updateContentProfileTitle">
                                                 <!-- //// You can add all your contents here ////-->
                                                 ${studentProfile.title}
 
                                             </div>
                                             <!--// don't remove this: the scrollbar and scrollscrubber place holder -->
-                                            <div id="updateScollBar">
-                                                <div id="updateScollScrubber">
+                                            <div id="updateScollBarProfileTitle">
+                                                <div id="updateScollScrubberProfileTitle">
                                                 </div>
                                             </div>
                                             <!-- scrollbar end //-->
@@ -497,16 +497,16 @@
                                 <div id="keySkillsText">
 
                                     <!--// Update Holder -->
-                                    <div id="updateHolder">
-                                        <div id="updateContainer">
-                                            <div id="updateContent">
+                                    <div id="updateHolderKeySkills">
+                                        <div id="updateContainerKeySkills">
+                                            <div id="updateContentKeySkills">
                                                 <!-- //// You can add all your contents here ////-->
                                                 ${studentProfile.keySkills}
 
                                             </div>
                                             <!--// don't remove this: the scrollbar and scrollscrubber place holder -->
-                                            <div id="updateScollBar">
-                                                <div id="updateScollScrubber">
+                                            <div id="updateScollBarKeySkills">
+                                                <div id="updateScollScrubberKeySkills">
                                                 </div>
                                             </div>
                                             <!-- scrollbar end //-->
@@ -517,7 +517,7 @@
                             </div>
 
 
-                            <table
+                                                <table style="position: relative; top: -14px;">
                                 <tr>
                                     <td><h2 class="tags">Current Employer &nbsp;</h2></td>
                                     <td>:</td>
