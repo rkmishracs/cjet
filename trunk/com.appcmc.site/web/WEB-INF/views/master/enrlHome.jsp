@@ -44,8 +44,10 @@
             <div class="wrapper">
 
                 <div id="body1" class="col"> 
-
-
+                    <div id="validation" style="position:relative;top:90px;height:40px; ">
+                        <p class="validateTips" id="valid"><s:message code="lbl.signin.allFieldsAreRequire"/></p>
+                    </div>    
+                    
                     <!--Begin Prediction Module-->
                     <div class="heading-review">
                         <form id="prdkt-compose-form" style="float:left; margin:10px 0 0 10px;">
@@ -87,15 +89,15 @@
                                         </div>
                                         <div class="st-blocked2">
                                             <label for="tags"><s:message code="lbl.enrollment.tab1.email"/></label>
-                                            <sf:input cssClass="tags" name="tags" path ="email" type="text" size="40" class="text ui-widget-content ui-corner-all"/>
+                                            <sf:input cssClass="tags" name="tags" path ="email" type="text" size="40" class="text ui-widget-content ui-corner-all" id="email" />
                                         </div>
                                         <div class="st-blocked2">
                                             <label for="tags"><s:message code="lbl.enrollment.tab1.firstName"/></label>
-                                            <sf:input cssClass="tags" path ="firstName" name="tags" type="text" size="40" />
+                                            <sf:input cssClass="tags" path ="firstName" name="tags" type="text" size="40" id="firstName"/>
                                         </div>
                                         <div class="st-blocked2">
                                             <label for="tags"><s:message code="lbl.enrollment.tab1.lastName"/></label>
-                                            <sf:input cssClass="tags" path ="lastName" name="tags" type="text" size="40" />
+                                            <sf:input cssClass="tags" path ="lastName" name="tags" type="text" size="40" id="lastName"/>
                                         </div>
                                         <div class="st-blocked2">
                                             <label for="tags"><s:message code="lbl.enrollment.tab1.dateOfBirth"/></label>
@@ -118,7 +120,7 @@
                                     <div id="tab2" class="tab_content2">
                                         <div class="st-blocked2">
                                             <label for="tags"><s:message code="lbl.enrollment.tab2.nationality"/></label>
-                                            <sf:input cssClass="tags" path ="nationality" name="tags" type="text" />
+                                            <sf:input cssClass="tags" path ="nationality" name="tags" type="text" id="nationality" />
                                         </div>           
                                         <div class="st-blocked2">
                                             <label for="tags"><s:message code="lbl.enrollment.tab2.categeory"/></label>
@@ -141,20 +143,20 @@
                                         </div>
                                         <div class="st-blocked2">
                                             <label for="tags"><s:message code="lbl.enrollment.tab2.fatherName"/></label>
-                                            <sf:input cssClass="tags" path ="fatherName" name="tags" type="text" size="40" />
+                                            <sf:input cssClass="tags" path ="fatherName" name="tags" type="text" size="40" id="fatherName" />
                                         </div>           
                                         <div class="st-blocked2">
                                             <label for="tags"><s:message code="lbl.enrollment.tab2.motherName"/></label>
-                                            <sf:input cssClass="tags" path ="motherName" name="tags" type="text" size="40" />
+                                            <sf:input cssClass="tags" path ="motherName" name="tags" type="text" size="40" id="motherName" />
                                         </div>                
                                         <div class="st-blocked2">
                                             <label for="tags"><s:message code="lbl.enrollment.tab2.occupation"/></label>
-                                            <sf:input path ="ocupation" cssClass="tags" name="tags" type="text" />
+                                            <sf:input path ="ocupation" cssClass="tags" name="tags" type="text" id="ocupation" />
                                         </div> 
 
                                         <div class="st-blocked2">
                                             <label for="tags"><s:message code="lbl.enrollment.tab2.annualIncome"/></label>
-                                            <sf:input path ="annualIncome" cssClass="tags" name="tags" type="text" />
+                                            <sf:input path ="annualIncome" cssClass="tags" name="tags" type="text" id="annualIncome"/>
                                         </div>
                                         <div class="st-blocked2">
                                             <label for="tags"></label>
