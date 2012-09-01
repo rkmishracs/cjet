@@ -118,7 +118,47 @@
                          <h4 style="margin-top:15px;">Hot Employers</h4>
                          <div class="employersLine"></div>
                      <ul class="hireUL tipLst" id="hiring" style="position: relative;width: 400px;height: 300px;">                
-                         <li style="position: relative;"><img src="resources/images/hiring.jpg"/></li>
+                         <li style="position: relative;">
+                             <table border="1" id ="imageTable">
+                                 <tbody>
+                                     <tr>
+                                         <td><a href="http://www.wipro.com/" target="_blank"><img src="resources/images/Soft1.jpg"/></a></td>
+                                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                         <td><a href="http://www.tata.com/" target="_blank"><img src="resources/images/Soft2.jpg"/></a></td>
+                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                         <td><a href="http://www.hp.com/" target="_blank"><img src="resources/images/Soft3.jpg"/></a></td>
+                                     </tr>
+                                     <tr>
+                                         <td><a href="http://www.infosys.com/pages/index.aspx" target="_blank"><img src="resources/images/Soft4.jpg"/></a></td>
+                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                         <td><a href="http://www.hcl.in/" target="_blank"><img src="resources/images/Soft5.jpg"/></a></td>
+                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                         <td><a href="http://www.extensio.com/" target="_blank"><img src="resources/images/Soft6.jpg"/></a></td>
+                                     </tr>
+                                     <tr>
+                                         <td><a href="http://www.oracle.com/index.html" target="_blank"><img src="resources/images/Soft7.jpg"/></a></td>
+                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                         <td><a href="http://www.ea.com/asia?from=us" target="_blank"><img src="resources/images/Soft8.jpg"/></a></td>
+                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                         <td><a href="http://www.compuware.com/" target="_blank"><img src="resources/images/Soft9.jpg"/></a></td>
+                                     </tr>
+                                     <tr>
+                                         <td><a href="http://www.mphasis.com/" target="_blank"><img src="resources/images/Soft10.jpg"/></a></td>
+                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                         <td><a href="http://www.genpact.com/" target="_blank"><img src="resources/images/Soft11.jpg"/></a></td>
+                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                         <td><a href="http://www.techmahindra.com/Pages/Default.aspx" target="_blank"><img src="resources/images/Soft12.jpg"/></a></td>
+                                     </tr>
+                                     <tr>
+                                         <td><a href="http://www.intel.in/content/www/in/en/homepage.html" target="_blank"><img src="resources/images/Soft13.jpg"/></a></td>
+                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                         <td><a href="http://www.lg.com/in" target="_blank"><img src="resources/images/Soft14.jpg"/></a></td>
+                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                         <td><a href="http://www.sonata-software.com/web/sonata_en/home.html" target="_blank"><img src="resources/images/Soft15.jpg"/></a></td>
+                                     </tr>
+                                 </tbody>
+                             </table>
+                         </li>
    	             </ul>
                         
                          <div class="cl"></div>
