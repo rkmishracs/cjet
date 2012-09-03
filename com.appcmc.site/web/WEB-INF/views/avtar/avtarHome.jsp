@@ -216,6 +216,7 @@
                         <ul>
                             <li class="current"><a href="${pageContext.request.contextPath}/avtar/update-profile">View Personal Information</a></li>
                             <li><a href="${pageContext.request.contextPath}/emailProfile">Email Resume</a></li>
+                             <li><a href="#">Share Profile To Facebook</a></li>
                             <li><a href="${pageContext.request.contextPath}/profileView">Print Profile</a></li>
                             <li><a href="#" id="change-password-link">Change Password</a>
                         </ul>
