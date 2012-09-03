@@ -1,10 +1,137 @@
 <html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>BusinessTraditional</title>
+
+</head>
+
 <body>
-<h3><font color='green'>Hi ${user.enrollmentNumber}, welcome to CMC!</font></h3>
+<table width="637" border="0" align="center" cellpadding="0" cellspacing="0">
+<style type="text/css">
+<!--
+body,td,th {
+	color: #373737;
+	font-family: Tahoma,Verdana,sans-serif,Arial, Helvetica;
+}
+body {
+	background-color: #FFFFFF;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.tit {
+	font-size:24px;
+	color:#ECEAEF;
+	padding-left:9px;
+	background-repeat: repeat-x;
+	line-height: 79px;
+}
+.titcolor {
+   font-size:14px;
+   color:#C24F7B;
+} 
+.textpadding {
+	font-size: 12px;
+	padding-top: 14px;
+	padding-right: 14px;
+	padding-bottom: 14px;
+	padding-left: 14px;
+}
+.content {
+	font-size:12px;
+	line-height:14px;
+	color:#000000;
+	letter-spacing:0.6px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.contenttit {
+	font-size:14px;
+	letter-spacing:1px;
+	font-weight: bold;
+	color: #000000;
+}
+.readmore {
+	color:#838383;
+	font-size:12px;
+	padding-right: 20px;
+	line-height: 15px;
+	text-align: right;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.readmore a:link {
+	color: #707070;
+	text-decoration: none;
+}
+.readmore a:visited {
+	color: #707070;
+	text-decoration: none;
+}
+.readmore a:hover {
+	color: #565656;
+	text-decoration: underline;
+}
+.readmore a:active {
+	color: #565656;
+	text-decoration: underline;
+}
+.showcontent {
+	font-size:12px;
+	line-height:14px;
+	color:#3A3A3A;
+	letter-spacing:0.6px;
+	padding-left: 30px;
+}
+-->
+</style>
+    <tr>
+      <td height="10">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="34"><table width="636" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="283" valign="top"><img src="http://reasonablespread.com/spreadresource/template/email/46/images/BusinessTraditional_03.jpg" width="283" height="79"></td>
+          <td width="353" background="http://reasonablespread.com/spreadresource/template/email/46/images/BusinessTraditional_05.jpg"><span class="tit">Reasonable Spread</span></td>
+        </tr>
+        <tr>
+          <td><img src="http://reasonablespread.com/spreadresource/template/email/46/images/BusinessTraditional_07.jpg" width="283" height="53"></td>
+          <td background="http://reasonablespread.com/spreadresource/template/email/46/images/BusinessTraditional_08.gif"></td>
+        </tr>
+      </table></td>
+    </tr>
 
-<div style="border:1px solid red;">
-   Your email address is <a href="mailto:${user.email}">${user.email}</a>.
-</div>
+    <tr>
+      <td align="left" valign="top" bgcolor="#F3F8FC">&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="left" valign="top" bgcolor="#F3F8FC"><table width="605" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="484" class="contenttit"><p>Dear  ${user.enrollmentNumber}, welcome to CMC!,<br>
+          </p></td>
+          <td width="121" class="content">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="content"><p align="justify">Your email address is <a href="mailto:${user.email}">${user.email}</a>.</p>
+              <p align="justify">We value your business, and hope to keep you as a customer.As a cash customer you will be advised of all special sales,and we know that you will find our prices and servicescompetitive enough to allow us to continue serving you.</p>
+            <p align="justify">If you have any questions about this decision, or if I may be of any help in any way with regard to your dealings with our company, please contact me at the above office.<br>
+            </p></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="content"><p>Sincerely,</p>
+              <p>Mary Trips<br>
+              Aug  30, 2006</p>
+            <p>Reasonable Spread<br>
+              <br>
+            </p></td>
+        </tr>
+      </table></td>
+    </tr>
+    
+    <tr>
+      <td height="10" align="left" valign="top">&nbsp;</td>
+    </tr>
+</table>
 </body>
-
 </html>
