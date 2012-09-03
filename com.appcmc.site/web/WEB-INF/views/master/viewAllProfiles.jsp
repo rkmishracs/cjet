@@ -63,19 +63,15 @@
                         </tr>
                      </thead>
                      <tbody>
-                        <c:forEach items="${student}" var="std">
-                           <c:forEach items="${contacts}" var="con">
-                              <c:forEach items="${studentProfile}" var="stdProf">
+                        <c:forEach items="${studentContactsProfile}" var="stdConProf">
                                  <tr>
-                                    <td>${std.enrollmentNumber}</td>
-                                    <td>${std.firstName} ${std.lastName}</td>
-                                    <td>${std.email}</td>
-                                    <td>${con.mobile}</td>
-                                    <td>${stdProf.keySkills}</td>
-                                    <td><a href="${pageContext.request.contextPath}/reports/download/${std.enrollmentNumber}">Download</a></td>
+                                    <td>${stdConProf.enrollmentNumber}</td>
+                                    <td>${stdConProf.firstName} ${stdConProf.lastName}</td>
+                                    <td>${stdConProf.email}</td>
+                                    <td>${stdConProf.mobile}</td>
+                                    <td>${stdConProf.keySkills}</td>
+                                    <td><a href="${pageContext.request.contextPath}/reports/download/${stdConProf.enrollmentNumber}">Download</a></td>
                                  </tr>
-                              </c:forEach>
-                           </c:forEach>
                         </c:forEach>
                      </tbody>
                   </table>
