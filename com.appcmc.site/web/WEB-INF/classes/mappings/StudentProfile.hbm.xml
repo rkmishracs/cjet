@@ -24,7 +24,10 @@
 			type="java.lang.String" />
 		<property column="PROFILE_PREVIOUS_EMPLOYER" name="previousEmployer" type="java.lang.String" />
                 <property column="PROFILE_RESUME" name="resume" type="binary"/>
-		
+		<property column="PROFILE_RESUME_FILENAME" name="fileName"
+			type="java.lang.String" />
+            <property column="PROFILE_RESUME_TYPE" name="type"
+			type="java.lang.String" />
 		<property column="PROFILE_CREATED_ON" name="createdOn" type="java.util.Date" />
 		<property column="PROFILE_CREATED_BY" name="createdBy" type="java.lang.Long" />
 		<property column="PROFILE_MODIFIED_ON" name="modifiedOn"
