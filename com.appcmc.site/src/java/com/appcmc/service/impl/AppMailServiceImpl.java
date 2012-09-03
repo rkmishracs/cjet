@@ -44,6 +44,9 @@ public class AppMailServiceImpl implements AppMailService {
         this.velocityEngine = velocityEngine;
     }
 
+    
+    
+    
     @Override
     public void sendMail(final AppUser appUser) {
         MimeMessagePreparator mimeMessagePreparator = new MimeMessagePreparator() {
@@ -57,7 +60,30 @@ public class AppMailServiceImpl implements AppMailService {
                 model.put("user", appUser);
                 String text = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "/mailTemplate.vm", model);
                 mimeMessageHelper.setText(text, true);
+
+               
+            }
+        };
+
+        this.mailSender.send(mimeMessagePreparator);
+    }
+    
+    
+     @Override
+    public void sendPassword(final AppUser appUser) {
+        MimeMessagePreparator mimeMessagePreparator = new MimeMessagePreparator() {
+            @Override
+            public void prepare(MimeMessage mimeMessage) throws Exception {
+
+                MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
+                mimeMessageHelper.setTo(appUser.getEmail());
+                mimeMessageHelper.setFrom("cmcavtar@gmail.com");
+                Map model = new HashMap();
+                model.put("user", appUser);
+                mimeMessageHelper.setText("Your Password is:"+appUser.getPassword(),true);
+
                 
+
             }
         };
 
