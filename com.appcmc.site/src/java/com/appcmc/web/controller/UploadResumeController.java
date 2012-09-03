@@ -171,6 +171,8 @@ public class UploadResumeController {
         studentProfile.setRole(studentProfile.getRole());
         studentProfile.setPreviousEmployer(studentProfile.getPreviousEmployer());
         studentProfile.setResume(resume);
+        studentProfile.setFileName(resumeName);
+        studentProfile.setType(avtarResumeForm.getResumeDoc().getContentType());
         studentProfile.setCreatedOn(studentProfile.getCreatedOn());
         studentProfile.setCreatedBy(1L);
         studentProfile.setModifiedOn(new java.util.Date());
