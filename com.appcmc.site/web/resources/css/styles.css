@@ -2739,3 +2739,44 @@ position: relative;
     margin: 0px 0px 10px 0px;
     *.z-index: -1;
 }
+
+/* New Style For forgotPassword Page*/
+
+#emailResponseText{
+    position: absolute;
+    top:320px;
+    left:900px;
+    width:208px;
+    height: 35px;
+    font-size: 9pt;
+    font-weight: bold;
+    display: none;
+    background-color: #6B9EDD;
+}
+
+.emailResponseText{
+    position: absolute;
+    top: 9px;
+    left: 18px;
+    width: 175px;
+    color: #FFFFFF;
+}
+#emailResponseText1{
+    position: absolute;
+    top:320px;
+    left:900px;
+    width:208px;
+    height: 35px;
+    font-size: 9pt;
+    font-weight: bold;
+    display: none;
+    background-color: #6B9EDD;
+}
+
+.emailResponseText1{
+    position: absolute;
+    top: 9px;
+    left: 18px;
+    width: 175px;
+    color: #FFFFFF;
+}
