@@ -24,4 +24,5 @@ public interface AppMailService {
     
     void sendResume(final EmailProfileForm emailProfileForm);
     
+    void sendPassword(final AppUser appUser);
 }
