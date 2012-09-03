@@ -10,11 +10,8 @@ import com.appcmc.service.AppMailService;
 import com.appcmc.utils.AppContext;
 import com.appcmc.web.controller.EmailProfileController;
 import com.appcmc.web.forms.EmailProfileForm;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Date;
 import java.util.HashMap;
@@ -22,7 +19,6 @@ import java.util.Map;
 import javax.mail.internet.MimeMessage;
 import org.apache.log4j.Logger;
 import org.apache.velocity.app.VelocityEngine;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -61,7 +57,7 @@ public class AppMailServiceImpl implements AppMailService {
                 model.put("user", appUser);
                 String text = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "/mailTemplate.vm", model);
                 mimeMessageHelper.setText(text, true);
-                mimeMessageHelper.setText("Your Password is:"+appUser.getPassword(),true);
+                
             }
         };
 
