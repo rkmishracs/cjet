@@ -7,7 +7,9 @@ package com.appcmc.web.controller;
 import com.appcmc.context.id.names.ContextIdNames;
 import com.appcmc.domain.sub.Contacts;
 import com.appcmc.domain.sub.Student;
+import com.appcmc.domain.sub.StudentContactsProfile;
 import com.appcmc.domain.sub.StudentProfile;
+import com.appcmc.domain.sub.impl.StudentsContactProfileImpl;
 import com.appcmc.service.StudentProfileService;
 import com.appcmc.service.StudentService;
 import com.appcmc.utils.AppCmcSpringContext;
@@ -41,7 +43,12 @@ public class ReportsController {
    private Student student = null;
    private StudentProfileService studentProfileService = null;
    private StudentProfile studentProfile = null;
+   private StudentContactsProfile studentContactsProfile = null;
    static Logger LOG = Logger.getLogger(ReportsController.class);
+   private List<Student> studentList = null;
+   private List<Contacts> contactsList = null;
+   private List<StudentContactsProfile> studentContactsProfiles = null;
+   private List<StudentProfile> studentProfiles = null;
 
    @RequestMapping(method = RequestMethod.GET)
    public String reports() {
@@ -125,22 +132,35 @@ public class ReportsController {
 
    @RequestMapping(method = RequestMethod.GET, value = "/viewAllProfiles")
    public String viewAllProfiles(WebRequest request) {
+       
+       contactsList = new ArrayList<Contacts>();
+      studentContactsProfiles = new ArrayList<StudentContactsProfile>();
+       
       LOG.debug("=================In dailyReports Controller");
       AppCmcSpringContext.init();
       studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
-      List<Student> studentList = studentService.getAll();
-      List<Contacts> contactsList = new ArrayList<Contacts>();
+      studentList = studentService.getAll();
 
       studentProfileService = (StudentProfileService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
-      List<StudentProfile> studentProfiles = studentProfileService.getAll();
-
-      for (Student std : studentList) {
-         contactsList.add(std.getContacts());
+      studentProfiles = studentProfileService.getAll();
+      
+      for(int i=0; i<studentList.size();i++){
+          
+          studentContactsProfile = new StudentsContactProfileImpl();
+          
+          studentContactsProfile.setEnrollmentNumber(studentList.get(i).getEnrollmentNumber());
+          studentContactsProfile.setFirstName(studentList.get(i).getFirstName());
+          studentContactsProfile.setLastName(studentList.get(i).getLastName());
+          studentContactsProfile.setEmail(studentList.get(i).getEmail());
+          studentContactsProfile.setMobile(studentList.get(i).getContacts().getMobile());
+          studentContactsProfile.setKeySkills(studentProfiles.get(i).getKeySkills());
+          
+          studentContactsProfiles.add( studentContactsProfile);
       }
-
-      request.setAttribute("student", studentList, WebRequest.SCOPE_REQUEST);
-      request.setAttribute("contacts", contactsList, WebRequest.SCOPE_REQUEST);
-      request.setAttribute("studentProfile", studentProfiles, WebRequest.SCOPE_REQUEST);
+      
+      LOG.debug("This is size: "+studentContactsProfiles.size());
+      
+      request.setAttribute("studentContactsProfile", studentContactsProfiles, WebRequest.SCOPE_REQUEST);
 
       return "/master/viewAllProfiles";
    }
