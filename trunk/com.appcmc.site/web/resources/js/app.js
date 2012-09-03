@@ -80,7 +80,9 @@ $(document).ready(function(){
                     bValid = bValid && checkRegexp( currentPassword, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
                     bValid = bValid && checkRegexp( newPassword, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
                     bValid = bValid && checkRegexp( confirmPassword, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
-                                        
+                    bValid = bValid && checkLength(newPassword, "newPassword", 3, 8);
+                    bValid = bValid && checkLength(confirmPassword, "confirmPassword", 3, 8);
+                    
                     if(bValid){
                         $('#ajax_loading').show();
                         $("#currentPassword").removeClass( "ui-state-error" );
@@ -861,7 +863,8 @@ $(document).ready(function(){
                     bValid = bValid && checkRegexp( currentPassword, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
                     bValid = bValid && checkRegexp( newPassword, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
                     bValid = bValid && checkRegexp( confirmPassword, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
-                                        
+                    bValid = bValid && checkLength(newPassword, "newPassword", 3, 8);
+                    bValid = bValid && checkLength(confirmPassword, "confirmPassword", 3, 8);                    
                     if(bValid){
                         $('#ajax_loading').show();
                         $("#currentPassword").removeClass( "ui-state-error" );
