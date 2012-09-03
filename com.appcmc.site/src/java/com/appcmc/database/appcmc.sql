@@ -127,6 +127,8 @@ CREATE TABLE IF NOT EXISTS `app_user_profile` (
   `profile_role` varchar(255) default NULL,
   `profile_previous_employer` varchar(255) default NULL,
   `profile_resume` longblob,
+  `profile_resume_filename` varchar(50),
+  `profile_resume_type` varchar(50),
   `profile_created_on` datetime NOT NULL,
   `profile_created_by` bigint(10) unsigned NOT NULL,
   `profile_modified_on` datetime NOT NULL,
