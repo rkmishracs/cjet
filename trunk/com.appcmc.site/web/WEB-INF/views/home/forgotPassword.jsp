@@ -52,11 +52,11 @@
 
                 <div id="body2" class="col">
                   
-                     <div id="divForResponse">
-                    <center><font color="Green">You Will Shortly Recieve Your Password!Please,Check Your Email </font></center>
+                     <div id="emailResponseText">
+                         <span class="emailResponseText"><center>Password Sent To Mail</center></span>
                 </div>
-                <div id="divForResponse1">
-                    <center><font color="Red">You Have Entered Invalid Data,Please Do Check </font></center>
+                <div id="emailResponseText1">
+                    <span class="emailResponseText1"><center>Invalid Data</center></span>
                 </div>
                     <div id="forgotPassDiv">
                         <div id ="enrlDiv">
