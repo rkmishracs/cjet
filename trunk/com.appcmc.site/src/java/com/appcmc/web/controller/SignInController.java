@@ -177,9 +177,9 @@ public class SignInController {
 
         if (appUser.getSecurityQuestion().equalsIgnoreCase(securityQuestion) && appUser.getSecurityAnswer().equalsIgnoreCase(answer)) {
             //String password = appUser.getPassword();
-
+            
             appMailService = (AppMailService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_MAIL_SERVICE);
-            appMailService.sendMail(appUser);
+            appMailService.sendPassword(appUser);
 
             return "password";
         } else {
