@@ -9,6 +9,7 @@ import com.appcmc.service.AppMailService;
 import com.appcmc.utils.AppContext;
 import com.appcmc.web.forms.EmailProfileForm;
 import java.io.IOException;
+import java.io.InputStream;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -45,6 +46,9 @@ public class EmailProfileController {
         LOG.debug("Email Subject : "+emailSubject);
         LOG.debug("Email FileName : "+fileName);
         LOG.debug("Email Message : "+emailMessage);
+        
+        
+        
         
          appMailService = (AppMailService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_MAIL_SERVICE);
 
