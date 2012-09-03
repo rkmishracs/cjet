@@ -64,23 +64,6 @@ public class SignInController {
 
         LOG.debug("==================In doSignOut");
 
-        Cookie[] cokkies = req.getCookies();
-
-        if (cokkies != null) {
-
-
-            for (int i = 0; i < cokkies.length; i++) {
-                Cookie c = cokkies[i];
-                if (c.getName().equals("guid")) {
-                    LOG.debug("==================Cookie is there");
-                    Cookie c1 = new Cookie(c.getName(), "0");
-                    c1.setMaxAge(0);
-                    LOG.debug("================" + c1.getMaxAge());
-                    response.addCookie(c1);
-                }
-
-            }
-        }
 
         request.removeAttribute("user", WebRequest.SCOPE_SESSION);
         return "redirect:/appHome";
@@ -110,12 +93,7 @@ public class SignInController {
             return "Invalid UserName/Password";
         }
 
-        if (rememberMe != null) {
-            Cookie cookie = new Cookie("guid", appUser.getGuid());
-            cookie.setMaxAge(24 * 60 * 60);
-            response.addCookie(cookie);
-
-        }
+        
 
         if (appUser.getType().equalsIgnoreCase("admin")) {
             LOG.debug("======================In Master");
