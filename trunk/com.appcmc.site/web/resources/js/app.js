@@ -240,6 +240,7 @@ $(document).ready(function(){
           
             if(bValid){
                 $("#valid").html("");
+                
                 $("#tab1").css("display", "none");
                 $("#listOne").removeClass();
                 $("#tab2").css("display", "block");
@@ -251,9 +252,31 @@ $(document).ready(function(){
     });
                 
     $("#tab2Next").click(function(){
-        allFields = $( [] ).add( "#nationality" ).add( "#fatherName" ).add( "#motherName" ).add("#ocupation").add("#annualIncome"),
+        allFields = $( [] ).add( "#nationality" ).add( "#fatherName" ).add( "#motherName" ).add("#ocupation").add("#annualIncome").add( "#enrollmentNumber" ).add( "#email" ).add( "#firstName" ).add("#lastName").add("#date-picker"),
         allFields.removeClass( "ui-state-error" );
-        if($("#nationality").val() == 0||$("#fatherName").val() == 0||$("#motherName").val() == 0||$("#ocupation").val() == 0||$("#annualIncome").val() == 0){
+        if($("#nationality").val() == 0||$("#fatherName").val() == 0||$("#motherName").val() == 0||$("#ocupation").val() == 0||$("#annualIncome").val() == 0||$("#enrollmentNumber").val()== 0 || $("#email").val()== 0||$("#firstName").val() == 0||$("#lastName").val() == 0||$("#date-picker").val() == 0){
+            if($("#enrollmentNumber").val() == null||$("#enrollmentNumber").val()== 0){
+                alert("Enrollment Id should not be empty");
+                return false;
+            }   
+            if($("#email").val() == null||$("#email").val()== 0){
+                alert("Email should not be empty");
+                return false;
+            }                   
+                           
+            if($("#firstName").val() == 0){
+                alert("FirstName should not be empty");
+                return false;
+            }                
+            if($("#lastName").val() == 0){
+                alert("Last Name should not be empty");
+                return false;
+            }                   
+            if($("#date-picker").val() == 0){
+                alert("Date should not be empty");
+                return false;
+            }
+           
             if($("#nationality").val() == 0){
                 alert("Nationality should not be empty");
                 return false;
@@ -280,6 +303,8 @@ $(document).ready(function(){
         }else{
             var bValid=true;
             bValid=bValid&&checkLength(annualIncome,"annualIncome",4,6);
+            bValid=bValid&&checkLength( email, "email", 6, 80 );
+            bValid=bValid&&checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Email should be as john@cmc.com" );
             if(bValid){
                 $("#valid").html("");
                 $("#tab1").css("display", "none");
@@ -288,7 +313,8 @@ $(document).ready(function(){
                 $("#listTwo").removeClass();
                 $("#tab3").css("display", "block");
                 $("#listThree").addClass("active");
-                    
+                                 
+   
             }
         }
                     
@@ -298,117 +324,163 @@ $(document).ready(function(){
 
     $("#saveEnrl").click(function(){
        
-        allFields = $( [] ).add( "#mobile" ).add( "#landPhone" ).add( "#aletrnativeEmail" ).add("#city").add("#state").add("#country").add("#country").add("#pinCode");
+        allFields = $( [] ).add("#enrollmentNumber").add("#email").add("#firstName").add("#lastName").add("#date-picker").add("#nationality").add("#fatherName").add("#motherName").add("#ocupation").add("#annualIncome").add("#mobile").add("#landPhone").add("#aletrnativeEmail").add("#city").add("#state").add("#country").add("#country").add("#pinCode"),
        
         allFields.removeClass( "ui-state-error" );
                     
-
-        if($("#mobile").val() == 0||$("#landPhone").val()== 0||$("#aletrnativeEmail").val() == 0||$("#city").val() == 0||$("#state").val() == 0||$("#country").val() == 0||$("#address").val() == 0||$("#pinCode").val() == 0){
-
-                     
-            if($("#mobile").val() == 0){
-                alert("Mobile Number should not be empty");
+        
+        if($("#nationality").val() == 0||$("#fatherName").val() == 0||$("#motherName").val() == 0||$("#ocupation").val() == 0||$("#annualIncome").val() == 0||$("#enrollmentNumber").val()== 0 || $("#email").val()== 0||$("#firstName").val() == 0||$("#lastName").val() == 0||$("#date-picker").val() == 0||$("#mobile").val() == 0||$("#landPhone").val()== 0||$("#aletrnativeEmail").val() == 0||$("#city").val() == 0||$("#state").val() == 0||$("#country").val() == 0||$("#address").val() == 0||$("#pinCode").val() == 0){
+            
+            
+            if($("#enrollmentNumber").val() == null||$("#enrollmentNumber").val()== 0){
+                alert("Enrollment Id should not be empty");
+                return false;
+            }   
+            if($("#email").val() == null||$("#email").val()== 0){
+                alert("Email should not be empty");
+                return false;
+            }                   
+                           
+            if($("#firstName").val() == 0){
+                alert("FirstName should not be empty");
+                return false;
+            }                
+            if($("#lastName").val() == 0){
+                alert("Last Name should not be empty");
+                return false;
+            }                   
+            if($("#date-picker").val() == 0){
+                alert("Date should not be empty");
                 return false;
             }
-                    
-                    
-            if($("#landPhone").val()== 0){
-                alert("Land Phone Number should not be empty");
+           
+            if($("#nationality").val() == 0){
+                alert("Nationality should not be empty");
                 return false;
-            }     
-                    
-            if($("#aletrnativeEmail").val() == 0){
-                alert("Alternative Email should not be empty");
+            }                     
+            if($("#fatherName").val() == 0){
+                alert("Father Name should not be empty");
                 return false;
-            }     
+            }                     
+                    
+            if($("#motherName").val() == 0){
+                alert("Mother Name should not be empty");
+                return false;
+            }                  
+                    
+            if($("#ocupation").val() == 0){
+                alert("Occupation  should not be empty");
+                return false;
+            }                  
+                    
+            if($("#annualIncome").val() == 0){
+                alert("Annual Income  should not be empty");
+                return false;
+                }
+                if($("#mobile").val() == 0){
+                    alert("Mobile Number should not be empty");
+                    return false;
+                }
+                    
+                    
+                if($("#landPhone").val()== 0){
+                    alert("Land Phone Number should not be empty");
+                    return false;
+                }     
+                    
+                if($("#aletrnativeEmail").val() == 0){
+                    alert("Alternative Email should not be empty");
+                    return false;
+                }     
                     
 
-            if($("#city").val() == 0){
-                alert("City should not be empty");
-                return false;
-            }     
-            if($("#state").val() == 0){
-                alert("State should not be empty");
-                return false;
-            }     
-            if($("#country").val() == 0){
-                alert("Country should not be empty");
-                return false;
-            }     
-            if($("#address").val() == 0){
-                alert("Address should not be empty");
-                return false;
-            }     
-            if($("#pinCode").val() == 0){
-                alert("Pincode should not be empty");
-                return false;
-            }    
-        }else{
+                if($("#city").val() == 0){
+                    alert("City should not be empty");
+                    return false;
+                }     
+                if($("#state").val() == 0){
+                    alert("State should not be empty");
+                    return false;
+                }     
+                if($("#country").val() == 0){
+                    alert("Country should not be empty");
+                    return false;
+                }     
+                if($("#address").val() == 0){
+                    alert("Address should not be empty");
+                    return false;
+                }     
+                if($("#pinCode").val() == 0){
+                    alert("Pincode should not be empty");
+                    return false;
+                }    
+            }else{
 
                 
-            var bValid=true;
-            bValid=bValid&&checkLength( aletrnativeEmail, "aletrnativeEmail", 6, 80 );			
-            bValid=bValid&&checkLength( mobile, "mobile", 10 , 10 );
-            bValid=bValid&&checkLength( landPhone, "landPhone", 7 , 12 );
-                        
-            bValid=bValid&&checkRegexp( aletrnativeEmail, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Alternative Email should be as john@cmc.com" );
-            if(bValid){
-                $("#valid").html("");
-                $("#saveEnrl").css("display","none");
-                $("#ajax_loading_email").css("display", "block");
-                                 
+                var bValid=true;
+                bValid=bValid&&checkLength( email, "email", 6, 80 );
+                bValid=bValid&&checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Email should be as john@cmc.com" );
+                bValid=bValid&&checkLength( mobile, "mobile", 10 , 10 );
+                bValid=bValid&&checkLength( landPhone, "landPhone", 7 , 12 );
+                bValid=bValid&&checkLength(annualIncome,"annualIncome",4,6);
+                bValid=bValid&&checkLength( aletrnativeEmail, "aletrnativeEmail", 6, 80 );			
+                bValid=bValid&&checkRegexp( aletrnativeEmail, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Alternative Email should be as john@cmc.com" );
+                if(bValid){
+                    $("#valid").html("");
+                    $("#saveEnrl").css("display","none");
+                    $("#ajax_loading_email").css("display", "block");
+                    $("#validation").css("display","none");                
 
-                $.ajax({
-                    type : "post",
-                    url : $('#enrollmentFormHidden').val()+"/master",
-                    data : $("#enrollmentForm").serialize(),
-                    success:function(response){
-                        $("#ajax_loading_email").css("display", "none");
-                        $("#emailResponse").css("display", "block");
-                        if($("#emailResponse").css("display", "block")){
-                            setTimeout(function(){
-                                $("#emailResponse").fadeOut("slow");
-                                $("#enrollmentNumber").val("");
-                                $("#email").val("");
-                                $("#firstName").val(""); 
-                                $("#lastName").val("");
-                                $("#date-picker").val(""); 
-
-                                $("#fatherName").val("") ;
-                                $("#aletrnativeEmail").val("");
-                                $("#motherName").val("") ;
-                                $("#ocupation").val("") ;
-                    
-                                $("#annualIncome").val("");
-                                $("#mobile").val(""); 
-                    
-                                $("#landPhone").val("");
-                                $("#nationality").val("");
-                    
-                                $("#city").val("");
-                                $("#state").val("");
-                                $("#country").val("");
-                                $("#address").val(""); 
-                                $("#pinCode").val("");
-                                $("#tab3").css("display", "none");
-                                $("#tab1").css("display", "block");
-                                $("#saveEnrl").css("display","block");
-                
-
-                            }, 3000);
-                        }
-                    }     
+                    $.ajax({
+                        type : "post",
+                        url : $('#enrollmentFormHidden').val()+"/master",
+                        data : $("#enrollmentForm").serialize(),
+                        success:function(response){
+                            $("#ajax_loading_email").css("display", "none");
+                            $("#emailResponse").css("display", "block");
+                            if($("#emailResponse").css("display", "block")){
+                                setTimeout(function(){
+                                    $("#emailResponse").fadeOut("slow");
+                                    $("#enrollmentNumber").val("");
+                                    $("#email").val("");
+                                    $("#firstName").val(""); 
+                                    $("#lastName").val("");
+                                    $("#date-picker").val("");
+                                    $("#fatherName").val("") ;
+                                    $("#aletrnativeEmail").val("");
+                                    $("#motherName").val("") ;
+                                    $("#ocupation").val("") ;
+                                    $("#annualIncome").val("");
+                                    $("#mobile").val(""); 
+                                    $("#landPhone").val("");
+                                    $("#nationality").val("");
+                                    $("#city").val("");
+                                    $("#state").val("");
+                                    $("#country").val("");
+                                    $("#address").val(""); 
+                                    $("#pinCode").val("");                                
+                                    $("#saveEnrl").css("display","block");
+                                    $("#validation").css("display","block");
+                                    $("#tab3").css("display", "none");
+                                    $("#listThree").removeClass();
+                                    $("#tab2").css("display", "none");
+                                    $("#listTwo").removeClass();
+                                    $("#tab1").css("display", "block");
+                                    $("#listOne").addClass("active");
+                                }, 3000);
+                            }
+                        }     
                            
                 
-                });
+                    });
                    
                    
                    
-            }
+                }
 		        
-        }
+            }
         
-      
+        
     });
         
        
