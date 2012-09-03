@@ -9,7 +9,7 @@
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" type="text/css" />
-        
+
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/popup-tips.js"></script>
@@ -45,9 +45,9 @@
 
                 <div id="body1" class="col"> 
                     <div id="validation" style="position:relative;top:90px;height:40px; ">
-                        <p class="validateTips" id="valid"><s:message code="lbl.signin.allFieldsAreRequire"/></p>
+                        <p class="validateTips" id="valid"></p>
                     </div>    
-                    
+
                     <!--Begin Prediction Module-->
                     <div class="heading-review">
                         <form id="prdkt-compose-form" style="float:left; margin:10px 0 0 10px;">
@@ -197,20 +197,21 @@
                                         <div class="st-blocked2">
                                             <label for="tags"><s:message code="lbl.enrollment.tab3.address"/></label>
                                             <sf:textarea cssClass="tags" path="address"></sf:textarea>
-                                            </div>
-                                            <div class="st-blocked2">
-                                                <label for="tags"></label>
-                                                <a class="button-h" href="#" id="saveEnrl"><span><s:message code="lbl.enrollment.link.save"/></span></a>
+                                        </div>
+                                        <div class="st-blocked2">
+                                            <label for="tags"></label>
+                                            <a class="button-h" href="#" id="saveEnrl"><span><s:message code="lbl.enrollment.link.save"/></span></a>
                                             <a class="button-h" href="#" id ="canErl"><span><s:message code="lbl.enrollment.link.cancel"/></span></a>
+                                            <div id="ajax_loading_email" ><img  src="${pageContext.request.contextPath}/resources/images/spinner.gif" style="folat:left;">&nbsp;<s:message code="lbl.txt.Processing"/></div>
+                                                
+                                        
+                                            <div id="emailResponse">
+                                                <span class="emailResponse">Confirmation Sent To Student</span>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div id="ajax_loading_email">
-                                        <img align="absmiddle" src="${pageContext.request.contextPath}/resources/images/spinner.gif">&nbsp;<s:message code="lbl.txt.Processing"/>
-                                    </div>
-                                    <div id="emailResponse">
-                                        <span class="emailResponse">Confirmation Sent To Student</span>
-                                    </div>
+
                                 </div>                                
 
                             </div>
