@@ -767,8 +767,8 @@ $(document).ready(function(){
                 
         
     //Script for forgotPassword.jsp
-    $("#divForResponse").hide();
-    $("#divForResponse1").hide();
+    $("#emailResponseText").hide();
+    $("#emailResponseText1").hide();
     $("#getEnrlPassword").click(function(){
         username = $("#forgotUserText");
         answer   = $("#forgotUserAnswer");                
@@ -797,21 +797,21 @@ $(document).ready(function(){
             success : function(response){
                 if(response == 'password'){
                                         
-                    $("#divForResponse").show();
+                    $("#emailResponseText").show();
                     username.val("");
                     $("#chooserDialog").val("Please Select");
                     answer.val("");
                     setTimeout(function(){
-                        $("#divForResponse").hide();
+                        $("#emailResponseText").hide();
                     },3000)
                 }else{
                     username.val("");
                     $("#chooserDialog").val("Please Select");
                     answer.val("");
                     username.focus();
-                    $("#divForResponse1").show(); 
+                    $("#emailResponseText1").show(); //divForResponse1
                     setTimeout(function(){
-                        $("#divForResponse1").hide();    
+                        $("#emailResponseText1").hide();    
                     },3000);
                 }
             }
