@@ -44,4 +44,11 @@ public interface StudentProfile extends Domain{
     
     public byte[] getResume();
     
+    public void setFileName(String fileName);
+    
+    public String getFileName();
+    
+    public void setType(String type);
+    
+    public String getType();
 }
