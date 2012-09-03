@@ -79,54 +79,7 @@ public class FilterDispatcher implements Filter {
             }
         }
 
-        if (uri.equalsIgnoreCase(req.getContextPath() + "/")) {
-            String guid = null;
-            Cookie[] cookies = req.getCookies();
-            if (cookies != null) {
-                for (int i = 0; i < cookies.length; i++) {
-                    Cookie c = cookies[i];
-                    if ("guid".equals(c.getName())) {
-                        guid = c.getValue();
-                        LOG.debug(c.getValue());
-                        break;
-                    }
-
-                }
-
-            }
-            if (guid == null) {
-                res.sendRedirect(req.getContextPath() + "/appHome");
-                return;
-            }
-            AppCmcSpringContext.init();
-
-            appUserService = (AppUserService) AppContext.APPCONTEXT
-                    .getBean(ContextIdNames.APP_USER_SERVICE);
-            appUser = appUserService.findByGuid(guid);
-            if (appUser == null) {
-                return;
-            }
-            LOG.debug("=================AppUser" + appUser);
-            if (appUser.getType().equalsIgnoreCase("admin")) {
-                session.setAttribute("user", appUser);
-                res.sendRedirect(req.getContextPath() + "/master");
-                return;
-            }
-
-            studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
-            contactService = (ContactService) AppContext.APPCONTEXT.getBean(ContextIdNames.CONTACT_SERVICE);
-
-            student = studentService.findStudentByEnrollmentNumber(appUser.getEnrollmentNumber());
-            contacts = contactService.findByEnrollmentNumber(appUser.getEnrollmentNumber());
-            LOG.debug("=================Student" + student);
-            LOG.debug("=================Contacts" + contacts);
-            session.setAttribute("user", appUser);
-            session.setAttribute("student", student);
-            session.setAttribute("contacts", contacts);
-            LOG.debug(req.getContextPath() + "/avtar");
-            res.sendRedirect(req.getContextPath() + "/avtar");
-            return;
-        }
+        
         chain.doFilter(req, res);
     }
 
