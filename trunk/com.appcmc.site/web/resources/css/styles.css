@@ -1800,7 +1800,7 @@ html ul.tabs2 li.active a {
 /*CSS for allEnrolls.jsp, dailyReport.jsp, weeklyReport.jsp, monthlyReport.jsp*/
 #exportPdfDiv{
     position: relative;
-    top: 123px;
+    top: -30px;
     left: 500px;
     width:102px;
     height: 34px;
@@ -2027,7 +2027,6 @@ span{
 }
 #exportToPdf{
     position: relative;
-    top: -156px;
 }
 #profileTitleText{
     position: relative;
