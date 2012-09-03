@@ -1827,21 +1827,17 @@ html ul.tabs2 li.active a {
     font-size: 12px;
     font-family: Tahoma;
 }
-
 #ajax_loading_email {
-    position: absolute;
-    top:585px;
-    left:520px;
-    width:100px;
+    position: relative;
+    float:Left;
     display: none;
     font-size: 12px;
     font-family: Tahoma;
 }
 
 #emailResponse{
-    position: absolute;
-    top:577px;
-    left:575px;
+    position: relative;
+    float: left;
     width:208px;
     height: 35px;
     font-size: 9pt;
@@ -2393,7 +2389,7 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 }
 
 #upcomingEventDiv h4{
-    background: url(resources/images/resBlk_HD.gif) repeat-x 0 0;
+    /*background: url(resources/images/resBlk_HD.gif) repeat-x 0 0;*/
     text-align: center;
     border-bottom: 1px solid #B6C1CC;
 }
