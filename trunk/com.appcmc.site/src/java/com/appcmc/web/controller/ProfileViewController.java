@@ -17,8 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ProfileViewController {
     
     @RequestMapping(method= RequestMethod.GET)
-    public String showProfileView(){
-        
+    public String showProfileView(){        
         return "/avtar/profileView";
     }
         
