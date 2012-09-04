@@ -187,12 +187,10 @@
 
                             <td><label for="tags">Specialization</label></td>
                             <td><sf:select path="twoSpecialization" id="editThirdHighestSpecialization">
-                                    <sf:option value="Please Select">Please Select</sf:option>
-                                    <sf:option value="CSE">M.P.C</sf:option>  
-                                    <sf:option value="IT">Bi.P.C</sf:option>
-                                    <sf:option value="Computer">Computer</sf:option>
-                                    <sf:option value="Electronics">Electronics</sf:option>
-                                    <sf:option value="Electrical">Electrical</sf:option>
+                                    <sf:option value="${educationalQualifications.twoSpecialization}">${educationalQualifications.twoSpecialization}</sf:option>
+                                    <sf:option value="M.P.C">M.P.C</sf:option>  
+                                    <sf:option value="Bi.P.C">Bi.P.C</sf:option>
+                                    <sf:option value="M.E.C">M.E.C</sf:option>
                                 </sf:select>
                             </td>
 
