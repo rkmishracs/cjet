@@ -2852,6 +2852,23 @@ position: relative;
     color: red;
     display: none;
 }
+#createEventDiv{
+    position: relative;
+    top: 30px;
+    width: 300px;
+    height: 300px;
+}
+#submitForCreateEvent{
+    position: relative;
+    top: 15px;
+    left: 250px;
+    
+}
+#cancelForCreateEvent{
+    position: relative;
+    top: 15px;
+    left: 270px;
+}
 
 /* New Styles For UpcomingEvent Div for appHome */
   .cont {
@@ -2865,4 +2882,35 @@ position: relative;
 } 
           .disBlk {
         display: block;
+}
+#ajax_loading_createEvent{
+    position: relative;
+    top: 28px;
+    left: 78px;
+    display: none;
+}
+#createdEventSucess{
+    position: relative;
+    top: 32px;
+    left: 200px;
+    width:208px;
+    height: 35px;
+    font-size: 9pt;
+    font-weight: bold;
+    background-color: #6B9EDD;
+    display: none;
+    
+}
+.createdEventSucess{
+    position: absolute;
+    top: 9px;
+    left: 18px;
+    width: 175px;
+    color: #FFFFFF;
+}
+#ajax_loading_createEventText{
+    position: relative;
+    top:-40px;
+    left: 257px;
+    
 }
