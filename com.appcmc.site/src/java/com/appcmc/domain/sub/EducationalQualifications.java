@@ -31,6 +31,10 @@ public interface EducationalQualifications extends Domain {
     void setTwoQualification(String twoQualification);
 
     String getTwoQualification();
+    
+    void setTwoSpecialization(String twoSpecialization);
+    
+    String getTwoSpecialization();
 
     void setTwoYearOfPass(String twoYearOfPass);
 
