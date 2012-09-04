@@ -1808,6 +1808,64 @@ $(document).ready(function(){
 
 
 // End for Bar
+
+        //Script for emailprofileView.jsp
+        $("#resumeSendBtn").click(function(){
+            if($("#emailTo").val() == ''){
+                $("#toAddressErrorDiv").css('display', 'block');
+                $("#fromAddressErrorDiv").css('display', 'none');
+                $("#subjectErrorDiv").css('display', 'none');
+                $("#attachmentErrorDiv").css('display', 'none');
+                $("#messageErrorDiv").css('display', 'none');
+                $("#emailTo").focus();
+                return false;
+            }
+            if($("#emailFrom").val() == ''){
+                $("#toAddressErrorDiv").css('display', 'none');
+                $("#fromAddressErrorDiv").css('display', 'block');
+                $("#subjectErrorDiv").css('display', 'none');
+                $("#attachmentErrorDiv").css('display', 'none');
+                $("#messageErrorDiv").css('display', 'none');
+                $("#emailFrom").focus();
+                return false;
+            }
+            if($("#emailSubject").val() == ''){
+                $("#toAddressErrorDiv").css('display', 'none');
+                $("#fromAddressErrorDiv").css('display', 'none');
+                $("#subjectErrorDiv").css('display', 'block');
+                $("#attachmentErrorDiv").css('display', 'none');
+                $("#messageErrorDiv").css('display', 'none');
+                $("#emailSubject").focus();
+                return false;
+                
+            }
+            if($("#emailAttachment").val() == ''){
+                $("#toAddressErrorDiv").css('display', 'none');
+                $("#fromAddressErrorDiv").css('display', 'none');
+                $("#subjectErrorDiv").css('display', 'none');
+                $("#attachmentErrorDiv").css('display', 'block');
+                $("#messageErrorDiv").css('display', 'none');
+                return false;
+            }
+            if($("#emailMessage").val() == ''){
+               $("#toAddressErrorDiv").css('display', 'none');
+               $("#fromAddressErrorDiv").css('display', 'none');
+               $("#subjectErrorDiv").css('display', 'none');
+               $("#attachmentErrorDiv").css('display', 'none');
+               $("#messageErrorDiv").css('display', 'block');
+               $("#emailMessage").focus();
+               return false; 
+            }
+            $("#toAddressErrorDiv").css('display', 'none');
+            $("#fromAddressErrorDiv").css('display', 'none');
+            $("#subjectErrorDiv").css('display', 'none');
+            $("#attachmentErrorDiv").css('display', 'none');
+            $("#messageErrorDiv").css('display', 'none');
+            $("#ajax_loading_emailResume").css('display', 'block');
+            $("#resumeFailureResponse").empty();
+            $("#resumeSuccessResponse").empty();
+            $("#resumeSendBtn").attr('disabled', 'disabled');
+        });
               
 });
 
