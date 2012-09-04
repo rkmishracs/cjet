@@ -56,7 +56,7 @@ public class HomeController {
         Date presentDate = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
         Events eventsJobFair = null;
         for (Events evnt : eventList) {
-            if (evnt.getEventType().equalsIgnoreCase("WalkIn")) {
+            if (evnt.getEventType().equalsIgnoreCase("Walk-In")) {
                 if (evnt.getEventOn().after(presentDate)) {
                     events = evnt;
                     break;
@@ -64,7 +64,7 @@ public class HomeController {
             }
         }
         for(Events evnt : eventList){
-            if (evnt.getEventType().equalsIgnoreCase("JobFair")) {
+            if (evnt.getEventType().equalsIgnoreCase("Job Fair")) {
                 if (evnt.getEventOn().after(presentDate)) {
                     eventsJobFair = evnt;
                     break;
