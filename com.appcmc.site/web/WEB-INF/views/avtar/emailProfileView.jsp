@@ -102,12 +102,18 @@
                                     <label for="tags"></label>
                                     <div style="position: relative;left: 0px;top:8px;">
                                         <!--<a class="button-h" href="#" id="sendEmailProfileMessage"><span>Submit</span></a>-->
-                                        <input type="submit" value="Send" />
+                                        <input type="submit" value="Send" id="resumeSendBtn"/>
                                     </div>
                                 </div>
                             </sf:form>
-
-
+                            <div id="toAddressErrorDiv">To Address Is Required</div>
+                            <div id="fromAddressErrorDiv">From Address Is Required</div>                           
+                            <div id="subjectErrorDiv">Subject Is Required</div>
+                            <div id="attachmentErrorDiv">You Must Select Your Resume</div>
+                            <div id="messageErrorDiv">Message Is Required</div>
+                            <div id="ajax_loading_emailResume" ><img  src="${pageContext.request.contextPath}/resources/images/spinner.gif" style="folat:left;">&nbsp;<s:message code="lbl.txt.Processing"/></div>
+                            <div id="resumeFailureResponse">${resumeFailureResponse}</div>
+                            <div id="resumeSuccessResponse">${resumeSuccessResponse}</div>
                         </div>
 
                     </div>
