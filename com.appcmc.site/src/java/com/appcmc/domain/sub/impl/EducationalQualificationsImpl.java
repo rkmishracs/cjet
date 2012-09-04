@@ -14,6 +14,7 @@ public class EducationalQualificationsImpl implements EducationalQualifications 
     private String oneUniversity;
     private String oneGrade;
     private String twoQualification;
+    private String twoSpecialization;
     private String twoYearOfPass;
     private String twoUniversity;
     private String twoGrade;
@@ -100,6 +101,14 @@ public class EducationalQualificationsImpl implements EducationalQualifications 
 
     public void setTwoQualification(String twoQualification) {
         this.twoQualification = twoQualification;
+    }
+
+    public String getTwoSpecialization() {
+        return twoSpecialization;
+    }
+
+    public void setTwoSpecialization(String twoSpecialization) {
+        this.twoSpecialization = twoSpecialization;
     }
 
     public String getTwoYearOfPass() {
