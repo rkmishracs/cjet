@@ -17,7 +17,6 @@
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
       
-        
 
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
@@ -171,7 +170,21 @@
                         
                         <div id="upcomingEventDiv">
                          <h4>Upcoming Events</h4>
-                            
+                            <div class="cont">
+                            <span class="walkinZone"></span>
+                            <p style="padding-top:5px; ">
+                            <span class="disBlk" style="padding:3px 0px;"><strong><a href="/WalkIn-Zone/index.html" target="_blank">Citi Q Infoservices<br/>
+                            </a></strong></span><span class="disBlk" style="color:#737373;">28th Aug - 3rd Sep,12 <br/>Noida <br/>
+                            </span>
+                            </p>
+                            </div>
+                            <div class="cont">
+                            <img src="resources/images/index.png"/>
+                            <p style="padding-top:5px; ">
+                            <span class="disBlk" style="padding:3px 0px;"><strong><a href="/uppercrest/bangalore.html" target="_blank">Uppercrest </a></strong></span><span class="disBlk" style="color:#737373;"> 08th - 09nd Sep, 2012 <br/>
+                            Bangalore</span>
+                            </p>
+                            </div>
                         </div>
                         
                     </div>
