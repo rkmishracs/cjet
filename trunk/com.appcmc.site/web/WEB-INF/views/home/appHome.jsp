@@ -1,5 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -7,7 +9,7 @@
         <title>CMC | Home</title>
 
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
-        
+
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />
         <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"/>
 
@@ -16,7 +18,7 @@
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
-      
+
 
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
@@ -25,7 +27,7 @@
 
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
-          
+
     </head>
     <body>
 
@@ -45,11 +47,11 @@
         </div>
 
         <input type="hidden" id="appHomeHidden" value="${pageContext.request.contextPath}" />
-       <div class="clear"></div>
+        <div class="clear"></div>
         <div id="body" style="background-color: white;">
-       
-            
-            
+
+
+
 
             <div id="signInForm" style="display:none;">
 
@@ -113,91 +115,111 @@
 
                     </div>
                     <div class="fl lhs" >    
-    	             <div class="Hire fl mrgn_b10">
-                         <h4 style="margin-top:15px;">Hot Employers</h4>
-                         <div class="employersLine"></div>
-                     <ul class="hireUL tipLst" id="hiring" style="position: relative;width: 400px;height: 300px;">                
-                         <li style="position: relative;">
-                             <table border="1" id ="imageTable">
-                                 <tbody>
-                                     <tr>
-                                         <td><a href="http://www.wipro.com/" target="_blank"><img src="resources/images/Soft1.jpg"/></a></td>
-                                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                         <td><a href="http://www.tata.com/" target="_blank"><img src="resources/images/Soft2.jpg"/></a></td>
-                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                         <td><a href="http://www.hp.com/" target="_blank"><img src="resources/images/Soft3.jpg"/></a></td>
-                                     </tr>
-                                     <tr>
-                                         <td><a href="http://www.infosys.com/pages/index.aspx" target="_blank"><img src="resources/images/Soft4.jpg"/></a></td>
-                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                         <td><a href="http://www.hcl.in/" target="_blank"><img src="resources/images/Soft5.jpg"/></a></td>
-                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                         <td><a href="http://www.extensio.com/" target="_blank"><img src="resources/images/Soft6.jpg"/></a></td>
-                                     </tr>
-                                     <tr>
-                                         <td><a href="http://www.oracle.com/index.html" target="_blank"><img src="resources/images/Soft7.jpg"/></a></td>
-                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                         <td><a href="http://www.ea.com/asia?from=us" target="_blank"><img src="resources/images/Soft8.jpg"/></a></td>
-                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                         <td><a href="http://www.compuware.com/" target="_blank"><img src="resources/images/Soft9.jpg"/></a></td>
-                                     </tr>
-                                     <tr>
-                                         <td><a href="http://www.mphasis.com/" target="_blank"><img src="resources/images/Soft10.jpg"/></a></td>
-                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                         <td><a href="http://www.genpact.com/" target="_blank"><img src="resources/images/Soft11.jpg"/></a></td>
-                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                         <td><a href="http://www.techmahindra.com/Pages/Default.aspx" target="_blank"><img src="resources/images/Soft12.jpg"/></a></td>
-                                     </tr>
-                                     <tr>
-                                         <td><a href="http://www.intel.in/content/www/in/en/homepage.html" target="_blank"><img src="resources/images/Soft13.jpg"/></a></td>
-                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                         <td><a href="http://www.lg.com/in" target="_blank"><img src="resources/images/Soft14.jpg"/></a></td>
-                                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                         <td><a href="http://www.sonata-software.com/web/sonata_en/home.html" target="_blank"><img src="resources/images/Soft15.jpg"/></a></td>
-                                     </tr>
-                                 </tbody>
-                             </table>
-                         </li>
-   	             </ul>
-                        
-                         <div class="cl"></div>
-                     </div>
+                        <div class="Hire fl mrgn_b10">
+                            <h4 style="margin-top:15px;">Hot Employers</h4>
+                            <div class="employersLine"></div>
+                            <ul class="hireUL tipLst" id="hiring" style="position: relative;width: 400px;height: 300px;">                
+                                <li style="position: relative;">
+                                    <table border="1" id ="imageTable">
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="http://www.wipro.com/" target="_blank"><img src="resources/images/Soft1.jpg"/></a></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                <td><a href="http://www.tata.com/" target="_blank"><img src="resources/images/Soft2.jpg"/></a></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                <td><a href="http://www.hp.com/" target="_blank"><img src="resources/images/Soft3.jpg"/></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="http://www.infosys.com/pages/index.aspx" target="_blank"><img src="resources/images/Soft4.jpg"/></a></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                <td><a href="http://www.hcl.in/" target="_blank"><img src="resources/images/Soft5.jpg"/></a></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                <td><a href="http://www.extensio.com/" target="_blank"><img src="resources/images/Soft6.jpg"/></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="http://www.oracle.com/index.html" target="_blank"><img src="resources/images/Soft7.jpg"/></a></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                <td><a href="http://www.ea.com/asia?from=us" target="_blank"><img src="resources/images/Soft8.jpg"/></a></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                <td><a href="http://www.compuware.com/" target="_blank"><img src="resources/images/Soft9.jpg"/></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="http://www.mphasis.com/" target="_blank"><img src="resources/images/Soft10.jpg"/></a></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                <td><a href="http://www.genpact.com/" target="_blank"><img src="resources/images/Soft11.jpg"/></a></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                <td><a href="http://www.techmahindra.com/Pages/Default.aspx" target="_blank"><img src="resources/images/Soft12.jpg"/></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="http://www.intel.in/content/www/in/en/homepage.html" target="_blank"><img src="resources/images/Soft13.jpg"/></a></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                <td><a href="http://www.lg.com/in" target="_blank"><img src="resources/images/Soft14.jpg"/></a></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                <td><a href="http://www.sonata-software.com/web/sonata_en/home.html" target="_blank"><img src="resources/images/Soft15.jpg"/></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+
+                            <div class="cl"></div>
+                        </div>
                         <div class="featured fl text" >
                             <h4 style="margin-top:15px;">Featured Employers</h4>
                             <div class="empLine"></div>
                             <div class="cl"></div>
                         </div>   
-                        
+
                         <div id="upcomingEventDiv">
-                         <h4>Upcoming Events</h4>
+                            <h4>Upcoming Events</h4>
                             <div class="cont">
-                            <span class="walkinZone"></span>
-                            <p style="padding-top:5px; ">
-                            <span class="disBlk" style="padding:3px 0px;"><strong><a href="/WalkIn-Zone/index.html" target="_blank">Citi Q Infoservices<br/>
-                            </a></strong></span><span class="disBlk" style="color:#737373;">28th Aug - 3rd Sep,12 <br/>Noida <br/>
-                            </span>
-                            </p>
+                                <span class="walkinZone"></span>
+
+                                <c:if test="${walkInEvent != null}">
+                                    <p style="padding-top:5px; ">
+                                        <span class="disBlk" style="padding:3px 0px;"><strong><a href="/WalkIn-Zone/index.html" target="_blank">${walkInEvent.eventName}<br/>
+                                                </a></strong></span><span class="disBlk" style="color:#737373;"><fmt:formatDate  dateStyle="default"  pattern="dd-MM-yyyy" value="${walkInEvent.eventOn}" /> <br/>${walkInEvent.eventLocation.toUpperCase()} <br/>
+                                        </span>
+                                    </p>
+
+                                </c:if>
+                                <c:if test="${walkInEvent == null}">
+                                    <p style="padding-top:5px; ">
+                                        <span class="disBlk" style="padding:3px 0px;">No Walk-In In This Week</span>
+                                    </p>
+                                </c:if>
+
                             </div>
                             <div class="cont">
-                            <img src="resources/images/index.png"/>
-                            <p style="padding-top:5px; ">
-                            <span class="disBlk" style="padding:3px 0px;"><strong><a href="/uppercrest/bangalore.html" target="_blank">Uppercrest </a></strong></span><span class="disBlk" style="color:#737373;"> 08th - 09nd Sep, 2012 <br/>
-                            Bangalore</span>
-                            </p>
+                                <img src="resources/images/index.png"/>
+                                <c:if test="${jobFairEvent != null}">
+                                    <p style="padding-top:5px; ">
+                                        <span class="disBlk" style="padding:3px 0px;"><strong><a href="/uppercrest/bangalore.html" target="_blank">${jobFairEvent.eventName} </a></strong></span><span class="disBlk" style="color:#737373;"><fmt:formatDate  dateStyle="default"  pattern="dd-MM-yyyy" value="${jobFairEvent.eventOn}" /> <br/>${jobFairEvent.eventLocation.toUpperCase()} <br/>
+                                        </span>
+                                    </p>
+                                </c:if>
+                                <c:if test="${jobFairEvent == null}">
+                                    <p style="padding-top:5px; ">
+                                        <span class="disBlk" style="padding:3px 0px;">No Job_Fair In This Week</span>
+                                    </p>
+                                </c:if>
+
+
+
                             </div>
                         </div>
-                        
+
                     </div>
-                        
-                        
+
+
                 </div>
                 <div id="body2" class="col">
 
                 </div>
-                        </div>
-                <div class="clear"></div>
             </div>
-        
+            <div class="clear"></div>
+        </div>
+
 
         <div id="footer">
             <div class="wrapper">
@@ -231,6 +253,6 @@
                 </div>
             </div>
         </div>
-                        
+
     </body>
 </html>
