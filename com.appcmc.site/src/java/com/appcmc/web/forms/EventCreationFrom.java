@@ -14,6 +14,7 @@ public class EventCreationFrom {
     private String eventType;
     private String eventDate;
     private String eventTime;
+    private String eventTimeSpecific;
     private String eventLocation;
     private String eventAdditionalInformation;
 
@@ -47,6 +48,14 @@ public class EventCreationFrom {
 
     public void setEventTime(String eventTime) {
         this.eventTime = eventTime;
+    }
+
+    public String getEventTimeSpecific() {
+        return eventTimeSpecific;
+    }
+
+    public void setEventTimeSpecific(String eventTimeSpecific) {
+        this.eventTimeSpecific = eventTimeSpecific;
     }
     
     public String getEventLocation() {
