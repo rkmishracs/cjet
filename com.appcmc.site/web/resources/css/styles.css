@@ -2775,3 +2775,80 @@ position: relative;
     width: 175px;
     color: #FFFFFF;
 }
+
+
+/*CSS for emailProfileView.jsp*/
+
+#ajax_loading_emailResume{
+    position: relative;
+    top: -12px;
+    left: 285px;
+    width: 100px;
+    display: none;
+}
+
+#resumeSuccessResponse{
+    position: relative;
+    top: -12px;
+    left: 280px;
+    width: 250px;
+    color: #6B9EDD;
+    font-weight: bold;
+    font-size: 10pt;
+    
+}
+
+#resumeFailureResponse{
+    position: relative;
+    top: -12px;
+    left: 280px;
+    width: 250px;
+    color: red;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+#toAddressErrorDiv{
+    position: relative;
+    top: -12px;
+    left: 285px;
+    width: 200px;
+    color: red;
+    display: none;
+}
+
+#fromAddressErrorDiv{
+    position: relative;
+    top: -12px;
+    left: 285px;
+    width: 200px;
+    color: red;
+    display: none;
+}
+
+#subjectErrorDiv{
+    position: relative;
+    top: -12px;
+    left: 285px;
+    width: 200px;
+    color: red;
+    display: none;
+}
+
+#attachmentErrorDiv{
+    position: relative;
+    top: -12px;
+    left: 285px;
+    width: 200px;
+    color: red;
+    display: none;
+}
+
+#messageErrorDiv{
+    position: relative;
+    top: -12px;
+    left: 285px;
+    width: 200px;
+    color: red;
+    display: none;
+}
