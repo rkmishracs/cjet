@@ -133,7 +133,7 @@ public class ReportsController {
    @RequestMapping(method = RequestMethod.GET, value = "/viewAllProfiles")
    public String viewAllProfiles(WebRequest request) {
        
-       contactsList = new ArrayList<Contacts>();
+      contactsList = new ArrayList<Contacts>();
       studentContactsProfiles = new ArrayList<StudentContactsProfile>();
        
       LOG.debug("=================In dailyReports Controller");
@@ -142,6 +142,7 @@ public class ReportsController {
       studentList = studentService.getAll();
 
       studentProfileService = (StudentProfileService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
+
       studentProfiles = studentProfileService.getAll();
       
       for(int i=0; i<studentList.size();i++){
@@ -157,6 +158,7 @@ public class ReportsController {
           
           studentContactsProfiles.add( studentContactsProfile);
       }
+
       
       LOG.debug("This is size: "+studentContactsProfiles.size());
       
