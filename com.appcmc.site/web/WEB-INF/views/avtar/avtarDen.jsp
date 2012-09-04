@@ -634,7 +634,7 @@
                                 <tr>
                                     <td><h2 class="tags">Specialization &nbsp;</h2></td>
                                     <td>:</td>
-                                    <td><div id="twoSpecialization">I.T</div></td>
+                                    <td><div id="twoSpecialization">${educationalQualifications.twoSpecialization}</div></td>
                                 </tr>
 
                                 <tr>
