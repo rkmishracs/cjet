@@ -37,7 +37,9 @@
         
     </bean>
         
+     <bean id = "placedStudentService" class="com.appcmc.service.impl.PlacedStudentServiceImpl" scope="prototype">
         
+    </bean>   
     
     <bean id="appMailService" class="com.appcmc.service.impl.AppMailServiceImpl" scope="prototype">
         <property name="mailSender" ref="mailSender"/>
