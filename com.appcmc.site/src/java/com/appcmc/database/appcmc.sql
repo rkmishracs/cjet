@@ -183,6 +183,44 @@ UNLOCK TABLES;
 
 
 #
+# Table structure for table 'app_user_placed'
+#
+
+CREATE TABLE `app_user_placed` (
+  `placed_uid` bigint(20) unsigned NOT NULL auto_increment,
+  `placed_guid` varchar(64) NOT NULL,
+  `placed_enrollment_number` varchar(255) NOT NULL,
+  `placed_first_name` varchar(255) NOT NULL,
+  `placed_last_name` varchar(255) NOT NULL,
+  `placed_gender` varchar(32) NOT NULL default 'M',
+  `placed_placed_company` varchar(255) NOT NULL,
+  `placed_year_of_placement` varchar(255) NOT NULL,
+  `placed_designation` varchar(255) NOT NULL,
+  `placed_package_details` varchar(255) NOT NULL,
+  `placed_other_details` varchar(255) NOT NULL,
+  `placed_created_on` datetime NOT NULL,
+  `placed_created_by` bigint(20) unsigned NOT NULL,
+  `placed_modified_on` datetime NOT NULL,
+  `placed_modified_by` bigint(20) unsigned NOT NULL,
+  `placed_active` tinyint(3) unsigned NOT NULL,
+  PRIMARY KEY  (`placed_uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 /*!40100 DEFAULT CHARSET=latin1*/;
+
+
+
+#
+# Dumping data for table 'app_user_placed'
+#
+
+/*!40000 ALTER TABLE `app_user_placed` DISABLE KEYS*/;
+LOCK TABLES `app_user_placed` WRITE;
+INSERT INTO `app_user_placed` (`placed_uid`, `placed_guid`, `placed_enrollment_number`, `placed_first_name`, `placed_last_name`, `placed_gender`, `placed_placed_company`, `placed_year_of_placement`, `placed_designation`, `placed_package_details`, `placed_other_details`, `placed_created_on`, `placed_created_by`, `placed_modified_on`, `placed_modified_by`, `placed_active`) VALUES
+	('1','6973af87-0afb-4aaa-9ecb-bcae3cb3cb46','CJET130632012','Hasan','anwar','M','Infosys','2011','Developer','25000','add','2012-09-04 16:03:21','1','2012-09-04 16:03:21','1',1);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `app_user_placed` ENABLE KEYS*/;
+
+
+#
 # Table structure for table 'app_user_profile'
 #
 
