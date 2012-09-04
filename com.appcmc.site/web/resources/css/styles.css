@@ -2360,7 +2360,7 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     width: 290px;
     height:5px;
     line-height: 22px;
-    border-bottom: solid 1px #B6C1CC;
+    border-bottom: solid 1px #7e99ba;
     margin: 0px 0px 10px 0px;
     *.z-index: -1;
 }   
@@ -2371,7 +2371,7 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     width: 225px;
     height:5px;
     line-height: 18px;
-    border-bottom: solid 1px #B6C1CC;
+    border-bottom: solid 1px #7e99ba;
     margin: 0px 0px 10px 0px;
     *.z-index: -1;
 }   
@@ -2388,7 +2388,7 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 }
 
 #upcomingEventDiv h4{
-    /*background: url(resources/images/resBlk_HD.gif) repeat-x 0 0;*/
+    background: url(../images/resBlk_HD.gif) repeat-x scroll 0 0 transparent;
     text-align: center;
     border-bottom: 1px solid #B6C1CC;
 }
@@ -2851,4 +2851,18 @@ position: relative;
     width: 200px;
     color: red;
     display: none;
+}
+
+/* New Styles For UpcomingEvent Div for appHome */
+  .cont {
+        padding: 10px;
+          }
+          .walkinZone {
+        display: inline-block;
+        width: 81px;
+        height: 21px;
+        background: url(../images/image_sprt.gif) no-repeat scroll 100% -211px transparent;
+} 
+          .disBlk {
+        display: block;
 }
