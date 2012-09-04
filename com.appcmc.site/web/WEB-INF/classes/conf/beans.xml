@@ -56,6 +56,10 @@
           scope="prototype">
 
     </bean>
+    <bean id="events" class="com.appcmc.domain.sub.impl.EventsImpl"
+          scope="prototype">
+
+    </bean>
     
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"
           p:host="smtp.gmail.com"
