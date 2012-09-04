@@ -61,6 +61,11 @@
 
     </bean>
     
+    <bean id="placedStudent" class="com.appcmc.domain.sub.impl.PlacedStudentImpl"
+          scope="prototype">
+
+    </bean>
+    
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"
           p:host="smtp.gmail.com"
           p:username="${mail.username}"
