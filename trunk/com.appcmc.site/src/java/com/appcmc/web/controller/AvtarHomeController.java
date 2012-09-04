@@ -446,6 +446,8 @@ public class AvtarHomeController {
         
         String id = updateEducationalQualificationsForm.getEnrollmentNumber();
         
+        date = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
+        
         LOG.debug("Avtar Id in EduEdit: " + id);
         
         educationalQualificationsService = (EducationalQualificationsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EDUCATIONAL_QUALIFICATIONS_SERVICE);
@@ -457,6 +459,7 @@ public class AvtarHomeController {
         educationalQualifications.setOneGrade(updateEducationalQualificationsForm.getOneGrade());
         
         educationalQualifications.setTwoQualification(updateEducationalQualificationsForm.getTwoQualification());
+        educationalQualifications.setTwoSpecialization(updateEducationalQualificationsForm.getTwoSpecialization());
         educationalQualifications.setTwoUniversity(updateEducationalQualificationsForm.getTwoUniversity());
         educationalQualifications.setTwoYearOfPass(updateEducationalQualificationsForm.getTwoYearOfPass());
         educationalQualifications.setTwoGrade(updateEducationalQualificationsForm.getTwoGrade());
@@ -473,7 +476,20 @@ public class AvtarHomeController {
         educationalQualifications.setFourYearOfPass(updateEducationalQualificationsForm.getFourYearOfPass());
         educationalQualifications.setFourGrade(updateEducationalQualificationsForm.getFourGrade());
         
+        educationalQualifications.setModifiedOn(date);
+        
         educationalQualificationsService.create(educationalQualifications);
+        
+        contactService = (ContactService) AppContext.APPCONTEXT.getBean(ContextIdNames.CONTACT_SERVICE);
+        
+        contacts = contactService.findByEnrollmentNumber(id);
+        
+        
+        
+        contacts.setEnrollmentNumber(id);
+        contacts.setModifiedOn(date);
+        
+        contactService.create(contacts);
         
         return "success";
     }
