@@ -87,6 +87,7 @@ CREATE TABLE IF NOT EXISTS `app_user_educational_qualifications` (
   `edu_one_university` varchar(255) default NULL,
   `edu_one_grade` varchar(255) default NULL,
   `edu_two_qualification` varchar(255) default NULL,
+  `edu_two_specialization` varchar(255) default NULL,
   `edu_two_year_of_pass` varchar(255) default NULL,
   `edu_two_university` varchar(255) default NULL,
   `edu_two_grade` varchar(255) default NULL,
