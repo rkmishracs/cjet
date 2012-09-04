@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.appcmc.domain.sub.Events" table="APP_USER_EVENTS"
+		discriminator-value="0">
+		<id column="EVNT_UID" name="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<discriminator type="integer"
+			formula="case when EVNT_UID &gt; 0 then 1 else 0 end" />
+		<property column="EVNT_GUID" name="guid" type="java.lang.String" />
+		<property column="EVNT_EVENT_NAME" name="eventName"
+			type="java.lang.String" />
+		<property column="EVNT_EVENT_TYPE" name="eventType" type="java.lang.String" />
+		<property column="EVNT_EVENT_ON" name="eventOn" type="java.util.Date" />
+		<property column="EVNT_EVENT_TIME" name="eventTime"
+			type="java.lang.String" />
+		<property column="EVNT_EVENT_LOCATION" name="eventLocation"
+			type="java.lang.String" />
+		<property column="EVNT_ADDITIONAL_INFO" name="additionalInfo"
+			type="java.lang.String" />
+                
+		<property column="EVNT_CREATED_ON" name="createdOn" type="java.util.Date" />
+		<property column="EVNT_CREATED_BY" name="createdBy" type="java.lang.Long" />
+		<property column="EVNT_MODIFIED_ON" name="modifiedOn"
+			type="java.util.Date" />
+		<property column="EVNT_MODIFIED_BY" name="modifiedBy"
+			type="java.lang.Long" />
+		<property column="EVNT_ACTIVE" name="active" type="java.lang.Short" />
+
+		<subclass name="com.appcmc.domain.sub.impl.EventsImpl"
+			discriminator-value="1" />
+
+	</class>
+</hibernate-mapping>
