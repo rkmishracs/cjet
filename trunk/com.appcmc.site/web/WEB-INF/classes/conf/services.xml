@@ -32,6 +32,10 @@
     <bean id = "educationalQualificationService" class="com.appcmc.service.impl.EducationalQualificationsServiceImpl" scope="prototype">
         
     </bean>
+    
+    <bean id = "eventsService" class="com.appcmc.service.impl.EventsServiceImpl" scope="prototype">
+        
+    </bean>
         
         
     
