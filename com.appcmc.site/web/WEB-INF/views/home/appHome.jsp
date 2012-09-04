@@ -19,7 +19,6 @@
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
 
-
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
         <script
@@ -165,9 +164,32 @@
                             <div class="cl"></div>
                         </div>
                         <div class="featured fl text" >
-                            <h4 style="margin-top:15px;">Featured Employers</h4>
+                            <h4 style="margin-top:15px;">Success Stories</h4>
                             <div class="empLine"></div>
                             <div class="cl"></div>
+                            <table id="successStoryDiv">
+                                <tr>
+                                    <td><div class="prdktr"><img src="${pageContext.request.contextPath}/resources/images/content/user-img-40.jpg" width="70" height="70" alt="" title=""/></div></td>
+                                    <td><div class="profilePerDup"></div></td>
+                                </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td><div class="prdktr"><img src="${pageContext.request.contextPath}/resources/images/content/user-img-40.jpg" width="70" height="70" alt="" title=""/></div></td>
+                                    <td><div class="profilePerDup"></div></td>
+                                        
+                                    </tr>    
+                            </table>
                         </div>   
 
                         <div id="upcomingEventDiv">
