@@ -22,6 +22,7 @@
 			type="java.lang.String" />
                 
                 <property column="EDU_TWO_QUALIFICATION" name="twoQualification" type="java.lang.String" />
+                <property column="EDU_TWO_SPECIALIZATION" name="twoSpecialization" type="java.lang.String" />
 		<property column="EDU_TWO_YEAR_OF_PASS" name="twoYearOfPass" type="java.lang.String" />
 		<property column="EDU_TWO_UNIVERSITY" name="twoUniversity"
 			type="java.lang.String" />
