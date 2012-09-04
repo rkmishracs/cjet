@@ -376,109 +376,109 @@ $(document).ready(function(){
             if($("#annualIncome").val() == 0){
                 alert("Annual Income  should not be empty");
                 return false;
-                }
-                if($("#mobile").val() == 0){
-                    alert("Mobile Number should not be empty");
-                    return false;
-                }
+            }
+            if($("#mobile").val() == 0){
+                alert("Mobile Number should not be empty");
+                return false;
+            }
                     
                     
-                if($("#landPhone").val()== 0){
-                    alert("Land Phone Number should not be empty");
-                    return false;
-                }     
+            if($("#landPhone").val()== 0){
+                alert("Land Phone Number should not be empty");
+                return false;
+            }     
                     
-                if($("#aletrnativeEmail").val() == 0){
-                    alert("Alternative Email should not be empty");
-                    return false;
-                }     
+            if($("#aletrnativeEmail").val() == 0){
+                alert("Alternative Email should not be empty");
+                return false;
+            }     
                     
 
-                if($("#city").val() == 0){
-                    alert("City should not be empty");
-                    return false;
-                }     
-                if($("#state").val() == 0){
-                    alert("State should not be empty");
-                    return false;
-                }     
-                if($("#country").val() == 0){
-                    alert("Country should not be empty");
-                    return false;
-                }     
-                if($("#address").val() == 0){
-                    alert("Address should not be empty");
-                    return false;
-                }     
-                if($("#pinCode").val() == 0){
-                    alert("Pincode should not be empty");
-                    return false;
-                }    
-            }else{
+            if($("#city").val() == 0){
+                alert("City should not be empty");
+                return false;
+            }     
+            if($("#state").val() == 0){
+                alert("State should not be empty");
+                return false;
+            }     
+            if($("#country").val() == 0){
+                alert("Country should not be empty");
+                return false;
+            }     
+            if($("#address").val() == 0){
+                alert("Address should not be empty");
+                return false;
+            }     
+            if($("#pinCode").val() == 0){
+                alert("Pincode should not be empty");
+                return false;
+            }    
+        }else{
 
                 
-                var bValid=true;
-                bValid=bValid&&checkLength( email, "email", 6, 80 );
-                bValid=bValid&&checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Email should be as john@cmc.com" );
-                bValid=bValid&&checkLength( mobile, "mobile", 10 , 10 );
-                bValid=bValid&&checkLength( landPhone, "landPhone", 7 , 12 );
-                bValid=bValid&&checkLength(annualIncome,"annualIncome",4,6);
-                bValid=bValid&&checkLength( aletrnativeEmail, "aletrnativeEmail", 6, 80 );			
-                bValid=bValid&&checkRegexp( aletrnativeEmail, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Alternative Email should be as john@cmc.com" );
-                if(bValid){
-                    $("#valid").html("");
-                    $("#saveEnrl").css("display","none");
-                    $("#ajax_loading_email").css("display", "block");
-                    $("#validation").css("display","none");                
+            var bValid=true;
+            bValid=bValid&&checkLength( email, "email", 6, 80 );
+            bValid=bValid&&checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Email should be as john@cmc.com" );
+            bValid=bValid&&checkLength( mobile, "mobile", 10 , 10 );
+            bValid=bValid&&checkLength( landPhone, "landPhone", 7 , 12 );
+            bValid=bValid&&checkLength(annualIncome,"annualIncome",4,6);
+            bValid=bValid&&checkLength( aletrnativeEmail, "aletrnativeEmail", 6, 80 );			
+            bValid=bValid&&checkRegexp( aletrnativeEmail, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "Alternative Email should be as john@cmc.com" );
+            if(bValid){
+                $("#valid").html("");
+                $("#saveEnrl").css("display","none");
+                $("#ajax_loading_email").css("display", "block");
+                $("#validation").css("display","none");                
 
-                    $.ajax({
-                        type : "post",
-                        url : $('#enrollmentFormHidden').val()+"/master",
-                        data : $("#enrollmentForm").serialize(),
-                        success:function(response){
-                            $("#ajax_loading_email").css("display", "none");
-                            $("#emailResponse").css("display", "block");
-                            if($("#emailResponse").css("display", "block")){
-                                setTimeout(function(){
-                                    $("#emailResponse").fadeOut("slow");
-                                    $("#enrollmentNumber").val("");
-                                    $("#email").val("");
-                                    $("#firstName").val(""); 
-                                    $("#lastName").val("");
-                                    $("#date-picker").val("");
-                                    $("#fatherName").val("") ;
-                                    $("#aletrnativeEmail").val("");
-                                    $("#motherName").val("") ;
-                                    $("#ocupation").val("") ;
-                                    $("#annualIncome").val("");
-                                    $("#mobile").val(""); 
-                                    $("#landPhone").val("");
-                                    $("#nationality").val("");
-                                    $("#city").val("");
-                                    $("#state").val("");
-                                    $("#country").val("");
-                                    $("#address").val(""); 
-                                    $("#pinCode").val("");                                
-                                    $("#saveEnrl").css("display","block");
-                                    $("#validation").css("display","block");
-                                    $("#tab3").css("display", "none");
-                                    $("#listThree").removeClass();
-                                    $("#tab2").css("display", "none");
-                                    $("#listTwo").removeClass();
-                                    $("#tab1").css("display", "block");
-                                    $("#listOne").addClass("active");
-                                }, 3000);
-                            }
-                        }     
+                $.ajax({
+                    type : "post",
+                    url : $('#enrollmentFormHidden').val()+"/master",
+                    data : $("#enrollmentForm").serialize(),
+                    success:function(response){
+                        $("#ajax_loading_email").css("display", "none");
+                        $("#emailResponse").css("display", "block");
+                        if($("#emailResponse").css("display", "block")){
+                            setTimeout(function(){
+                                $("#emailResponse").fadeOut("slow");
+                                $("#enrollmentNumber").val("");
+                                $("#email").val("");
+                                $("#firstName").val(""); 
+                                $("#lastName").val("");
+                                $("#date-picker").val("");
+                                $("#fatherName").val("") ;
+                                $("#aletrnativeEmail").val("");
+                                $("#motherName").val("") ;
+                                $("#ocupation").val("") ;
+                                $("#annualIncome").val("");
+                                $("#mobile").val(""); 
+                                $("#landPhone").val("");
+                                $("#nationality").val("");
+                                $("#city").val("");
+                                $("#state").val("");
+                                $("#country").val("");
+                                $("#address").val(""); 
+                                $("#pinCode").val("");                                
+                                $("#saveEnrl").css("display","block");
+                                $("#validation").css("display","block");
+                                $("#tab3").css("display", "none");
+                                $("#listThree").removeClass();
+                                $("#tab2").css("display", "none");
+                                $("#listTwo").removeClass();
+                                $("#tab1").css("display", "block");
+                                $("#listOne").addClass("active");
+                            }, 3000);
+                        }
+                    }     
                            
                 
-                    });
+                });
                    
                    
                    
-                }
-		        
             }
+		        
+        }
         
         
     });
@@ -1807,66 +1807,143 @@ $(document).ready(function(){
     });
 
 
-// End for Bar
+    // End for Bar
 
-        //Script for emailprofileView.jsp
-        $("#resumeSendBtn").click(function(){
-            if($("#emailTo").val() == ''){
-                $("#toAddressErrorDiv").css('display', 'block');
-                $("#fromAddressErrorDiv").css('display', 'none');
-                $("#subjectErrorDiv").css('display', 'none');
-                $("#attachmentErrorDiv").css('display', 'none');
-                $("#messageErrorDiv").css('display', 'none');
-                $("#emailTo").focus();
-                return false;
-            }
-            if($("#emailFrom").val() == ''){
-                $("#toAddressErrorDiv").css('display', 'none');
-                $("#fromAddressErrorDiv").css('display', 'block');
-                $("#subjectErrorDiv").css('display', 'none');
-                $("#attachmentErrorDiv").css('display', 'none');
-                $("#messageErrorDiv").css('display', 'none');
-                $("#emailFrom").focus();
-                return false;
-            }
-            if($("#emailSubject").val() == ''){
-                $("#toAddressErrorDiv").css('display', 'none');
-                $("#fromAddressErrorDiv").css('display', 'none');
-                $("#subjectErrorDiv").css('display', 'block');
-                $("#attachmentErrorDiv").css('display', 'none');
-                $("#messageErrorDiv").css('display', 'none');
-                $("#emailSubject").focus();
-                return false;
-                
-            }
-            if($("#emailAttachment").val() == ''){
-                $("#toAddressErrorDiv").css('display', 'none');
-                $("#fromAddressErrorDiv").css('display', 'none');
-                $("#subjectErrorDiv").css('display', 'none');
-                $("#attachmentErrorDiv").css('display', 'block');
-                $("#messageErrorDiv").css('display', 'none');
-                return false;
-            }
-            if($("#emailMessage").val() == ''){
-               $("#toAddressErrorDiv").css('display', 'none');
-               $("#fromAddressErrorDiv").css('display', 'none');
-               $("#subjectErrorDiv").css('display', 'none');
-               $("#attachmentErrorDiv").css('display', 'none');
-               $("#messageErrorDiv").css('display', 'block');
-               $("#emailMessage").focus();
-               return false; 
-            }
-            $("#toAddressErrorDiv").css('display', 'none');
+    //Script for emailprofileView.jsp
+    $("#resumeSendBtn").click(function(){
+        if($("#emailTo").val() == ''){
+            $("#toAddressErrorDiv").css('display', 'block');
             $("#fromAddressErrorDiv").css('display', 'none');
             $("#subjectErrorDiv").css('display', 'none');
             $("#attachmentErrorDiv").css('display', 'none');
             $("#messageErrorDiv").css('display', 'none');
-            $("#ajax_loading_emailResume").css('display', 'block');
-            $("#resumeFailureResponse").empty();
-            $("#resumeSuccessResponse").empty();
-            $("#resumeSendBtn").attr('disabled', 'disabled');
-        });
-              
+            $("#emailTo").focus();
+            return false;
+        }
+        if($("#emailFrom").val() == ''){
+            $("#toAddressErrorDiv").css('display', 'none');
+            $("#fromAddressErrorDiv").css('display', 'block');
+            $("#subjectErrorDiv").css('display', 'none');
+            $("#attachmentErrorDiv").css('display', 'none');
+            $("#messageErrorDiv").css('display', 'none');
+            $("#emailFrom").focus();
+            return false;
+        }
+        if($("#emailSubject").val() == ''){
+            $("#toAddressErrorDiv").css('display', 'none');
+            $("#fromAddressErrorDiv").css('display', 'none');
+            $("#subjectErrorDiv").css('display', 'block');
+            $("#attachmentErrorDiv").css('display', 'none');
+            $("#messageErrorDiv").css('display', 'none');
+            $("#emailSubject").focus();
+            return false;
+                
+        }
+        if($("#emailAttachment").val() == ''){
+            $("#toAddressErrorDiv").css('display', 'none');
+            $("#fromAddressErrorDiv").css('display', 'none');
+            $("#subjectErrorDiv").css('display', 'none');
+            $("#attachmentErrorDiv").css('display', 'block');
+            $("#messageErrorDiv").css('display', 'none');
+            return false;
+        }
+        if($("#emailMessage").val() == ''){
+            $("#toAddressErrorDiv").css('display', 'none');
+            $("#fromAddressErrorDiv").css('display', 'none');
+            $("#subjectErrorDiv").css('display', 'none');
+            $("#attachmentErrorDiv").css('display', 'none');
+            $("#messageErrorDiv").css('display', 'block');
+            $("#emailMessage").focus();
+            return false; 
+        }
+        $("#toAddressErrorDiv").css('display', 'none');
+        $("#fromAddressErrorDiv").css('display', 'none');
+        $("#subjectErrorDiv").css('display', 'none');
+        $("#attachmentErrorDiv").css('display', 'none');
+        $("#messageErrorDiv").css('display', 'none');
+        $("#ajax_loading_emailResume").css('display', 'block');
+        $("#resumeFailureResponse").empty();
+        $("#resumeSuccessResponse").empty();
+        $("#resumeSendBtn").attr('disabled', 'disabled');
+    });
+        
+        
+    //Script for createEvent.jsp
+      
+    $('#eventDate').datepicker( {
+        changeMonth: true,
+        changeYear: true,                    
+        dateFormat: 'dd-mm-yy',
+        inline: true
+    });
+      
+    $("#submitForCreateEvent").click(function(){
+        if($("#eventName").val()== '' || $("#eventType").val()== 'Please Select'|| $("#eventDate").val()== 0||$("#eventLocation").val() == 0 || $("#eventAdditionalInformation").val() == 0){
+            if($("#eventName").val() == ''){
+                alert("Event Name Field Is Empty");
+                $("#eventName").focus();
+                return false;
+            }
+            
+            if($("#eventType").val() == 'Please Select'){
+                alert("Event Type Field Is Not Selected");
+                $("#eventType").focus();
+                return false;
+            }
+         
+            if($("#eventDate").val() == ''){
+                alert("Event Date Field Is Empty");
+                $("#eventDate").focus();
+                return false;
+            }
+         
+            if($("#eventLocation").val() == ''){
+                alert("Event Location Field Is Empty");
+                $("#eventLocation").focus();
+                return false;
+            }
+         
+            if($("#eventAdditionalInformation").val() == ''){
+                alert("Event Additional Information Field Is Empty");
+                $("#eventLocation").focus();
+                return false;
+            }
+        }else{
+            
+            $.ajax({
+                type : "post",
+                url : $('#createEventHidden').val()+"/event/createEvent",
+                data : $("#eventCreation").serialize(),
+                success : function(response){
+                    
+                    if(response == 'success'){
+                        $("#submitForCreateEvent").css("display", "none");
+                        $("#ajax_loading_createEvent").css("display", "block");
+                        setTimeout(function(){
+                            $("#ajax_loading_createEvent").css("display", "none");
+                            $("#createdEventSucess").css("display", "block");
+                            if($("#createdEventSucess").css("display", "block")){
+                                setTimeout(function(){
+                                    $("#createdEventSucess").fadeOut("slow");
+                                    $("#submitForCreateEvent").css("display", "block");
+                                    $("#eventName").val('');
+                                    $("#eventType").val('Please Select');
+                                    $("#eventDate").val('');
+                                    $("#eventTime").val('');
+                                    $("#eventLocation").val('');
+                                    $("#eventAdditionalInformation").val('');
+                                    $("#eventName").focus();
+                                }, 2000);
+                            }
+                        }, 3000);
+                    }
+                }
+            });
+            
+        }
+         
+    });
+      
 });
 
 function showPage() {
