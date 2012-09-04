@@ -6,9 +6,11 @@ package com.appcmc.web.controller;
 import com.appcmc.context.id.names.ContextIdNames;
 import com.appcmc.domain.sub.AppUser;
 import com.appcmc.domain.sub.Contacts;
+import com.appcmc.domain.sub.Events;
 import com.appcmc.domain.sub.Student;
 import com.appcmc.service.AppUserService;
 import com.appcmc.service.ContactService;
+import com.appcmc.service.EventsService;
 import com.appcmc.service.StudentService;
 import com.appcmc.utils.AppCmcSpringContext;
 import com.appcmc.utils.AppContext;
@@ -19,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.appcmc.web.forms.SignInForm;
 import com.appcmc.web.utils.CookieUtils;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.springframework.web.context.request.WebRequest;
@@ -31,65 +36,97 @@ import org.springframework.web.context.request.WebRequest;
 @RequestMapping("/appHome")
 public class HomeController {
 
-   private static Logger LOG = Logger.getLogger(HomeController.class);
-   private AppUserService appUserService = null;
-   private AppUser appUser = null;
-   private Student student = null;
-   private StudentService studentService = null;
-   private Contacts contacts = null;
-   private ContactService contactService = null;
+    private static Logger LOG = Logger.getLogger(HomeController.class);
+    private AppUserService appUserService = null;
+    private AppUser appUser = null;
+    private Student student = null;
+    private Events events = null;
+    private StudentService studentService = null;
+    private Contacts contacts = null;
+    private ContactService contactService = null;
+    private EventsService eventsService = null;
 
-   @RequestMapping(method = RequestMethod.GET)
-   public String showHome(@ModelAttribute SignInForm signInForm, HttpServletRequest request, WebRequest req) {
-      AppCmcSpringContext.init();
-      String cookieValue = CookieUtils.getCookieValue("appUser", request);
-      LOG.debug("=================Cookie Value ====" + cookieValue);
+    @RequestMapping(method = RequestMethod.GET)
+    public String showHome(@ModelAttribute SignInForm signInForm, HttpServletRequest request, WebRequest req) {
+        AppCmcSpringContext.init();
 
-      if (cookieValue == null) {
-         return "/home/appHome";
-      }
+        eventsService = (EventsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EVENT_SERVICE);
+        List<Events> eventList = eventsService.getAll();
 
-      appUserService = (AppUserService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_USER_SERVICE);
-      appUser = appUserService.findByGuid(cookieValue);
-
-      if (appUser == null) {
-         return "/home/appHome";
-      }
-
-      if (appUser.getType().equalsIgnoreCase("admin")) {
-         LOG.debug("In Admin====================Cookie");
-         req.setAttribute("user", appUser, WebRequest.SCOPE_SESSION);
-         return "redirect:/master";
-      }
-
-      if (appUser.getType().equalsIgnoreCase("student")) {
-         LOG.debug("In Student ====================Cookie");
-         studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
-         contactService = (ContactService) AppContext.APPCONTEXT.getBean(ContextIdNames.CONTACT_SERVICE);
-         student = studentService.findStudentByEnrollmentNumber(appUser.getEnrollmentNumber());
-
-         LOG.debug(student);
-         if (student == null) {
-            // TO Do
-            LOG.debug("========================Not Found");
-            return "";
-         }
-
-         contacts = contactService.findByEnrollmentNumber(student.getEnrollmentNumber());
-         LOG.debug("Contacts ========" + contacts);
-         LOG.debug("======================In Student");
-
-         req.setAttribute("user", appUser, WebRequest.SCOPE_SESSION);
-         req.setAttribute("student", student, WebRequest.SCOPE_SESSION);
-         req.setAttribute("contacts", contacts, WebRequest.SCOPE_SESSION);
-         return "redirect:/avtar";
-
-      }
+        Date presentDate = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
+        Events eventsJobFair = null;
+        for (Events evnt : eventList) {
+            if (evnt.getEventType().equalsIgnoreCase("WalkIn")) {
+                if (evnt.getEventOn().after(presentDate)) {
+                    events = evnt;
+                    break;
+                }
+            }
+        }
+        for(Events evnt : eventList){
+            if (evnt.getEventType().equalsIgnoreCase("JobFair")) {
+                if (evnt.getEventOn().after(presentDate)) {
+                    eventsJobFair = evnt;
+                    break;
+                }
+            }
+        }
+        LOG.debug("WalkinEvent"+events);
+        LOG.debug("JobFairEvent"+eventsJobFair);
+        req.setAttribute("walkInEvent", events, WebRequest.SCOPE_REQUEST);
+        req.setAttribute("jobFairEvent", eventsJobFair, WebRequest.SCOPE_REQUEST);
 
 
 
-      return "/home/appHome";
+        String cookieValue = CookieUtils.getCookieValue("appUser", request);
+        LOG.debug("=================Cookie Value ====" + cookieValue);
+
+        if (cookieValue == null) {
+            return "/home/appHome";
+        }
+
+        appUserService = (AppUserService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_USER_SERVICE);
+        appUser = appUserService.findByGuid(cookieValue);
+
+        if (appUser == null) {
+            return "/home/appHome";
+        }
+
+        if (appUser.getType().equalsIgnoreCase("admin")) {
+            LOG.debug("In Admin====================Cookie");
+            req.setAttribute("user", appUser, WebRequest.SCOPE_SESSION);
+            return "redirect:/master";
+        }
+
+        if (appUser.getType().equalsIgnoreCase("student")) {
+            LOG.debug("In Student ====================Cookie");
+            studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
+            contactService = (ContactService) AppContext.APPCONTEXT.getBean(ContextIdNames.CONTACT_SERVICE);
+            student = studentService.findStudentByEnrollmentNumber(appUser.getEnrollmentNumber());
+
+            LOG.debug(student);
+            if (student == null) {
+                // TO Do
+                LOG.debug("========================Not Found");
+                return "";
+            }
+
+            contacts = contactService.findByEnrollmentNumber(student.getEnrollmentNumber());
+            LOG.debug("Contacts ========" + contacts);
+            LOG.debug("======================In Student");
+
+            req.setAttribute("user", appUser, WebRequest.SCOPE_SESSION);
+            req.setAttribute("student", student, WebRequest.SCOPE_SESSION);
+            req.setAttribute("contacts", contacts, WebRequest.SCOPE_SESSION);
+            return "redirect:/avtar";
+
+        }
 
 
-   }
+
+
+        return "/home/appHome";
+
+
+    }
 }
