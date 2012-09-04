@@ -2368,7 +2368,7 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 .empLine{
     position: relative;
     float: left;
-    width: 225px;
+    width: 270px;
     height:5px;
     line-height: 18px;
     border-bottom: solid 1px #7e99ba;
@@ -2461,7 +2461,7 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 }
 
 .detailLine{
-position: relative;
+    position: relative;
     float: left;
     width: 250px;
     height:5px;
@@ -2541,7 +2541,7 @@ position: relative;
 
 #tab3{
     min-height: 90px;
-    
+
 }
 #profileTitleDiv{
     position: relative;
@@ -2569,162 +2569,162 @@ position: relative;
 /*Style for Scroll Bar Address Text ---- Start*/
 
 #updateHolder {
-       background-color: green;
-       width: 300px;  /* <= For Width: change the width value */
-       color: #333;
-       margin-top: 10px;
-       overflow: hidden;
-       }
- 
-       #updateContainer {
-       background-color: white;
-       position: relative;
-       cursor: pointer;
-       height: 15px;
-       }
- 
-       #updateContent {
-       width: 100%;
-       position: absolute;
-       }
- 
-       #updateScollBar {
-       background: none;
-       position: absolute;
-       width: 10px;
-       right: 0;
-       bottom: 0;
-       cursor: default;
-       }
- 
-       #updateScollScrubber {
-       display: none;
-       background-color: black;
-       zoom: 1;
-       filter: alpha(opacity=40); /* For IE8 and earlier */
-       opacity: 0.4;
-       width: 8px;
-       height: 100px;
-       -moz-border-radius: 7px; /* Firefox */
-       -webkit-border-radius: 7px; /* Safari, Chrome */
-       border-radius: 7px; /* CSS3 */
-       position: absolute;
-       }
- 
-       #updateScollBar {
-       height: 76px; /* <= For Height: change the height value */
-       }
+    background-color: green;
+    width: 300px;  /* <= For Width: change the width value */
+    color: #333;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+#updateContainer {
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+    height: 15px;
+}
+
+#updateContent {
+    width: 100%;
+    position: absolute;
+}
+
+#updateScollBar {
+    background: none;
+    position: absolute;
+    width: 10px;
+    right: 0;
+    bottom: 0;
+    cursor: default;
+}
+
+#updateScollScrubber {
+    display: none;
+    background-color: black;
+    zoom: 1;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+    opacity: 0.4;
+    width: 8px;
+    height: 100px;
+    -moz-border-radius: 7px; /* Firefox */
+    -webkit-border-radius: 7px; /* Safari, Chrome */
+    border-radius: 7px; /* CSS3 */
+    position: absolute;
+}
+
+#updateScollBar {
+    height: 76px; /* <= For Height: change the height value */
+}
 
 /*End for Scroll Bar Style*/
 
-  
-   
+
+
 
 
 /*Style for Scroll Bar Profile Title ---- Start*/
 
 #updateHolderProfileTitle {
-       background-color: green;
-       width: 300px;  /* <= For Width: change the width value */
-       color: #333;
-       margin-top: 10px;
-       overflow: hidden;
-       }
- 
-       #updateContainerProfileTitle {
-       background-color: white;
-       position: relative;
-       cursor: pointer;
-       height: 15px;
-       }
- 
-       #updateContentProfileTitle {
-       width: 100%;
-       position: absolute;
-       }
- 
-       #updateScollBarProfileTitle {
-       background: none;
-       position: absolute;
-       width: 10px;
-       right: 0;
-       bottom: 0;
-       cursor: default;
-       }
- 
-       #updateScollScrubberProfileTitle {
-       display: none;
-       background-color: black;
-       zoom: 1;
-       filter: alpha(opacity=40); /* For IE8 and earlier */
-       opacity: 0.4;
-       width: 8px;
-       height: 100px;
-       -moz-border-radius: 7px; /* Firefox */
-       -webkit-border-radius: 7px; /* Safari, Chrome */
-       border-radius: 7px; /* CSS3 */
-       position: absolute;
-       }
- 
-       #updateScollBarProfileTitle {
-       height: 76px; /* <= For Height: change the height value */
-       }
+    background-color: green;
+    width: 300px;  /* <= For Width: change the width value */
+    color: #333;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+#updateContainerProfileTitle {
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+    height: 15px;
+}
+
+#updateContentProfileTitle {
+    width: 100%;
+    position: absolute;
+}
+
+#updateScollBarProfileTitle {
+    background: none;
+    position: absolute;
+    width: 10px;
+    right: 0;
+    bottom: 0;
+    cursor: default;
+}
+
+#updateScollScrubberProfileTitle {
+    display: none;
+    background-color: black;
+    zoom: 1;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+    opacity: 0.4;
+    width: 8px;
+    height: 100px;
+    -moz-border-radius: 7px; /* Firefox */
+    -webkit-border-radius: 7px; /* Safari, Chrome */
+    border-radius: 7px; /* CSS3 */
+    position: absolute;
+}
+
+#updateScollBarProfileTitle {
+    height: 76px; /* <= For Height: change the height value */
+}
 
 /*End for Scroll Bar Style*/
 
 /*Style for Scroll Bar Key Skills ---- Start*/
 
 #updateHolderKeySkills {
-       background-color: green;
-       width: 300px;  /* <= For Width: change the width value */
-       color: #333;
-       margin-top: 10px;
-       overflow: hidden;
-       }
- 
-       #updateContainerKeySkills {
-       background-color: white;
-       position: relative;
-       cursor: pointer;
-       height: 15px;
-       }
- 
-       #updateContentKeySkills {
-       width: 100%;
-       position: absolute;
-       }
- 
-       #updateScollBarKeySkills {
-       background: none;
-       position: absolute;
-       width: 10px;
-       right: 0;
-       bottom: 0;
-       cursor: default;
-       }
- 
-       #updateScollScrubberKeySkills {
-       display: none;
-       background-color: black;
-       zoom: 1;
-       filter: alpha(opacity=40); /* For IE8 and earlier */
-       opacity: 0.4;
-       width: 8px;
-       height: 100px;
-       -moz-border-radius: 7px; /* Firefox */
-       -webkit-border-radius: 7px; /* Safari, Chrome */
-       border-radius: 7px; /* CSS3 */
-       position: absolute;
-       }
- 
-       #updateScollBarKeySkills {
-       height: 76px; /* <= For Height: change the height value */
-       }
+    background-color: green;
+    width: 300px;  /* <= For Width: change the width value */
+    color: #333;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+#updateContainerKeySkills {
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+    height: 15px;
+}
+
+#updateContentKeySkills {
+    width: 100%;
+    position: absolute;
+}
+
+#updateScollBarKeySkills {
+    background: none;
+    position: absolute;
+    width: 10px;
+    right: 0;
+    bottom: 0;
+    cursor: default;
+}
+
+#updateScollScrubberKeySkills {
+    display: none;
+    background-color: black;
+    zoom: 1;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+    opacity: 0.4;
+    width: 8px;
+    height: 100px;
+    -moz-border-radius: 7px; /* Firefox */
+    -webkit-border-radius: 7px; /* Safari, Chrome */
+    border-radius: 7px; /* CSS3 */
+    position: absolute;
+}
+
+#updateScollBarKeySkills {
+    height: 76px; /* <= For Height: change the height value */
+}
 
 /*End for Scroll Bar Style*/
 
 /* Forgot Page Line*/
- .forgotLine {
+.forgotLine {
     position: relative;
     float: left;
     width: 950px;
@@ -2795,7 +2795,7 @@ position: relative;
     color: #6B9EDD;
     font-weight: bold;
     font-size: 10pt;
-    
+
 }
 
 #resumeFailureResponse{
@@ -2864,7 +2864,7 @@ position: relative;
     position: relative;
     top: 15px;
     left: 250px;
-    
+
 }
 #cancelForCreateEvent{
     position: relative;
@@ -2887,7 +2887,7 @@ position: relative;
     font-weight: bold;
     background-color: #6B9EDD;
     display: none;
-    
+
 }
 .createdEventSucess{
     position: absolute;
@@ -2900,22 +2900,38 @@ position: relative;
     position: relative;
     top:-40px;
     left: 257px;
-    
 }
+
+.profilePerDup{
+    position: relative;
+    top:4px;
+    width: 120px;
+    height: 62px;
+    left:20px;
+    color: black;
+    padding: 5px 70px 5px 7px;
+    border: solid 1px #8E9DB0;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    background: url(../images/design/module-back.png) repeat-x left bottom;
+
+}
+
+
 #eventTimeSpecific{
     position: relative;
     left: 20px;
 }
 /* New Styles For UpcomingEvent Div for appHome */
-  .cont {
-        padding: 10px;
-          }
-          .walkinZone {
-        display: inline-block;
-        width: 81px;
-        height: 21px;
-        background: url(../images/image_sprt.gif) no-repeat scroll 100% -211px transparent;
+.cont {
+    padding: 10px;
+}
+.walkinZone {
+    display: inline-block;
+    width: 81px;
+    height: 21px;
+    background: url(../images/image_sprt.gif) no-repeat scroll 100% -211px transparent;
 } 
-          .disBlk {
-        display: block;
+.disBlk {
+    display: block;
 }
