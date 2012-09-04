@@ -13,6 +13,7 @@ import com.appcmc.web.forms.EventCreationFrom;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -35,6 +36,7 @@ public class EventController {
     private EventsService eventsService = null;
     private Date eventdate = null;
     private Date date  = null;
+    private List<Events> eventsList = null;
     
     @RequestMapping(method= RequestMethod.GET)
     public String showEventsPage(){
@@ -47,6 +49,17 @@ public class EventController {
     @RequestMapping(method= RequestMethod.GET, value="/showCreateEvent")
     public String showCreateEventPage(@ModelAttribute EventCreationFrom eventCreationFrom){
         return "/master/createEvent";
+    }
+    
+    @RequestMapping(method= RequestMethod.GET, value="/showViewAllEvents")
+    public String showAllEvents(WebRequest request){
+        
+        eventsService = (EventsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EVENT_SERVICE);
+        
+        eventsList = eventsService.getAll();
+        
+        request.setAttribute("eventsList", eventsList, WebRequest.SCOPE_REQUEST);
+        return "master/viewAllEvents";
     }
     
     
@@ -78,7 +91,7 @@ public class EventController {
         events.setEventName(eventCreationFrom.getEventName());
         events.setEventType(eventCreationFrom.getEventType());
         events.setEventOn(eventdate);
-        events.setEventTime(eventCreationFrom.getEventTime());
+        events.setEventTime(eventCreationFrom.getEventTime()+" "+eventCreationFrom.getEventTimeSpecific());
         events.setEventLocation(eventCreationFrom.getEventLocation());
         events.setAdditionalInfo(eventCreationFrom.getEventAdditionalInformation());
         events.setCreatedOn(date);
