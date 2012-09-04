@@ -2852,6 +2852,8 @@ position: relative;
     color: red;
     display: none;
 }
+
+/* Css for createEvent.jsp*/
 #createEventDiv{
     position: relative;
     top: 30px;
@@ -2868,20 +2870,6 @@ position: relative;
     position: relative;
     top: 15px;
     left: 270px;
-}
-
-/* New Styles For UpcomingEvent Div for appHome */
-  .cont {
-        padding: 10px;
-          }
-          .walkinZone {
-        display: inline-block;
-        width: 81px;
-        height: 21px;
-        background: url(../images/image_sprt.gif) no-repeat scroll 100% -211px transparent;
-} 
-          .disBlk {
-        display: block;
 }
 #ajax_loading_createEvent{
     position: relative;
@@ -2913,4 +2901,21 @@ position: relative;
     top:-40px;
     left: 257px;
     
+}
+#eventTimeSpecific{
+    position: relative;
+    left: 20px;
+}
+/* New Styles For UpcomingEvent Div for appHome */
+  .cont {
+        padding: 10px;
+          }
+          .walkinZone {
+        display: inline-block;
+        width: 81px;
+        height: 21px;
+        background: url(../images/image_sprt.gif) no-repeat scroll 100% -211px transparent;
+} 
+          .disBlk {
+        display: block;
 }
