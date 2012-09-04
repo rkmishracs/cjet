@@ -22,92 +22,97 @@
 
 
     <body>
-        <input type="hidden" id="createEventHidden" value="${pageContext.request.contextPath}"/>
-        <div id="body" style="background-color: white;">
+        <div>
+            <input type="hidden" id="createEventHidden" value="${pageContext.request.contextPath}"/>
+            <div id="body" style="background-color: white;">
 
-            <div class="logo" style="position: relative;top: 5px; left: 15px;">
-                <a href="${pageContext.request.contextPath}/master"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
-            </div>
+                <div class="logo" style="position: relative;top: 5px; left: 15px;">
+                    <a href="${pageContext.request.contextPath}/master"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
+                </div>
 
-            <div class="menu_nav">
-                <ul>
-                    <li class="active"><a href="${pageContext.request.contextPath}/master">Home</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
-                </ul>
-                <div class="clr"></div>
-            </div>
+                <div class="menu_nav">
+                    <ul>
+                        <li class="active"><a href="${pageContext.request.contextPath}/master">Home</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
+                    </ul>
+                    <div class="clr"></div>
+                </div>
 
-            <div class="wrapper">
-                <div id="body1" class="col"> 
-                    <!--Begin Prediction Module-->
-                    <div class="heading-review">
-                        <form id="prdkt-compose-form" style="float:left; margin:10px 0 0 10px;">
-                            <label class="title" style="width:371px;">Event Creation</label>
-                        </form>
-                    </div>
+                <div class="wrapper">
+                    <div id="body1" class="col"> 
+                        <!--Begin Prediction Module-->
+                        <div class="heading-review">
+                            <form id="prdkt-compose-form" style="float:left; margin:10px 0 0 10px;">
+                                <label class="title" style="width:371px;">Event Creation</label>
+                            </form>
+                        </div>
 
-                    <div class="name">
-                        <ul class="options tabs2">
-                            <li id="listOne" class="active"><a href="#tab1">Create Event</a></li>
-                        </ul>
-                    </div>
-                    <div class="tab_container2">
+                        <div class="name">
+                            <ul class="options tabs2">
+                                <li id="listOne" class="active"><a href="#tab1">Create Event</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab_container2">
 
-                        <div class="tab_content2">
-                            <div id="createEventDiv">
+                            <div class="tab_content2">
+                                <div id="createEventDiv">
 
-                                <sf:form action="" method="POST" modelAttribute="eventCreationFrom" id="eventCreation">
+                                    <sf:form action="" method="POST" modelAttribute="eventCreationFrom" id="eventCreation">
 
 
-                                    <div class="st-blocked2" style="z-index: 810;">
-                                        <label for="tags">Event Name</label>
-                                        <sf:input path="eventName" type="text" size="25" value="" class="tags" name="eventName" id="eventName"/>
-                                    </div>
+                                        <div class="st-blocked2" style="z-index: 810;">
+                                            <label for="tags">Event Name</label>
+                                            <sf:input path="eventName" type="text" size="25" value="" class="tags" name="eventName" id="eventName"/>
+                                        </div>
 
-                                    <div class="st-blocked2" style="z-index: 810;">
-                                        <label for="tags">Event Type</label>
-                                        <sf:select path="eventType" id="eventType">
-                                            <sf:option value="Please Select" selected="true">Please Select</sf:option>
-                                            <sf:option value="Job Fair">Job Fair</sf:option>
-                                            <sf:option value="Walk-In">Walk-In</sf:option>
-                                            <sf:option value="ON Campus Drive">ON Campus Drive</sf:option>
-                                        </sf:select>
-                                    </div>
+                                        <div class="st-blocked2" style="z-index: 810;">
+                                            <label for="tags">Event Type</label>
+                                            <sf:select path="eventType" id="eventType">
+                                                <sf:option value="Please Select" selected="true">Please Select</sf:option>
+                                                <sf:option value="Job Fair">Job Fair</sf:option>
+                                                <sf:option value="Walk-In">Walk-In</sf:option>
+                                                <sf:option value="ON Campus Drive">ON Campus Drive</sf:option>
+                                            </sf:select>
+                                        </div>
 
-                                    <div class="st-blocked2" style="z-index: 810;">
-                                        <label for="tags">Event Date</label>
-                                        <sf:input path="eventDate" type="text" size="25" value="" class="tags" name="eventDate" id="eventDate"/>
-                                    </div>
+                                        <div class="st-blocked2" style="z-index: 810;">
+                                            <label for="tags">Event Date</label>
+                                            <sf:input path="eventDate" type="text" size="25" value="" class="tags" name="eventDate" id="eventDate"/>
+                                        </div>
 
-                                    <div class="st-blocked2" style="z-index: 810;">
-                                        <label for="tags">Event Time</label>
-                                        <sf:input type="text" path="eventTime" size="25" value="" class="tags" name="eventTime" id="eventTime"/>
-                                    </div>
+                                        <div class="st-blocked2" style="z-index: 810;">
+                                            <label for="tags">Event Time</label>
+                                            <sf:input type="text" path="eventTime" size="10" value="" class="tags" name="eventTime" id="eventTime"/>
+                                            <sf:select path="eventTimeSpecific" id="eventTimeSpecific">
+                                                <sf:option value="A.M">A.M</sf:option>
+                                                <sf:option value="P.M">P.M</sf:option>
+                                            </sf:select>
+                                        </div>
 
-                                    <div class="st-blocked2" style="z-index: 810;">
-                                        <label for="tags">Event Location</label>
-                                        <sf:input type="text" path="eventLocation" size="25" value="" class="tags" name="eventLocation" id="eventLocation"/>
-                                    </div>
+                                        <div class="st-blocked2" style="z-index: 810;">
+                                            <label for="tags">Event Location</label>
+                                            <sf:input type="text" path="eventLocation" size="25" value="" class="tags" name="eventLocation" id="eventLocation"/>
+                                        </div>
 
-                                    <div class="st-blocked2" style="z-index: 810;">
-                                        <label for="tags">Additional Information</label>
-                                        <sf:textarea path="eventAdditionalInformation" class="tags" cols="5" rows="6" id="eventAdditionalInformation"/>
-                                    </div>
+                                        <div class="st-blocked2" style="z-index: 810;">
+                                            <label for="tags">Additional Information</label>
+                                            <sf:textarea path="eventAdditionalInformation" class="tags" cols="5" rows="6" id="eventAdditionalInformation"/>
+                                        </div>
 
-                                    <div class="st-blocked2">
-                                        <label for="tags"><br/></label>
-                                        <a class="button-h" href="#" id="submitForCreateEvent"><span>Submit</span></a>
-                                        <a class="button-h" href="${pageContext.request.contextPath}/event" id="cancelForCreateEvent"><span>Cancel</span></a>
-                                    </div>
+                                        <div class="st-blocked2">
+                                            <label for="tags"><br/></label>
+                                            <a class="button-h" href="#" id="submitForCreateEvent"><span>Submit</span></a>
+                                            <a class="button-h" href="${pageContext.request.contextPath}/event" id="cancelForCreateEvent"><span>Cancel</span></a>
+                                        </div>
 
-                                </sf:form>
-                                <div id="ajax_loading_createEvent">
+                                    </sf:form>
+                                    <div id="ajax_loading_createEvent">
 
-                                    <img  src="${pageContext.request.contextPath}/resources/images/spinner.gif"><div id="ajax_loading_createEventText"><s:message code="lbl.txt.Processing"/></img></div>
-                                    
+                                        <img  src="${pageContext.request.contextPath}/resources/images/spinner.gif"><div id="ajax_loading_createEventText"><s:message code="lbl.txt.Processing"/></img></div>
+
 
                                 </div>
 
@@ -132,11 +137,44 @@
 
                         <ul>
                             <li class="current"><a href="${pageContext.request.contextPath}/event/showCreateEvent">Create Event</a></li>
-                            <li><a href="#">Show All Events</a></li>
+                            <li><a href="${pageContext.request.contextPath}/event/showViewAllEvents">Show All Events</a></li>
                         </ul>
 
                     </div>
 
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div id="footer">
+            <div class="wrapper">
+                <div id="footer1" class="col"> <span class="linkgroup"><s:message code="lbl.footer.link.aboutUs"/></span>
+                    <ul>
+                        <li><a href="company.html"><s:message code="lbl.footer.link.aboutUs.ourCompany"/></a></li>
+                        <li><a href="team.html"><s:message code="lbl.footer.link.aboutUs.ourTeam"/></a></li>
+                        <li><a href="press.html"><s:message code="lbl.footer.link.aboutUs.pressCoverage"/></a></li>
+                    </ul>
+                </div>
+                <div id="footer2" class="col"> <span class="linkgroup"><s:message code="lbl.footer.link.support"/></span>
+                    <ul>
+                        <li><a href="help.html"><s:message code="lbl.footer.link.support.helpCenter"/></a></li>
+                        <li><a href="what-is-a-pridiktion.html"><s:message code="lbl.footer.link.support.whatIsaPrediction"/></a></li>
+                        <li><a href="how-to-prodikt.html"><s:message code="lbl.footer.link.support.howto"/></a></li>
+                    </ul>
+                </div>
+                <div id="footer2" class="col"> <span class="linkgroup"><s:message code="lbl.footer.link.followUs"/></span>
+                    <ul>
+                        <li><a href="pridikt-blog"><s:message code="lbl.footer.link.followUs.blog"/></a></li>
+                        <li><a href="pridikt-on-twitter.html"><s:message code="lbl.footer.link.followUs.twitter"/></a></li>
+                        <li><a href="pridikt-on-facebook.html"><s:message code="lbl.footer.link.followUs.facebook"/></a></li>
+                    </ul>
+                </div>
+                <div id="footer2" class="col"> <span class="linkgroup"><s:message code="lbl.footer.link.legal"/></span>
+                    <ul>
+                        <li><a href="pridikt-rules.html"><s:message code="lbl.footer.link.legal.detailedRules"/></a></li>
+                        <li><a href="terms.html"><s:message code="lbl.footer.link.legal.termsAndConditions"/></a></li>
+                        <li><a href="privacy.html"><s:message code="lbl.footer.link.legal.privacyPolicy"/></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
