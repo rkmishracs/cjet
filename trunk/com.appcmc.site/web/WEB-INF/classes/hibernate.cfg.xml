@@ -18,7 +18,9 @@
 		<mapping resource="mappings/Contacts.hbm.xml" />
                 <mapping resource="mappings/StudentProfile.hbm.xml" />
                 <mapping resource="mappings/EducationalQualifications.hbm.xml" />
+                <mapping resource="mappings/PlacedStudent.hbm.xml" />
                 <mapping resource="mappings/Events.hbm.xml" />
+
 		
 	</session-factory>
 </hibernate-configuration>
