@@ -61,4 +61,21 @@ public class EventsServiceImpl implements EventsService{
         return eventsList;
     }
 
+    @Override
+    public Events findById(Long id) {
+        Session session = HibernateUtils.currentSession();
+        Events events = null;
+        try{
+           events = (Events) session.get(Events.class, id);
+        }catch(Exception exception){
+            LOG.warn("exception", exception);
+        }finally{
+            HibernateUtils.closeSession();
+        }
+        
+        return events;
+    }
+    
+    
+
 }
