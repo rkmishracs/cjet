@@ -40,10 +40,17 @@ public class EventsTest {
         
         eventsService.create(events);*/
         
-        List<Events> eventsList = eventsService.getAll();
+        /*List<Events> eventsList = eventsService.getAll();
         for(Events event : eventsList){
             LOG.debug(event);
             
+        }*/
+        
+        Events events = eventsService.findById(3L);
+        if(events == null){
+            LOG.debug("=============Record Not found");
+        }else{
+            LOG.debug(events);
         }
     }
 }
