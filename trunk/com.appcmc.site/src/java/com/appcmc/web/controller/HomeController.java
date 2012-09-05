@@ -55,8 +55,9 @@ public class HomeController {
 
         Date presentDate = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
         Events eventsJobFair = null;
+        Events canceledEvent = null;
         for (Events evnt : eventList) {
-            if (evnt.getEventType().equalsIgnoreCase("Walk-In")) {
+            if (evnt.getEventType().equalsIgnoreCase("Walk-In") && evnt.getActive().equals(Short.parseShort("1"))) {
                 if (evnt.getEventOn().after(presentDate)) {
                     events = evnt;
                     break;
@@ -64,15 +65,20 @@ public class HomeController {
             }
         }
         for(Events evnt : eventList){
-            if (evnt.getEventType().equalsIgnoreCase("Job Fair")) {
+            if (evnt.getEventType().equalsIgnoreCase("Job Fair")  && evnt.getActive().equals(Short.parseShort("1"))) {
                 if (evnt.getEventOn().after(presentDate)) {
                     eventsJobFair = evnt;
                     break;
                 }
             }
         }
-        LOG.debug("WalkinEvent"+events);
-        LOG.debug("JobFairEvent"+eventsJobFair);
+        
+        for(Events evnt : eventList){
+            if (evnt.getActive().equals(Short.parseShort("0"))) {
+                canceledEvent = evnt;
+            }
+        }
+        req.setAttribute("canceledEvent", canceledEvent, WebRequest.SCOPE_REQUEST);
         req.setAttribute("walkInEvent", events, WebRequest.SCOPE_REQUEST);
         req.setAttribute("jobFairEvent", eventsJobFair, WebRequest.SCOPE_REQUEST);
 
