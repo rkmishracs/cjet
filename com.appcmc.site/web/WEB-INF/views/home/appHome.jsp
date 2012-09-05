@@ -17,6 +17,7 @@
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+            
 
 
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
@@ -163,32 +164,65 @@
 
                             <div class="cl"></div>
                         </div>
-                        <div class="featured fl text" >
+                        <div class="featured fl text"  id="successStories">
                             <h4 style="margin-top:15px;">Success Stories</h4>
                             <div class="empLine"></div>
                             <div class="cl"></div>
                             <table id="successStoryDiv">
                                 <tr>
-                                    <td><div class="prdktr"><img src="${pageContext.request.contextPath}/resources/images/content/user-img-40.jpg" width="70" height="70" alt="" title=""/></div></td>
-                                    <td><div class="profilePerDup"></div></td>
+                                     <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                      <td><div class="profilePerDup"></div></td>
                                 </tr>
                                     <tr>
                                         <td>&nbsp;</td>
                                         
                                     </tr>
                                     <tr>
+                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                      <td><div class="profilePerDup"></div></td>
+                                      </tr>  
+                                       <tr>
                                         <td>&nbsp;</td>
-                                        
-                                    </tr>
-                                    <tr>
+                                       </tr>
+                                      <tr>
+                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                      <td><div class="profilePerDup"></div></td>
+                                      </tr> 
+                                      <tr>
                                         <td>&nbsp;</td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td><div class="prdktr"><img src="${pageContext.request.contextPath}/resources/images/content/user-img-40.jpg" width="70" height="70" alt="" title=""/></div></td>
-                                    <td><div class="profilePerDup"></div></td>
-                                        
-                                    </tr>    
+                                       </tr>
+                                      <tr>
+                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                      <td><div class="profilePerDup"></div></td>
+                                      </tr> 
+                                      <tr>
+                                        <td>&nbsp;</td>
+                                       </tr>
+                                      <tr>
+                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                      <td><div class="profilePerDup"></div></td>
+                                      </tr>
+                                      <tr>
+                                        <td>&nbsp;</td>
+                                       </tr>
+                                      <tr>
+                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                      <td><div class="profilePerDup"></div></td>
+                                      </tr>
+                                      <tr>
+                                        <td>&nbsp;</td>
+                                       </tr>
+                                      <tr>
+                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                      <td><div class="profilePerDup"></div></td>
+                                      </tr>
+                                      <tr>
+                                        <td>&nbsp;</td>
+                                       </tr>
+                                      <tr>
+                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                      <td><div class="profilePerDup"></div></td>
+                                      </tr>
                             </table>
                         </div>   
 
