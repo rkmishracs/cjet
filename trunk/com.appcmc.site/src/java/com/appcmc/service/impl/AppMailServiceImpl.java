@@ -60,7 +60,8 @@ public class AppMailServiceImpl implements AppMailService {
             Map model = new HashMap();
             model.put("user", appUser);
             String text = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "/mailTemplate.vm", model);
-            mimeMessageHelper.setText(text, true);
+            //mimeMessageHelper.setText(text, true);
+              mimeMessageHelper.setText(text, true);
             
             
          }
