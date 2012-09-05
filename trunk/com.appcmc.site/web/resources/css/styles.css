@@ -2368,7 +2368,7 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 .empLine{
     position: relative;
     float: left;
-    width: 270px;
+    width: 280px;
     height:5px;
     line-height: 18px;
     border-bottom: solid 1px #7e99ba;
@@ -2904,9 +2904,9 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 
 .profilePerDup{
     position: relative;
-    top:4px;
+    top:1px;
     width: 120px;
-    height: 62px;
+    height: 39px;
     left:20px;
     color: black;
     padding: 5px 70px 5px 7px;
@@ -2934,4 +2934,20 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 } 
 .disBlk {
     display: block;
+}
+#successStoryDiv{
+    position: relative;
+    
+}
+.SuccessImageDiv{
+    position: relative;
+    top:0px;
+}
+
+#successStories{
+ overflow: scroll;
+ overflow-x: hidden;
+ height:300px;
+
+
 }
