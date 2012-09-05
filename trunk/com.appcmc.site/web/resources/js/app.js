@@ -1443,25 +1443,27 @@ $(document).ready(function(){
         scrollFaceHeight = scrubber.outerHeight();
 
         initPosition = 0;
-	
+        initContentPos = $('#updateHolder').offset().top;
         // Calculate the movement ration with content height and scrollbar height
         moveVal = (contentHeight - scrollHeight)/(scrollHeight - scrollFaceHeight);
 
-        $("#updateContainer").mouseenter(function() {
-            initContentPos = $('#updateHolder').offset().top;
-            $("#updateScollBar, #updateContainer, #updateHolder").css("height", "76px");
+        $("#updateScollBar").mouseenter(function() {
             // Enable Scrollbar only when the content height is greater then the view port area.
             if(contentHeight > scrollHeight) {
                 // Show scrollbar on mouse over
-                scrubber.fadeToggle("fast");
+                $(this).animate({
+                    opacity: 1
+                });
                 scrubber.bind("mousedown", onMouseDown);
             }
 
         }).mouseleave(function() {
-            $("#updateScollBar, #updateContainer, #updateHolder").css("height", "15px");
+		
             if(contentHeight > scrollHeight) {
                 // Hide Scrollbar on mouse out.
-                scrubber.fadeToggle("slow");
+                $(this).animate({
+                    opacity: 0.25
+                });
                 $('#updateHolder').unbind("mousemove", onMouseMove); 
                 scrubber.unbind("mousedown", onMouseDown);
             }
@@ -1489,11 +1491,11 @@ $(document).ready(function(){
                 // Move the scrubber on mouse drag
                 scrubber.css({
                     top: (_offsetY + event.pageY - _startY)
-                });
+                    });
                 // Move the content area according to the scrubber movement.
                 $('#updateContent').css({
                     top: ((initContentPos - scrubber.offset().top) * moveVal)
-                });   
+                    });   
             }else{
                 // Reset when upper and lower limits are excced.
                 if(scrubber.offset().top <= initContentPos){
@@ -1508,11 +1510,11 @@ $(document).ready(function(){
                 if(scrubber.offset().top > (initContentPos + scrollHeight - scrollFaceHeight)) {
 
                     scrubber.css({
-                        top: (scrollHeight-scrollFaceHeight-1)
-                    });
+                        top: (scrollHeight-scrollFaceHeight-2)
+                        });
                     $('#updateContent').css({
                         top: (scrollHeight - contentHeight + initPosition)
-                    });
+                        });
                 }
 
                 $('#updateHolder').trigger('mouseup');
@@ -1548,267 +1550,8 @@ $(document).ready(function(){
             }
         }
 
-                            
     });
-
-
     // End for Bar
-
-
-    //Script for Scroll Bar Profile Title Text
-    
-    $(function(){
-
-        _offsetY = 0;
-        _startY = 0;
-	
-        // To resize the height of the scroll scrubber when scroll height increases. 
-        setScrubberHeight();
-
-        var contentDiv = document.getElementById('updateContainerProfileTitle');
-        scrubber = $('#updateScollScrubberProfileTitle');
-        scrollHeight = $('#updateScollBarProfileTitle').outerHeight();
-        contentHeight = $('#updateContentProfileTitle').outerHeight();
-        scrollFaceHeight = scrubber.outerHeight();
-
-        initPosition = 0;
-	
-        // Calculate the movement ration with content height and scrollbar height
-        moveVal = (contentHeight - scrollHeight)/(scrollHeight - scrollFaceHeight);
-
-        $("#updateContainerProfileTitle").mouseenter(function() {
-            initContentPos = $('#updateHolderProfileTitle').offset().top;
-            $("#updateScollBarProfileTitle, #updateContainerProfileTitle, #updateHolderProfileTitle").css("height", "76px");
-            // Enable Scrollbar only when the content height is greater then the view port area.
-            if(contentHeight > scrollHeight) {
-                // Show scrollbar on mouse over
-                scrubber.fadeToggle("fast");
-                scrubber.bind("mousedown", onMouseDown);
-            }
-
-        }).mouseleave(function() {
-            $("#updateScollBarProfileTitle, #updateContainerProfileTitle, #updateHolderProfileTitle").css("height", "15px");
-            if(contentHeight > scrollHeight) {
-                // Hide Scrollbar on mouse out.
-                scrubber.fadeToggle("slow");
-                $('#updateHolderProfileTitle').unbind("mousemove", onMouseMove); 
-                scrubber.unbind("mousedown", onMouseDown);
-            }
-        });
-
-
-        function onMouseDown(event) {
-            $('#updateHolderProfileTitle').bind("mousemove", onMouseMove);
-            $('#updateHolderProfileTitle').bind("mouseup", onMouseUp);
-            _offsetY = scrubber.offset().top;
-            _startY = event.pageY + initContentPos;
-            // Disable the text selection inside the update area. Otherwise the text will be selected while dragging on the scrollbar.
-            contentDiv.onselectstart = function () {
-                return false;
-            } // ie
-            contentDiv.onmousedown = function () {
-                return false;
-            } // mozilla
-        }
-			
-        function onMouseMove(event) {
-		
-            // Checking the upper and bottom limit of the scroll area
-            if((scrubber.offset().top >= initContentPos) && (scrubber.offset().top <= (initContentPos+scrollHeight - scrollFaceHeight))) {
-                // Move the scrubber on mouse drag
-                scrubber.css({
-                    top: (_offsetY + event.pageY - _startY)
-                });
-                // Move the content area according to the scrubber movement.
-                $('#updateContentProfileTitle').css({
-                    top: ((initContentPos - scrubber.offset().top) * moveVal)
-                });   
-            }else{
-                // Reset when upper and lower limits are excced.
-                if(scrubber.offset().top <= initContentPos){
-                    scrubber.css({
-                        top: 0
-                    });
-                    $('#updateContentProfileTitle').css({
-                        top: 0
-                    });
-                }
-
-                if(scrubber.offset().top > (initContentPos + scrollHeight - scrollFaceHeight)) {
-
-                    scrubber.css({
-                        top: (scrollHeight-scrollFaceHeight-1)
-                    });
-                    $('#updateContentProfileTitle').css({
-                        top: (scrollHeight - contentHeight + initPosition)
-                    });
-                }
-
-                $('#updateHolderProfileTitle').trigger('mouseup');
-            }
-
-        }
-
-        function onMouseUp(event) {
-            $('#updateHolderProfileTitle').unbind("mousemove", onMouseMove);
-            contentDiv.onselectstart = function () {
-                return true;
-            } // ie
-            contentDiv.onmousedown = function () {
-                return true;
-            } // mozilla
-        }
-
-        function setScrubberHeight() {
-            cH = $('#updateContentProfileTitle').outerHeight();
-            sH = $('#updateScollBarProfileTitle').outerHeight();
-
-            if(cH > sH) {
-                // Set the min height of the scroll scrubber to 20
-                if(sH / ( cH / sH ) < 20) {
-                    $('#updateScollScrubberProfileTitle').css({
-                        height: 20
-                    });
-                }else{
-                    $('#updateScollScrubberProfileTitle').css({
-                        height: sH / ( cH / sH )
-                    });
-                }
-            }
-        }
-
-    });
-
-
-    // End for Bar
-
-    //Script for Scroll Bar Key Skills
-    
-    $(function(){
-
-        _offsetY = 0;
-        _startY = 0;
-	
-        // To resize the height of the scroll scrubber when scroll height increases. 
-        setScrubberHeight();
-
-        var contentDiv = document.getElementById('updateContainerKeySkills');
-        scrubber = $('#updateScollScrubberKeySkills');
-        scrollHeight = $('#updateScollBarKeySkills').outerHeight();
-        contentHeight = $('#updateContentKeySkills').outerHeight();
-        scrollFaceHeight = scrubber.outerHeight();
-
-        initPosition = 0;
-	
-        // Calculate the movement ration with content height and scrollbar height
-        moveVal = (contentHeight - scrollHeight)/(scrollHeight - scrollFaceHeight);
-
-        $("#updateContainerKeySkills").mouseenter(function() {
-            initContentPos = $('#updateHolderKeySkills').offset().top;
-            $("#updateScollBarKeySkills, #updateContainerKeySkills, #updateHolderKeySkills").css("height", "76px");
-            // Enable Scrollbar only when the content height is greater then the view port area.
-            if(contentHeight > scrollHeight) {
-                // Show scrollbar on mouse over
-                scrubber.fadeToggle("fast");
-                scrubber.bind("mousedown", onMouseDown);
-            }
-
-        }).mouseleave(function() {
-            $("#updateScollBarKeySkills, #updateContainerKeySkills, #updateHolderKeySkills").css("height", "15px");
-            if(contentHeight > scrollHeight) {
-                // Hide Scrollbar on mouse out.
-                scrubber.fadeToggle("slow");
-                $('#updateHolderKeySkills').unbind("mousemove", onMouseMove); 
-                scrubber.unbind("mousedown", onMouseDown);
-            }
-        });
-
-
-        function onMouseDown(event) {
-            $('#updateHolderKeySkills').bind("mousemove", onMouseMove);
-            $('#updateHolderKeySkills').bind("mouseup", onMouseUp);
-            _offsetY = scrubber.offset().top;
-            _startY = event.pageY + initContentPos;
-            // Disable the text selection inside the update area. Otherwise the text will be selected while dragging on the scrollbar.
-            contentDiv.onselectstart = function () {
-                return false;
-            } // ie
-            contentDiv.onmousedown = function () {
-                return false;
-            } // mozilla
-        }
-			
-        function onMouseMove(event) {
-		
-            // Checking the upper and bottom limit of the scroll area
-            if((scrubber.offset().top >= initContentPos) && (scrubber.offset().top <= (initContentPos+scrollHeight - scrollFaceHeight))) {
-                // Move the scrubber on mouse drag
-                scrubber.css({
-                    top: (_offsetY + event.pageY - _startY)
-                });
-                // Move the content area according to the scrubber movement.
-                $('#updateContentKeySkills').css({
-                    top: ((initContentPos - scrubber.offset().top) * moveVal)
-                });   
-            }else{
-                // Reset when upper and lower limits are excced.
-                if(scrubber.offset().top <= initContentPos){
-                    scrubber.css({
-                        top: 0
-                    });
-                    $('#updateContentKeySkills').css({
-                        top: 0
-                    });
-                }
-
-                if(scrubber.offset().top > (initContentPos + scrollHeight - scrollFaceHeight)) {
-
-                    scrubber.css({
-                        top: (scrollHeight-scrollFaceHeight-1)
-                    });
-                    $('#updateContentKeySkills').css({
-                        top: (scrollHeight - contentHeight + initPosition)
-                    });
-                }
-
-                $('#updateHolderKeySkills').trigger('mouseup');
-            }
-
-        }
-
-        function onMouseUp(event) {
-            $('#updateHolderKeySkills').unbind("mousemove", onMouseMove);
-            contentDiv.onselectstart = function () {
-                return true;
-            } // ie
-            contentDiv.onmousedown = function () {
-                return true;
-            } // mozilla
-        }
-
-        function setScrubberHeight() {
-            cH = $('#updateContentKeySkills').outerHeight();
-            sH = $('#updateScollBarKeySkills').outerHeight();
-
-            if(cH > sH) {
-                // Set the min height of the scroll scrubber to 20
-                if(sH / ( cH / sH ) < 20) {
-                    $('#updateScollScrubberKeySkills').css({
-                        height: 20
-                    });
-                }else{
-                    $('#updateScollScrubberKeySkills').css({
-                        height: sH / ( cH / sH )
-                    });
-                }
-            }
-        }
-
-    });
-
-
-    // End for Bar
-
     //Script for emailprofileView.jsp
     $("#resumeSendBtn").click(function(){
         if($("#emailTo").val() == ''){
