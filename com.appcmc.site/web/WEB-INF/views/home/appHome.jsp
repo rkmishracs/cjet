@@ -17,7 +17,7 @@
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
-            
+
 
 
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
@@ -168,62 +168,79 @@
                             <h4 style="margin-top:15px;">Success Stories</h4>
                             <div class="empLine"></div>
                             <div class="cl"></div>
-                            <table id="successStoryDiv">
-                                <tr>
-                                     <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                      <td><div class="profilePerDup"></div></td>
-                                </tr>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        
-                                    </tr>
-                                    <tr>
-                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                      <td><div class="profilePerDup"></div></td>
-                                      </tr>  
-                                       <tr>
-                                        <td>&nbsp;</td>
-                                       </tr>
-                                      <tr>
-                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                      <td><div class="profilePerDup"></div></td>
-                                      </tr> 
-                                      <tr>
-                                        <td>&nbsp;</td>
-                                       </tr>
-                                      <tr>
-                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                      <td><div class="profilePerDup"></div></td>
-                                      </tr> 
-                                      <tr>
-                                        <td>&nbsp;</td>
-                                       </tr>
-                                      <tr>
-                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                      <td><div class="profilePerDup"></div></td>
-                                      </tr>
-                                      <tr>
-                                        <td>&nbsp;</td>
-                                       </tr>
-                                      <tr>
-                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                      <td><div class="profilePerDup"></div></td>
-                                      </tr>
-                                      <tr>
-                                        <td>&nbsp;</td>
-                                       </tr>
-                                      <tr>
-                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                      <td><div class="profilePerDup"></div></td>
-                                      </tr>
-                                      <tr>
-                                        <td>&nbsp;</td>
-                                       </tr>
-                                      <tr>
-                                      <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                      <td><div class="profilePerDup"></div></td>
-                                      </tr>
-                            </table>
+                            <!--// Update Holder -->
+                            <div id="updateHolder">
+                                <div id="updateContainer">
+                                    <div id="updateContent">
+                                        <!-- You can add all your contents here -->
+
+
+                                        <table id="successStoryDiv">
+                                            <tr>
+                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                                <td><div class="profilePerDup"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                                <td><div class="profilePerDup"></div></td>
+                                            </tr>  
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                                <td><div class="profilePerDup"></div></td>
+                                            </tr> 
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                                <td><div class="profilePerDup"></div></td>
+                                            </tr> 
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                                <td><div class="profilePerDup"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                                <td><div class="profilePerDup"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                                <td><div class="profilePerDup"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
+                                                <td><div class="profilePerDup"></div></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <!--// don't remove this: the scrollbar and scrollscrubber place holder -->
+                                    <div id="updateScollBar">
+                                        <div id="updateScollScrubber">
+                                        </div>
+                                    </div>
+                                    <!-- scrollbar end //-->
+                                </div><!-- end of updateContainer //-->
+                            </div><!-- end of updateHolder //-->
+
                         </div>   
 
                         <div id="upcomingEventDiv">
