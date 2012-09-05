@@ -26,7 +26,6 @@ import com.appcmc.web.forms.ForgotPasswordForm;
 import com.appcmc.web.forms.SignInForm;
 import com.appcmc.web.utils.CookieUtils;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
