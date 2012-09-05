@@ -241,45 +241,48 @@
                                 </div><!-- end of updateContainer //-->
                             </div><!-- end of updateHolder //-->
 
+
                         </div>   
 
                         <div id="upcomingEventDiv">
                             <h4>Upcoming Events</h4>
-                            <div class="cont">
-                                <span class="walkinZone"></span>
+                            <c:if test="${walkInEvent == null && jobFairEvent == null}">
+                                <div class="cont">
+                                    <span>No Walk-in Or Job-Fair Yet</span>
+                                </div>
+                            </c:if>
 
-                                <c:if test="${walkInEvent != null}">
+                            <c:if test="${walkInEvent != null}">
+                                <div class="cont">
+                                    <span class="walkinZone"></span>
                                     <p style="padding-top:5px; ">
                                         <span class="disBlk" style="padding:3px 0px;"><strong><a href="/WalkIn-Zone/index.html" target="_blank">${walkInEvent.eventName}<br/>
                                                 </a></strong></span><span class="disBlk" style="color:#737373;"><fmt:formatDate  dateStyle="default"  pattern="dd-MM-yyyy" value="${walkInEvent.eventOn}" /> <br/>${walkInEvent.eventLocation.toUpperCase()} <br/>
                                         </span>
                                     </p>
+                                </div>
 
-                                </c:if>
-                                <c:if test="${walkInEvent == null}">
-                                    <p style="padding-top:5px; ">
-                                        <span class="disBlk" style="padding:3px 0px;">No Walk-In In This Week</span>
-                                    </p>
-                                </c:if>
 
-                            </div>
-                            <div class="cont">
-                                <img src="resources/images/index.png"/>
-                                <c:if test="${jobFairEvent != null}">
+                            </c:if>
+
+                            <c:if test="${jobFairEvent != null}">
+                                <div class="cont">
+                                    <img src="resources/images/index.png"/>
                                     <p style="padding-top:5px; ">
                                         <span class="disBlk" style="padding:3px 0px;"><strong><a href="/uppercrest/bangalore.html" target="_blank">${jobFairEvent.eventName} </a></strong></span><span class="disBlk" style="color:#737373;"><fmt:formatDate  dateStyle="default"  pattern="dd-MM-yyyy" value="${jobFairEvent.eventOn}" /> <br/>${jobFairEvent.eventLocation.toUpperCase()} <br/>
                                         </span>
                                     </p>
-                                </c:if>
-                                <c:if test="${jobFairEvent == null}">
-                                    <p style="padding-top:5px; ">
-                                        <span class="disBlk" style="padding:3px 0px;">No Job_Fair In This Week</span>
+                                </div>
+                            </c:if>
+
+                            <c:if test="${canceledEvent != null}">
+                                <div class="cont">
+                                    <p style="padding-top:5px; color: red; width: 200px;">
+                                        Flash News... ${canceledEvent.eventName} ${canceledEvent.eventType} Canceled 
                                     </p>
-                                </c:if>
+                                </div>
+                            </c:if>
 
-
-
-                            </div>
                         </div>
 
                     </div>
