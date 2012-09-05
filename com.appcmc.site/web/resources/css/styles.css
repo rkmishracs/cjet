@@ -2031,7 +2031,9 @@ span{
 #profileTitleText{
     position: relative;
     left: 172px;
-    top: -27px;
+    top: -15px;
+    width: 245px;
+    min-height: 10px;
 
 }
 #totalExperienceText{
@@ -2042,7 +2044,9 @@ span{
 #keySkillsText{
     position: relative;
     left: 172px;
-    top: -27px;
+    top: -14px;
+    width: 245px;
+    min-height: 10px;
 
 }
 #currentEmployerText{
@@ -2067,32 +2071,32 @@ span{
 #fourQualification{
     position: relative;
     left: 50px;
-    width: 300px;
+    width: 245px;
 }
 #fourSpecialization{
     position: relative;
     left: 50px;
-    width: 300px;
+    width: 245px;
 }
 #fourUniversity{
     position: relative;
     left: 50px;
-    width: 300px;
+    width: 245px;
 }
 #threeQualification{
     position: relative;
     left: 50px;
-    width: 300px;
+    width: 245px;
 }
 #threeSpecialization{
     position: relative;
     left: 50px;
-    width: 300px;
+    width: 245px;
 }
 #threeUniversity{
     position: relative;
     left: 50px;
-    width: 300px;
+    width: 245px;
 }
 #line{
     position: relative;
@@ -2107,22 +2111,22 @@ span{
 #twoQualification{
     position: relative;
     left: 50px;
-    width: 300px;
+    width: 245px;
 }
 #twoSpecialization{
     position: relative;
     left: 50px;
-    width: 300px;
+    width: 245px;
 }
 #twoUniversity{
     position: relative;
     left: 50px;
-    width: 300px;
+    width: 245px;
 }
 #oneQualification{
     position: relative;
     left: 50px;
-    width: 300px;
+    width: 245px;
 }
 #workExperienceTable{
     position: relative;
@@ -2146,7 +2150,9 @@ span{
 #addressText{
     position: relative;
     left: 125px;
-    top: -25px
+    top: -14px;
+    width: 245px;
+    min-height: 10px;
 }
 #nationalityText{
     position: relative;
@@ -2554,7 +2560,7 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 
 #profileTitleDiv{
     position: relative;
-    top: 20px;
+    top: 10px;
 }
 .landPhone{
     position: relative;
@@ -2569,157 +2575,54 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 /*Style for Scroll Bar Address Text ---- Start*/
 
 #updateHolder {
-    background-color: green;
     width: 300px;  /* <= For Width: change the width value */
     color: #333;
     margin-top: 10px;
     overflow: hidden;
+    border:1px solid #CCCCCC;
 }
 
 #updateContainer {
     background-color: white;
     position: relative;
     cursor: pointer;
-    height: 15px;
+
 }
 
 #updateContent {
-    width: 100%;
+    background: #fff;
     position: absolute;
+    padding-right: 12px;
 }
 
 #updateScollBar {
-    background: none;
+    background: #F2F2F2;
+    border-left: 1px solid #DADADA;
     position: absolute;
     width: 10px;
     right: 0;
     bottom: 0;
     cursor: default;
+    zoom: 1;
+    filter: alpha(opacity=25); /* For IE8 and earlier */
+    opacity: 0.25;	  
 }
 
 #updateScollScrubber {
-    display: none;
-    background-color: black;
-    zoom: 1;
-    filter: alpha(opacity=40); /* For IE8 and earlier */
-    opacity: 0.4;
-    width: 8px;
+    background-color: 909090;
+    width: 9px;
     height: 100px;
-    -moz-border-radius: 7px; /* Firefox */
-    -webkit-border-radius: 7px; /* Safari, Chrome */
-    border-radius: 7px; /* CSS3 */
     position: absolute;
+    border-left:1px solid #676767;
+    border-top:1px solid #676767;
+
 }
 
-#updateScollBar {
-    height: 76px; /* <= For Height: change the height value */
+#updateScollBar, #updateContainer, #updateHolder {
+    height: 250px; /* <= For Height: change the height value */
 }
 
-/*End for Scroll Bar Style*/
 
-
-
-
-
-/*Style for Scroll Bar Profile Title ---- Start*/
-
-#updateHolderProfileTitle {
-    background-color: green;
-    width: 300px;  /* <= For Width: change the width value */
-    color: #333;
-    margin-top: 10px;
-    overflow: hidden;
-}
-
-#updateContainerProfileTitle {
-    background-color: white;
-    position: relative;
-    cursor: pointer;
-    height: 15px;
-}
-
-#updateContentProfileTitle {
-    width: 100%;
-    position: absolute;
-}
-
-#updateScollBarProfileTitle {
-    background: none;
-    position: absolute;
-    width: 10px;
-    right: 0;
-    bottom: 0;
-    cursor: default;
-}
-
-#updateScollScrubberProfileTitle {
-    display: none;
-    background-color: black;
-    zoom: 1;
-    filter: alpha(opacity=40); /* For IE8 and earlier */
-    opacity: 0.4;
-    width: 8px;
-    height: 100px;
-    -moz-border-radius: 7px; /* Firefox */
-    -webkit-border-radius: 7px; /* Safari, Chrome */
-    border-radius: 7px; /* CSS3 */
-    position: absolute;
-}
-
-#updateScollBarProfileTitle {
-    height: 76px; /* <= For Height: change the height value */
-}
-
-/*End for Scroll Bar Style*/
-
-/*Style for Scroll Bar Key Skills ---- Start*/
-
-#updateHolderKeySkills {
-    background-color: green;
-    width: 300px;  /* <= For Width: change the width value */
-    color: #333;
-    margin-top: 10px;
-    overflow: hidden;
-}
-
-#updateContainerKeySkills {
-    background-color: white;
-    position: relative;
-    cursor: pointer;
-    height: 15px;
-}
-
-#updateContentKeySkills {
-    width: 100%;
-    position: absolute;
-}
-
-#updateScollBarKeySkills {
-    background: none;
-    position: absolute;
-    width: 10px;
-    right: 0;
-    bottom: 0;
-    cursor: default;
-}
-
-#updateScollScrubberKeySkills {
-    display: none;
-    background-color: black;
-    zoom: 1;
-    filter: alpha(opacity=40); /* For IE8 and earlier */
-    opacity: 0.4;
-    width: 8px;
-    height: 100px;
-    -moz-border-radius: 7px; /* Firefox */
-    -webkit-border-radius: 7px; /* Safari, Chrome */
-    border-radius: 7px; /* CSS3 */
-    position: absolute;
-}
-
-#updateScollBarKeySkills {
-    height: 76px; /* <= For Height: change the height value */
-}
 
 /*End for Scroll Bar Style*/
 
@@ -2937,17 +2840,10 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 }
 #successStoryDiv{
     position: relative;
-    
+
 }
 .SuccessImageDiv{
     position: relative;
     top:0px;
 }
 
-#successStories{
- overflow: scroll;
- overflow-x: hidden;
- height:300px;
-
-
-}
