@@ -17,4 +17,6 @@ public interface EventsService {
     
     List<Events> getAll();
     
+    Events findById(Long id);
+
 }
