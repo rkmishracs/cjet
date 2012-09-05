@@ -54,6 +54,9 @@
                             <h4>All Events</h4>
                             <div id="exportPdfDiv"><a class="button-h" href="#" id="exportToPdf"><span>Export To PDF</span></a></div>
                             <div style="height:5px;"></div>
+                            <c:if test="${successCancelEvent != null}">
+                                <div style="position: relative;left: 40px;width: 400px; color: #6B9EDD;">${successCancelEvent}</div> 
+                            </c:if>
                             <table class="ui-widget ui-widget-content">
                                 <thead>
                                     <tr class="ui-widget-header ">
@@ -63,6 +66,7 @@
                                         <th>Event Time</th>
                                         <th>Event Location</th>
                                         <th>Additional Information</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -74,6 +78,7 @@
                                             <td>${events.eventTime}</td>
                                             <td>${events.eventLocation}</td>
                                             <td>${events.additionalInfo}</td>
+                                            <td><span><a href="${pageContext.request.contextPath}/event/cancelEvent/${events.id}" style="color:blue">Cancel</a></span></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
