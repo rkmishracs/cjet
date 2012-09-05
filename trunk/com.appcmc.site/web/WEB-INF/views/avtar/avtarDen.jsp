@@ -23,7 +23,20 @@
 
     </head>
     <body>
+        <div class="logo" style="position: relative;top: 5px; left: 15px;">
+            <a href="${pageContext.request.contextPath}/avtar"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
+        </div>
 
+        <div class="menu_nav">
+            <ul>
+                <li class="active"><a href="${pageContext.request.contextPath}/avtar">Home</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
+            </ul>
+            <div class="clr"></div>
+        </div>
         <input type="hidden" id="avtarDenHidden" value="${pageContext.request.contextPath}" />
         <div id="dialog-form-perInfo" style="display:none;">
 
@@ -341,21 +354,6 @@
         </div>
         <div class="clear"></div>
         <div id="body">
-            <div class="logo" style="position: relative;top: 5px; left: 15px;">
-                <a href="${pageContext.request.contextPath}/avtar"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
-            </div>
-
-            <div class="menu_nav">
-                <ul>
-                    <li class="active"><a href="${pageContext.request.contextPath}/avtar">Home</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
-                </ul>
-                <div class="clr"></div>
-            </div>
-
             <div class="wrapper">
                 <div id="body1" class="col"> 
 
@@ -396,28 +394,7 @@
 
                             <div id="addressDiv">
                                 <h2 class="tags"><s:message code="lbl.avatar.address"/>&nbsp;<span id="semi-columnDiv">&nbsp;&nbsp;:</span></h2>
-                                <div id="addressText">
-
-                                    <!--// Update Holder -->
-                                    <div id="updateHolder">
-                                        <div id="updateContainer">
-                                            <div id="updateContent">
-                                                <!-- //// You can add all your contents here ////-->
-                                                ${contacts.address}
-
-                                            </div>
-                                            <!--// don't remove this: the scrollbar and scrollscrubber place holder -->
-                                            <div id="updateScollBar">
-                                                <div id="updateScollScrubber">
-                                                </div>
-                                            </div>
-                                            <!-- scrollbar end //-->
-                                        </div><!-- end of updateContainer //-->
-                                    </div><!-- end of updateHolder //-->
-
-
-                                </div>
-
+                                <div id="addressText">${contacts.address}</div>
                             </div>
                             <table>
 
@@ -462,24 +439,7 @@
 
                                 <h2 class="tags">Profile Title &nbsp;<span id="semi-columnDiv">:</span></h2>
                                 <div id="profileTitleText">
-
-                                    <!--// Update Holder -->
-                                    <div id="updateHolderProfileTitle">
-                                        <div id="updateContainerProfileTitle">
-                                            <div id="updateContentProfileTitle">
-                                                <!-- //// You can add all your contents here ////-->
-                                                ${studentProfile.title}
-
-                                            </div>
-                                            <!--// don't remove this: the scrollbar and scrollscrubber place holder -->
-                                            <div id="updateScollBarProfileTitle">
-                                                <div id="updateScollScrubberProfileTitle">
-                                                </div>
-                                            </div>
-                                            <!-- scrollbar end //-->
-                                        </div><!-- end of updateContainer //-->
-                                    </div><!-- end of updateHolder //-->
-
+                                    ${studentProfile.title}
                                 </div>
 
                             </div>
@@ -495,29 +455,12 @@
                             <div id="keySkillsDiv">
                                 <h2 class="tags">Key Skills &nbsp; &nbsp; &nbsp;<span id="semi-columnDiv">:</span></h2>
                                 <div id="keySkillsText">
-
-                                    <!--// Update Holder -->
-                                    <div id="updateHolderKeySkills">
-                                        <div id="updateContainerKeySkills">
-                                            <div id="updateContentKeySkills">
-                                                <!-- //// You can add all your contents here ////-->
-                                                ${studentProfile.keySkills}
-
-                                            </div>
-                                            <!--// don't remove this: the scrollbar and scrollscrubber place holder -->
-                                            <div id="updateScollBarKeySkills">
-                                                <div id="updateScollScrubberKeySkills">
-                                                </div>
-                                            </div>
-                                            <!-- scrollbar end //-->
-                                        </div><!-- end of updateContainer //-->
-                                    </div><!-- end of updateHolder //-->
-
+                                    ${studentProfile.keySkills}
                                 </div>
                             </div>
 
 
-                                                <table style="position: relative; top: -14px;">
+                            <table style="position: relative; top: -7px;">
                                 <tr>
                                     <td><h2 class="tags">Current Employer &nbsp;</h2></td>
                                     <td>:</td>
@@ -702,7 +645,6 @@
                     </div>
                     <br />
                 </div>
-
             </div>
 
             <div class="clear"></div>
