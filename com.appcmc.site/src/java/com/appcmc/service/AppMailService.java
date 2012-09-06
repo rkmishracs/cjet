@@ -6,7 +6,7 @@ package com.appcmc.service;
 
 import com.appcmc.domain.sub.AppUser;
 import com.appcmc.web.forms.EmailProfileForm;
-import java.io.IOException;
+import java.util.List;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.mail.javamail.JavaMailSender;
 
@@ -20,7 +20,7 @@ public interface AppMailService {
     
     void setVelocityEngine(VelocityEngine velocityEngine);
     
-    void sendMail(final AppUser appUser);
+    void sendMail(final AppUser appUser,final List<String> imageList);
     
     void sendResume(final EmailProfileForm emailProfileForm);
     
