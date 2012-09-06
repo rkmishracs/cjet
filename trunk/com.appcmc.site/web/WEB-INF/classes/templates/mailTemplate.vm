@@ -97,7 +97,7 @@ body {
         </tr>
         <tr>
           <td><img src="cid:img2" width="283" height="53"></td>
-          <td background="cid:img3" background-repeat="repeat-x"></td>
+          <td background="cid:img3"></td>
         </tr>
       </table></td>
     </tr>
