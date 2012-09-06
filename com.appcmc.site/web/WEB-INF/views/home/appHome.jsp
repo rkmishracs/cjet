@@ -18,7 +18,7 @@
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
-
+             
 
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
@@ -173,64 +173,74 @@
                                 <div id="updateContainer">
                                     <div id="updateContent">
                                         <!-- You can add all your contents here -->
+                                        
+                                        <div id="testSuccessDiv"> <!-- Written The Same Code Three Times To Check The Scroll -->
+                                           <div class=" fl chatBlk mrgn_r20" >
+                                               <div id="testSuccessDivDup">
+                                       <img src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" alt="Chat User" class="fl" width="60" height="65"/>
+                                               </div>
+                                               <div id="testSuccessDivDup1">
+                                      <p class="fr w160" id="testSuccessPara">
+                                     <span class="disBlk mrgn_b10">
+                                 <img src="${pageContext.request.contextPath}/resources/images/quote_up.gif"/>
+                           <a href="#">Employee Retention - Key Challenges & Issues</a> <img src="${pageContext.request.contextPath}/resources/images/quote_bottom.gif"/>
+                           </span>
+                         <span class="disBlk mrgn_b10">
+                        <strong><b>Mr. Jayant Kumar</b></strong>,<br/>
+                           GM - HR, <br/>R.P Mody Group<br/>
+                        <em class="date">- 29 Aug 12</em>
+                         </span>
+                     
+                        </p>
+                                           </div>
+                              </div>
+                                        </div> <!-- End Of testSuccessDiv 1 -->
+                          
+                                        <div id="testSuccessDiv">
+                                           <div class=" fl chatBlk mrgn_r20" >
+                                               <div id="testSuccessDivDup">
+                                       <img src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" alt="Chat User" class="fl" width="60" height="65"/>
+                                               </div>
+                                               <div id="testSuccessDivDup1">
+                                      <p class="fr w160" id="testSuccessPara">
+                                     <span class="disBlk mrgn_b10">
+                                 <img src="${pageContext.request.contextPath}/resources/images/quote_up.gif"/>
+                           <a href="#">Employee Retention - Key Challenges & Issues</a> <img src="${pageContext.request.contextPath}/resources/images/quote_bottom.gif"/>
+                           </span>
+                         <span class="disBlk mrgn_b10">
+                        <strong><b>Mr. Jayant Kumar</b></strong>,<br/>
+                           GM - HR, <br/>R.P Mody Group<br/>
+                        <em class="date">- 29 Aug 12</em>
+                         </span>
+                     
+                        </p>
+                                           </div>
+                              </div>
+                                        </div> <!-- End Of testSuccessiveDiv 2nd -->
+                                 
+                                        <div id="testSuccessDiv">
+                                           <div class=" fl chatBlk mrgn_r20" >
+                                               <div id="testSuccessDivDup">
+                                       <img src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" alt="Chat User" class="fl" width="60" height="65"/>
+                                               </div>
+                                               <div id="testSuccessDivDup1">
+                                      <p class="fr w160" id="testSuccessPara">
+                                     <span class="disBlk mrgn_b10">
+                                 <img src="${pageContext.request.contextPath}/resources/images/quote_up.gif"/>
+                           <a href="#">Employee Retention - Key Challenges & Issues</a> <img src="${pageContext.request.contextPath}/resources/images/quote_bottom.gif"/>
+                           </span>
+                         <span class="disBlk mrgn_b10">
+                        <strong><b>Mr. Jayant Kumar</b></strong>,<br/>
+                           GM - HR, <br/>R.P Mody Group<br/>
+                        <em class="date">- 29 Aug 12</em>
+                         </span>
+                     
+                        </p>
+                                           </div>
+                              </div>
+                                        </div> <!-- End of testSuccessiveDiv 3rd -->
 
-
-                                        <table id="successStoryDiv">
-                                            <tr>
-                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                                <td><div class="profilePerDup"></div></td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                                <td><div class="profilePerDup"></div></td>
-                                            </tr>  
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                                <td><div class="profilePerDup"></div></td>
-                                            </tr> 
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                                <td><div class="profilePerDup"></div></td>
-                                            </tr> 
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                                <td><div class="profilePerDup"></div></td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                                <td><div class="profilePerDup"></div></td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                                <td><div class="profilePerDup"></div></td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td><div class="SuccessImageDiv"><img id="successImage1" src="${pageContext.request.contextPath}/resources/images/content/user-img2-40.jpg" width="50" height="50" alt="" title="" style="top:0px;"/></div></td>
-                                                <td><div class="profilePerDup"></div></td>
-                                            </tr>
-                                        </table>
+                                       
                                     </div>
                                     <!--// don't remove this: the scrollbar and scrollscrubber place holder -->
                                     <div id="updateScollBar">
