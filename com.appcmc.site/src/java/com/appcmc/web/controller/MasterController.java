@@ -266,7 +266,7 @@ public class MasterController {
         String image1 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_01.jpg");
         String image2 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_02.jpg");
         String image3 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_03.jpg");
-        String image4 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_04.jpg");
+        String image4 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_04.gif");
         
         List<String> imageList = new ArrayList<String>();
         imageList.add(image1);
