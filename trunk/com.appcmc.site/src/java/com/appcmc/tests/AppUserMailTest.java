@@ -39,7 +39,7 @@ public class AppUserMailTest {
         appUser.setModifiedBy(1L);
         appUser.setActive(new Short("1"));
         
-        appMailService.sendMail(appUser);
+        appMailService.sendMail(appUser,null);
 
 
     }
