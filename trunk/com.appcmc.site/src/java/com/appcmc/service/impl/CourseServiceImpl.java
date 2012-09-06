@@ -20,8 +20,8 @@ import com.appcmc.utils.HibernateUtils;
  */
 public class CourseServiceImpl implements CourseService {
 	private static Logger LOG = Logger.getLogger(CourseServiceImpl.class);
-	private static List<Course> courseList = new ArrayList<Course>();
-	Course course = new CourseImpl();
+	
+	
 
 	/*
 	 * (non-Javadoc)
@@ -30,7 +30,11 @@ public class CourseServiceImpl implements CourseService {
 	 * com.appcmc.service.CourseService#create(com.appcmc.domain.sub.Course) To
 	 * Save Or Update Course Details in this App
 	 */
-	@Override
+	/**
+     *
+     * @param course
+     */
+    @Override
 	public void create(Course course) {
 		Session session = HibernateUtils.currentSession();
 		Transaction tx = null;
@@ -41,7 +45,7 @@ public class CourseServiceImpl implements CourseService {
 			tx.commit();
 			rollback = false;
 		} catch (Exception exception) {
-			LOG.warn("exception",exception);
+			LOG.warn("CourseServiceImpl",exception);
 		} finally {
 			if (rollback && tx != null) {
 				tx.rollback();
@@ -56,17 +60,21 @@ public class CourseServiceImpl implements CourseService {
 	 * @see com.appcmc.service.CourseService#getAll() To Get All course Details
 	 * in this App
 	 */
-	@SuppressWarnings("unchecked")
+	/**
+     *
+     * @return
+     */
+    @SuppressWarnings("unchecked")
 	@Override
 	public List<Course> getAll() {
-		// TODO Auto-generated method stub
+		List<Course>  courseList = null;
 		Session session = HibernateUtils.currentSession();
 		try {
 			Query query = session.createQuery(CourseQueryUtils.GETALL);
 			courseList = (List<Course>) query.list();
 		} catch (Exception exception) {
-			// to do log4j
-			LOG.warn(exception.toString());
+			
+			LOG.warn("CourseServiceImpl",exception);
 		} finally {
 			HibernateUtils.closeSession();
 		}
@@ -79,10 +87,16 @@ public class CourseServiceImpl implements CourseService {
 	 * @see com.appcmc.service.CourseService#findByCourseName(java.lang.String)
 	 * To Get Particular course Details By use CourseName in this App
 	 */
-	@Override
+	/**
+     *
+     * @param courseName
+     * @return
+     */
+    @Override
 	public Course findByCourseName(String courseName) {
-		// TODO Auto-generated method stub
+		
 		Session session = HibernateUtils.currentSession();
+                Course course = null;
 		try {
 			Query query = session
 					.createQuery(CourseQueryUtils.FINDBY_COURSENAME);
@@ -92,7 +106,7 @@ public class CourseServiceImpl implements CourseService {
 				return course;
 			}
 		} catch (Exception exception) {			
-			LOG.warn("exception", exception);
+			LOG.warn("CourseServiceImpl", exception);
 		} finally {
 			HibernateUtils.closeSession();
 		}
@@ -105,10 +119,16 @@ public class CourseServiceImpl implements CourseService {
 	 * @see com.appcmc.service.CourseService#findByCourseGuid(java.lang.String)
 	 * To Get Particular course Details By use Guid in this App
 	 */
-	@Override
+	/**
+     *
+     * @param guid
+     * @return
+     */
+    @Override
 	public Course findByCourseGuid(String guid) {
-		// TODO Auto-generated method stub
+		
 		Session session = HibernateUtils.currentSession();
+                Course course = null;
 		try {
 			Query query = session
 					.createQuery(CourseQueryUtils.FINDBYCOURSEGUID);
@@ -118,7 +138,7 @@ public class CourseServiceImpl implements CourseService {
 				return course;
 			}
 		} catch (Exception exception) {
-			LOG.warn("exception",exception);
+			LOG.warn("CourseServiceImpl",exception);
 		} finally {
 			HibernateUtils.closeSession();
 		}

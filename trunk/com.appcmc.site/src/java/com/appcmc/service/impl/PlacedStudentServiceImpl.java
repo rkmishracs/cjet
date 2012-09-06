@@ -22,8 +22,13 @@ import org.hibernate.Transaction;
 public class PlacedStudentServiceImpl implements PlacedStudentService{
     
     private static Logger LOG = Logger.getLogger(AppUserServiceImpl.class);
-    private static List<PlacedStudent> placedStudentList = new ArrayList<PlacedStudent>();
     
+    
+    /**
+     *
+     * @param placedStudent
+     */
+    @Override
     public void create(PlacedStudent placedStudent){
         Session session = HibernateUtils.currentSession();
         Transaction tx = null;
@@ -34,7 +39,7 @@ public class PlacedStudentServiceImpl implements PlacedStudentService{
             tx.commit();
             rollback = false;
         }catch(Exception exception){
-             LOG.warn("Exception", exception);
+             LOG.warn("PlacedStudentServiceImpl", exception);
         }finally{
             if(rollback && tx != null){
                 tx.rollback();
@@ -43,14 +48,19 @@ public class PlacedStudentServiceImpl implements PlacedStudentService{
         }
     }
     
+    /**
+     *
+     * @return
+     */
+    @Override
     public List<PlacedStudent> getAll(){
-        
+          List<PlacedStudent> placedStudentList  = null;
         try{
             Session session = HibernateUtils.currentSession();
             Query query = session.createQuery(PlacedStudentQueryUtils.GETALL);
             placedStudentList = (List<PlacedStudent>) query.list();
         }catch(Exception exception){
-            LOG.warn(exception.toString());
+            LOG.warn("PlacedStudentServiceImpl",exception);
         }finally{
              HibernateUtils.closeSession();
             }
