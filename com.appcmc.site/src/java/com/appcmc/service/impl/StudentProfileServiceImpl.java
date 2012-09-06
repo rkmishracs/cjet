@@ -22,9 +22,12 @@ public class StudentProfileServiceImpl implements StudentProfileService {
 
     private static Logger LOG = Logger.getLogger(StudentProfile.class);
 
+    /**
+     *
+     * @param studentProfile
+     */
     @Override
     public void create(StudentProfile studentProfile) {
-        // TODO Auto-generated method stub
         Session session = HibernateUtils.currentSession();
         Transaction tx = null;
         boolean rollback = true;
@@ -35,7 +38,7 @@ public class StudentProfileServiceImpl implements StudentProfileService {
             rollback = false;
 
         } catch (Exception exception) {
-            LOG.warn("exception", exception);
+            LOG.warn("StudentProfileServiceImpl", exception);
         } finally {
             if (rollback && tx != null) {
                 tx.rollback();
@@ -44,6 +47,10 @@ public class StudentProfileServiceImpl implements StudentProfileService {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<StudentProfile> getAll() {
         Session session = HibernateUtils.currentSession();
@@ -52,7 +59,7 @@ public class StudentProfileServiceImpl implements StudentProfileService {
             Query query = session.createQuery(StudentProfileQueryUtils.GETALL);
             studentProfileList = (List<StudentProfile>) query.list();
         } catch (Exception exception) {
-            LOG.warn("exception", exception);
+            LOG.warn("StudentProfileServiceImpl", exception);
         } finally {
             HibernateUtils.closeSession();
         }
@@ -60,6 +67,11 @@ public class StudentProfileServiceImpl implements StudentProfileService {
         return studentProfileList;
     }
 
+    /**
+     *
+     * @param enrollmentNumber
+     * @return
+     */
     @Override
     public StudentProfile findStudentProfileByEnrollmentNumber(String enrollmentNumber) {
         Session session = HibernateUtils.currentSession();
@@ -69,7 +81,7 @@ public class StudentProfileServiceImpl implements StudentProfileService {
             query.setParameter("EnrollmentNumber", enrollmentNumber);
             studentProfile = (StudentProfile) query.uniqueResult();
         } catch (Exception exception) {
-            LOG.warn("exception", exception);
+            LOG.warn("StudentProfileServiceImpl", exception);
         } finally {
             HibernateUtils.closeSession();
         }

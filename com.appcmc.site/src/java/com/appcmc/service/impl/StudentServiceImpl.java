@@ -2,13 +2,6 @@ package com.appcmc.service.impl;
 
 import com.appcmc.context.id.names.ContextIdNames;
 import com.appcmc.domain.sub.Contacts;
-import java.util.List;
-
-import org.apache.log4j.Logger;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
 import com.appcmc.domain.sub.Student;
 import com.appcmc.domain.sub.impl.StudentImpl;
 import com.appcmc.query.utils.StudentQueryUtils;
@@ -21,14 +14,22 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class StudentServiceImpl implements StudentService {
 
     private static Logger LOG = Logger.getLogger(StudentImpl.class);
 
+    /**
+     *
+     * @param student
+     */
     @Override
     public void create(Student student) {
-        // TODO Auto-generated method stub
         Session session = HibernateUtils.currentSession();
         Transaction tx = null;
         boolean rollback = true;
@@ -39,7 +40,7 @@ public class StudentServiceImpl implements StudentService {
             rollback = false;
 
         } catch (Exception exception) {
-            LOG.warn("exception", exception);
+            LOG.warn("StudentServiceImpl", exception);
         } finally {
             if (rollback && tx != null) {
                 tx.rollback();
@@ -49,10 +50,13 @@ public class StudentServiceImpl implements StudentService {
 
     }
 
+    /**
+     *
+     * @return
+     */
     @SuppressWarnings("unchecked")
     @Override
     public List<Student> getAll() {
-        // TODO Auto-generated method stub
         Session session = HibernateUtils.currentSession();
         List<Student> studentList = null;
         try {
@@ -60,16 +64,20 @@ public class StudentServiceImpl implements StudentService {
             studentList = (List<Student>) query.list();
 
         } catch (Exception exception) {
-            LOG.warn("exception", exception);
+            LOG.warn("StudentServiceImpl", exception);
         } finally {
             HibernateUtils.closeSession();
         }
         return studentList;
     }
 
+    /**
+     *
+     * @param enrollmentNumber
+     * @return
+     */
     @Override
     public Student findStudentByEnrollmentNumber(String enrollmentNumber) {
-        // TODO Auto-generated method stub
         Session session = HibernateUtils.currentSession();
         Student student = null;
         try {
@@ -81,17 +89,21 @@ public class StudentServiceImpl implements StudentService {
                 return student;
             }
         } catch (Exception exception) {
-            LOG.warn("exception", exception);
+            LOG.warn("StudentServiceImpl", exception);
         } finally {
             HibernateUtils.closeSession();
         }
         return student;
     }
 
+    /**
+     *
+     * @param guid
+     * @return
+     */
     @Override
     public Student findStudentByGuid(String guid) {
-        // TODO Auto-generated method stub
-        Session session = HibernateUtils.currentSession();
+       Session session = HibernateUtils.currentSession();
         Student student = null;
         try {
             Query query = session
@@ -101,13 +113,18 @@ public class StudentServiceImpl implements StudentService {
                 return student;
             }
         } catch (Exception exception) {
-            LOG.warn("exception", exception);
+            LOG.warn("StudentServiceImpl", exception);
         } finally {
             HibernateUtils.closeSession();
         }
         return student;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public Student findById(Long id) {
 
@@ -117,13 +134,17 @@ public class StudentServiceImpl implements StudentService {
             student = (Student) session.get(Student.class, id);
 
         } catch (Exception exception) {
-            LOG.warn("Exception", exception);
+            LOG.warn("StudentServiceImpl", exception);
         } finally {
             HibernateUtils.closeSession();
         }
         return student;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<Student> getByCurrentWeek() {
 
@@ -146,11 +167,15 @@ public class StudentServiceImpl implements StudentService {
                 }
             }
         } catch (Exception exception) {
-            LOG.warn("Exception", exception);
+            LOG.warn("StudentServiceImpl", exception);
         }
         return studentWeekList;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<Student> getByCurrentMonth() {
         List<Student> studentMonthList = new ArrayList<Student>();
@@ -169,7 +194,7 @@ public class StudentServiceImpl implements StudentService {
                 }
             }
         } catch (Exception exception) {
-            LOG.warn("Exception", exception);
+            LOG.warn("StudentServiceImpl", exception);
         }
         return studentMonthList;
     }
@@ -193,11 +218,16 @@ public class StudentServiceImpl implements StudentService {
                 }
             }
         } catch (Exception exception) {
-            LOG.warn("Exception", exception);
+            LOG.warn("StudentServiceImpl", exception);
         }
         return studentDayList;
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     @Override
     public List<Student> findByName(String name) {
 
@@ -211,7 +241,7 @@ public class StudentServiceImpl implements StudentService {
             studentList = query.list();
 
         } catch (Exception exception) {
-            LOG.warn("exception", exception);
+            LOG.warn("StudentServiceImpl", exception);
         } finally {
             HibernateUtils.closeSession();
         }
@@ -225,6 +255,11 @@ public class StudentServiceImpl implements StudentService {
         return list;
     }
 
+    /**
+     *
+     * @param count
+     * @return
+     */
     @Override
     public List<Student> pagenator(Integer count) {
         Integer pageSize = 2;
@@ -236,7 +271,7 @@ public class StudentServiceImpl implements StudentService {
             query.setMaxResults(pageSize);
             studentList = query.list();
         } catch (Exception exception) {
-            LOG.warn("exception", exception);
+            LOG.warn("StudentServiceImpl", exception);
         } finally {
             HibernateUtils.closeSession();
         }
@@ -244,6 +279,11 @@ public class StudentServiceImpl implements StudentService {
         return studentList;
     }
 
+    /**
+     *
+     * @param mobile
+     * @return
+     */
     @Override
     public List<Student> findByMobile(String mobile) {
 
@@ -261,7 +301,7 @@ public class StudentServiceImpl implements StudentService {
                 studentList.add(student);
             }
         } catch (Exception exception) {
-            LOG.warn("exception", exception);
+            LOG.warn("StudentServiceImpl", exception);
         }
         return studentList;
     }

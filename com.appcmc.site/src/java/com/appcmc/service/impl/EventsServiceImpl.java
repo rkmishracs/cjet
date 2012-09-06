@@ -22,9 +22,12 @@ public class EventsServiceImpl implements EventsService{
 
     private static Logger LOG = Logger.getLogger(EventsServiceImpl.class);
     
+    /**
+     *
+     * @param events
+     */
     @Override
     public void create(Events events) {
-        // TODO Auto-generated method stub
         Session session = HibernateUtils.currentSession();
         Transaction tx = null;
         boolean rollback = true;
@@ -35,7 +38,7 @@ public class EventsServiceImpl implements EventsService{
             rollback = false;
 
         } catch (Exception exception) {
-            LOG.warn("exception", exception);
+            LOG.warn("EventsServiceImpl", exception);
         } finally {
             if (rollback && tx != null) {
                 tx.rollback();
@@ -44,6 +47,10 @@ public class EventsServiceImpl implements EventsService{
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<Events> getAll() {
         Session session = HibernateUtils.currentSession();
@@ -53,7 +60,7 @@ public class EventsServiceImpl implements EventsService{
             eventsList = (List<Events>) query.list();
             
         }catch(Exception exception){
-            LOG.warn("exception", exception);
+            LOG.warn("EventsServiceImpl", exception);
         }finally{
            HibernateUtils.closeSession(); 
         }
@@ -61,6 +68,11 @@ public class EventsServiceImpl implements EventsService{
         return eventsList;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public Events findById(Long id) {
         Session session = HibernateUtils.currentSession();
@@ -68,7 +80,7 @@ public class EventsServiceImpl implements EventsService{
         try{
            events = (Events) session.get(Events.class, id);
         }catch(Exception exception){
-            LOG.warn("exception", exception);
+            LOG.warn("EventsServiceImpl", exception);
         }finally{
             HibernateUtils.closeSession();
         }

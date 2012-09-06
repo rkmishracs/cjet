@@ -15,10 +15,13 @@ public class EducationalQualificationsServiceImpl implements EducationalQualific
 
     private static Logger LOG = Logger.getLogger(StudentProfile.class);
     
+    /**
+     *
+     * @param educationalQualifications
+     */
     @Override
     public void create(EducationalQualifications educationalQualifications) {
-        // TODO Auto-generated method stub
-        Session session = HibernateUtils.currentSession();
+       Session session = HibernateUtils.currentSession();
         Transaction tx = null;
         boolean rollback = true;
         try {
@@ -28,7 +31,7 @@ public class EducationalQualificationsServiceImpl implements EducationalQualific
             rollback = false;
 
         } catch (Exception exception) {
-            LOG.warn("exception", exception);
+            LOG.warn("EducationalQualificationsServiceImpl", exception);
         } finally {
             if (rollback && tx != null) {
                 tx.rollback();
@@ -37,6 +40,10 @@ public class EducationalQualificationsServiceImpl implements EducationalQualific
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<EducationalQualifications> getAll() {
         Session session = HibernateUtils.currentSession();
@@ -45,13 +52,18 @@ public class EducationalQualificationsServiceImpl implements EducationalQualific
             Query query = session.createQuery(EducationalQualificationsQueryUtils.GETALL);
             educationalQualificationsList = (List<EducationalQualifications>) query.list();
         }catch(Exception exception){
-            LOG.warn("exception", exception);
+            LOG.warn("EducationalQulaificationsServiceImpl", exception);
         }finally{
             HibernateUtils.closeSession();
         }
         return educationalQualificationsList;
     }
 
+    /**
+     *
+     * @param enrollmentNumber
+     * @return
+     */
     @Override
     public EducationalQualifications findEducationalQualificationsByEnrollmentNumber(String enrollmentNumber) {
         Session session = HibernateUtils.currentSession();
@@ -61,7 +73,7 @@ public class EducationalQualificationsServiceImpl implements EducationalQualific
             query.setParameter("EnrollmentNumber", enrollmentNumber);
             educationalQualifications = (EducationalQualifications) query.uniqueResult();
         }catch(Exception exception){
-            LOG.warn("exception", exception);
+            LOG.warn("EducationalQulaificationsServiceImpl", exception);
         }finally{
             HibernateUtils.closeSession();
         }

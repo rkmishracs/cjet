@@ -31,17 +31,30 @@ public class AppMailServiceImpl implements AppMailService {
    private JavaMailSender mailSender;
    private VelocityEngine velocityEngine;
 
-   @Override
+    /**
+     *
+     * @param mailSender
+     */
+    @Override
    public void setMailSender(JavaMailSender mailSender) {
       this.mailSender = mailSender;
    }
 
-   @Override
+    /**
+     *
+     * @param velocityEngine
+     */
+    @Override
    public void setVelocityEngine(VelocityEngine velocityEngine) {
       this.velocityEngine = velocityEngine;
    }
 
-   @Override
+    /**
+     *
+     * @param appUser
+     * @param imageList
+     */
+    @Override
    public void sendMail(final AppUser appUser, final List<String> imageList) {
       MimeMessagePreparator mimeMessagePreparator = new MimeMessagePreparator() {
          @Override
@@ -54,12 +67,12 @@ public class AppMailServiceImpl implements AppMailService {
                mimeMessageHelper.addInline("img" + i, new File(imageList.get(i)));
             }
 
-            //mimeMessageHelper.addInline(map.get("img1"), n);
+            
             Map model = new HashMap();
             model.put("user", appUser);
 
             String text = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "/mailTemplate.vm", model);
-            //mimeMessageHelper.setText(text, true);
+           
               mimeMessageHelper.setText(text, true);
 
 
@@ -69,7 +82,11 @@ public class AppMailServiceImpl implements AppMailService {
       this.mailSender.send(mimeMessagePreparator);
    }
 
-   @Override
+    /**
+     *
+     * @param appUser
+     */
+    @Override
    public void sendPassword(final AppUser appUser) {
       MimeMessagePreparator mimeMessagePreparator = new MimeMessagePreparator() {
          @Override
@@ -90,7 +107,11 @@ public class AppMailServiceImpl implements AppMailService {
       this.mailSender.send(mimeMessagePreparator);
    }
 
-   @Override
+    /**
+     *
+     * @param emailProfileForm
+     */
+    @Override
    public void sendResume(final EmailProfileForm emailProfileForm) {
       MimeMessagePreparator mimeMessagePreparator = new MimeMessagePreparator() {
          @Override
