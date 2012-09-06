@@ -18,7 +18,6 @@ public class ExportToExcelController {
     
     @RequestMapping(method = RequestMethod.GET, value = "/all")
     public String all(){
-        
         return "";
     }
 }
