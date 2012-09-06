@@ -30,23 +30,23 @@ public class PlacedStudentTest {
             PlacedStudent placedStudent = (PlacedStudent) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.PLACED_STUDENT);
             
-//         placedStudent.setEnrollmentNumber("CJET130632012");
-//         placedStudent.setFirstName("Hasan");
-//         placedStudent.setLastName("anwar");
-//         placedStudent.setGender("M");
-//         placedStudent.setPlacedCompany("Infosys");
-//         placedStudent.setYearOfPlacement("2011");
-//         placedStudent.setDesignation("Developer");
-//         placedStudent.setPackageDetails("25000");
-//         placedStudent.setOtherDetails("add");
-//         placedStudent.setCreatedOn(new java.util.Date());
-//         placedStudent.setCreatedBy(1L);
-//         placedStudent.setModifiedOn(new java.util.Date());
-//         placedStudent.setModifiedBy(1L);
-//         placedStudent.setActive(Short.parseShort("1"));
-//         
+//        placedStudent.setEnrollmentNumber("CJET130632042");
+//        placedStudent.setFirstName("Anwar");
+//        placedStudent.setLastName("Hasan");
+//        placedStudent.setGender("Male");
+//        placedStudent.setPlacedCompany("Infosys");
+//        placedStudent.setYearOfPlacement("2011");
+//        placedStudent.setDesignation("Developer");
+//        placedStudent.setPackageDetails("30000");
+//        placedStudent.setOtherDetails("add");
+//        placedStudent.setCreatedOn(new java.util.Date());
+//        placedStudent.setCreatedBy(1L);
+//        placedStudent.setModifiedOn(new java.util.Date());
+//        placedStudent.setModifiedBy(1L);
+//        placedStudent.setActive(Short.parseShort("1"));
+//        
 //         placedStudentService.create(placedStudent);
-         
+//         
          
          List<PlacedStudent> placedStudentList = placedStudentService.getAll();
         for(PlacedStudent ps : placedStudentList){
