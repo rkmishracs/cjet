@@ -32,7 +32,7 @@ import org.springframework.web.context.request.WebRequest;
 @RequestMapping("/event")
 public class EventController {
     
-    static Logger LOG = Logger.getLogger(ReportsController.class);
+    static Logger LOG = Logger.getLogger(EventController.class);
     private Events events = null;
     private EventsService eventsService = null;
     private Date eventdate = null;
