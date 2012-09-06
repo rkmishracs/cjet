@@ -30,7 +30,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
 
@@ -261,7 +263,18 @@ public class MasterController {
         //Sending EnrollmentNumber  to the Student through java mail
         appMailService = (AppMailService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_MAIL_SERVICE);
 
-        appMailService.sendMail(appUser);
+        String image1 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_01.jpg");
+        String image2 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_02.jpg");
+        String image3 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_03.jpg");
+        String image4 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_04.jpg");
+        
+        List<String> imageList = new ArrayList<String>();
+        imageList.add(image1);
+        imageList.add(image2);
+        imageList.add(image3);
+        imageList.add(image4);       
+        
+        appMailService.sendMail(appUser, imageList);
 
 
 
