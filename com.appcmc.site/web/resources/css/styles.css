@@ -2389,7 +2389,7 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     top:17px;
     width:250px;
     left:668px;
-    height:286px;
+    height:300px;
     border: 1px solid #B6C1CC;
 }
 
@@ -2804,21 +2804,37 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     top:-40px;
     left: 257px;
 }
-
-.profilePerDup{
-    position: relative;
-    top:1px;
-    width: 120px;
-    height: 39px;
-    left:20px;
-    color: black;
-    padding: 5px 70px 5px 7px;
-    border: solid 1px #8E9DB0;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    background: url(../images/design/module-back.png) repeat-x left bottom;
-
+/* Styles For Success Div in appHome  */
+        .chatBlk {
+        width: 228px;
 }
+.mrgn_r20 {
+        margin-right: 20px;
+}
+.fl {
+        float: left;
+}
+.fr {
+        float: right;
+}
+.w160 {
+        width: 160px;
+}.disBlk {
+        display: block;
+}.mrgn_b10 {
+        margin-bottom: 10px
+}
+.date {
+        color: #db6200
+}
+#testSuccessDiv{
+    position: relative;
+    top:13px;
+    left:10px;
+    
+}
+
+
 
 
 #eventTimeSpecific{
@@ -2838,6 +2854,7 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 .disBlk {
     display: block;
 }
+/*
 #successStoryDiv{
     position: relative;
 
@@ -2846,4 +2863,5 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     position: relative;
     top:0px;
 }
+*/
 
