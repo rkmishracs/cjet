@@ -33,7 +33,8 @@ $(document).ready(function(){
             o.addClass( "ui-state-error" );
             updateTips( n );
             return false;
-        } else {
+        }
+        else {
             return true;
         }
     }
@@ -1491,11 +1492,11 @@ $(document).ready(function(){
                 // Move the scrubber on mouse drag
                 scrubber.css({
                     top: (_offsetY + event.pageY - _startY)
-                    });
+                });
                 // Move the content area according to the scrubber movement.
                 $('#updateContent').css({
                     top: ((initContentPos - scrubber.offset().top) * moveVal)
-                    });   
+                });   
             }else{
                 // Reset when upper and lower limits are excced.
                 if(scrubber.offset().top <= initContentPos){
@@ -1511,10 +1512,10 @@ $(document).ready(function(){
 
                     scrubber.css({
                         top: (scrollHeight-scrollFaceHeight-2)
-                        });
+                    });
                     $('#updateContent').css({
                         top: (scrollHeight - contentHeight + initPosition)
-                        });
+                    });
                 }
 
                 $('#updateHolder').trigger('mouseup');
@@ -1685,6 +1686,118 @@ $(document).ready(function(){
             
         }
          
+    });
+    
+    //Script for createSucessStory.jsp
+    
+    $("#sucessStoriesEnrollmentNumber").blur(function(){
+        
+        if($("#sucessStoriesEnrollmentNumber").val() != ""){
+            $("#ajax_loading_enrollmentShow").css("display", "block");
+        
+            var enrollmentNumber = $("#sucessStoriesEnrollmentNumber");
+        
+            setTimeout(function(){
+            
+                $.ajax({
+                    type : "get",
+                    url : $('#createSucessStoriesHidden').val()+"/successStories/getPersonName",
+                    data : "enrollmentNumber="+enrollmentNumber.val(),
+                    success : function(response){
+                        if(response != null){
+                            $("#ajax_loading_enrollmentShow").css("display", "none");
+                            $('#successStoryPersonName').val(response);
+                        }else{
+                            alert("Enrollment Does Not Exists");
+                        }
+                       
+                    }
+                });
+            },3000);
+        }
+    });
+    
+    $("#yearOfPlacement").bind("keyup",function(){
+        var $th = $(this);
+        $th.val( $th.val().replace(/[^0-9]/g, function() {
+            alert("Filed should contain numbers only");
+            return '';
+        } ) );
+    });
+    
+    $("#submitForCreateSuccessStories").click(function(){
+        
+        if($("#sucessStoriesEnrollmentNumber").val()== '' || $("#placedCompanyName").val()== ''|| $("#yearOfPlacement").val()== 0||$("#designation").val() == 0 || $("#packageDetails").val() == 0 || $("#otherDetails").val() == 0){
+            if($("#sucessStoriesEnrollmentNumber").val() == ''){
+                alert("Enrollment Number Field Is Empty");
+                $("#sucessStoriesEnrollmentNumber").focus();
+                return false;
+            }
+            
+            if($("#placedCompanyName").val() == ''){
+                alert("Placed Company Name Field Is Empty");
+                $("#eventType").focus();
+                return false;
+            }
+         
+            if($("#yearOfPlacement").val() == ''){
+                alert("Year Of Placement Field Is Empty");
+                $("#eventDate").focus();
+                return false;
+            }
+         
+            if($("#designation").val() == ''){
+                alert("Designation Field Is Empty");
+                $("#eventLocation").focus();
+                return false;
+            }
+         
+            if($("#packageDetails").val() == ''){
+                alert("Package Details Field Is Empty");
+                $("#eventLocation").focus();
+                return false;
+            }
+            if($("#otherDetails").val() == ''){
+                alert("Other details Field Is Empty");
+                $("#eventLocation").focus();
+                return false;
+            }
+        }else{
+            
+            $.ajax({
+                type : "post",
+                url : $('#createSucessStoriesHidden').val()+"/successStories/createSuccessStory",
+                data : $("#sucessStoryCreation").serialize(),
+                success : function(response){
+                    
+                    if(response == 'success'){
+                        $("#submitForCreateSuccessStories").css("display", "none");
+                        $("#ajax_loading_createSucessStory").css("display", "block");
+                        setTimeout(function(){
+                            $("#ajax_loading_createSucessStory").css("display", "none");
+                            $("#createdSuccessStory").css("display", "block");
+                            if($("#createdSuccessStory").css("display", "block")){
+                                setTimeout(function(){
+                                    $("#createdSuccessStory").fadeOut("slow");
+                                    $("#submitForCreateSuccessStories").css("display", "block");
+                                    $("#sucessStoriesEnrollmentNumber").val('');
+                                    $("#successStoryPersonName").val('');
+                                    $("#placedCompanyName").val('');
+                                    $("#yearOfPlacement").val('');
+                                    $("#designation").val('');
+                                    $("#packageDetails").val('');
+                                    $("#otherDetails").val('');
+                                    $("#sucessStoriesEnrollmentNumber").focus();
+                                }, 2000);
+                            }
+                        }, 3000);
+                    }
+                }
+            });
+            
+        }
+    
+        
     });
       
 });
