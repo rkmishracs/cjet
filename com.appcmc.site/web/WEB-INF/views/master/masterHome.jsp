@@ -123,6 +123,7 @@
                             <li><a href="#" id="change-password-link"><s:message code="lbl.enrollment.link.changePassword"/></a></li>
                             <li><a href="${pageContext.request.contextPath}/reports/viewAllProfiles">View All Profiles</a></li>
                             <li><a href="${pageContext.request.contextPath}/event">Events</a></li>
+                            <li><a href="${pageContext.request.contextPath}/successStories">Success Stories</a></li>
                         </ul>
                     </div>
                 </div>
