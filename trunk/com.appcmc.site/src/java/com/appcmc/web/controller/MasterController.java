@@ -14,15 +14,8 @@ import com.appcmc.service.AppUserService;
 import com.appcmc.service.EducationalQualificationsService;
 import com.appcmc.service.StudentProfileService;
 import com.appcmc.service.StudentService;
-import com.appcmc.utils.AppCmcSpringContext;
 import com.appcmc.utils.AppContext;
 import com.appcmc.web.forms.ChangePasswordForm;
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.appcmc.web.forms.EnrollmentForm;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -30,12 +23,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
-
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
@@ -64,65 +59,49 @@ public class MasterController {
     @RequestMapping(method = RequestMethod.GET)
     public String showMaster(@ModelAttribute EnrollmentForm enrollmentForm, ChangePasswordForm changePasswordForm, WebRequest request) {
 
-        LOG.debug("In Master Controller");
-
         studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
-
-
         List<Student> studentList = studentService.getAll();
         List<Student> studentMonthlyEnrollment = studentService.getByCurrentMonth();
         List<Student> studentWeeklyEnrollment = studentService.getByCurrentWeek();
         List<Student> studentDayEnrollment = studentService.getByDay();
-
         request.setAttribute("studentCount", studentList.size(), WebRequest.SCOPE_REQUEST);
         request.setAttribute("studentWeeklyCount", studentWeeklyEnrollment.size(), WebRequest.SCOPE_REQUEST);
         request.setAttribute("StudentMonthlyCount", studentMonthlyEnrollment.size(), WebRequest.SCOPE_REQUEST);
         request.setAttribute("studentDayCount", studentDayEnrollment.size(), WebRequest.SCOPE_REQUEST);
-
 
         return "/master/masterHome";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/showEnrollment")
     public String showEnrollment(@ModelAttribute EnrollmentForm enrollmentForm, ChangePasswordForm changePasswordForm) {
-        LOG.debug("In Master Controller");
         return "/master/enrlHome";
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public String doEnrollment(@ModelAttribute EnrollmentForm enrollmentForm, HttpServletRequest request) {
-        LOG.debug("In Enrollment POST");
-
-        AppCmcSpringContext.init();
 
         studentService = (StudentService) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.STUDENT_SERVICE);
-
         appUserService = (AppUserService) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.APP_USER_SERVICE);
-
         educationalQualifications = (EducationalQualifications) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.EDUCATIONAL_QUALIFICATIONS);
-
         student = (Student) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.STUDENT);
 
         // Creating Contact Details
-
         contacts = (Contacts) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.CONTACTS);
 
         // Creating a Student
-
         student.setEnrollmentNumber(enrollmentForm.getEnrollmentNumber());
         student.setEmail(enrollmentForm.getEmail());
         student.setFirstName(enrollmentForm.getFirstName());
         student.setLastName(enrollmentForm.getLastName());
+    
         SimpleDateFormat simpleDateFormat = (SimpleDateFormat) AppContext.APPCONTEXT.getBean(ContextIdNames.SIMPLE_DATE_FORMAT);
-
         try {
-
             Date dateOfBirth = simpleDateFormat.parse(enrollmentForm.getDateOfBirth());
             student.setDateOfBirth(dateOfBirth);
         } catch (ParseException e) {
@@ -156,18 +135,13 @@ public class MasterController {
 
         String fileName = request.getSession().getServletContext().getRealPath("/resources/images/content/user-img-40.jpg");
         byte[] imageBytes = null;
-
         try {
             inputStream = new FileInputStream(fileName);
-
             imageBytes = new byte[inputStream.available()];
-
             inputStream.read(imageBytes);
-
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(MasterController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
 
         student.setContacts(contacts);
         student.setProfilePic(imageBytes);
@@ -176,14 +150,11 @@ public class MasterController {
         student.setModifiedOn(date);
         student.setModifiedBy(1L);
         student.setActive(new Short("1"));
-
         studentService.create(student);
 
         // Creating Application User
-
         appUser = (AppUser) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.APP_USER);
-
         appUser.setEmail(student.getEmail());
         appUser.setEnrollmentNumber(student.getEnrollmentNumber());
         appUser.setPassword("default");
@@ -192,7 +163,6 @@ public class MasterController {
         appUser.setLastName(student.getLastName());
         appUser.setStatusId(1L);
         appUser.setGender(student.getGender());
-
         appUser.setTimeZone("timeZone");
         appUser.setType("student");
         appUser.setCreatedOn(date);
@@ -200,9 +170,7 @@ public class MasterController {
         appUser.setModifiedOn(date);
         appUser.setModifiedBy(1L);
         appUser.setActive(new Short("1"));
-
         appUserService.create(appUser);
-
 
         educationalQualifications.setEnrollmentNumber(enrollmentForm.getEnrollmentNumber());
         educationalQualifications.setActive(new Short("1"));
@@ -230,10 +198,7 @@ public class MasterController {
         educationalQualifications.setTwoSpecialization("Not Available");
         educationalQualifications.setTwoUniversity("Not Available");
         educationalQualifications.setTwoYearOfPass("Not Available");
-
-
         educationalQualificationsService = (EducationalQualificationsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EDUCATIONAL_QUALIFICATIONS_SERVICE);
-
         educationalQualificationsService.create(educationalQualifications);
 
         studentProfile = (StudentProfile) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE);
@@ -250,37 +215,21 @@ public class MasterController {
         studentProfile.setTitle("Not Updated");
         studentProfile.setTotalExperience("Not Updated");
         studentProfile.setResume(null);
-
         studentProfileService = (StudentProfileService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
         studentProfileService.create(studentProfile);
 
-
-
-
-
-
-
         //Sending EnrollmentNumber  to the Student through java mail
         appMailService = (AppMailService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_MAIL_SERVICE);
-
         String image1 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_01.jpg");
         String image2 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_02.jpg");
         String image3 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_03.jpg");
         String image4 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_04.gif");
-        
         List<String> imageList = new ArrayList<String>();
         imageList.add(image1);
         imageList.add(image2);
         imageList.add(image3);
         imageList.add(image4);       
-        
         appMailService.sendMail(appUser, imageList);
-
-
-
-
-
-
 
         return "Enrollment Genarated";
     }
@@ -289,20 +238,12 @@ public class MasterController {
     @RequestMapping(method = RequestMethod.POST, value = "/changePassword")
     public String changePasswordAction(@ModelAttribute ChangePasswordForm changePasswordForm) {
 
-        LOG.debug("===============In changePasswordAction Post");
-
-
         String userName = changePasswordForm.getUserName();
         String currentPassword = changePasswordForm.getCurrentPassword();
         String newPassword = changePasswordForm.getNewPassword();
-        //String confirmPassword = changePasswordForm.getConfirmPassword();
 
         appUserService = (AppUserService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_USER_SERVICE);
-
-
-
         appUser = appUserService.authenticate(userName, currentPassword);
-
         if (appUser == null) {
             // TO DO
             LOG.debug("===============User Not Available");
@@ -325,8 +266,8 @@ public class MasterController {
         appUser.setCreatedBy(appUser.getCreatedBy());
         appUser.setModifiedOn(date);
         appUser.setActive(appUser.getActive());
-
         appUserService.create(appUser);
+
         return "success";
     }
 }

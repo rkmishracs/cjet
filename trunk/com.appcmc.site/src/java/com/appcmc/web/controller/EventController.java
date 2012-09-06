@@ -28,7 +28,6 @@ import org.springframework.web.context.request.WebRequest;
  *
  * @author HOME
  */
-
 @Controller
 @RequestMapping("/event")
 public class EventController {
@@ -44,9 +43,6 @@ public class EventController {
     
     @RequestMapping(method= RequestMethod.GET)
     public String showEventsPage(){
-        
-        LOG.debug("In Event Controller");
-        
         return "/master/eventsHome";
     }
     
@@ -59,7 +55,6 @@ public class EventController {
     public String showAllEvents(WebRequest request){
         
         eventsService = (EventsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EVENT_SERVICE);
-        
         eventsList = eventsService.getAll();
         activeEventsList = new ArrayList<Events>();
         for(Events evnt : eventsList){
@@ -67,8 +62,8 @@ public class EventController {
                 activeEventsList.add(evnt);
             }
         }
-        
         request.setAttribute("eventsList", activeEventsList, WebRequest.SCOPE_REQUEST);
+        
         return "master/viewAllEvents";
     }
     
@@ -78,26 +73,15 @@ public class EventController {
     public String createEvent(@ModelAttribute EventCreationFrom eventCreationFrom, WebRequest request){
         
         date = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
-        
-        
-       LOG.debug("In create Event");
-
         SimpleDateFormat simpleDateFormat = (SimpleDateFormat) AppContext.APPCONTEXT.getBean(ContextIdNames.SIMPLE_DATE_FORMAT);
         try {
-
             eventdate = simpleDateFormat.parse(eventCreationFrom.getEventDate());
         } catch (ParseException parseException) {
-            LOG.debug("exception", parseException);
+            LOG.debug("EventController", parseException);
         }
-
         appUser = (AppUser) request.getAttribute("user", WebRequest.SCOPE_SESSION);
-        
-        LOG.debug(appUser);
-        
         eventsService = (EventsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EVENT_SERVICE);
-        
         events = (Events) AppContext.APPCONTEXT.getBean(ContextIdNames.EVENTS);
-        
         events.setEventName(eventCreationFrom.getEventName());
         events.setEventType(eventCreationFrom.getEventType());
         events.setEventOn(eventdate);
@@ -109,7 +93,6 @@ public class EventController {
         events.setCreatedBy(appUser.getCreatedBy());
         events.setModifiedBy(appUser.getModifiedBy());
         events.setActive(Short.parseShort("1"));
-        
         eventsService.create(events);
         
         return "success";
@@ -120,10 +103,8 @@ public class EventController {
         
         date = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
         appUser = (AppUser) request.getAttribute("user", WebRequest.SCOPE_SESSION);
-        
         eventsService = (EventsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EVENT_SERVICE);
         Events events1 = eventsService.findById(id);
-        
         events = (Events) AppContext.APPCONTEXT.getBean(ContextIdNames.EVENTS);
         events.setId(events1.getId());
         events.setGuid(events1.getGuid());
@@ -138,7 +119,6 @@ public class EventController {
         events.setModifiedBy(appUser.getId());
         events.setModifiedOn(date);
         events.setActive(Short.parseShort("0"));
-        
         eventsService.create(events);
         
         eventsList = eventsService.getAll();
@@ -148,9 +128,9 @@ public class EventController {
                 activeEventsList.add(evnt);
             }
         }
-        
         request.setAttribute("successCancelEvent", events1.getEventName()+" Is Successfully Canceled", WebRequest.SCOPE_REQUEST);
         request.setAttribute("eventsList", activeEventsList, WebRequest.SCOPE_REQUEST);
+
         return "master/viewAllEvents";
     }
 }

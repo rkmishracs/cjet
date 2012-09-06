@@ -25,27 +25,22 @@ import org.springframework.web.context.request.WebRequest;
 public class ImageController extends HttpServlet {
     
     private static Logger LOG = Logger.getLogger(AvtarHomeController.class);
+    
     @RequestMapping(method = RequestMethod.GET,params="id")
     public void showPicture(HttpServletResponse response,WebRequest request,@RequestParam String id) throws IOException {
         
         response.setContentType("image/jpeg");
-
         OutputStream outputStream = null;
         try {
-                         
             StudentService studentService = 
                     (StudentService)AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
             Student studentInfo = studentService.findStudentByEnrollmentNumber(id);
-            
             byte[] image = studentInfo.getProfilePic();
-            
             response.setContentLength(image.length);
             outputStream = response.getOutputStream();
             outputStream.write(image);
         } catch (Exception exception) {
-           
-            LOG.error("exception", exception);
-            
+            LOG.error("ImageController", exception);
         } finally {
             if (outputStream != null) {
                 outputStream.close();
@@ -53,5 +48,4 @@ public class ImageController extends HttpServlet {
         }
         
     }
-    
 }

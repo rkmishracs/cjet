@@ -20,6 +20,5 @@ public class ProfileViewController {
     public String showProfileView(){        
         return "/avtar/profileView";
     }
-        
     
 }

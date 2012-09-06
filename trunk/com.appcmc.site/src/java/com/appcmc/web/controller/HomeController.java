@@ -14,18 +14,16 @@ import com.appcmc.service.EventsService;
 import com.appcmc.service.StudentService;
 import com.appcmc.utils.AppCmcSpringContext;
 import com.appcmc.utils.AppContext;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.appcmc.web.forms.SignInForm;
 import com.appcmc.web.utils.CookieUtils;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.WebRequest;
 
 /**
@@ -45,14 +43,16 @@ public class HomeController {
     private Contacts contacts = null;
     private ContactService contactService = null;
     private EventsService eventsService = null;
+    
+    public HomeController(){
+        AppCmcSpringContext.init();
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     public String showHome(@ModelAttribute SignInForm signInForm, HttpServletRequest request, WebRequest req) {
-        AppCmcSpringContext.init();
 
         eventsService = (EventsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EVENT_SERVICE);
         List<Events> eventList = eventsService.getAll();
-
         Date presentDate = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
         Events eventsJobFair = null;
         Events canceledEvent = null;
@@ -64,16 +64,16 @@ public class HomeController {
                 }
             }
         }
-        for(Events evnt : eventList){
-            if (evnt.getEventType().equalsIgnoreCase("Job Fair")  && evnt.getActive().equals(Short.parseShort("1"))) {
+        for (Events evnt : eventList) {
+            if (evnt.getEventType().equalsIgnoreCase("Job Fair") && evnt.getActive().equals(Short.parseShort("1"))) {
                 if (evnt.getEventOn().after(presentDate)) {
                     eventsJobFair = evnt;
                     break;
                 }
             }
         }
-        
-        for(Events evnt : eventList){
+
+        for (Events evnt : eventList) {
             if (evnt.getActive().equals(Short.parseShort("0"))) {
                 canceledEvent = evnt;
             }
@@ -82,30 +82,21 @@ public class HomeController {
         req.setAttribute("walkInEvent", events, WebRequest.SCOPE_REQUEST);
         req.setAttribute("jobFairEvent", eventsJobFair, WebRequest.SCOPE_REQUEST);
 
-
-
         String cookieValue = CookieUtils.getCookieValue("appUser", request);
-        LOG.debug("=================Cookie Value ====" + cookieValue);
-
         if (cookieValue == null) {
             return "/home/appHome";
         }
 
         appUserService = (AppUserService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_USER_SERVICE);
         appUser = appUserService.findByGuid(cookieValue);
-
         if (appUser == null) {
             return "/home/appHome";
         }
-
         if (appUser.getType().equalsIgnoreCase("admin")) {
-            LOG.debug("In Admin====================Cookie");
             req.setAttribute("user", appUser, WebRequest.SCOPE_SESSION);
             return "redirect:/master";
         }
-
         if (appUser.getType().equalsIgnoreCase("student")) {
-            LOG.debug("In Student ====================Cookie");
             studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
             contactService = (ContactService) AppContext.APPCONTEXT.getBean(ContextIdNames.CONTACT_SERVICE);
             student = studentService.findStudentByEnrollmentNumber(appUser.getEnrollmentNumber());
@@ -113,14 +104,11 @@ public class HomeController {
             LOG.debug(student);
             if (student == null) {
                 // TO Do
-                LOG.debug("========================Not Found");
+                LOG.debug("===============Not Found");
                 return "";
             }
 
             contacts = contactService.findByEnrollmentNumber(student.getEnrollmentNumber());
-            LOG.debug("Contacts ========" + contacts);
-            LOG.debug("======================In Student");
-
             req.setAttribute("user", appUser, WebRequest.SCOPE_SESSION);
             req.setAttribute("student", student, WebRequest.SCOPE_SESSION);
             req.setAttribute("contacts", contacts, WebRequest.SCOPE_SESSION);
@@ -128,11 +116,6 @@ public class HomeController {
 
         }
 
-
-
-
         return "/home/appHome";
-
-
     }
 }
