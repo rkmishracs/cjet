@@ -199,7 +199,7 @@ public class AvtarHomeController {
         }
         int months = Integer.parseInt(updateWorkExperienceForm.getTotalExperienceMonths());
         int years =   12 * Integer.parseInt(updateWorkExperienceForm.getTotalExperienceYears());
-        int totalExperience = (months + years)/12;
+        int totalExperience = (months + years);
 
         studentProfile.setEnrollmentNumber(enrollmentNumber);
         studentProfile.setTitle(updateWorkExperienceForm.getTitle());
@@ -420,8 +420,8 @@ public class AvtarHomeController {
             updateWorkExperienceForm.setTotalExperienceYears("");
         } else {
             int totalExperience = Integer.parseInt(studentProfile.getTotalExperience());
-            String months = String.valueOf(totalExperience / 12);
-            String years = String.valueOf(totalExperience % 12);
+            String months = String.valueOf(totalExperience % 12);
+            String years = String.valueOf(totalExperience / 12);
             updateWorkExperienceForm.setTotalExperienceMonths(months);
             updateWorkExperienceForm.setTotalExperienceYears(years);
         }
