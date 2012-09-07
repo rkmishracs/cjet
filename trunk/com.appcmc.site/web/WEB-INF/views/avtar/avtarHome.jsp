@@ -155,7 +155,7 @@
                                 <td>&nbsp;</td>
                             </tr>
                              <tr>
-                                 <td>Given By CMC</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td> ----</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>10</td>
+                                 <td>Given By CMC</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>----</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>10</td>
                             </tr>
                             <br></br>
                             <tr>
@@ -165,7 +165,7 @@
                                 <td>Number Of Interviews</td>
                             </tr>
                             <tr>
-                                <td>Attended</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td> ----</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>7</td>
+                                <td>Attended</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>----</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>7</td>
                             </tr>
                             
                             
