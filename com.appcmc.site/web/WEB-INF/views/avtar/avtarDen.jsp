@@ -23,6 +23,7 @@
 
     </head>
     <body>
+        <input type="hidden" id="avtarDenHidden" value="${pageContext.request.contextPath}" />
         <div class="logo" style="position: relative;top: 5px; left: 15px;">
             <a href="${pageContext.request.contextPath}/avtar"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
         </div>
@@ -37,79 +38,8 @@
             </ul>
             <div class="clr"></div>
         </div>
-        <input type="hidden" id="avtarDenHidden" value="${pageContext.request.contextPath}" />
-        <div id="dialog-form-perInfo" style="display:none;">
-
-            <sf:form action="" method="POST" modelAttribute="updateAvtarProfileForm" id="updateForm">
-
-                <div class="signDiv">
-
-                    <p class="validateTips"></p>
-
-                </div>
-
-                <div class="signDiv">
-                    <label for="firstName"><s:message code="lbl.update.firstName"/></label>
-                    <sf:input path="firstName" id="firstName" size="30"/>
-                </div>
-
-                <div class="signDiv">
-                    <label for="tags"><s:message code="lbl.update.lastName"/></label>
-                    <sf:input path="lastName" id="lastName" size="30"/>
-                </div>
-
-                <div class="signDiv">
-                    <label for="tags"><s:message code="lbl.update.gender"/></label>
-                    <s:message code="lbl.update.gender.male"/><sf:radiobutton path="gender" name="gender" id="male" value="Male"/>
-                    <s:message code="lbl.update.gender.female"/><sf:radiobutton path="gender" name="gender" id="female" value="Female"/>
-                </div>
-
-                <div class="signDiv">
-                    <label for="tags"><s:message code="lbl.update.dateOfBirth"/></label>
-                    <sf:input path="dateOfBirth" id="dateOfBirth"/>
-                </div>
-
-                <div class="signDiv">
-                    <label for="tags"><s:message code="lbl.update.nationality"/></label>
-                    <sf:input path="nationality" id="nationality"/>
-                    <sf:hidden path="enrollmentNumber" id="enrollmentNumber"/>
-                </div>
-
-                <div class="signDiv">
-                    <label for="tags"><s:message code="lbl.update.email"/></label>
-                    <sf:input path="email" id="email" size="30"/>
-                </div>
-
-                <div class="signDiv">
-                    <label for="tags"><s:message code="lbl.update.AlernativeEmail"/></label>
-                    <sf:input path="alternativeEmail" id="alternativeEmail" size="30"/>
-                </div>
-
-                <div class="signDiv">
-                    <label for="tags"><s:message code="lbl.update.mobileNumber"/></label>
-                    <sf:input path="mobileNumber" id="mobileNumber"/>
-                </div>
-
-                <div class="signDiv">
-                    <label for="tags"><s:message code="lbl.update.landPhone"/></label>
-                    <sf:input path="landPhone" id="landPhone"/>
-                </div>
-
-                <div class="signDiv">
-                    <label for="tags"><s:message code="lbl.update.pin"/></label>
-                    <sf:input path="pin" id="pin"/>
-                </div>
-
-                <div class="signDiv">
-                    <label for="tags"><s:message code="lbl.update.address"/></label>
-                    <sf:textarea path="address" id="address" rows="5" cols="5" style="width: 193px; height: 58px;"/>
-                </div>
-                <div  id="ajax_loading" style="position: relative; width: 150px; height: 30px;display: none">
-                    <img align="absmiddle" src="../resources/images/spinner.gif"/>&nbsp;<s:message code="lbl.update.processing"/>
-                </div>
-            </sf:form>
-
-        </div>
+        
+        
         <div id="dialog-form-eduQualification">
             <table border="1">
                 <tr>
@@ -364,7 +294,7 @@
                         </div>
                         <form id="prdkt-compose-form" style="float:left; margin:15px 0 0 5px;">
                             <label class="title" style="width:371px;"><span id="firstNameText">${student.firstName}</span>&nbsp;<span id="lastNameText" >${student.lastName}</span></label>
-                            <div class="editLink"><a href="#" id="editPerInfo" class=""><s:message code="lbl.avatar.link.edit"/></a></div>
+                            <div class="editLink"><a href="${pageContext.request.contextPath}/avtar/editPersonalInfo/${student.enrollmentNumber}" id="editPerInfo" class="" style="color: #FFFFFF"><s:message code="lbl.avatar.link.edit"/></a></div>
                             <input type="hidden" value="${student.enrollmentNumber}" id="userId"/>
 
                         </form>
