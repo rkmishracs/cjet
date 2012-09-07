@@ -1,9 +1,8 @@
 package com.appcmc.domain.sub.impl;
 
+import com.appcmc.domain.sub.AppUser;
 import java.util.Date;
 import java.util.UUID;
-
-import com.appcmc.domain.sub.AppUser;
 
 public class AppUserImpl implements AppUser {
 
@@ -18,14 +17,15 @@ public class AppUserImpl implements AppUser {
 	private Long statusId;
 	private String gender;
 	private String timeZone;
+	private String securityQuestion;
+    private String securityAnswer;
 	private String type;
 	private Date createdOn;
 	private Long createdBy;
 	private Date modifiedOn;
 	private Long modifiedBy;
 	private Short active;
-        private String securityQuestion;
-        private String securityAnswer;
+        
 
     public String getSecurityQuestion() {
         return securityQuestion;
