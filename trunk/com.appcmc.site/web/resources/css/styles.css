@@ -2805,33 +2805,33 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     left: 257px;
 }
 /* Styles For Success Div in appHome  */
-        .chatBlk {
-        width: 228px;
+.chatBlk {
+    width: 228px;
 }
 .mrgn_r20 {
-        margin-right: 20px;
+    margin-right: 20px;
 }
 .fl {
-        float: left;
+    float: left;
 }
 .fr {
-        float: right;
+    float: right;
 }
 .w160 {
-        width: 160px;
+    width: 160px;
 }.disBlk {
-        display: block;
+    display: block;
 }.mrgn_b10 {
-        margin-bottom: 10px
+    margin-bottom: 10px
 }
 .date {
-        color: #db6200
+    color: #db6200
 }
 #testSuccessDiv{
     position: relative;
     top:13px;
     left:10px;
-    
+
 }
 
 
@@ -2904,4 +2904,62 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     font-weight: bold;
     background-color: #6B9EDD;
     display: none;
+}
+
+/*Css for editPerInfo.jsp*/
+#submitForUpdateProfile{
+    position: relative;
+}
+#editPerInfoSubmitt{
+    position: relative;
+    top: 10px;
+    left: 100px;
+}
+#ajax_loading_editPerInfo{
+    display: none;
+    position: relative;
+    top: 32px;
+    float: left;
+    left: -345px;
+}
+#ajax_loading_editPerInfoText{
+    left: 20px;
+    position: relative;
+    top: -16px;
+}
+#editPerInfoSuccess{
+    background-color: #6B9EDD;
+    display: none;
+    font-size: 9pt;
+    font-weight: bold;
+    height: 35px;
+    left: 16px;
+    position: relative;
+    width: 208px;
+    float: left;
+}
+.editPerInfoSuccess{
+    position: relative;
+    color: #FFFFFF;
+    left: 18px;
+    width: 175px;
+    top: 9px;
+}
+#redirectInfoDiv{
+    background-color: #6B9EDD;
+    display: none;
+    font-size: 9pt;
+    font-weight: bold;
+    height: 35px;
+    left: 16px;
+    position: relative;
+    width: 208px;
+    float: left;
+}
+.redirectInfoClass{
+    position: relative;
+    color: #FFFFFF;
+    left: 18px;
+    width: 175px;
+    top: 9px;
 }
