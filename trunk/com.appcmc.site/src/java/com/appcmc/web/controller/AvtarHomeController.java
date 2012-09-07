@@ -10,7 +10,6 @@ import com.appcmc.domain.sub.EducationalQualifications;
 import com.appcmc.domain.sub.Student;
 import com.appcmc.domain.sub.StudentContacts;
 import com.appcmc.domain.sub.StudentProfile;
-import com.appcmc.domain.sub.impl.StudentContactsImpl;
 import com.appcmc.service.AppUserService;
 import com.appcmc.service.ContactService;
 import com.appcmc.service.EducationalQualificationsService;
@@ -28,11 +27,13 @@ import java.util.Date;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author Sudarsan
@@ -59,7 +60,7 @@ public class AvtarHomeController {
     @RequestMapping(method = RequestMethod.GET)
     public String showAvtarHome(@ModelAttribute ChangePasswordForm changePasswordForm,
             WebRequest request) {
-      
+
         appUser = (AppUser) request.getAttribute("user", WebRequest.SCOPE_SESSION);
         if (appUser == null) {
             return "home";
@@ -70,13 +71,13 @@ public class AvtarHomeController {
         contacts = student.getContacts();
         request.setAttribute("contacts", contacts, WebRequest.SCOPE_REQUEST);
         request.setAttribute("student", student, WebRequest.SCOPE_REQUEST);
-        
+
         return "avtar/avtarHome";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/update-profile")
     public String showProfile(@ModelAttribute UpdateAvtarProfileForm updateAvtarProfileForm, UpdateWorkExperienceForm updateWorkExperienceForm, WebRequest request) {
-      
+
         String id = appUser.getEnrollmentNumber();
         studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
         student = studentService.findStudentByEnrollmentNumber(id);
@@ -90,20 +91,48 @@ public class AvtarHomeController {
         request.setAttribute("student", student, WebRequest.SCOPE_REQUEST);
         request.setAttribute("studentProfile", studentProfile, WebRequest.SCOPE_REQUEST);
         request.setAttribute("educationalQualifications", educationalQualifications, WebRequest.SCOPE_REQUEST);
-        
+
         return "/avtar/avtarDen";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.GET, value = "/editPersonalInfo/{enrollmentNumber}")
+    public ModelAndView showUpdateAvtarProfile(@PathVariable String enrollmentNumber, @ModelAttribute UpdateAvtarProfileForm updateAvtarProfileForm, UpdateEducationalQualificationsForm updateEducationalQualificationsForm) {
+
+        studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
+        student = studentService.findStudentByEnrollmentNumber(enrollmentNumber);
+
+        updateAvtarProfileForm.setFirstName(student.getFirstName());
+        updateAvtarProfileForm.setLastName(student.getLastName());
+        updateAvtarProfileForm.setGender(student.getGender());
+        date = student.getDateOfBirth();
+        SimpleDateFormat dateFormat = (SimpleDateFormat) AppContext.APPCONTEXT.getBean(ContextIdNames.SIMPLE_DATE_FORMAT);
+        updateAvtarProfileForm.setDateOfBirth(dateFormat.format(date));
+        updateAvtarProfileForm.setNationality(student.getNationality());
+        updateAvtarProfileForm.setEmail(student.getContacts().getEmail());
+        updateAvtarProfileForm.setAlternativeEmail(student.getContacts().getAlternativeEmail());
+        updateAvtarProfileForm.setMobileNumber(student.getContacts().getMobile());
+        updateAvtarProfileForm.setLandPhone(student.getContacts().getLandPhone());
+        updateAvtarProfileForm.setPin(student.getContacts().getPinCode());
+        updateAvtarProfileForm.setAddress(student.getContacts().getAddress());
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("avtar/editPerInfo");
+
+        return modelAndView;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/updatedPersonalInfo")
     @ResponseBody
-    public StudentContacts updateAvtarProfile(@ModelAttribute UpdateAvtarProfileForm updateAvtarProfileForm, UpdateEducationalQualificationsForm updateEducationalQualificationsForm) {
-     
+    public String updateAvtarProfile(@ModelAttribute UpdateAvtarProfileForm updateAvtarProfileForm) {
         String enrollmentNumber = updateAvtarProfileForm.getEnrollmentNumber();
         contactService = (ContactService) AppContext.APPCONTEXT.getBean(ContextIdNames.CONTACT_SERVICE);
         appUserService = (AppUserService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_USER_SERVICE);
         contactService = (ContactService) AppContext.APPCONTEXT.getBean(ContextIdNames.CONTACT_SERVICE);
         appUser = appUserService.findByEnrollmentNumber(enrollmentNumber);
         student = studentService.findStudentByEnrollmentNumber(enrollmentNumber);
+        if(student == null){
+            return "";
+        }
         contacts = contactService.findByEnrollmentNumber(enrollmentNumber);
         Date dob = null;
         SimpleDateFormat simpleDateFormat = (SimpleDateFormat) AppContext.APPCONTEXT.getBean(ContextIdNames.SIMPLE_DATE_FORMAT);
@@ -113,7 +142,7 @@ public class AvtarHomeController {
             LOG.debug("AvtarHomeController", parseException);
         }
         date = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
- 
+
         student.setEnrollmentNumber(enrollmentNumber);
         student.setFirstName(updateAvtarProfileForm.getFirstName());
         student.setLastName(updateAvtarProfileForm.getLastName());
@@ -154,33 +183,13 @@ public class AvtarHomeController {
         appUser.setStatusId(appUser.getStatusId());
         appUserService.create(appUser);
 
-        studentContacts = new StudentContactsImpl();
-        contacts = student.getContacts();
-
-        student = studentService.findStudentByEnrollmentNumber(enrollmentNumber);
-        studentContacts = (StudentContacts) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_CONTACTS);
-        contacts = student.getContacts();
-
-        studentContacts.setFirstName(updateAvtarProfileForm.getFirstName());
-        studentContacts.setLastName(updateAvtarProfileForm.getLastName());
-        studentContacts.setGender(updateAvtarProfileForm.getGender());
-        studentContacts.setDateOfBirth(updateAvtarProfileForm.getDateOfBirth());
-        studentContacts.setNationality(updateAvtarProfileForm.getNationality());
-        studentContacts.setEnrollmentNumber(updateAvtarProfileForm.getEnrollmentNumber());
-        studentContacts.setEmail(updateAvtarProfileForm.getEmail());
-        studentContacts.setAlternativeEmail(updateAvtarProfileForm.getAlternativeEmail());
-        studentContacts.setMobile(updateAvtarProfileForm.getMobileNumber());
-        studentContacts.setLandPhone(updateAvtarProfileForm.getLandPhone());
-        studentContacts.setAddress(updateAvtarProfileForm.getAddress());
-        studentContacts.setPin(updateAvtarProfileForm.getPin());
-      
-        return studentContacts;
+        return "success";
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/updateWorkExperience")
     @ResponseBody
     public StudentProfile updateWorkExperience(@ModelAttribute UpdateWorkExperienceForm updateWorkExperienceForm) {
-       
+
         String enrollmentNumber = updateWorkExperienceForm.getEnrollmentNumber();
         studentProfileService = (StudentProfileService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
         studentProfile = studentProfileService.findStudentProfileByEnrollmentNumber(enrollmentNumber);
@@ -201,14 +210,14 @@ public class AvtarHomeController {
         studentProfile.setPreviousEmployer(updateWorkExperienceForm.getPreviousEmployers());
         studentProfileService.create(studentProfile);
         studentProfile = studentProfileService.findStudentProfileByEnrollmentNumber(enrollmentNumber);
-      
+
         return studentProfile;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/update", params = {"id"})
     @ResponseBody
     public StudentContacts getAvtarProfile(@RequestParam String id) {
-       
+        LOG.debug("==========In getAvtarProfile");
         studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
         student = studentService.findStudentByEnrollmentNumber(id);
         studentContacts = (StudentContacts) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_CONTACTS);
@@ -234,21 +243,21 @@ public class AvtarHomeController {
     @RequestMapping(method = RequestMethod.GET, value = "/updateWorkExperience", params = {"id"})
     @ResponseBody
     public StudentProfile getWorkExperience(@RequestParam String id) {
-      
+
         studentProfileService = (StudentProfileService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
         studentProfile = studentProfileService.findStudentProfileByEnrollmentNumber(id);
         if (studentProfile == null) {
             //ToDo
             return null;
         }
-       
+
         return studentProfile;
     }
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST, value = "/changePassword")
     public String changePasswordAvtar(@ModelAttribute ChangePasswordForm changePasswordForm) {
-      
+
         String userName = changePasswordForm.getUserName();
         String currentPassword = changePasswordForm.getCurrentPassword();
         String newPassword = changePasswordForm.getNewPassword();
@@ -283,7 +292,7 @@ public class AvtarHomeController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/avtarPic")
     public String updateProfilePic(@ModelAttribute AvtarProfilePicForm avtarProfilePicForm, WebRequest request) {
-       
+
         studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
         student = studentService.findStudentByEnrollmentNumber(avtarProfilePicForm.getEnrollmentNumber());
         if (student == null) {
@@ -325,7 +334,7 @@ public class AvtarHomeController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/avtarPic")
     public String showAvtarProfilePic(@ModelAttribute AvtarProfilePicForm avtarProfilePicForm, WebRequest request) {
-     
+
         avtarProfilePicForm.setEnrollmentNumber(student.getEnrollmentNumber());
         studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
         student = studentService.findStudentByEnrollmentNumber(student.getEnrollmentNumber());
