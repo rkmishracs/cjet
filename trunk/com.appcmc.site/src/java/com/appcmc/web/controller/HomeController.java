@@ -7,10 +7,12 @@ import com.appcmc.context.id.names.ContextIdNames;
 import com.appcmc.domain.sub.AppUser;
 import com.appcmc.domain.sub.Contacts;
 import com.appcmc.domain.sub.Events;
+import com.appcmc.domain.sub.PlacedStudent;
 import com.appcmc.domain.sub.Student;
 import com.appcmc.service.AppUserService;
 import com.appcmc.service.ContactService;
 import com.appcmc.service.EventsService;
+import com.appcmc.service.PlacedStudentService;
 import com.appcmc.service.StudentService;
 import com.appcmc.utils.AppCmcSpringContext;
 import com.appcmc.utils.AppContext;
@@ -43,6 +45,8 @@ public class HomeController {
     private Contacts contacts = null;
     private ContactService contactService = null;
     private EventsService eventsService = null;
+    private PlacedStudentService placedStudentService = null;
+    List<PlacedStudent> placedStudents = null;
     
     public HomeController(){
         AppCmcSpringContext.init();
@@ -78,9 +82,15 @@ public class HomeController {
                 canceledEvent = evnt;
             }
         }
+        
+        placedStudentService = (PlacedStudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.PLACED_STUDENT_SERVICE);
+        
+        placedStudents = placedStudentService.getAll();
+        
         req.setAttribute("canceledEvent", canceledEvent, WebRequest.SCOPE_REQUEST);
         req.setAttribute("walkInEvent", events, WebRequest.SCOPE_REQUEST);
         req.setAttribute("jobFairEvent", eventsJobFair, WebRequest.SCOPE_REQUEST);
+        req.setAttribute("placedStudents", placedStudents, WebRequest.SCOPE_REQUEST);
 
         String cookieValue = CookieUtils.getCookieValue("appUser", request);
         if (cookieValue == null) {
