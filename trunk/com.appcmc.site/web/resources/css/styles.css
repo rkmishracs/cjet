@@ -2821,6 +2821,7 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     width: 160px;
 }.disBlk {
     display: block;
+        width: 190px;
 }.mrgn_b10 {
     margin-bottom: 10px
 }
