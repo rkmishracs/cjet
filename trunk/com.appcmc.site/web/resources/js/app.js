@@ -999,6 +999,8 @@ $(document).ready(function(){
     });
                 
                 
+
+   
     //Script for editPerInfo.jsp
     var gen = $("#updateAvtarProfileFormGender").val();
     if(gen == "Female"){
@@ -1006,6 +1008,7 @@ $(document).ready(function(){
     }else{
         $("#male").attr('checked', true);
     }
+
                 
     var firstName = $("#firstName");
     var lastName = $("#lastName");
@@ -1093,81 +1096,42 @@ $(document).ready(function(){
    
     //Script for avtarDen.jsp
     
-    $("#dialog-form-updateExperience").hide();
-    $( "#updateExp" ).click(function(){
-                
-        var userId = $("#userId").val();
+    $("#saveExp").click(function(){
+        $("#ajax_loading_email").css('display','block');
+        var updateTitle = $("#updateTitle");
+        var updateKeySkills = $("#updateKeySkills");
+        var updateCurrentEmployer = $("#updateCurrentEmployer");
+        var updateRole = $("#updateRole");
+        var updatePreviousEmployers = $("#updatePreviousEmployers");
+          
+        if(updateTitle.val()==""||updateKeySkills.val()==""||updateCurrentEmployer.val()==""||updateRole.val()==""||updatePreviousEmployers.val()==""){
+            alert("No Field Should Be Left Empty");   
+        }
         $.ajax({
-            type : "get",
-            url : $('#avtarDenHidden').val()+"/avtar/updateWorkExperience",
-            data : "id="+userId,
+            type:"post",
+            url: $('#hiddenFieldForEditWorkExperience').val()+"/avtar/updateWorkExperience",
+            data:$("#updateWorkExperienceId").serialize(),
             success : function(response){
-
-                                        
-                $("#updateTitle").val(response.title);
-                $("#updateTotalExp").val(response.totalExperience);
-                $("#enrollmentNumberExp").val(userId);
-                $("#updateKeySkills").val(response.keySkills);
-                $("#updateCurrentEmployer").val(response.currentEmployer);
-                $("#updateRole").val(response.role);
-                $("#updatePreviousEmployers").val(response.previousEmployer);
-
-            }
-        });
-                
-        $("#dialog-form-updateExperience").css('display', 'block');
-        $("#dialog-form-updateExperience").dialog({
-            title: "Update Experience",
-            height: 450,
-            width: 650, 
-            modal: true,
-            resizable: false,
-            zIndex : 491,
-            buttons : {
-                "Update": function() {
-                                
-                    $.ajax({
-
-                        type : "post",
-                        url : $('#avtarDenHidden').val()+"/avtar/updateWorkExperience",
-                        data : $("#updateWorkExperience").serialize(),
-                        success : function(response){
-                                        
-                            $("#ajax_loading_image").css("display",'block');
-                                        
-                            setTimeout(function(){
-                                        
-                                $("#profileTitleText").empty()    
-                                $("#totalExperienceText").empty()
-                                $("#keySkillsText").empty()
-                                $("#currentEmployerText").empty();
-                                $("#roleText").empty();
-                                $("#previousEmployersText").empty();
-                                        
-                                $("#profileTitleText").append(document.createTextNode(response.title));
-                                $("#totalExperienceText").append(document.createTextNode(response.totalExperience));
-                                $("#keySkillsText").append(document.createTextNode(response.keySkills));
-                                $("#currentEmployerText").append(document.createTextNode(response.currentEmployer));
-                                $("#roleText").append(document.createTextNode(response.role));
-                                $("#previousEmployersText").append(document.createTextNode(response.previousEmployer));
-
-                                $("#dialog-form-updateExperience").dialog( "close" );
-                                $("#ajax_loading_image").css("display",'none');
-                            },2000);
-                        }
+                if(response=="success"){
+                    setTimeout(function(){
+                        $("#ajax_loading_email").css('display','none');
+                         $("#editPerInfoSuccess").css("display", "block");
+                            if($("#editPerInfoSuccess").css("display", "block")){ 
+                                setTimeout(function(){
+                                    $("#editPerInfoSuccess").hide();
+                                    $("#redirectInfoDiv").css('display', 'block');
+                                    setTimeout(function(){
+                                        $("#redirectInfoDiv").css('display', 'block');
+                                        window.location = $('#hiddenFieldForEditWorkExperience').val()+"/avtar/update-profile";
+                                    }, 2000);
                                     
-                    });
-                                
-                },
-                "Cancel": function() {
-                    $( this ).dialog( "close" );
-                }
-                       
+                                }, 2000);
+                            }
+                        }, 2000);
+                        }
             }
-                        
-
-
         });
+        
     });
 
                 
