@@ -12,7 +12,7 @@
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
-        
+
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
@@ -26,11 +26,11 @@
     <body>
 
         <input type="hidden" id="avtarDenHidden" value="${pageContext.request.contextPath}" />
-       
+
         <div id="body">
             <div class="logo" style="position: relative;top: 5px; left: 15px;">
                 <a href="${pageContext.request.contextPath}/avtar"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
-        </div>
+            </div>
 
             <div class="menu_nav">
                 <ul>
@@ -51,7 +51,7 @@
                         </div>
                         <form id="prdkt-compose-form" style="float:left; margin:15px 0 0 5px;">
                             <label class="title" style="width:371px;"><span id="firstNameText">${fbUser.firstName}</span>&nbsp;<span id="lastNameText" >${fbUser.lastName}</span></label>
-                           
+
                             <input type="hidden" value="${student.enrollmentNumber}" id="userId"/>
 
                         </form>
@@ -61,21 +61,48 @@
                                 <s:message code="lbl.avatar.gender"/><div id="genderText"style="position: absolute;top: 0px;left: 60px;">${fbUser.gender}</div>
                             </div>
                         </div>
-                                <div class="m600-v-head"></div>
+                        <div class="m600-v-head"></div>
+                    </div>
+                    <!--Begin View Header-->
+                    <div class="container">
+                        <ul class="options tabs2">
+                            <li id="listOne" class="active"><a href="#tab1">Update Status</a></li>
+                            <li id="listTwo" ><a href="#tab2">Message To Friends</a></li>
+
+                        </ul>
+
+                        <div class="tab_container2">
+
+                            <div id="tab1" class="tab_content2">
+                                <div class="st-blocked2">
+                                    <div class="st-blocked" style="z-index: 810;">
+                                        <textarea class="tags" cols="5" rows="6" id="updateFbStatusText"></textarea>
+                                    </div>
+                                    <div class="st-blocked">
+                                        <label for="tags"><br/></label>
+                                        <a class="button-h" href="#" id="submitForUpdateFbStatus"><span>Post</span></a>
+                                        <a class="button-h" href="${pageContext.request.contextPath}/avtar" id="cancelForUpdateFbStatus"><span>Cancel</span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div id="tab2" class="tab_content2">
+                                <div class="st-blocked2">
+                                    <div class="st-blocked" style="z-index: 810;">
+                                        <textarea class="tags" cols="5" rows="6" id="messageFriendsText"></textarea>
+                                    </div>
+                                    <div class="st-blocked">
+                                        <label for="tags"><br/></label>
+                                        <a class="button-h" href="#" id="submitForFriendsMessage"><span>Post</span></a>
+                                        <a class="button-h" href="${pageContext.request.contextPath}/avtar" id="cancelForFriendsMesaage"><span>Cancel</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!--Begin View Header-->
-                   
-
-
-                   
                     <!--End Pridikt Module-->
-
-
-                 
-
-
-                   
 
                     <!--Begin Pridikt Module-->
                     <div>
@@ -92,7 +119,7 @@
                         <ul>
 
                             <li class="current"><a href="#">My Profile</a></li>
-                            
+
 
                         </ul>
                     </div>
@@ -103,40 +130,40 @@
             <div class="clear"></div>
 
 
-            
-            </div>
-                            <div id="footer">
-                <div class="wrapper">
-                    <div id="footer1" class="col"> <span class="linkgroup">About Us</span>
-                        <ul>
-                            <li><a href="company.html">Our Company</a></li>
-                            <li><a href="team.html">Our Team</a></li>
-                            <li><a href="press.html">Press Coverage</a></li>
-                        </ul>
-                    </div>
-                    <div id="footer2" class="col"> <span class="linkgroup">Support</span>
-                        <ul>
-                            <li><a href="help.html">Help Center</a></li>
-                            <li><a href="what-is-a-pridiktion.html">What Is a Prediction?</a></li>
-                            <li><a href="how-to-prodikt.html">How to</a></li>
-                        </ul>
-                    </div>
-                    <div id="footer2" class="col"> <span class="linkgroup">Follow Us</span>
-                        <ul>
-                            <li><a href="pridikt-blog">Blog</a></li>
-                            <li><a href="pridikt-on-twitter.html">Twitter</a></li>
-                            <li><a href="pridikt-on-facebook.html">Facebook</a></li>
-                        </ul>
-                    </div>
-                    <div id="footer2" class="col"> <span class="linkgroup">Legal</span>
-                        <ul>
-                            <li><a href="pridikt-rules.html">Detailed Rules</a></li>
-                            <li><a href="terms.html">Terms and Conditions</a></li>
-                            <li><a href="privacy.html">Privacy Policy</a></li>
-                        </ul>
-                    </div>
 
+        </div>
+        <div id="footer">
+            <div class="wrapper">
+                <div id="footer1" class="col"> <span class="linkgroup">About Us</span>
+                    <ul>
+                        <li><a href="company.html">Our Company</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="press.html">Press Coverage</a></li>
+                    </ul>
                 </div>
+                <div id="footer2" class="col"> <span class="linkgroup">Support</span>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="what-is-a-pridiktion.html">What Is a Prediction?</a></li>
+                        <li><a href="how-to-prodikt.html">How to</a></li>
+                    </ul>
+                </div>
+                <div id="footer2" class="col"> <span class="linkgroup">Follow Us</span>
+                    <ul>
+                        <li><a href="pridikt-blog">Blog</a></li>
+                        <li><a href="pridikt-on-twitter.html">Twitter</a></li>
+                        <li><a href="pridikt-on-facebook.html">Facebook</a></li>
+                    </ul>
+                </div>
+                <div id="footer2" class="col"> <span class="linkgroup">Legal</span>
+                    <ul>
+                        <li><a href="pridikt-rules.html">Detailed Rules</a></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+            </div>
 
     </body>
 </html>
