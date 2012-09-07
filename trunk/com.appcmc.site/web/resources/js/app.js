@@ -1197,7 +1197,7 @@ $(document).ready(function(){
         } ) );
     });
     
-
+    
     $( "#submitForEditEdu" ).click(function(){
         if(oneYearOfPass.val()== 0 || oneUniversty.val()== 0||oneGrade.val() == 0||twoYearOfPass.val() == 0||twoUniversty.val() == 0 ||twoGrade.val() == 0 ||threeYearOfPass.val() == 0 ||threeUniversty.val() == 0 ||threeGrade.val() == 0 ||fourthYearOfPass.val() == 0 ||fourthUniversty.val() == 0 ||fourthGrade.val() == 0 || fourthQualification.val() == 0){
             if(oneYearOfPass.val() == null||oneYearOfPass.val()== 0){
@@ -1287,11 +1287,9 @@ $(document).ready(function(){
 
             });
 
-                
-              
-
         }
     });
+
         
     //Script for uploadResume.jsp
     $("#uploadButton").click(function(){
