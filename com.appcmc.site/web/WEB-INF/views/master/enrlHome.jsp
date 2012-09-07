@@ -20,7 +20,6 @@
 
     </head>
     <body>
-
         <div class="logo" style="position: relative;top: 5px; left: 15px;">
             <a href="${pageContext.request.contextPath}/master"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg"  alt="" style="border-color:#312e25 ;zIndex:600" /></a>
         </div>
