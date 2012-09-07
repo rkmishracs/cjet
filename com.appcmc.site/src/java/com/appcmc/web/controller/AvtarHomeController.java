@@ -130,7 +130,7 @@ public class AvtarHomeController {
         contactService = (ContactService) AppContext.APPCONTEXT.getBean(ContextIdNames.CONTACT_SERVICE);
         appUser = appUserService.findByEnrollmentNumber(enrollmentNumber);
         student = studentService.findStudentByEnrollmentNumber(enrollmentNumber);
-        if(student == null){
+        if (student == null) {
             return "";
         }
         contacts = contactService.findByEnrollmentNumber(enrollmentNumber);
@@ -188,7 +188,7 @@ public class AvtarHomeController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/updateWorkExperience")
     @ResponseBody
-    public StudentProfile updateWorkExperience(@ModelAttribute UpdateWorkExperienceForm updateWorkExperienceForm) {
+    public String updateWorkExperience(@ModelAttribute UpdateWorkExperienceForm updateWorkExperienceForm) {
 
         String enrollmentNumber = updateWorkExperienceForm.getEnrollmentNumber();
         studentProfileService = (StudentProfileService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
@@ -198,8 +198,8 @@ public class AvtarHomeController {
             return null;
         }
         int months = Integer.parseInt(updateWorkExperienceForm.getTotalExperienceMonths());
-        int years = 12 * Integer.parseInt(updateWorkExperienceForm.getTotalExperienceYears());
-        int totalExperience = (months + years) / 12;
+        int years =   12 * Integer.parseInt(updateWorkExperienceForm.getTotalExperienceYears());
+        int totalExperience = (months + years)/12;
 
         studentProfile.setEnrollmentNumber(enrollmentNumber);
         studentProfile.setTitle(updateWorkExperienceForm.getTitle());
@@ -209,9 +209,10 @@ public class AvtarHomeController {
         studentProfile.setRole(updateWorkExperienceForm.getRole());
         studentProfile.setPreviousEmployer(updateWorkExperienceForm.getPreviousEmployers());
         studentProfileService.create(studentProfile);
-        studentProfile = studentProfileService.findStudentProfileByEnrollmentNumber(enrollmentNumber);
+        
+        //studentProfile = studentProfileService.findStudentProfileByEnrollmentNumber(enrollmentNumber);
 
-        return studentProfile;
+        return "success";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/update", params = {"id"})
@@ -399,5 +400,36 @@ public class AvtarHomeController {
         contactService.create(contacts);
 
         return "success";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = {"/editWork/{enrollmentNumber}"})
+    public String editWorkExperiance(@ModelAttribute UpdateWorkExperienceForm updateWorkExperienceForm, @PathVariable String enrollmentNumber) {
+        LOG.debug("--------------------------" + enrollmentNumber);
+
+        studentProfileService = (StudentProfileService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_PROFILE_SERVICE);
+        studentProfile = studentProfileService.findStudentProfileByEnrollmentNumber(enrollmentNumber);
+
+        if (studentProfile == null) {
+            //ToDo
+            return null;
+        }
+
+
+        if (studentProfile.getTotalExperience().equalsIgnoreCase("Not Updated")) {
+            updateWorkExperienceForm.setTotalExperienceMonths("");
+            updateWorkExperienceForm.setTotalExperienceYears("");
+        } else {
+            int totalExperience = Integer.parseInt(studentProfile.getTotalExperience());
+            String months = String.valueOf(totalExperience / 12);
+            String years = String.valueOf(totalExperience % 12);
+            updateWorkExperienceForm.setTotalExperienceMonths(months);
+            updateWorkExperienceForm.setTotalExperienceYears(years);
+        }
+        updateWorkExperienceForm.setTitle(studentProfile.getTitle());
+        updateWorkExperienceForm.setKeySkills(studentProfile.getKeySkills());
+        updateWorkExperienceForm.setCurrentEmployer(studentProfile.getCurrentEmployer());
+        updateWorkExperienceForm.setRole(studentProfile.getRole());
+        updateWorkExperienceForm.setPreviousEmployers(studentProfile.getPreviousEmployer());
+        return "/avtar/editWorkExp";
     }
 }
