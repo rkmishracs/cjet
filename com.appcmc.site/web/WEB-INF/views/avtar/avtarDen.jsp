@@ -139,7 +139,7 @@
                                 <tr>
                                     <td><h2 class="tags">Total Experience &nbsp;</h2></td>
                                     <td>&nbsp; &nbsp; :</td>
-                                    <td><div id="totalExperienceText">${studentProfile.totalExperience}</div></td>
+                                    <td><div id="totalExperienceText">${studentProfile.totalExperience} Months</div></td>
                                 </tr>
                             </table>
 
