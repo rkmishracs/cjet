@@ -999,9 +999,13 @@ $(document).ready(function(){
     });
                 
                 
-    //Script for avtarDen.jsp
-    $("#dialog-form-eduQualification").hide();
-    $("#dialog-form-updateExperience").hide();
+    //Script for editPerInfo.jsp
+    var gen = $("#updateAvtarProfileFormGender").val();
+    if(gen == "Female"){
+        $("#female").attr('checked', true);
+    }else{
+        $("#male").attr('checked', true);
+    }
                 
     var firstName = $("#firstName");
     var lastName = $("#lastName");
@@ -1015,157 +1019,81 @@ $(document).ready(function(){
     var landPhone = $("#landPhone");
     var pin=$("#pin");
     var address = $("#address");
-               
-
+     
     allFields = $( [] ).add( firstName ).add( lastName ).add(gender).add(dateOfBirth).add(email).add(alternateEmail).add(mobileNumber).add(landPhone).add(pin).add(mobileNumber).add(address),
     tips = $( ".validateTips" );
-            
-        
-
-
-   
-              
-    $("#editPerInfo").css('color', '#FFFFFF');
-    $("#editPerInfo").click(function(){
-                 
-        var userId = $("#userId").val();
-        $.ajax({
-                        
-            type : "get",
-            url : $('#avtarDenHidden').val()+"/avtar/update",
-            data : "id="+userId,
-            success : function(response){
-                firstName.val(response.firstName);
-                lastName.val(response.lastName);
-                if(response.gender == "Female"){
-                    $("#female").attr('checked', true);
-                }else{
-                    $("#male").attr('checked', true);
-                }
-                            
-                dateOfBirth.val(response.dateOfBirth);
-                nationality.val(response.nationality);
-                email.val(response.email);
-                enrollmentNumber.val(response.enrollmentNumber);
-                alternateEmail.val(response.alternativeEmail);
-                mobileNumber.val(response.mobile);
-                landPhone.val(response.landPhone);
-                address.val(response.address);
-                pin.val(response.pin);
-                            
-            }
-              
-        });
-                 
-        $('#dateOfBirth').datepicker( {
-            changeMonth: true,
-            changeYear: true,                    
-            dateFormat: 'dd-mm-yy',
-            inline: true
-        });
-        $( "#dialog:ui-dialog" ).dialog( "destroy" );
-        $( "#dialog-form-perInfo" ).css('display','block');
-        $( "#dialog-form-perInfo" ).dialog({
-            title: "Update Personal Information",
-            height: 658,
-            width: 420,
-            modal: true,
-            resizable: false,
-            zIndex : 900,
-            buttons : {
-                "Update": function() {
+      
+    $('#dateOfBirth').datepicker( {
+        changeMonth: true,
+        changeYear: true,                    
+        dateFormat: 'dd-mm-yy',
+        inline: true
+    });
+    $('#submitForUpdateProfile').click(function(){
                                 
-                    $("#ajax_loading").css("display",'block');
+        $("#ajax_loading").css("display",'block');
                                
-                    var bValid = true;
-                    allFields.removeClass( "ui-state-error" );
-                                                             
+        var bValid = true;
+        allFields.removeClass( "ui-state-error" );
 
-                    bValid = bValid && checkLength( firstName, "First Name", 3, 16 );
-                    bValid = bValid && checkLength( lastName, "Last Name", 3, 16 );
-                    bValid = bValid && checkLength( dateOfBirth, "Date Of Birth", 8, 16 );
-                    bValid = bValid && checkLength( nationality, "Date Of Birth", 5, 16 );
-                    bValid = bValid && checkLength( email, "E-mail", 6, 80 );
-                    bValid = bValid && checkLength( alternateEmail, "Alternative E-mail", 6, 80 );
-                    bValid = bValid && checkLength( mobileNumber, "Mobile Number", 10, 16 );
-                    bValid = bValid && checkLength( landPhone, "Land Phone", 7, 11 );
-                    bValid = bValid && checkLength( pin, "Pin", 6, 7 );
-                    bValid = bValid && checkLength( address, "Address", 10, 30 );
+        bValid = bValid && checkLength( dateOfBirth, "Date Of Birth", 8, 16 );
+        bValid = bValid && checkLength( nationality, "Date Of Birth", 5, 16 );
+        bValid = bValid && checkLength( email, "E-mail", 6, 80 );
+        bValid = bValid && checkLength( alternateEmail, "Alternative E-mail", 6, 80 );
+        bValid = bValid && checkLength( mobileNumber, "Mobile Number", 10, 16 );
+        bValid = bValid && checkLength( landPhone, "Land Phone", 7, 11 );
+        bValid = bValid && checkLength( pin, "Pin", 6, 7 );
+        bValid = bValid && checkLength( address, "Address", 10, 30 );
+        bValid = bValid && checkRegexp( firstName, /^[a-z]+$/i, "First Name may consist of a-z,begin with a letter." );
+        bValid = bValid && checkRegexp( lastName, /^[a-z]+$/i, "Last Name may consist of a-z, begin with a letter." );
+        bValid = bValid && checkRegexp( dateOfBirth, /^(\d{1,2})-(\d{1,2})-(\d{4})+$/i, "Date Of Birth Should in the form of DD-MM-YYYY" );
+        bValid = bValid && checkRegexp( nationality, /^[a-z]([0-9a-z_])+$/i, "Nationality may consist of a-z,begin with a letter." );
+        // From jquery.validate.js (by joern), contributed by Scott Gonzalez: http://projects.scottsplayground.com/email_address_validation/
+        bValid = bValid && checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@cmc.com" );
+        bValid = bValid && checkRegexp( alternateEmail, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@cmc.com" );
+        bValid = bValid && checkRegexp( mobileNumber, /^[0-9]+$/i, "Mobile Number may consist of 0-9,begin with a number." );
+        bValid = bValid && checkRegexp( landPhone, /^[0-9]+$/i, "Land Phone may consist of 0-9,begin with a number." );
+        bValid = bValid && checkRegexp( pin, /^[0-9]+$/i, "Pin may consist of 0-9,begin with a number." );
                                 
-                    bValid = bValid && checkRegexp( firstName, /^[a-z]([0-9a-z_])+$/i, "First Name may consist of a-z,begin with a letter." );
-                    bValid = bValid && checkRegexp( lastName, /^[a-z]([0-9a-z_])+$/i, "Last Name may consist of a-z, begin with a letter." );
-                    bValid = bValid && checkRegexp( dateOfBirth, /^(\d{1,2})-(\d{1,2})-(\d{4})+$/i, "Date Of Birth Should in the form of DD-MM-YYYY" );
-                    bValid = bValid && checkRegexp( nationality, /^[a-z]([0-9a-z_])+$/i, "Nationality may consist of a-z,begin with a letter." );
-                    // From jquery.validate.js (by joern), contributed by Scott Gonzalez: http://projects.scottsplayground.com/email_address_validation/
-                    bValid = bValid && checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@cmc.com" );
-                    bValid = bValid && checkRegexp( alternateEmail, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@cmc.com" );
-                    bValid = bValid && checkRegexp( mobileNumber, /^[0-9]+$/i, "Mobile Number may consist of 0-9,begin with a number." );
-                    bValid = bValid && checkRegexp( landPhone, /^[0-9]+$/i, "Land Phone may consist of 0-9,begin with a number." );
-                    bValid = bValid && checkRegexp( pin, /^[0-9]+$/i, "Pin may consist of 0-9,begin with a number." );
-                                
-                    setTimeout(function(){
-                     
-                        if ( bValid ) {
+        if ( bValid ) {
                                     
-                            $.ajax({
+            $.ajax({
                         
-                                type : "post",
-                                url : $('#avtarDenHidden').val()+"/avtar",
-                                data : $("#updateForm").serialize(),
-                                success : function(response){
-                                        
-                                    if(response){
-                                                    
-                                                
-                                        $("#firstNameText").empty()    
-                                        $("#lastNameText").empty()
-                                        $("#addressText").empty()
-                                        $("#pinText").empty();
-                                        $("#nationalityText").empty();
-                                        $("#genderText").empty();
-                                        $("#emailtext").empty();
-                                        $("#mobileNumberText").empty();
-                                        $("#landPhoneText").empty();
-                                        $("#dateOfBirthText").empty();
-                                                
-                                                
-                                        $("#firstNameText").append(document.createTextNode(response.firstName));
-                                        $("#lastNameText").append(document.createTextNode(response.lastName));
-                                        $("#addressText").append(document.createTextNode(response.address));
-                                        $("#pinText").append(document.createTextNode(response.pin));
-                                        $("#nationalityText").append(document.createTextNode(response.nationality));
-                                        $("#genderText").append(document.createTextNode(response.gender));
-                                        $("#emailtext").append(document.createTextNode(response.email+","+response.alternativeEmail));
-                                        $("#mobileNumberText").append(document.createTextNode(response.mobile));
-                                        $("#landPhoneText").append(document.createTextNode(response.landPhone));
-                                        $("#dateOfBirthText").append(document.createTextNode(response.dateOfBirth));
-                                                
-                                                                              
-                                        $( "#dialog-form-perInfo" ).dialog("close");
-                                        $("#ajax_loading").css("display",'none');
-                                           
-                                    }
-                                        
-                                }
+                type : "post",
+                url : $('#editPerInfoHidden').val()+"/avtar/updatedPersonalInfo",
+                data : $("#editPerInfoForm").serialize(),
+                success : function(response){
+                    if(response == 'success'){
+                        $("#submitForUpdateProfile").css("display", "none");
+                        $("#ajax_loading_editPerInfo").css("display", "block");
+                        setTimeout(function(){
+                            $("#ajax_loading_editPerInfo").css("display", "none");
+                            $("#submitForUpdateProfile").css("display", "block");
+                            $("#editPerInfoSuccess").css("display", "block");
+                            if($("#editPerInfoSuccess").css("display", "block")){ 
+                                setTimeout(function(){
+                                    $("#editPerInfoSuccess").hide();
+                                    $("#redirectInfoDiv").css('display', 'block');
+                                    setTimeout(function(){
+                                        $("#redirectInfoDiv").css('display', 'block');
+                                        window.location = $('#editPerInfoHidden').val()+"/avtar/update-profile";
+                                    }, 2000);
                                     
-                            })
-                                   
-                        }else{
-                            $("#ajax_loading").css("display",'none');
-                        }
-                    },2000);
-                            
-                },
-                "Cancel": function() {
-                    $( this ).dialog( "close" );
+                                }, 2000);
+                            }
+                        }, 3000);
+                    }
                 }
-                       
-            }
-                        
-        });
-
+            })
+        }else{
+            $("#ajax_loading").css("display",'none');
+        }
     });
 
+   
+    //Script for avtarDen.jsp
+    
+    $("#dialog-form-updateExperience").hide();
     $( "#updateExp" ).click(function(){
                 
         var userId = $("#userId").val();
