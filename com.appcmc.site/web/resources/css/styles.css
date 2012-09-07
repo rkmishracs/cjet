@@ -2821,7 +2821,7 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     width: 160px;
 }.disBlk {
     display: block;
-        width: 190px;
+    width: 190px;
 }.mrgn_b10 {
     margin-bottom: 10px
 }
@@ -2963,4 +2963,23 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     left: 18px;
     width: 175px;
     top: 9px;
+}
+
+/*Css for fbProfileView.jsp*/
+
+#submitForUpdateFbStatus{
+    position: relative;
+    left: 130px;
+}
+#cancelForUpdateFbStatus{
+    position: relative;
+    left: 133px;
+}
+#submitForFriendsMessage{
+    position: relative;
+    left: 130px;
+}
+#cancelForFriendsMesaage{
+    position: relative;
+    left: 133px;
 }
