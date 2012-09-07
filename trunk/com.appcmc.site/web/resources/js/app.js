@@ -149,10 +149,17 @@ $(document).ready(function(){
     });
                 
     $('#date-picker').datepicker( {
+        
+        'beforeShow': function(input, datepicker) {
+            setTimeout(function() {
+                $(datepicker.dpDiv).css('zIndex', 900);
+            }, 0);
+        },
         changeMonth: true,
         changeYear: true,                    
         dateFormat: 'dd-mm-yy',
         inline: true
+        
     });
 
     $("#genEnrl").click(function(){
