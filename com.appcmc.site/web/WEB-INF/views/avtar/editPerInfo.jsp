@@ -31,9 +31,6 @@
             <div class="menu_nav">
                 <ul>
                     <li class="active"><a href="${pageContext.request.contextPath}/avtar">Home</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
                     <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
                 </ul>
                 <div class="clr"></div>
