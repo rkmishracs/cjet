@@ -25,10 +25,6 @@
         <div class="menu_nav">
             <ul>
                 <li class="active"><a href="${pageContext.request.contextPath}/appHome">Home</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#" id="signinLink">Sign In</a></li>
             </ul>
             <div class="clr"></div>
         </div>
