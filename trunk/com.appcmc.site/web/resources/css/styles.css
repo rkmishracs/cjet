@@ -1900,19 +1900,18 @@ html ul.tabs2 li.active a {
 
 /*CSS for 404_errorPage.jsp*/
 #errorDiv{
-    position: absolute;
-    top:110px;
-    left:194px;
-    width:960px;
     height: 598px;
+    position: relative;
+    top: 60px;
+    width: 960px;
 }
 
 #errorInfo{
-    position:absolute;
-    top:330px;
-    left:194px;
-    width:590px;
-    height:95px;
+    height: 95px;
+    left: 194px;
+    position: relative;
+    top: 50px;
+    width: 590px;
 }
 
 .errTxt1{
