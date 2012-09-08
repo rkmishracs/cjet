@@ -652,12 +652,6 @@ $(document).ready(function(){
 
                     
         $('#ajax_loading').css('display','block');
-                    
-                   
-
-                        
-   
-
         $.ajax({
             type: "POST",
             url: $('#searchDataHidden').val()+"/search",       
@@ -687,8 +681,13 @@ $(document).ready(function(){
                     },1000);
                 }else{
                     $('#SearchNumberErrorDiv').css("display", "block");
-
-
+                    
+                    if($('#SearchNumberErrorDiv').css("display", "block")){
+                        setTimeout(function(){
+                        $('#SearchNumberErrorDiv').fadeOut();
+                    }, 3000);
+                    }
+                    $('#SearchNumberErrorDiv').css("display", "block");
                 }
                 $('#ajax_loading').css('display','none');
                       
