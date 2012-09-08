@@ -46,7 +46,7 @@ public class ReportsController {
     private List<Contacts> contactsList = null;
     private List<StudentContactsProfile> studentContactsProfiles = null;
     private List<StudentProfile> studentProfiles = null;
-
+    
     @RequestMapping(method = RequestMethod.GET)
     public String reports() {
         return "";
@@ -118,7 +118,12 @@ public class ReportsController {
             studentContactsProfile.setLastName(studentList.get(i).getLastName());
             studentContactsProfile.setEmail(studentList.get(i).getEmail());
             studentContactsProfile.setMobile(studentList.get(i).getContacts().getMobile());
-            studentContactsProfile.setKeySkills(studentProfiles.get(i).getKeySkills());
+            
+            
+            studentProfile = studentProfileService.findStudentProfileByEnrollmentNumber(studentList.get(i).getEnrollmentNumber());
+            
+            studentContactsProfile.setKeySkills(studentProfile.getKeySkills());
+            
             studentContactsProfiles.add(studentContactsProfile);
         }
         request.setAttribute("studentContactsProfile", studentContactsProfiles, WebRequest.SCOPE_REQUEST);
