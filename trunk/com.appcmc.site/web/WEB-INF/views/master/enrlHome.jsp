@@ -200,10 +200,11 @@
                                             <a class="button-h" href="#" id="saveEnrl"><span><s:message code="lbl.enrollment.link.save"/></span></a>
                                             <a class="button-h" href="#" id ="canErl"><span><s:message code="lbl.enrollment.link.cancel"/></span></a>
                                             <div id="ajax_loading_email" ><img  src="${pageContext.request.contextPath}/resources/images/spinner.gif" style="folat:left;">&nbsp;<s:message code="lbl.txt.Processing"/></div>
-                                                
-                                        
                                             <div id="emailResponse">
                                                 <span class="emailResponse">Confirmation Sent To Student</span>
+                                            </div>
+                                            <div id="emailEnrlFailureResponse">
+                                                <span class="emailEnrlFailureResponse">Some Internal Problem, Mail Sent Failed</span>
                                             </div>
                                         </div>
                                     </div>
