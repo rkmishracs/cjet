@@ -99,7 +99,7 @@ public class MasterController {
         student.setEmail(enrollmentForm.getEmail());
         student.setFirstName(enrollmentForm.getFirstName());
         student.setLastName(enrollmentForm.getLastName());
-    
+
         SimpleDateFormat simpleDateFormat = (SimpleDateFormat) AppContext.APPCONTEXT.getBean(ContextIdNames.SIMPLE_DATE_FORMAT);
         try {
             Date dateOfBirth = simpleDateFormat.parse(enrollmentForm.getDateOfBirth());
@@ -228,10 +228,16 @@ public class MasterController {
         imageList.add(image1);
         imageList.add(image2);
         imageList.add(image3);
-        imageList.add(image4);       
-        appMailService.sendMail(appUser, imageList);
+        imageList.add(image4);
 
-        return "Enrollment Genarated";
+        try {
+            appMailService.sendMail(appUser, imageList);
+            return "success";
+        } catch (Exception exception) {
+            LOG.debug("MasterController", exception);
+            return "failure";
+        }
+
     }
 
     @ResponseBody
