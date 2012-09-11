@@ -154,8 +154,6 @@ public class SocialController {
       service.signRequest(accessToken, request);
       
       Response response = request.send();
-      return response.getBody();
-   }
-   
-   
+      return "success";
+   }   
 }
