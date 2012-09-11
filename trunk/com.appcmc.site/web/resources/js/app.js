@@ -444,39 +444,47 @@ $(document).ready(function(){
                     url : $('#enrollmentFormHidden').val()+"/master",
                     data : $("#enrollmentForm").serialize(),
                     success:function(response){
-                        $("#ajax_loading_email").css("display", "none");
-                        $("#emailResponse").css("display", "block");
-                        if($("#emailResponse").css("display", "block")){
-                            setTimeout(function(){
-                                $("#emailResponse").fadeOut("slow");
-                                $("#enrollmentNumber").val("");
-                                $("#email").val("");
-                                $("#firstName").val(""); 
-                                $("#lastName").val("");
-                                $("#date-picker").val("");
-                                $("#fatherName").val("") ;
-                                $("#aletrnativeEmail").val("");
-                                $("#motherName").val("") ;
-                                $("#ocupation").val("") ;
-                                $("#annualIncome").val("");
-                                $("#mobile").val(""); 
-                                $("#landPhone").val("");
-                                $("#nationality").val("");
-                                $("#city").val("");
-                                $("#state").val("");
-                                $("#country").val("");
-                                $("#address").val(""); 
-                                $("#pinCode").val("");                                
-                                $("#saveEnrl").css("display","block");
-                                $("#validation").css("display","block");
-                                $("#tab3").css("display", "none");
-                                $("#listThree").removeClass();
-                                $("#tab2").css("display", "none");
-                                $("#listTwo").removeClass();
-                                $("#tab1").css("display", "block");
-                                $("#listOne").addClass("active");
-                            }, 3000);
+                        if(response == 'failure'){
+                            $("#ajax_loading_email").css("display", "none");
+                            $("#emailEnrlFailureResponse").css("display", "block");
                         }
+                        if(response == 'success'){
+                            $("#ajax_loading_email").css("display", "none");
+                            $("#emailEnrlFailureResponse").css("display", "none");
+                            $("#emailResponse").css("display", "block");
+                            if($("#emailResponse").css("display", "block")){
+                                setTimeout(function(){
+                                    $("#emailResponse").fadeOut("slow");
+                                    $("#enrollmentNumber").val("");
+                                    $("#email").val("");
+                                    $("#firstName").val(""); 
+                                    $("#lastName").val("");
+                                    $("#date-picker").val("");
+                                    $("#fatherName").val("") ;
+                                    $("#aletrnativeEmail").val("");
+                                    $("#motherName").val("") ;
+                                    $("#ocupation").val("") ;
+                                    $("#annualIncome").val("");
+                                    $("#mobile").val(""); 
+                                    $("#landPhone").val("");
+                                    $("#nationality").val("");
+                                    $("#city").val("");
+                                    $("#state").val("");
+                                    $("#country").val("");
+                                    $("#address").val(""); 
+                                    $("#pinCode").val("");                                
+                                    $("#saveEnrl").css("display","block");
+                                    $("#validation").css("display","block");
+                                    $("#tab3").css("display", "none");
+                                    $("#listThree").removeClass();
+                                    $("#tab2").css("display", "none");
+                                    $("#listTwo").removeClass();
+                                    $("#tab1").css("display", "block");
+                                    $("#listOne").addClass("active");
+                                }, 3000);
+                            }
+                        }
+                        
                     }     
                            
                 
