@@ -9,7 +9,7 @@
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
-        
+
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
@@ -17,44 +17,30 @@
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
-        
+
     </head>
     <body>
         <div class="logo" style="position: relative;top: 5px; left: 15px;">
             <a href="${pageContext.request.contextPath}/appHome"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
-            </div>
+        </div>
 
-            <div class="menu_nav">
-                <ul>
-                    <li class="active"><a href="${pageContext.request.contextPath}/avtar">Home</a></li>
-                </ul>
-               
-                <div class="clr"></div>
-            </div>
-       <input type="hidden" id="forgotPasswordHidden" value="${pageContext.request.contextPath}" />
+        <div class="menu_nav">
+            <ul>
+                <li class="active"><a href="${pageContext.request.contextPath}/avtar">Home</a></li>
+            </ul>
+
+            <div class="clr"></div>
+        </div>
+        <input type="hidden" id="forgotPasswordHidden" value="${pageContext.request.contextPath}" />
         <div class="clear"></div>
         <div id="body">
-          <div class="wrapper">
-                
-                
-
+            <div class="wrapper">
                 <div id="body1" class="col"> 
                     <div class="forgotLine">
                     </div>
 
-                </div>
-                
-               
-
-                <div id="body2" class="col">
-                  
-                     <div id="emailResponseText">
-                         <span class="emailResponseText"><center>Password Sent To Mail</center></span>
-                </div>
-                <div id="emailResponseText1">
-                    <span class="emailResponseText1"><center>Invalid Data</center></span>
-                </div>
                     <div id="forgotPassDiv">
+
                         <div id ="enrlDiv">
                             <sf:form method="POST" action="" modelAttribute="forgotPasswordForm" id="forgotPassword">
                                 <div class="container">
@@ -94,6 +80,13 @@
                                                 <div style="position: relative;left: 0px;top:8px;">
                                                     <a class="button-h" href="#" id="getEnrlPassword"><span>Submit</span></a>
                                                 </div>
+                                                <div id="emailResponseText" style="display: block;">
+                                                    <span class="emailResponseText">Password Sent To Mail</span>
+                                                </div>
+                                                <div id="emailResponseText1" style="display: block;">
+                                                    <span class="emailResponseText1">Invalid Data</span>
+                                                </div>
+                                                <div id="emailPasswordFailureDiv">Some Internal Problem, Try Again</div>
                                             </div>
 
                                         </div>
@@ -104,6 +97,10 @@
                             </sf:form>
                         </div>
                     </div>
+
+                </div>
+                <div id="body2" class="col">
+
                 </div>
                 <div class="clear"></div>
             </div>
