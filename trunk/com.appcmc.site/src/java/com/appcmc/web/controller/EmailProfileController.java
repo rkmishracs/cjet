@@ -33,15 +33,22 @@ public class EmailProfileController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/sendEmail")
     public String getEmailProfile(@ModelAttribute EmailProfileForm emailProfileForm, WebRequest request) {
-        
-        if (!emailProfileForm.getEmailAttachment().getOriginalFilename().endsWith(".doc")) {
-            request.setAttribute("resumeFailureResponse", "Resume Must '.doc' file", WebRequest.SCOPE_REQUEST);
+
+        try {
+            if (!emailProfileForm.getEmailAttachment().getOriginalFilename().endsWith(".doc")) {
+                request.setAttribute("resumeFailureResponse", "Resume Must '.doc' file", WebRequest.SCOPE_REQUEST);
+                return "/avtar/emailProfileView";
+            }
+            appMailService = (AppMailService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_MAIL_SERVICE);
+            appMailService.sendResume(emailProfileForm);
+            request.setAttribute("resumeSuccessResponse", "Resume Sent Successfully", WebRequest.SCOPE_REQUEST);
+
+            return "/avtar/emailProfileView";
+        } catch (Exception exception) {
+            LOG.warn("EmailProfileController", exception);
+            request.setAttribute("resumeFailureResponse", "Some Internal Problem, Try Again", WebRequest.SCOPE_REQUEST);
             return "/avtar/emailProfileView";
         }
-        appMailService = (AppMailService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_MAIL_SERVICE);
-        appMailService.sendResume(emailProfileForm);
-        request.setAttribute("resumeSuccessResponse", "Resume Sent Successfully", WebRequest.SCOPE_REQUEST);
 
-        return "/avtar/emailProfileView";
     }
 }
