@@ -70,8 +70,12 @@
                                             <td><label for="tags">Qualification Held</label></td>
                                             <td><sf:select path="fourQualification"  id="editFirstHighestQualification">
                                                     <sf:option value="${educationalQualifications.fourQualification}">${educationalQualifications.fourQualification}</sf:option>
-                                                    <sf:option value="PG">PG</sf:option>
-                                                    <sf:option value="UG">UG</sf:option>
+                                                    <sf:option value="MCA">MCA</sf:option>
+                                                    <sf:option value="MBA">MBA</sf:option>
+                                                    <sf:option value="MTech">MTech</sf:option>
+                                                    <sf:option value="MSc">MSc</sf:option>
+                                                    <sf:option value="MS">MS</sf:option>
+                                                    <sf:option value="MCom">MCom</sf:option>
                                                 </sf:select>
                                             </td>
                                         </tr>
@@ -86,7 +90,7 @@
                                                     <sf:option value="VLSI">VLSI</sf:option>
                                                     <sf:option value="Power Systems">Power Systems</sf:option>
                                                     <sf:option value="Optical Engineering">Optical Engineering</sf:option>
-                                                    <sf:option value="CSE">CSE</sf:option>
+                                                    <sf:option value="Computers">Computers</sf:option>
                                                     <sf:option value="IT">IT</sf:option>
                                                     <sf:option value="ECE">ECE</sf:option>
                                                     <sf:option value="EEE">EEE</sf:option>
@@ -124,8 +128,9 @@
                                     <td><label for="tags">Qualification Held</label></td>
                                     <td><sf:select path="threeQualification" id="editSecondHighestQualification">
                                             <sf:option value="${educationalQualifications.threeQualification}">${educationalQualifications.threeQualification}</sf:option>
-                                            <sf:option value="UG">UG</sf:option>
-                                            <sf:option value="Intermediate">Intermediate</sf:option>
+                                            <sf:option value="BTech">BTech</sf:option>
+                                            <sf:option value="BSc">BSc</sf:option>
+                                            <sf:option value="BCom">BCom</sf:option>
                                             <sf:option value="Diploma">Diploma</sf:option>
                                         </sf:select>
                                     </td>
@@ -135,7 +140,7 @@
                                     <td><label for="tags">Specialization</label></td>
                                     <td><sf:select path="threeSpecialization" id="editSecondHighestSpecialization">
                                             <sf:option value="${educationalQualifications.threeSpecialization}">${educationalQualifications.threeSpecialization}</sf:option>
-                                            <sf:option value="CSE">CSE</sf:option>  
+                                            <sf:option value="CSE">Computers</sf:option>  
                                             <sf:option value="IT">IT</sf:option>
                                             <sf:option value="ECE">ECE</sf:option>
                                             <sf:option value="EEE">EEE</sf:option>
