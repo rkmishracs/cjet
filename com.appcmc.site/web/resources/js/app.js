@@ -1052,7 +1052,7 @@ $(document).ready(function(){
         bValid = bValid && checkLength( mobileNumber, "Mobile Number", 10, 16 );
         bValid = bValid && checkLength( landPhone, "Land Phone", 7, 11 );
         bValid = bValid && checkLength( pin, "Pin", 6, 7 );
-        bValid = bValid && checkLength( address, "Address", 10, 30 );
+        bValid = bValid && checkLength( address, "Address", 10, 300 );
         bValid = bValid && checkRegexp( firstName, /^[a-z]+$/i, "First Name may consist of a-z,begin with a letter." );
         bValid = bValid && checkRegexp( lastName, /^[a-z]+$/i, "Last Name may consist of a-z, begin with a letter." );
         bValid = bValid && checkRegexp( dateOfBirth, /^(\d{1,2})-(\d{1,2})-(\d{4})+$/i, "Date Of Birth Should in the form of DD-MM-YYYY" );
@@ -1127,7 +1127,6 @@ $(document).ready(function(){
                                     $("#editPerInfoSuccess").hide();
                                     $("#redirectInfoDiv").css('display', 'block');
                                     setTimeout(function(){
-                                        $("#redirectInfoDiv").css('display', 'block');
                                         window.location = $('#hiddenFieldForEditWorkExperience').val()+"/avtar/update-profile";
                                     }, 2000);
                                     
