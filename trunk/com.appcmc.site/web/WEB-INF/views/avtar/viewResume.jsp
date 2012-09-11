@@ -76,7 +76,7 @@
                     
                     <c:if test="${errorResumeMessage == null}">
                         <div id="iframeDiv" style="position: relative ; top: -100px; left:-20px;">
-                            <iframe src="${pageContext.request.contextPath}/resume/iframe" width="870" height="380">
+                            <iframe src="${pageContext.request.contextPath}/resume/iframe" width="870" height="2000">
                                 <p>Your browser does not support iframes.</p>
                             </iframe>
                         </div>
