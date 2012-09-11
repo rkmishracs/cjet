@@ -120,13 +120,21 @@ public class SignInController {
         if (appUser == null) {
             return "Invalid Data";
         }
-        if (appUser.getSecurityQuestion().equalsIgnoreCase(securityQuestion) && appUser.getSecurityAnswer().equalsIgnoreCase(answer)) {
+        try{
+            if (appUser.getSecurityQuestion().equalsIgnoreCase(securityQuestion) && appUser.getSecurityAnswer().equalsIgnoreCase(answer)) {
             appMailService = (AppMailService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_MAIL_SERVICE);
             appMailService.sendPassword(appUser);
-            return "password";
+            return "success";
         } else {
+                LOG.debug("================In else block");
             return "Invalid Security Question Or Answer";
         }
+        }catch(Exception exception){
+            LOG.debug("SignInController", exception);
+            return "failure";
+            
+        }
+        
 
     }
 }
