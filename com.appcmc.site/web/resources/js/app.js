@@ -684,8 +684,8 @@ $(document).ready(function(){
                     
                     if($('#SearchNumberErrorDiv').css("display", "block")){
                         setTimeout(function(){
-                        $('#SearchNumberErrorDiv').fadeOut();
-                    }, 3000);
+                            $('#SearchNumberErrorDiv').fadeOut();
+                        }, 3000);
                     }
                     $('#SearchNumberErrorDiv').css("display", "block");
                 }
@@ -867,16 +867,20 @@ $(document).ready(function(){
         }else if(username.val()==""){
             alert("Enter Username"); 
         }                  
-                    
         $.ajax({
                                         
             type : "post",
             url : $('#forgotPasswordHidden').val()+"/sign-in/get-forgot-password",
             data : $("#forgotPassword").serialize(),
             success : function(response){
-                if(response == 'password'){
+                if(response == 'failure'){
+                    $("#emailPasswordFailureDiv").css('display','block');
+                    return false;
+                }
+                if(response == 'success'){
                                         
                     $("#emailResponseText").show();
+                    $("#emailPasswordFailureDiv").css('dispaly','none');
                     username.val("");
                     $("#chooserDialog").val("Please Select");
                     answer.val("");
@@ -888,6 +892,7 @@ $(document).ready(function(){
                     $("#chooserDialog").val("Please Select");
                     answer.val("");
                     username.focus();
+                    $("#emailPasswordFailureDiv").css('dispaly','none');
                     $("#emailResponseText1").show(); //divForResponse1
                     setTimeout(function(){
                         $("#emailResponseText1").hide();    
@@ -1084,7 +1089,6 @@ $(document).ready(function(){
                                     $("#editPerInfoSuccess").hide();
                                     $("#redirectInfoDiv").css('display', 'block');
                                     setTimeout(function(){
-                                        $("#redirectInfoDiv").css('display', 'block');
                                         window.location = $('#editPerInfoHidden').val()+"/avtar/update-profile";
                                     }, 2000);
                                     
@@ -1121,19 +1125,19 @@ $(document).ready(function(){
                 if(response=="success"){
                     setTimeout(function(){
                         $("#ajax_loading_email").css('display','none');
-                         $("#editPerInfoSuccess").css("display", "block");
-                            if($("#editPerInfoSuccess").css("display", "block")){ 
+                        $("#editPerInfoSuccess").css("display", "block");
+                        if($("#editPerInfoSuccess").css("display", "block")){ 
+                            setTimeout(function(){
+                                $("#editPerInfoSuccess").hide();
+                                $("#redirectInfoDiv").css('display', 'block');
                                 setTimeout(function(){
-                                    $("#editPerInfoSuccess").hide();
-                                    $("#redirectInfoDiv").css('display', 'block');
-                                    setTimeout(function(){
-                                        window.location = $('#hiddenFieldForEditWorkExperience').val()+"/avtar/update-profile";
-                                    }, 2000);
-                                    
+                                    window.location = $('#hiddenFieldForEditWorkExperience').val()+"/avtar/update-profile";
                                 }, 2000);
-                            }
-                        }, 2000);
+                                    
+                            }, 2000);
                         }
+                    }, 2000);
+                }
             }
         });
         
@@ -1457,6 +1461,8 @@ $(document).ready(function(){
             $("#subjectErrorDiv").css('display', 'none');
             $("#attachmentErrorDiv").css('display', 'none');
             $("#messageErrorDiv").css('display', 'none');
+            $("#resumeFailureResponse").empty();
+            $("#resumeSuccessResponse").empty();
             $("#emailTo").focus();
             return false;
         }
@@ -1466,6 +1472,8 @@ $(document).ready(function(){
             $("#subjectErrorDiv").css('display', 'none');
             $("#attachmentErrorDiv").css('display', 'none');
             $("#messageErrorDiv").css('display', 'none');
+            $("#resumeFailureResponse").empty();
+            $("#resumeSuccessResponse").empty();
             $("#emailFrom").focus();
             return false;
         }
@@ -1475,6 +1483,8 @@ $(document).ready(function(){
             $("#subjectErrorDiv").css('display', 'block');
             $("#attachmentErrorDiv").css('display', 'none');
             $("#messageErrorDiv").css('display', 'none');
+            $("#resumeFailureResponse").empty();
+            $("#resumeSuccessResponse").empty();
             $("#emailSubject").focus();
             return false;
                 
@@ -1485,6 +1495,8 @@ $(document).ready(function(){
             $("#subjectErrorDiv").css('display', 'none');
             $("#attachmentErrorDiv").css('display', 'block');
             $("#messageErrorDiv").css('display', 'none');
+            $("#resumeFailureResponse").empty();
+            $("#resumeSuccessResponse").empty();
             return false;
         }
         if($("#emailMessage").val() == ''){
@@ -1493,6 +1505,8 @@ $(document).ready(function(){
             $("#subjectErrorDiv").css('display', 'none');
             $("#attachmentErrorDiv").css('display', 'none');
             $("#messageErrorDiv").css('display', 'block');
+            $("#resumeFailureResponse").empty();
+            $("#resumeSuccessResponse").empty();
             $("#emailMessage").focus();
             return false; 
         }
