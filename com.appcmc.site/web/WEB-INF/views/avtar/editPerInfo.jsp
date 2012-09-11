@@ -143,12 +143,7 @@
                                             <div id="redirectInfoDiv">
                                                 <span class="redirectInfoClass">Wait Until It Redirect...</span>
                                             </div>
-                                            
                                         </div>
-
-
-
-
                                     </div>
                                 </sf:form>
                             </div>
