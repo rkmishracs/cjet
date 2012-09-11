@@ -150,11 +150,6 @@ $(document).ready(function(){
                 
     $('#date-picker').datepicker( {
         
-        'beforeShow': function(input, datepicker) {
-            setTimeout(function() {
-                $(datepicker.dpDiv).css('zIndex', 900);
-            }, 0);
-        },
         changeMonth: true,
         changeYear: true,                    
         dateFormat: 'dd-mm-yy',
@@ -1182,7 +1177,7 @@ $(document).ready(function(){
         }
     });
         
-    $("#editFirstHighestUniversity,#editSecondHighestUniversity,#editThirdHighestUniversity,#editForthHighestUniversity").click(function(){
+    $("#editFirstHighestUniversity,#editSecondHighestUniversity,#editThirdHighestUniversity,#editForthHighestUniversity,#editForthHighestQualification").click(function(){
         var $th = $(this);
         if( $th.val() == 'Not Available'){
             $th.val("");
@@ -1192,16 +1187,16 @@ $(document).ready(function(){
 
     $("#editFirstHighestYearOfPassing,#editFirstHighestPercentage,#editSecondHighestYearOfPassing,#editSecondHighestPercentage,#editThirdHighestYearOfPassing,#editThirdHighestPercentage,#editForthHighestYearOfPassing,#editForthHighestPercentage").bind("keyup",function(){
         var $th = $(this);
-        $th.val( $th.val().replace(/[^0-9]/g, function() {
+        $th.val( $th.val().replace(/[^0-9]+.[^0-9]/g, function() {
             alert("Filed should contain numbers only");
             return '';
         } ) );
     });
         
 
-    $("#editFirstHighestUniversity,#editSecondHighestUniversity,#editThirdHighestUniversity,#editForthHighestUniversity").bind("keyup",function(){
+    $("#editForthHighestQualification,#editForthHighestQualification,#editFirstHighestUniversity,#editSecondHighestUniversity,#editThirdHighestUniversity,#editForthHighestUniversity").bind("keyup",function(){
         var $th = $(this);
-        $th.val( $th.val().replace(/[^a-zA-Z]/g, function() {
+        $th.val( $th.val().replace(/^[a-z]+$/g, function() {
             alert("Field should contain characters only");
             return '';
         } ) );
