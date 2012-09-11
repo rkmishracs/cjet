@@ -2982,3 +2982,40 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     position: relative;
     left: 133px;
 }
+#postStatusResponseDiv{
+    position: relative;
+    top: 125px;
+    left: 168px;
+    width: 250px;
+    height: 35px;
+    font-size: 11pt;
+    font-weight: bold;
+    display: none;
+    background-color: #6B9EDD;
+}
+.postStatusResponseDiv{
+    position:absolute;
+    top:7px;
+    left:32px;
+    width:245px;
+    height:20px;
+    color: #FFFFFF;    
+}
+#ajax_loading_fbStatus{
+    position: relative;
+    top: -28px;
+    left: 184px;
+    display: none;
+    width: 100px;
+}
+#redirectPostStatusDiv{
+    position: relative;
+    top: 125px;
+    left: 168px;
+    width: 250px;
+    height: 35px;
+    font-size: 11pt;
+    font-weight: bold;
+    display: none;
+    background-color: #6B9EDD;
+}
