@@ -1,34 +1,52 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <title>Error Page</title>
+        <title>CMC | ErrorPage</title>
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
-        
-        
+
+
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tipsy.js"></script>
         <script
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
-        
-        
+
+
     </head>
-    
+
     <body>
         <div class="logo" style="position: relative;top: 5px; left: 15px;">
-            <a href="${pageContext.request.contextPath}/appHome"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
+            <c:if test="${user.type == 'student'}">
+                <a href="${pageContext.request.contextPath}/avtar"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
+            </c:if>
+            <c:if test="${user.type == 'admin'}">
+                <a href="${pageContext.request.contextPath}/master"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
+            </c:if>
+            <c:if test="${user == null}">
+                <a href="${pageContext.request.contextPath}/appHome"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
+            </c:if>    
         </div>
 
         <div class="menu_nav">
             <ul>
-                <li class="active"><a href="${pageContext.request.contextPath}/appHome">Home</a></li>
+                <c:if test="${user.type == 'student'}">
+                    <li class="active"><a href="${pageContext.request.contextPath}/avtar">Home</a></li>
+                </c:if>
+                <c:if test="${user.type == 'admin'}">
+                    <li class="active"><a href="${pageContext.request.contextPath}/master">Home</a></li>
+                </c:if>
+                <c:if test="${user == null}">
+                    <li class="active"><a href="${pageContext.request.contextPath}/appHome">Home</a></li>
+                </c:if>
             </ul>
             <div class="clr"></div>
         </div>
-        
+
         <div class="clear"></div>
         <div id="body">
             <div id="container">
@@ -41,10 +59,10 @@
                 </div>
             </div>
         </div>
-        
-        
-        
-       <div id="footer">
+
+
+
+        <div id="footer">
             <div class="wrapper">
                 <div id="footer1" class="col"> <span class="linkgroup">About Us</span>
                     <ul>
@@ -76,7 +94,6 @@
                 </div>
             </div>
         </div> 
-       
+
     </body>
 </html>
-    
