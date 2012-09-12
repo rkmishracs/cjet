@@ -2663,27 +2663,28 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 
 #emailResponseText{
     position: relative;
-    top:10px;
-    left:10px;
+    top:-20px;
+    left:250px;
     width:208px;
     height: 35px;
     font-size: 9pt;
     font-weight: bold;
-    display: block;
+    display: none;
     background-color: #6B9EDD;
 }
 
 .emailResponseText{
     position: relative;
-    top: 9px;
-    left: 18px;
+    text-align: center;
+    top: -5px;
+    left: 5px;
     width: 175px;
     color: #FFFFFF;
 }
 #emailResponseText1{
     position: relative;
-    top:320px;
-    left:900px;
+    top:-20px;
+    left:250px;
     width:208px;
     height: 35px;
     font-size: 9pt;
@@ -2694,8 +2695,8 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
 
 .emailResponseText1{
     position: relative;
-    top: 9px;
-    left: 18px;
+    top: -5px;
+    left: 5px;
     width: 175px;
     color: #FFFFFF;
 }
@@ -2706,6 +2707,13 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     position: relative;
     top: -23px;
     width: 188px;
+   
+}
+#ajax_loading_forgotPassword_Processing{
+    position: relative;
+    display: none;
+    top:-8px;
+    left:11px;
 }
 
 
