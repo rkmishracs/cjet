@@ -3057,3 +3057,15 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     display: none;
     background-color: #6B9EDD;
 }
+#successStorySeparatorLine{
+    position: relative;
+    float: left;
+    width: 250px;
+    height:5px;
+    left: 20px;
+    top: 10px;
+    line-height: 18px;
+    border-bottom: solid 1px #7e99ba;
+    margin: 0px 0px 10px 0px;
+    *.z-index: -1;
+}
