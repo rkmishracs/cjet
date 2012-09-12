@@ -205,13 +205,13 @@ public class MasterController {
         studentProfile.setActive(new Short("1"));
         studentProfile.setCreatedBy(1L);
         studentProfile.setCreatedOn(date);
-        studentProfile.setCurrentEmployer("Not updated");
+        studentProfile.setCurrentEmployer("Not Updated");
         studentProfile.setEnrollmentNumber(enrollmentForm.getEnrollmentNumber());
-        studentProfile.setKeySkills("Not updated");
+        studentProfile.setKeySkills("Not Updated");
         studentProfile.setModifiedBy(1L);
         studentProfile.setModifiedOn(date);
         studentProfile.setPreviousEmployer("Not Updated");
-        studentProfile.setRole("Not updated");
+        studentProfile.setRole("Not Updated");
         studentProfile.setTitle("Not Updated");
         studentProfile.setTotalExperience("Not Updated");
         studentProfile.setResume(null);
