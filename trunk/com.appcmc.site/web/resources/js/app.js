@@ -851,6 +851,8 @@ $(document).ready(function(){
     //Script for forgotPassword.jsp
     $("#emailResponseText").hide();
     $("#emailResponseText1").hide();
+    
+    
     $("#getEnrlPassword").click(function(){
         $("#ajax_loading_forgotPassword_Processing").show();
         username = $("#forgotUserText");
@@ -1111,7 +1113,12 @@ $(document).ready(function(){
 
    
     //Script for avtarDen.jsp
-    
+    $("#updatePreviousEmployers,#updateRole,#updateCurrentEmployer,#updateTitle,#updateKeySkills").click(function(){
+        var th = $(this);
+        if( th.val() == 'Not Updated'){
+            th.val("");
+        }
+    });
     $("#saveExp").click(function(){
         $("#ajax_loading_email").css('display','block');
         var updateTitle = $("#updateTitle");
