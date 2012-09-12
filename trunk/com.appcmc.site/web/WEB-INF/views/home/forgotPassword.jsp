@@ -35,12 +35,14 @@
         <div class="clear"></div>
         <div id="body">
             <div class="wrapper">
+
+
+
                 <div id="body1" class="col"> 
                     <div class="forgotLine">
                     </div>
 
                     <div id="forgotPassDiv">
-
                         <div id ="enrlDiv">
                             <sf:form method="POST" action="" modelAttribute="forgotPasswordForm" id="forgotPassword">
                                 <div class="container">
@@ -80,15 +82,16 @@
                                                 <div style="position: relative;left: 0px;top:8px;">
                                                     <a class="button-h" href="#" id="getEnrlPassword"><span>Submit</span></a>
                                                 </div>
-                                                <div id="emailResponseText" style="display: block;">
-                                                    <span class="emailResponseText">Password Sent To Mail</span>
-                                                </div>
-                                                <div id="emailResponseText1" style="display: block;">
-                                                    <span class="emailResponseText1">Invalid Data</span>
-                                                </div>
-                                                <div id="emailPasswordFailureDiv">Some Internal Problem, Try Again</div>
                                             </div>
-
+                                               
+                                            <div id="emailResponseText">
+                                                <span class="emailResponseText"><center>Password Sent To Mail</center></span>
+                                            </div>
+                                            <div id="emailResponseText1">
+                                                <span class="emailResponseText1"><center>Invalid Data</center></span>
+                                            </div>
+                                            <div id="emailPasswordFailureDiv">Some Internal Problem, Try Again</div>
+                                             <div id="ajax_loading_forgotPassword_Processing">  <img  src="${pageContext.request.contextPath}/resources/images/spinner.gif"><s:message code="lbl.txt.Processing"/></img></div>
                                         </div>
 
                                     </div>
@@ -97,9 +100,12 @@
                             </sf:form>
                         </div>
                     </div>
-
                 </div>
+
+
+
                 <div id="body2" class="col">
+
 
                 </div>
                 <div class="clear"></div>
