@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>CMC | ${user.firstName} ${user.lastName}</title>
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
