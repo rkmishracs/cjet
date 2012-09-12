@@ -852,6 +852,7 @@ $(document).ready(function(){
     $("#emailResponseText").hide();
     $("#emailResponseText1").hide();
     $("#getEnrlPassword").click(function(){
+        $("#ajax_loading_forgotPassword_Processing").show();
         username = $("#forgotUserText");
         answer   = $("#forgotUserAnswer");                
         securityQuestion = $("#chooserDialog option:selected");
@@ -884,6 +885,7 @@ $(document).ready(function(){
                                         
                     $("#emailResponseText").show();
                     $("#emailPasswordFailureDiv").css('dispaly','none');
+                    $("#ajax_loading_forgotPassword_Processing").css('display','none');
                     username.val("");
                     $("#chooserDialog").val("Please Select");
                     answer.val("");
@@ -896,6 +898,7 @@ $(document).ready(function(){
                     answer.val("");
                     username.focus();
                     $("#emailPasswordFailureDiv").css('dispaly','none');
+                    $("#ajax_loading_forgotPassword_Processing").css('display','none');
                     $("#emailResponseText1").show(); //divForResponse1
                     setTimeout(function(){
                         $("#emailResponseText1").hide();    
