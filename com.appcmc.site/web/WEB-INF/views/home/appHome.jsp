@@ -199,6 +199,7 @@
                                                     </div>
                                             </div>
                                         </div> <!-- End Of testSuccessDiv 1 -->
+                                        <div id="successStorySeparatorLine"></div>
                                         </c:forEach>
                                     </div>
                                     <!--// don't remove this: the scrollbar and scrollscrubber place holder -->
