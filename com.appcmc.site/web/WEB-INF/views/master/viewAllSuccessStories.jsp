@@ -8,7 +8,7 @@
         <title>CMC | Admin</title>
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
-
+        <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"/>
         <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" type="text/css" />
 
 
@@ -92,8 +92,8 @@
                     <div class="right-nav">
 
                         <ul>
-                            <li class="current"><a href="${pageContext.request.contextPath}/successStories/createSuccessStories">Create Success Stories</a></li>
-                            <li><a href="${pageContext.request.contextPath}/successStories/viewAllSuccessStories">Show All Success Stories</a></li>
+                            <li><a href="${pageContext.request.contextPath}/successStories/createSuccessStories">Create Success Stories</a></li>
+                            <li class="current"><a href="${pageContext.request.contextPath}/successStories/viewAllSuccessStories">Show All Success Stories</a></li>
                         </ul>
 
                     </div>

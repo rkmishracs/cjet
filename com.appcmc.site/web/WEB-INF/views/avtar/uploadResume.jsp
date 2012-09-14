@@ -9,7 +9,7 @@
 
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
-
+        <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"/>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
         
 
@@ -112,7 +112,7 @@
 
                     <div class="right-nav">
                         <ul>
-
+                            <li><a href="${pageContext.request.contextPath}/avtar/update-profile">My Profile</a></li>
                             <li class="current"><a href="#">Upload Resume</a></li>
                             <li><a href="${pageContext.request.contextPath}/resume/view" id="">View Resume Details</a></li>
                             

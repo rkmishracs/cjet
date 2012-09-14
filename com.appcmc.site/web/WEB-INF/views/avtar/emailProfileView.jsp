@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
-
+        <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"/>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
 
 
@@ -128,10 +128,7 @@
 
                     <div class="right-nav">
                         <ul>
-
-                            <li class="current"><a href="#">My Profile</a></li>
-
-
+                            <li class="current"><a href="${pageContext.request.contextPath}/avtar/update-profile">My Profile</a></li>
                         </ul>
                     </div>
                     <br />
