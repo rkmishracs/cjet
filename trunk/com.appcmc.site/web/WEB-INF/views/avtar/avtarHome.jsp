@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
-
+        <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"/>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
        
         
@@ -211,7 +211,7 @@
 
                     <div class="right-nav">
                         <ul>
-                            <li class="current"><a href="${pageContext.request.contextPath}/avtar/update-profile">View Personal Information</a></li>
+                            <li class="current"><a href="${pageContext.request.contextPath}/avtar/update-profile">My Profile</a></li>
                             <li><a href="${pageContext.request.contextPath}/emailProfile">Email Resume</a></li>
                              <li><a href="${pageContext.request.contextPath}/social">Share Profile To Facebook</a></li>
                             <li><a href="${pageContext.request.contextPath}/profileView">Print Profile</a></li>

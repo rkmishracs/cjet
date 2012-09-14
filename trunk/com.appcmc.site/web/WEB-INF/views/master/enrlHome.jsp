@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
-
+        <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"/>
         <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" type="text/css" />
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
@@ -27,7 +27,7 @@
         <div class="menu_nav">
             <ul>
                 <li class="active"><a href="${pageContext.request.contextPath}/master">Home</a></li>
-                
+
                 <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
             </ul>
             <div class="clr"></div>
@@ -194,10 +194,10 @@
                                         <div class="st-blocked2">
                                             <label for="tags"><s:message code="lbl.enrollment.tab3.address"/></label>
                                             <sf:textarea cssClass="tags" path="address"></sf:textarea>
-                                        </div>
-                                        <div class="st-blocked2">
-                                            <label for="tags"></label>
-                                            <a class="button-h" href="#" id="saveEnrl"><span><s:message code="lbl.enrollment.link.save"/></span></a>
+                                            </div>
+                                            <div class="st-blocked2">
+                                                <label for="tags"></label>
+                                                <a class="button-h" href="#" id="saveEnrl"><span><s:message code="lbl.enrollment.link.save"/></span></a>
                                             <a class="button-h" href="#" id ="canErl"><span><s:message code="lbl.enrollment.link.cancel"/></span></a>
                                             <div id="ajax_loading_email" ><img  src="${pageContext.request.contextPath}/resources/images/spinner.gif" style="folat:left;">&nbsp;<s:message code="lbl.txt.Processing"/></div>
                                             <div id="emailResponse">
@@ -216,8 +216,22 @@
 
                         </sf:form>
                         <div class="clear"></div>
+
                     </div>      
                 </div>
+                <div id="body2" class="col">
+
+
+
+
+                    <div id="right-cont-area">
+
+                        <!-- Some Dash Board-->  
+
+                    </div>
+
+                </div><!-- Body2 Div Ends Here -->
+                <div class="clear"></div>
             </div>
 
         </div>
