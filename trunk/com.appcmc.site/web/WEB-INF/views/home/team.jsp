@@ -65,7 +65,7 @@
                     <div class="m600-prdkt"> 
 
                         <!--Begin Pridiktor Info-->
-                        <div class="prdktr"> <img src="${pageContext.request.contextPath}/resources/images/user-img2.png" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
+                        <div class="prdktr"> <img src="${pageContext.request.contextPath}/resources/images/user-img.jpg" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
                             <div class="name">Nicole Mossinger</div>
                             <div class="rank">Amateur</div>
                         </div>
@@ -76,7 +76,7 @@
                             <h2 class="tags">Japan, Nuclear Energy, Disaster</h2>
                             <h1 class="pridiktion">There will be a nuclear melt-down in Japan before March 20, 2011</h1>
                             <div class="details"></div>
-                            <div class="link"> <a href="www.cnn.com/linked-article"><img src="${pageContext.request.contextPath}/resources/images/user-img2.png" width="90" height="63" alt="Nuclear Power Plant" title="Nuclear Power Plant" /></a>
+                            <div class="link"> <img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="90" height="63" alt="CMC Pvt Ltd" title="CMC" />
                                 <div>
                                     <h3>Tsunami Hits Fukiyama Power Plant</h3>
                                     <a href="http://www.cnn.com" id="tipsblock" title="If you remember your password, try logging in with your email">www.cnn.com/linked-article</a>
@@ -110,7 +110,7 @@
                             <h2 class="tags">Japan, Nuclear Energy, Disaster</h2>
                             <h1 class="pridiktion">There will be a nuclear melt-down in Japan before March 20, 2011</h1>
                             <div class="details"></div>
-                            <div class="link"> <a href="www.cnn.com/linked-article"><img src="${pageContext.request.contextPath}/resources/images/user-img2.png" width="90" height="63" alt="Nuclear Power Plant" title="Nuclear Power Plant" /></a>
+                            <div class="link"> <img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="90" height="63" alt="CMC Pvt Ltd" title="CMC" />
                                 <div>
                                     <h3>Tsunami Hits Fukiyama Power Plant</h3>
                                     <a href="http://www.cnn.com" id="tipsblock" title="If you remember your password, try logging in with your email">www.cnn.com/linked-article</a>
@@ -140,7 +140,7 @@
                             <h2 class="tags">Japan, Nuclear Energy, Disaster</h2>
                             <h1 class="pridiktion">There will be a nuclear melt-down in Japan before March 20, 2011</h1>
                             <div class="details"></div>
-                            <div class="link"> <a href="www.cnn.com/linked-article"><img src="${pageContext.request.contextPath}/resources/images/user-img2.png" width="90" height="63" alt="Nuclear Power Plant" title="Nuclear Power Plant" /></a>
+                            <div class="link"> <img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="90" height="63" alt="CMC Pvt Ltd" title="CMC" />
                                 <div>
                                     <h3>Tsunami Hits Fukiyama Power Plant</h3>
                                     <a href="http://www.cnn.com" id="tipsblock" title="If you remember your password, try logging in with your email">www.cnn.com/linked-article</a>
