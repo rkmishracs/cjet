@@ -228,28 +228,17 @@
                     <ul>
                         <li><a href="company.html">Our Company</a></li>
                         <li><a href="team.html">Our Team</a></li>
-                        <li><a href="press.html">Press Coverage</a></li>
                     </ul>
                 </div>
                 <div id="footer2" class="col"> <span class="linkgroup">Support</span>
                     <ul>
                         <li><a href="help.html">Help Center</a></li>
-                        <li><a href="what-is-a-pridiktion.html">What Is a Prediction?</a></li>
-                        <li><a href="how-to-prodikt.html">How to</a></li>
                     </ul>
                 </div>
-                <div id="footer2" class="col"> <span class="linkgroup">Follow Us</span>
+                <div id="footer3" class="col"> <span class="linkgroup">Follow Us</span>
                     <ul>
-                        <li><a href="pridikt-blog">Blog</a></li>
                         <li><a href="pridikt-on-twitter.html">Twitter</a></li>
                         <li><a href="pridikt-on-facebook.html">Facebook</a></li>
-                    </ul>
-                </div>
-                <div id="footer2" class="col"> <span class="linkgroup">Legal</span>
-                    <ul>
-                        <li><a href="pridikt-rules.html">Detailed Rules</a></li>
-                        <li><a href="terms.html">Terms and Conditions</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
