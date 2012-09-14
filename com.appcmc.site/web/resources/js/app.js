@@ -1722,6 +1722,41 @@ $(document).ready(function(){
     
         
     });
+    
+    
+    //Script for fbProfileView.jsp
+    $(document).ready(function(){
+            
+        $("#submitForUpdateFbStatus").click(function(){
+            $.ajax  ({
+                type : 'POST',
+                url : $('#fbProfileViewHidden').val()+'/social/updateStatus',
+                data : $("#fbForm").serialize(),
+                success:function(response){
+                    if(response == "success"){
+                        $("#ajax_loading_fbStatus").css("display", "block");
+                        setTimeout(function(){
+                            $("#ajax_loading_fbStatus").css("display", "none");
+                            $("#postStatusResponseDiv").css("display", "block");
+                            if($("#postStatusResponseDiv").css("display", "block")){
+                                setTimeout(function(){
+                                    $("#postStatusResponseDiv").hide();
+                                    $("#redirectPostStatusDiv").css("display", "block");
+                                    setTimeout(function(){
+                                        window.location = $('#fbProfileViewHidden').val()+"/avtar";
+                                    }, 2000);
+                                    $("#updateFbStatusText").val
+                                }, 2000);
+                            }
+                        }, 3000);
+                    }
+                }
+            })
+               
+               
+        });
+            
+    });
       
 });
 
