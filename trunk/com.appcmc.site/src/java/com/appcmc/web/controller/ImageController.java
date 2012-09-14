@@ -35,6 +35,9 @@ public class ImageController extends HttpServlet {
             StudentService studentService = 
                     (StudentService)AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
             Student studentInfo = studentService.findStudentByEnrollmentNumber(id);
+            if(studentInfo == null){
+                return;
+            }
             byte[] image = studentInfo.getProfilePic();
             response.setContentLength(image.length);
             outputStream = response.getOutputStream();
