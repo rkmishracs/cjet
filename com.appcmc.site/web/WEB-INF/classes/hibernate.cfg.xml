@@ -3,24 +3,24 @@
 "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-	<session-factory>
+    <session-factory>
 		
-		<property name="show_sql">true</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/app</property>
-		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">root</property>
+        <property name="show_sql">true</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/app</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
 		
-		<mapping resource="mappings/AppUser.hbm.xml" />
-		<mapping resource="mappings/Course.hbm.xml" />
-		<mapping resource="mappings/Student.hbm.xml" />
-		<mapping resource="mappings/Contacts.hbm.xml" />
-                <mapping resource="mappings/StudentProfile.hbm.xml" />
-                <mapping resource="mappings/EducationalQualifications.hbm.xml" />
-                <mapping resource="mappings/PlacedStudent.hbm.xml" />
-                <mapping resource="mappings/Events.hbm.xml" />
+        <mapping resource="mappings/AppUser.hbm.xml" />
+        <mapping resource="mappings/Course.hbm.xml" />
+        <mapping resource="mappings/Student.hbm.xml" />
+        <mapping resource="mappings/Contacts.hbm.xml" />
+        <mapping resource="mappings/StudentProfile.hbm.xml" />
+        <mapping resource="mappings/EducationalQualifications.hbm.xml" />
+        <mapping resource="mappings/PlacedStudent.hbm.xml" />
+        <mapping resource="mappings/Events.hbm.xml" />
 
 		
-	</session-factory>
+    </session-factory>
 </hibernate-configuration>
