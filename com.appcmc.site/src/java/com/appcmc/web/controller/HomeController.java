@@ -128,7 +128,16 @@ public class HomeController {
 
         return "/home/appHome";
     }
+
     
+    
+    @RequestMapping(method = RequestMethod.GET,value="/team")
+    public String showTeam(){
+        
+        return "/home/team";
+    }
+    
+
     @RequestMapping(method= RequestMethod.GET ,value="/about")
     public String aboutUs(){
         return "/home/aboutUs";
@@ -137,4 +146,5 @@ public class HomeController {
     public String contactUs(){
         return "/home/contactUs";
     }
+
 }
