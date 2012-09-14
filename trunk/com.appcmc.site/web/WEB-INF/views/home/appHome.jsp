@@ -272,7 +272,7 @@
                 <div id="footer1" class="col"> <span class="linkgroup">About Us</span>
                     <ul>
                         <li><a href="http://www.cmcltd.com/">Our Company</a></li>
-                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="${pageContext.request.contextPath}/appHome/team">Our Team</a></li>
                     </ul>
                 </div>
                 <div id="footer2" class="col"> <span class="linkgroup">Support</span>
