@@ -128,4 +128,13 @@ public class HomeController {
 
         return "/home/appHome";
     }
+    
+    @RequestMapping(method= RequestMethod.GET ,value="/about")
+    public String aboutUs(){
+        return "/home/aboutUs";
+    }
+    @RequestMapping(method= RequestMethod.GET ,value="/contact")
+    public String contactUs(){
+        return "/home/contactUs";
+    }
 }
