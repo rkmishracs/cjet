@@ -19,8 +19,6 @@
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
 
     </head>
-
-
     <body>
         <div>
             <input type="hidden" id="createEventHidden" value="${pageContext.request.contextPath}"/>
@@ -146,32 +144,21 @@
         <div class="clear"></div>
         <div id="footer">
             <div class="wrapper">
-                <div id="footer1" class="col"> <span class="linkgroup"><s:message code="lbl.footer.link.aboutUs"/></span>
+                <div id="footer1" class="col"> <span class="linkgroup">About Us</span>
                     <ul>
-                        <li><a href="company.html"><s:message code="lbl.footer.link.aboutUs.ourCompany"/></a></li>
-                        <li><a href="team.html"><s:message code="lbl.footer.link.aboutUs.ourTeam"/></a></li>
-                        <li><a href="press.html"><s:message code="lbl.footer.link.aboutUs.pressCoverage"/></a></li>
+                        <li><a href="company.html">Our Company</a></li>
+                        <li><a href="team.html">Our Team</a></li>
                     </ul>
                 </div>
-                <div id="footer2" class="col"> <span class="linkgroup"><s:message code="lbl.footer.link.support"/></span>
+                <div id="footer2" class="col"> <span class="linkgroup">Support</span>
                     <ul>
-                        <li><a href="help.html"><s:message code="lbl.footer.link.support.helpCenter"/></a></li>
-                        <li><a href="what-is-a-pridiktion.html"><s:message code="lbl.footer.link.support.whatIsaPrediction"/></a></li>
-                        <li><a href="how-to-prodikt.html"><s:message code="lbl.footer.link.support.howto"/></a></li>
+                        <li><a href="help.html">Help Center</a></li>
                     </ul>
                 </div>
-                <div id="footer2" class="col"> <span class="linkgroup"><s:message code="lbl.footer.link.followUs"/></span>
+                <div id="footer3" class="col"> <span class="linkgroup">Follow Us</span>
                     <ul>
-                        <li><a href="pridikt-blog"><s:message code="lbl.footer.link.followUs.blog"/></a></li>
-                        <li><a href="pridikt-on-twitter.html"><s:message code="lbl.footer.link.followUs.twitter"/></a></li>
-                        <li><a href="pridikt-on-facebook.html"><s:message code="lbl.footer.link.followUs.facebook"/></a></li>
-                    </ul>
-                </div>
-                <div id="footer2" class="col"> <span class="linkgroup"><s:message code="lbl.footer.link.legal"/></span>
-                    <ul>
-                        <li><a href="pridikt-rules.html"><s:message code="lbl.footer.link.legal.detailedRules"/></a></li>
-                        <li><a href="terms.html"><s:message code="lbl.footer.link.legal.termsAndConditions"/></a></li>
-                        <li><a href="privacy.html"><s:message code="lbl.footer.link.legal.privacyPolicy"/></a></li>
+                        <li><a href="pridikt-on-twitter.html">Twitter</a></li>
+                        <li><a href="pridikt-on-facebook.html">Facebook</a></li>
                     </ul>
                 </div>
             </div>

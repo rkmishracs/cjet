@@ -11,7 +11,7 @@
               href="${pageContext.request.contextPath}/resources/css/redmond/jquery-ui-1.8.23.custom.css" />
 
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" />
-        
+
 
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/drop.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
@@ -21,18 +21,18 @@
 
     </head>
     <body>
-        
+
         <div class="logo" style="position: relative;top: 5px; left: 15px;">
             <a href="${pageContext.request.contextPath}/avtar"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" alt="" style="border-color:#312e25 ;zIndex:600" /></a>
-            </div>
+        </div>
 
-            <div class="menu_nav">
-                <ul>
-                    <li class="active"><a href="${pageContext.request.contextPath}/avtar">Home</a></li>
-                    <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
-                </ul>
-                <div class="clr"></div>
-            </div>
+        <div class="menu_nav">
+            <ul>
+                <li class="active"><a href="${pageContext.request.contextPath}/avtar">Home</a></li>
+                <li><a href="${pageContext.request.contextPath}/sign-in/out">Sign Out</a></li>
+            </ul>
+            <div class="clr"></div>
+        </div>
         <div id="body">
             <div class="wrapper">
                 <div id="body1" class="col"> 
@@ -78,8 +78,8 @@
                                     <label for="tags">Upload Picture</label>
                                     <sf:form  id="picture-form" action="${pageContext.request.contextPath}/avtar/avtarPic" method="post" enctype="multipart/form-data" modelAttribute="avtarProfilePicForm" >
                                         <div style="display: none">
-                                        <sf:input  path="enrollmentNumber" style="display"/></div>
-                                        <sf:input  id="uploadPicTxt" type="file" value="uploadPicTxt" path="profilePic" />
+                                            <sf:input  path="enrollmentNumber" style="display"/></div>
+                                            <sf:input  id="uploadPicTxt" type="file" value="uploadPicTxt" path="profilePic" />
                                         <br/>
                                         <br/>
                                         <input type="submit" id="uploadPicButton" value="Upload" class="button-dw" style="position: relative;top: 18px;left:200px;"/>
@@ -87,7 +87,7 @@
                                         <div id="successProfilePic">${successProfilePic}</div>
                                         <div id="ajax_loading" style="position: absolute;left: 300px; width: 100px;display:none ">
                                             <img align="absmiddle" src="../resources/images/spinner.gif" style="left:200px;"/>&nbsp;Processing...
-                                </div>
+                                        </div>
 
 
                                     </sf:form> 
@@ -117,37 +117,25 @@
                 </div>
             </div>
         </div>
-                            <div id="footer">
+        <div id="footer">
             <div class="wrapper">
                 <div id="footer1" class="col"> <span class="linkgroup">About Us</span>
                     <ul>
                         <li><a href="company.html">Our Company</a></li>
                         <li><a href="team.html">Our Team</a></li>
-                        <li><a href="press.html">Press Coverage</a></li>
                     </ul>
                 </div>
                 <div id="footer2" class="col"> <span class="linkgroup">Support</span>
                     <ul>
                         <li><a href="help.html">Help Center</a></li>
-                        <li><a href="what-is-a-pridiktion.html">What Is a Prediction?</a></li>
-                        <li><a href="how-to-prodikt.html">How to</a></li>
                     </ul>
                 </div>
-                <div id="footer2" class="col"> <span class="linkgroup">Follow Us</span>
+                <div id="footer3" class="col"> <span class="linkgroup">Follow Us</span>
                     <ul>
-                        <li><a href="pridikt-blog">Blog</a></li>
                         <li><a href="pridikt-on-twitter.html">Twitter</a></li>
                         <li><a href="pridikt-on-facebook.html">Facebook</a></li>
                     </ul>
                 </div>
-                <div id="footer2" class="col"> <span class="linkgroup">Legal</span>
-                    <ul>
-                        <li><a href="pridikt-rules.html">Detailed Rules</a></li>
-                        <li><a href="terms.html">Terms and Conditions</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
-
             </div>
         </div>
     </body>
