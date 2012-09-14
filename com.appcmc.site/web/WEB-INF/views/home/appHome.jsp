@@ -38,9 +38,8 @@
         <div class="menu_nav">
             <ul>
                 <li class="active"><a href="${pageContext.request.contextPath}/appHome">Home</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="${pageContext.request.contextPath}/appHome/about">About Us</a></li>
+                <li><a href="${pageContext.request.contextPath}/appHome/contact">Contact Us</a></li>
                 <li><a href="#" id="signinLink">Sign In</a></li>
             </ul>
             <div class="clr"></div>
@@ -227,7 +226,7 @@
                                     <span class="walkinZone"></span>
                                     <p style="padding-top:5px; ">
                                         <span class="disBlk" style="padding:3px 0px;"><strong><a href="/WalkIn-Zone/index.html" target="_blank">${walkInEvent.eventName}<br/>
-                                                </a></strong></span><span class="disBlk" style="color:#737373;"><fmt:formatDate  dateStyle="default"  pattern="dd-MM-yyyy" value="${walkInEvent.eventOn}" /> <br/>${walkInEvent.eventLocation.toUpperCase()} <br/>
+                                                </a></strong></span><span class="disBlk" style="color:#737373;"><fmt:formatDate  dateStyle="default"  pattern="dd-MM-yyyy" value="${walkInEvent.eventOn}" /> <br/>${walkInEvent.eventLocation} <br/>
                                         </span>
                                     </p>
                                 </div>
@@ -239,7 +238,7 @@
                                 <div class="cont">
                                     <img src="resources/images/index.png"/>
                                     <p style="padding-top:5px; ">
-                                        <span class="disBlk" style="padding:3px 0px;"><strong><a href="/uppercrest/bangalore.html" target="_blank">${jobFairEvent.eventName} </a></strong></span><span class="disBlk" style="color:#737373;"><fmt:formatDate  dateStyle="default"  pattern="dd-MM-yyyy" value="${jobFairEvent.eventOn}" /> <br/>${jobFairEvent.eventLocation.toUpperCase()} <br/>
+                                        <span class="disBlk" style="padding:3px 0px;"><strong><a href="/uppercrest/bangalore.html" target="_blank">${jobFairEvent.eventName} </a></strong></span><span class="disBlk" style="color:#737373;"><fmt:formatDate  dateStyle="default"  pattern="dd-MM-yyyy" value="${jobFairEvent.eventOn}" /> <br/>${jobFairEvent.eventLocation} <br/>
                                         </span>
                                     </p>
                                 </div>
@@ -256,11 +255,12 @@
                         </div>
 
                     </div>
-
-
+                        
+                         <!--- Duplicate --->
+              
                 </div>
                 <div id="body2" class="col">
-
+                     
                 </div>
             </div>
             <div class="clear"></div>
@@ -282,8 +282,10 @@
                 </div>
                 <div id="footer3" class="col"> <span class="linkgroup">Follow Us</span>
                     <ul>
-                        <li><a href="pridikt-on-twitter.html">Twitter</a></li>
-                        <li><a href="pridikt-on-facebook.html">Facebook</a></li>
+                        <!--li><a href="pridikt-on-twitter.html">Twitter</a></li>
+                        <li><a href="pridikt-on-facebook.html">Facebook</a></li-->
+                        <li><a href="http://www.twitter.com/cjetprogram">Twitter</a></li>
+                        <li><a href="http://www.facebook.com/cjetprogram">Facebook</a></li>
                     </ul>
                 </div>
             </div>
