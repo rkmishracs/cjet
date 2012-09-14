@@ -22,49 +22,10 @@
         type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.8.22.custom.min.js"></script>
         <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
 
-        <script type="text/javascript">
-         
-            $(document).ready(function(){
-            
-                $("#submitForUpdateFbStatus").click(function(){
-                    $.ajax  ({
-                        type : 'POST',
-                        url : '${pageContext.request.contextPath}/social/updateStatus',
-                        data : $("#fbForm").serialize(),
-                        success:function(response){
-                            if(response == "success"){
-                                $("#ajax_loading_fbStatus").css("display", "block");
-                                setTimeout(function(){
-                                    $("#ajax_loading_fbStatus").css("display", "none");
-                                    $("#postStatusResponseDiv").css("display", "block");
-                                    if($("#postStatusResponseDiv").css("display", "block")){
-                                        setTimeout(function(){
-                                            $("#postStatusResponseDiv").hide();
-                                            $("#redirectPostStatusDiv").css("display", "block");
-                                            setTimeout(function(){
-                                                window.location = "${pageContext.request.contextPath}/avtar";
-                                            }, 2000);
-                                            $("#updateFbStatusText").val
-                                        }, 2000);
-                                    }
-                                }, 3000);
-                            }
-                        }
-                    })
-               
-               
-                });
-            
-            });
-         
-         
-        </script>
-
-
     </head>
     <body>
 
-        <input type="hidden" id="avtarDenHidden" value="${pageContext.request.contextPath}" />
+        <input type="hidden" id="fbProfileViewHidden" value="${pageContext.request.contextPath}" />
 
         <div id="body">
             <div class="logo" style="position: relative;top: 5px; left: 15px;">
