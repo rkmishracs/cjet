@@ -118,7 +118,7 @@
             <div class="wrapper">
                 <div id="footer1" class="col"> <span class="linkgroup">About Us</span>
                     <ul>
-                        <li><a href="company.html">Our Company</a></li>
+                        <li><a href="http://www.cmcltd.com/">Our Company</a></li>
                         <li><a href="team.html">Our Team</a></li>
                     </ul>
                 </div>

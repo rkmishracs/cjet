@@ -59,7 +59,6 @@
             
         </div>
         
-        
                      <!--Change Password Response-->
                     <div id="changePasswordResponse">
                         <span class="changePasswordSpan"><s:message code="lbl.passwordChangedSuccessfully"/></span>
@@ -81,11 +80,7 @@
         </div>
             <div class="wrapper">
                 <div id="body1" class="col"> 
-
-
                     <div class="profilePer">
-
-
                         <div class="details"><div  class="profileuser">Profile Completeness</div></div>
                         <div class="link"></div>
                         <div class="photo"></div>
@@ -100,13 +95,11 @@
                                 <li><a class="comments" href="#tab1"><span>Inbox</span></a></li>
                                 <li><a class="photo" href="#tab2"><span>Notifications</span></a></li>
                                 <li><a class="video" href="#tab3"><span>Offers</span></a></li>
-
                             </ul>
 
                             <div class="tab_container">        
                                 <div id="tab1" class="tab_content">
                                     <div class="">
-
                                         <a href="#">Infosys Contacted You on 14-08-2012</a><br/>
                                         <a href="#">Infosys Contacted You on 14-08-2012</a><br/>
                                         <a href="#">Infosys Contacted You on 14-08-2012</a><br/>
@@ -121,22 +114,16 @@
                                         <a href="#">Work Experience Updated On </a><br/>
                                         <a href="#">Educational Qualification Updated On </a><br/>
                                         <a href="#">Resume Posted On</a><br/>
-
                                         <div class="clear"></div><br />
-
                                     </div>
                                 </div>
 
                                 <div id="tab3" class="tab_content">
                                     <div class="">
-                                        
                                         <div class="clear"></div><br />
 
                                     </div>
                                 </div>
-
-                                   
-
                             </div>
                              
                         </div>
@@ -164,20 +151,11 @@
                             <tr>
                                 <td>Attended</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>----</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>7</td>
                             </tr>
-                            
-                            
                         </table>
-                        
-                        
-                        
-                       
                         </div>
                     </div>
                 </div>
                 <div id="body2" class="col">
-
-                   
-                    
                     <div id="right-cont-area">
                         <div class="prdktr"><img src="${pageContext.request.contextPath}/picture?id=${student.enrollmentNumber}" width="60" height="60" alt="" title=""/></div>
                         <div class="name">${student.firstName} ${student.lastName}</div>
@@ -193,14 +171,7 @@
                                 <img width="20" height="15" src="resources/images/phone_icon.gif">
                                     ${contacts.landPhone}
                             </div>
-
-
-
-
                         </div>
-
-
-
                         <div class="level-stage"></div>
                         <div class="level-stage"></div>
                         <div class="level-stage"></div>
@@ -226,7 +197,7 @@
             <div class="wrapper">
                 <div id="footer1" class="col"> <span class="linkgroup">About Us</span>
                     <ul>
-                        <li><a href="company.html">Our Company</a></li>
+                        <li><a href="http://www.cmcltd.com/">Our Company</a></li>
                         <li><a href="team.html">Our Team</a></li>
                     </ul>
                 </div>
