@@ -54,10 +54,6 @@
             <div class="wrapper">
 
                 <div id="body1" class="col" style="background-color: white;"> 
-
-             
-
-
                 </div>
                 <div id="body2" class="col">
                      
