@@ -47,8 +47,8 @@ public class HomeController {
     private EventsService eventsService = null;
     private PlacedStudentService placedStudentService = null;
     List<PlacedStudent> placedStudents = null;
-    
-    public HomeController(){
+
+    public HomeController() {
         AppCmcSpringContext.init();
     }
 
@@ -60,37 +60,41 @@ public class HomeController {
         Date presentDate = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
         Events eventsJobFair = null;
         Events canceledEvent = null;
-        for (Events evnt : eventList) {
-            if (evnt.getEventType().equalsIgnoreCase("Walk-In") && evnt.getActive().equals(Short.parseShort("1"))) {
-                if (evnt.getEventOn().after(presentDate)) {
-                    events = evnt;
-                    break;
+
+        if (eventList != null) {
+            for (Events evnt : eventList) {
+                if (evnt.getEventType().equalsIgnoreCase("Walk-In") && evnt.getActive().equals(Short.parseShort("1"))) {
+                    if (evnt.getEventOn().after(presentDate)) {
+                        events = evnt;
+                        break;
+                    }
                 }
             }
-        }
-        for (Events evnt : eventList) {
-            if (evnt.getEventType().equalsIgnoreCase("Job Fair") && evnt.getActive().equals(Short.parseShort("1"))) {
-                if (evnt.getEventOn().after(presentDate)) {
-                    eventsJobFair = evnt;
-                    break;
+            for (Events evnt : eventList) {
+                if (evnt.getEventType().equalsIgnoreCase("Job Fair") && evnt.getActive().equals(Short.parseShort("1"))) {
+                    if (evnt.getEventOn().after(presentDate)) {
+                        eventsJobFair = evnt;
+                        break;
+                    }
+                }
+            }
+
+            for (Events evnt : eventList) {
+                if (evnt.getActive().equals(Short.parseShort("0"))) {
+                    canceledEvent = evnt;
                 }
             }
         }
 
-        for (Events evnt : eventList) {
-            if (evnt.getActive().equals(Short.parseShort("0"))) {
-                canceledEvent = evnt;
-            }
-        }
-        
-        placedStudentService = (PlacedStudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.PLACED_STUDENT_SERVICE);
-        
-        placedStudents = placedStudentService.getAll();
-        
         req.setAttribute("canceledEvent", canceledEvent, WebRequest.SCOPE_REQUEST);
         req.setAttribute("walkInEvent", events, WebRequest.SCOPE_REQUEST);
         req.setAttribute("jobFairEvent", eventsJobFair, WebRequest.SCOPE_REQUEST);
-        req.setAttribute("placedStudents", placedStudents, WebRequest.SCOPE_REQUEST);
+        
+        placedStudentService = (PlacedStudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.PLACED_STUDENT_SERVICE);
+        placedStudents = placedStudentService.getAll();
+        if (placedStudents != null) {
+           req.setAttribute("placedStudents", placedStudents, WebRequest.SCOPE_REQUEST);
+        }
 
         String cookieValue = CookieUtils.getCookieValue("appUser", request);
         if (cookieValue == null) {
@@ -129,22 +133,19 @@ public class HomeController {
         return "/home/appHome";
     }
 
-    
-    
-    @RequestMapping(method = RequestMethod.GET,value="/team")
-    public String showTeam(){
-        
+    @RequestMapping(method = RequestMethod.GET, value = "/team")
+    public String showTeam() {
+
         return "/home/team";
     }
-    
 
-    @RequestMapping(method= RequestMethod.GET ,value="/about")
-    public String aboutUs(){
+    @RequestMapping(method = RequestMethod.GET, value = "/about")
+    public String aboutUs() {
         return "/home/aboutUs";
     }
-    @RequestMapping(method= RequestMethod.GET ,value="/contact")
-    public String contactUs(){
+
+    @RequestMapping(method = RequestMethod.GET, value = "/contact")
+    public String contactUs() {
         return "/home/contactUs";
     }
-
 }
