@@ -220,15 +220,19 @@ public class MasterController {
 
         //Sending EnrollmentNumber  to the Student through java mail
         appMailService = (AppMailService) AppContext.APPCONTEXT.getBean(ContextIdNames.APP_MAIL_SERVICE);
-        String image1 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_01.jpg");
-        String image2 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_02.jpg");
-        String image3 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_03.jpg");
-        String image4 = request.getSession().getServletContext().getRealPath("resources/images/BusinessTraditional_04.gif");
+        String image1 = request.getSession().getServletContext().getRealPath("resources/images/bluefade_left.gif");
+        String image2 = request.getSession().getServletContext().getRealPath("resources/images/bluefade_right.gif");
+        String image3 = request.getSession().getServletContext().getRealPath("resources/images/CMC_LOGO.jpg");
+        String image4 = request.getSession().getServletContext().getRealPath("resources/images/mockimage.gif");
+        
+        
+        LOG.debug("==============Image4"+image4.length());
         List<String> imageList = new ArrayList<String>();
         imageList.add(image1);
         imageList.add(image2);
         imageList.add(image3);
         imageList.add(image4);
+        
 
         try {
             appMailService.sendMail(appUser, imageList);
