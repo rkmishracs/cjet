@@ -53,14 +53,38 @@
 
             <div class="wrapper">
 
-                <div id="body1" class="col" style="background-color: white;"> 
+                <div id="body1" class="col" style="background-color: white;">
 
-             
+                    <div id="imageForContactUsPage">
+                        <img src="${pageContext.request.contextPath}/resources/images/header2.jpg"/>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h1 id="headerColor">Contact Us</h1>
+                    <div id="lineForContactUS"></div>
+                    <br/>
+                    <br/>
+                    <div id="contactUsDiv">
 
+                        <p>
+                            CMC Limited, Vizag.
+                            <br/>
+                            D.No. 49-24-12, 2nd Floor,
+                            <br/>
+                            Krupa City Center,
+                            <br/>
+                            Shankaramattam Main Road,Vizag 530 016.
+                            <br/>
+                            Ph.No.: 0891 2746554, Mobile : +91 9676534400.
+                            <br/>
+                            Email:
+                            <a href="mailto:cmcvizag@cmcltd.com">cmcvizag@cmcltd.com</a>
+                        </p>
+                    </div>
 
                 </div>
                 <div id="body2" class="col">
-                     
                 </div>
             </div>
             <div class="clear"></div>
