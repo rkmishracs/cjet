@@ -60,9 +60,12 @@ public class AppMailServiceImpl implements AppMailService {
          @Override
          public void prepare(MimeMessage mimeMessage) throws Exception {
 
+            Date date = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, MimeMessageHelper.MULTIPART_MODE_MIXED);
             mimeMessageHelper.setTo(appUser.getEmail());
-            mimeMessageHelper.setFrom("zarvis.a@gmail.com");
+            mimeMessageHelper.setSubject("Welcome to CMC Academy !");
+            mimeMessageHelper.setSentDate(date);
+            mimeMessageHelper.setFrom("cmcavtar@gmail.com");
             for (int i = 0; i < imageList.size(); i++) {
                mimeMessageHelper.addInline("img" + i, new File(imageList.get(i)));
             }
