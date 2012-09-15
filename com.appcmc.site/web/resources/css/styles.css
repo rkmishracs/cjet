@@ -3069,3 +3069,49 @@ div#users-contain table td, div#users-contain table th { border: 1px solid #eee;
     margin: 0px 0px 10px 0px;
     *.z-index: -1;
 }
+
+/*Css for About Us Page*/
+#lineForAboutUS{
+    position: relative;
+    float: left;
+    width: 600px;
+    height: 6px;
+    line-height: 22px;
+    border-bottom: solid 1px #B6C1CC;
+    margin: 0px 0px 10px 0px;
+    z-index: 530;
+}
+#dataForAboutUs{
+    color: #5C6E80;
+}
+#headerColor{
+    color: #6B9EDD;
+}
+#dataMain{
+    position: relative;
+    top: 10px;
+}
+#imageForAboutUsPage{
+    position: relative;
+    top: 10px;
+}
+
+/*Css for Contact us*/
+#contactUsDiv{
+    position: relative;
+    color: #5C6E80;
+}
+#lineForContactUS{
+    position: relative;
+    float: left;
+    width: 200px;
+    height: 6px;
+    line-height: 22px;
+    border-bottom: solid 1px #B6C1CC;
+    margin: 0px 0px 10px 0px;
+    z-index: 530;
+}
+#imageForContactUsPage{
+    position: relative;
+    top: 10px;
+}
