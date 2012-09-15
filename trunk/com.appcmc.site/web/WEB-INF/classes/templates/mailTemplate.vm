@@ -1,137 +1,87 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>BusinessTraditional</title>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>AWeber HTML Email Template</title>
 </head>
 
 <body>
-<table width="637" border="0" align="center" cellpadding="0" cellspacing="0">
-<style type="text/css">
-<!--
-body,td,th {
-	color: #373737;
-	font-family: Tahoma,Verdana,sans-serif,Arial, Helvetica;
-}
-body {
-	background-color: #FFFFFF;
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
-.tit {
-	font-size:24px;
-	color:#ECEAEF;
-	padding-left:9px;
-	background-repeat: repeat-x;
-	line-height: 79px;
-}
-.titcolor {
-   font-size:14px;
-   color:#C24F7B;
-} 
-.textpadding {
-	font-size: 12px;
-	padding-top: 14px;
-	padding-right: 14px;
-	padding-bottom: 14px;
-	padding-left: 14px;
-}
-.content {
-	font-size:12px;
-	line-height:14px;
-	color:#000000;
-	letter-spacing:0.6px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-.contenttit {
-	font-size:14px;
-	letter-spacing:1px;
-	font-weight: bold;
-	color: #000000;
-}
-.readmore {
-	color:#838383;
-	font-size:12px;
-	padding-right: 20px;
-	line-height: 15px;
-	text-align: right;
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-.readmore a:link {
-	color: #707070;
-	text-decoration: none;
-}
-.readmore a:visited {
-	color: #707070;
-	text-decoration: none;
-}
-.readmore a:hover {
-	color: #565656;
-	text-decoration: underline;
-}
-.readmore a:active {
-	color: #565656;
-	text-decoration: underline;
-}
-.showcontent {
-	font-size:12px;
-	line-height:14px;
-	color:#3A3A3A;
-	letter-spacing:0.6px;
-	padding-left: 30px;
-}
--->
-</style>
-    <tr>
-      <td height="10">&nbsp;</td>
-    </tr>
-    <tr>
-      <td height="34"><table width="636" border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="283" valign="top"><img src="cid:img0" width="283" height="79"></td>
-          <td width="353" background="cid:img1" background-repeat="repeat-x"><span class="tit">CMC</span></td>
-        </tr>
-        <tr>
-          <td><img src="cid:img2" width="283" height="53"></td>
-          <td background="cid:img3"></td>
-        </tr>
-      </table></td>
-    </tr>
+<center>
+<table cellpadding="0" cellspacing="0" border="0" width="600" style="text-align:left;">
+<tr>
+<td height="20">
+<div style="line-height:0px; font-size:1px; position:absolute;">&nbsp;</div>
+</td>
+</tr>
+<tr height="65">
+<td>
+	<table cellpadding="0" cellspacing="0" border="0" height="65" width="100%">
+	<tr>
+	
+	<!--HEADER TEXT-->
+	<td height="65" width="325" valign="top" style="font-family:Arial, Verdana; font-size:18px; color:#FFF; font-weight:bold;" bgcolor="#3bbbe9" background="cid:img1">
+	<span style="font-size:10px;"><br /><br /></span>
+	&nbsp;&nbsp;&nbsp;The email you've been waiting for!
+	</td>
+	
+	
+	<!--DOWNLOAD LINK AREA-->
+	<td height="65" width="186" bgcolor="#3bbbe9" valign="middle" background="cid:img2">
+	<span style="font-size:10px;"><br /></span>
+	&nbsp;&nbsp;&nbsp;&nbsp;CMC Limited
+	</td>
+	
+	</tr>
+	</table>
+</td>
+</tr>
+<!--SPACER-->
+<tr>
+<td height="26"><div style="line-height:0px; font-size:1px; position:absolute;">&nbsp;</div></td>
+</tr>
+<tr>
+<td>
+<!--CONTENT TABLE-->
+	<table cellpadding="0" width="600" cellspacing="0" border="0">
+	<tr>
+	<!--LEFT COLUMN CONTENT-->
+	<td width="337" valign="top" style="font-family:Verdana, Arial; font-size:12px; padding-left:10px; padding-right:10px;">
+	<div style="font-family:Verdana, Arial; font-size:14px; font-weight:bold;">Welcome To CMC Academy !</div>
+	<br />
+	<br />
+	Dear ${user.firstName} ${user.lastName},
+	<br />
+	<br />
+	Today, We have generated your Enrollment ID, Which is ${user.enrollmentNumber} and Password is "default". Immediately change your password after first login. By using this you can update your profile, view oppertunities for your future employment. 
+	<br />
+	<br />
+        For other information contact <a href="cmcvizag@cmcltd.com">cmcvizag@cmcltd.com</a> 
+        <br />
+	<br />
+        <center>Thank You,</center>
+        <br />
+	<br />
+	</td>
+	
+	<!--RIGHT COLUMN CONTENT-->
+	</tr>
+	</table>
 
-    <tr>
-      <td align="left" valign="top" bgcolor="#F3F8FC">&nbsp;</td>
-    </tr>
-    <tr>
-      <td align="left" valign="top" bgcolor="#F3F8FC"><table width="605" border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="484" class="contenttit"><p>Dear  ${user.enrollmentNumber}, welcome to CMC!,<br>
-          </p></td>
-          <td width="121" class="content">&nbsp;</td>
-        </tr>
-        <tr>
-          <td colspan="2" class="content"><p align="justify">Your email address is <a href="mailto:${user.email}">${user.email}</a>.</p>
-              <p align="justify">We value your business, and hope to keep you as a customer.As a cash customer you will be advised of all special sales,and we know that you will find our prices and servicescompetitive enough to allow us to continue serving you.</p>
-            <p align="justify">If you have any questions about this decision, or if I may be of any help in any way with regard to your dealings with our company, please contact me at the above office.<br>
-            </p></td>
-        </tr>
-        <tr>
-          <td colspan="2" class="content"><p>Sincerely,</p>
-              <p>Mary Trips<br>
-              Aug  30, 2006</p>
-            <p>Reasonable Spread<br>
-              <br>
-            </p></td>
-        </tr>
-      </table></td>
-    </tr>
-    
-    <tr>
-      <td height="10" align="left" valign="top">&nbsp;</td>
-    </tr>
+</td>
+</tr>
+
+<!--FOOTER-->
+<tr>
+<td height="3" style="border-top:3px double #e4e4e4; text-align:center; font-family:Verdana, Arial; font-size:12px;">
+<br />
+<strong>CMC Academy</strong><br /><br />
+<a href="cmcvizag@cmcltd.com">cmcvizag@cmcltd.com</a><br />
+
+</td>
+</tr>
 </table>
+<br />
+
+</center>
 </body>
 </html>
