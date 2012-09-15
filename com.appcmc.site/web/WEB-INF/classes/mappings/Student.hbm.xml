@@ -4,7 +4,7 @@
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.appcmc.domain.sub.Student" table="APP_USER_STUDENT"
+	<class name="com.appcmc.domain.sub.Student" table="app_user_student"
 		discriminator-value="0">
 		<id column="STUDENT_UID" name="id" type="java.lang.Long">
 			<generator class="native" />

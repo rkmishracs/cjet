@@ -4,7 +4,7 @@
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.appcmc.domain.sub.Events" table="APP_USER_EVENTS"
+	<class name="com.appcmc.domain.sub.Events" table="app_user_events"
 		discriminator-value="0">
 		<id column="EVNT_UID" name="id" type="java.lang.Long">
 			<generator class="native" />

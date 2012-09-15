@@ -3,7 +3,7 @@
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.appcmc.domain.sub.Contacts" table="APP_USER_CONTACTS" discriminator-value="0">
+    <class name="com.appcmc.domain.sub.Contacts" table="app_user_contacts" discriminator-value="0">
         <id column="CONTACT_UID" name="id" type="java.lang.Long">
             <generator class="native" />
         </id>
