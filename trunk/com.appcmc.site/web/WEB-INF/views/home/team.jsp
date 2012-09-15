@@ -37,8 +37,8 @@
         <div class="menu_nav">
             <ul>
                 <li class="active"><a href="${pageContext.request.contextPath}/appHome">Home</a></li>
-                
-               
+
+
             </ul>
             <div class="clr"></div>
         </div>
@@ -66,28 +66,28 @@
 
                         <!--Begin Pridiktor Info-->
                         <div class="prdktr"> <img src="${pageContext.request.contextPath}/resources/images/user-img.jpg" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
-                            <div class="name">Nicole Mossinger</div>
-                            <div class="rank">Amateur</div>
+                            <div class="name">Sudarsan Ambatipudi</div>
+                            <div class="rank">Team Leader</div>
                         </div>
                         <!--End Pridiktor Info--> 
 
                         <!--Begin Pridiktion Info Box-->
                         <div class="prdkt-box">
-                            <h2 class="tags">Japan, Nuclear Energy, Disaster</h2>
-                            <h1 class="pridiktion">There will be a nuclear melt-down in Japan before March 20, 2011</h1>
+                            <h2 class="tags"></h2>
+                            <h1 class="pridiktion"></h1>
                             <div class="details"></div>
-                            <div class="link"> <img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="90" height="63" alt="CMC Pvt Ltd" title="CMC" />
-                                <div>
-                                    <h3>Tsunami Hits Fukiyama Power Plant</h3>
-                                    <a href="http://www.cnn.com" id="tipsblock" title="If you remember your password, try logging in with your email">www.cnn.com/linked-article</a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare leo ac elit faucibus bibendum. Curabitur et nulla augue, vitae placerat velit. In nec mauris vel risus tempus iaculis. Nam dapibus, ante vel sodales fringilla, nunc massa consectetur leo, lacinia ultrices quam lectus nec sapien...</p>
-                                </div>
+                            <div class="link"></div>
+                            <div>
+                                <h3>Trainer in CMC</h3>
+                                <a href="http://www.javacircuit.blogspot.in/" id="tipsblock" title="">http://www.javacircuit.blogspot.in/</a>
+                                <p>Sudarsan always think big and dreams about conquering the web site Designing</p>
                             </div>
-                            
-                            
-                            
-                            
                             <div class="boxpointer"></div>
+                            <ul class="info">
+                                <li class="timestamp"><img width="12" height="9" src="../resources/images/email-icon.gif"/>&nbsp;zarvis.a@gmail.com</li>
+                                <li class="location">9676534400</li>
+                                
+                            </ul>
                         </div>
                         <!--End Pridiktion Info Box-->
                         <div class="clear"></div>
@@ -100,25 +100,28 @@
 
                         <!--Begin Pridiktor Info-->
                         <div class="prdktr"> <img src="${pageContext.request.contextPath}/resources/images/user-img1.png" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
-                            <div class="name">Geoff Rego</div>
-                            <div class="rank">TopDog</div>
+                            <div class="name">Mohammed Hasan</div>
+                            <div class="rank">Team member</div>
                         </div>
                         <!--End Pridiktor Info--> 
 
                         <!--Begin Pridiktion Info Box-->
                         <div class="prdkt-box">
-                            <h2 class="tags">Japan, Nuclear Energy, Disaster</h2>
-                            <h1 class="pridiktion">There will be a nuclear melt-down in Japan before March 20, 2011</h1>
+                            <h2 class="tags"></h2>
+                            <h1 class="pridiktion"></h1>
                             <div class="details"></div>
-                            <div class="link"> <img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="90" height="63" alt="CMC Pvt Ltd" title="CMC" />
-                                <div>
-                                    <h3>Tsunami Hits Fukiyama Power Plant</h3>
-                                    <a href="http://www.cnn.com" id="tipsblock" title="If you remember your password, try logging in with your email">www.cnn.com/linked-article</a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare leo ac elit faucibus bibendum. Curabitur et nulla augue, vitae placerat velit. In nec mauris vel risus tempus iaculis. Nam dapibus, ante vel sodales fringilla, nunc massa consectetur leo, lacinia ultrices quam lectus nec sapien...</p>
-                                </div>
+                            <div class="link"></div>
+                            <div>
+                                <h3>Team Member</h3>
+                                <a href="http://latestsoftwares-hasan.blogspot.in/" id="tipsblock" title="">http://latestsoftwares-hasan.blogspot.in/</a>
+                                <p>Hasan is the sunshine of the team.Hasan has become indispensable to us because he creates the user interface design for all of our products. </p>
                             </div>
-                           
                             <div class="boxpointer"></div>
+                            <ul class="info">
+                                <li class="timestamp"><img width="12" height="9" src="../resources/images/email-icon.gif"/>&nbsp;hasananwar38@gmail.com</li>
+                                <li class="location">9701012965</li>
+                                
+                            </ul>
                         </div>
                         <!--End Pridiktion Info Box--> 
 
@@ -130,25 +133,28 @@
 
                         <!--Begin Pridiktor Info-->
                         <div class="prdktr"> <img src="${pageContext.request.contextPath}/resources/images/user-img2.png" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
-                            <div class="name">Nicole Mossinger</div>
-                            <div class="rank">Amateur</div>
+                            <div class="name">Kishore Vinjamuri</div>
+                            <div class="rank">Team member</div>
                         </div>
                         <!--End Pridiktor Info--> 
 
                         <!--Begin Pridiktion Info Box-->
                         <div class="prdkt-box">
-                            <h2 class="tags">Japan, Nuclear Energy, Disaster</h2>
-                            <h1 class="pridiktion">There will be a nuclear melt-down in Japan before March 20, 2011</h1>
+                            <h2 class="tags"></h2>
+                            <h1 class="pridiktion"></h1>
                             <div class="details"></div>
-                            <div class="link"> <img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg" width="90" height="63" alt="CMC Pvt Ltd" title="CMC" />
-                                <div>
-                                    <h3>Tsunami Hits Fukiyama Power Plant</h3>
-                                    <a href="http://www.cnn.com" id="tipsblock" title="If you remember your password, try logging in with your email">www.cnn.com/linked-article</a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare leo ac elit faucibus bibendum. Curabitur et nulla augue, vitae placerat velit. In nec mauris vel risus tempus iaculis. Nam dapibus, ante vel sodales fringilla, nunc massa consectetur leo, lacinia ultrices quam lectus nec sapien...</p>
-                                </div>
+                            <div class="link"></div>
+                            <div>
+                                <h3>Team Member</h3>
+                                <a href="http://technozine20.blogspot.in/" id="tipsblock" title="">http://technozine20.blogspot.in/</a>
+                                <p>Kishore is the kind of guy that every company needs in order to survive.Kishore has become indispensable to us because he creates the user interface design for all of our products. </p>
                             </div>
-                           
                             <div class="boxpointer"></div>
+                            <ul class="info">
+                                <li class="timestamp"><img width="12" height="9" src="../resources/images/email-icon.gif"/>&nbsp;kishore05222@gmail.com</li>
+                                <li class="location">8977719260</li>
+                                
+                            </ul>
                         </div>
                         <!--End Pridiktion Info Box-->
                         <div class="clear"></div>
@@ -159,20 +165,30 @@
                     <div class="m600-prdkt"> 
 
                         <!--Begin Pridiktor Info-->
-                        <div class="prdktr"> <img src="${pageContext.request.contextPath}/resources/images/user-img3.png" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
-                            <div class="name">Stephen Pieraldi</div>
-                            <div class="rank">Guru</div>
+                        <div class="prdktr"> <img src="${pageContext.request.contextPath}/resources/images/user-img4.jpg" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
+                            <div class="name">Kiran Kumar Nayana </div>
+                            <div class="rank">Team member</div>
                         </div>
                         <!--End Pridiktor Info--> 
 
                         <!--Begin Pridiktion Info Box-->
                         <div class="prdkt-box">
-                            <h2 class="tags">Business, Stocks, Apple, Steve Jobs, Health</h2>
-                            <h1 class="pridiktion">Steve Jobs will be back at Apple no latter than July 1, 2011</h1>
+                            <h2 class="tags"></h2>
+                            <h1 class="pridiktion"></h1>
                             <div class="details"></div>
                             <div class="link"></div>
-                           
+                            <div>
+                                <h3>Team Member</h3>
+                                <a href="http://www.javacodelearner.blogspot.in/" id="tipsblock" title="">http://www.javacodelearner.blogspot.in/</a>
+                                <p>Kiran has become indispensable to us because he creates the user interface design for all of our products.Did you ever get to know the guy on the other side of your support ticket.</p>
+                            </div>
+                            
                             <div class="boxpointer"></div>
+                            
+                            <ul class="info">
+                                <li class="timestamp"><img width="12" height="9" src="../resources/images/email-icon.gif"/>&nbsp;kirankumarnayana9@gmail.com</li>
+                                <li class="location">9966613028</li>
+                             </ul>
                         </div>
                         <!--End Pridiktion Info Box--> 
 
@@ -183,22 +199,34 @@
                     <div class="m600-prdkt"> 
 
                         <!--Begin Pridiktor Info-->
-                        <div class="prdktr"> <img src="${pageContext.request.contextPath}/resources/images/user-img4.jpg" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
-                            <div class="name">Hans Franz</div>
-                            <div class="rank">Expert</div>
+                        <div class="prdktr"> <img src="${pageContext.request.contextPath}/resources/images/user-img3.png" width="60" height="60" alt="Geoff Rego" title="Geoff Rego" />
+                            <div class="name">Bhaskar Gedala</div>
+                            <div class="rank">Team member</div>
                         </div>
                         <!--End Pridiktor Info--> 
 
                         <!--Begin Pridiktion Info Box-->
                         <div class="prdkt-box">
-                            <h2 class="tags">Japan, Nuclear Energy, Disaster</h2>
-                            <h1 class="pridiktion">Donald Trumph will announce his presidential bid before June  20, 2011</h1>
+                            <h2 class="tags"></h2>
+                            <h1 class="pridiktion"></h1>
                             <div class="details"></div>
                             <div class="link"></div>
-                           
+                            <div>
+                                <h3>Team Member</h3>
+                                <a href="#" id="tipsblock" title=""></a>
+                                <p>Sometimes Bhaskar dreams in code and speaks in tags.Bhaskar has become indispensable to us because he creates the user interface design for all of our products.</p>
+                            </div>
+                            
                             <div class="boxpointer"></div>
+                            <ul class="info">
+                                <li class="timestamp"><img width="12" height="9" src="../resources/images/email-icon.gif"/>&nbsp;bhaskar.gedala@gmail.com</li>
+                                <li class="location">9966632943</li>
+                                
+                            </ul>
                         </div>
                         <!--End Pridiktion Info Box--> 
+
+
 
                     </div>
                     <!--End Pridikt Module--> 
