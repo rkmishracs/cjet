@@ -173,33 +173,41 @@
                                     <div id="updateContent">
                                         <!-- You can add all your contents here -->
 
+                                        <c:if test="${placedStudents != null}">
+                                            <c:forEach items="${placedStudents}" var="placedStds">
+                                                <div id="testSuccessDiv"> <!-- Written The Same Code Three Times To Check The Scroll -->
+                                                    <div class=" fl chatBlk mrgn_r20" >
 
+                                                        <div id="testSuccessDivDup">
+                                                            <img src="${pageContext.request.contextPath}/picture?id=${placedStds.enrollmentNumber}" alt="Chat User" class="fl" width="60" height="65"/>
+                                                        </div>
+                                                        <div id="testSuccessDivDup1">
+                                                            <p class="fr w160" id="testSuccessPara">
+                                                                <span class="disBlk mrgn_b10">
+                                                                    <img src="${pageContext.request.contextPath}/resources/images/quote_up.gif"/>
+                                                                    <a href="#">${placedStds.otherDetails}</a> <img src="${pageContext.request.contextPath}/resources/images/quote_bottom.gif"/>
+                                                                </span>
+                                                                <span class="disBlk mrgn_b10">
+                                                                    <strong><b>${placedStds.firstName}</b></strong>,<br/>
+                                                                    Designation - ${placedStds.designation}, <br/>${placedStds.placedCompany}<br/><br/>${placedStds.packageDetails}<br/>
+                                                                    <em class="date">${placedStds.yearOfPlacement}</em>
+                                                                </span>
 
-                                        <c:forEach items="${placedStudents}" var="placedStds">
-                                        <div id="testSuccessDiv"> <!-- Written The Same Code Three Times To Check The Scroll -->
-                                            <div class=" fl chatBlk mrgn_r20" >
-                                                
-                                                    <div id="testSuccessDivDup">
-                                                        <img src="${pageContext.request.contextPath}/picture?id=${placedStds.enrollmentNumber}" alt="Chat User" class="fl" width="60" height="65"/>
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                    <div id="testSuccessDivDup1">
-                                                        <p class="fr w160" id="testSuccessPara">
-                                                            <span class="disBlk mrgn_b10">
-                                                                <img src="${pageContext.request.contextPath}/resources/images/quote_up.gif"/>
-                                                                <a href="#">${placedStds.otherDetails}</a> <img src="${pageContext.request.contextPath}/resources/images/quote_bottom.gif"/>
-                                                            </span>
-                                                            <span class="disBlk mrgn_b10">
-                                                                <strong><b>${placedStds.firstName}</b></strong>,<br/>
-                                                                Designation - ${placedStds.designation}, <br/>${placedStds.placedCompany}<br/><br/>${placedStds.packageDetails}<br/>
-                                                                <em class="date">${placedStds.yearOfPlacement}</em>
-                                                            </span>
+                                                </div> <!-- End Of testSuccessDiv 1 -->
+                                                <div id="successStorySeparatorLine"></div>
+                                            </c:forEach>
+                                        </c:if>
 
-                                                        </p>
-                                                    </div>
+                                        <c:if test="${placedStudents == null}">
+                                            <div class="cont">
+                                                <span>No Success Stories Registered Yet</span>
                                             </div>
-                                        </div> <!-- End Of testSuccessDiv 1 -->
-                                        <div id="successStorySeparatorLine"></div>
-                                        </c:forEach>
+                                        </c:if>
+
+
                                     </div>
                                     <!--// don't remove this: the scrollbar and scrollscrubber place holder -->
                                     <div id="updateScollBar">
@@ -255,12 +263,12 @@
                         </div>
 
                     </div>
-                        
-                         <!--- Duplicate --->
-              
+
+                    <!--- Duplicate --->
+
                 </div>
                 <div id="body2" class="col">
-                     
+
                 </div>
             </div>
             <div class="clear"></div>
