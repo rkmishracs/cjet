@@ -78,7 +78,7 @@ public class SuccessStoryController {
             name = student.getFirstName() + student.getLastName();
             return name;
         }
-        return name;
+        return "";
         
     }
     
