@@ -1626,19 +1626,17 @@ $(document).ready(function(){
                     type : "get",
                     url : $('#createSucessStoriesHidden').val()+"/successStories/getPersonName",
                     data : "enrollmentNumber="+enrollmentNumber.val(),
-                    dataType : "json",  
+                      
                     success : function(response){
-                        if(response != null){
+                        if(response){
                             $("#ajax_loading_enrollmentShow").css("display", "none");
                             $('#successStoryPersonName').val(response);
-                        }
-                        if(response == null){
+                        }else{
                             $("#ajax_loading_enrollmentShow").css("display", "none");
                             alert("Enrollment Does Not Exists");
                             $("#sucessStoriesEnrollmentNumber").val("");
                             $("#sucessStoriesEnrollmentNumber").focus();
                         }
-                       
                     }
                 });
             },3000);
