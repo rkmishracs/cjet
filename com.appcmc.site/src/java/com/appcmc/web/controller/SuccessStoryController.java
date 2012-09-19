@@ -30,7 +30,7 @@ import org.springframework.web.context.request.WebRequest;
 @Controller
 @RequestMapping("/successStories")
 public class SuccessStoryController {
-    
+
     static Logger LOG = Logger.getLogger(SuccessStoryController.class);
     private StudentService studentService = null;
     private Student student = null;
@@ -39,63 +39,63 @@ public class SuccessStoryController {
     private Date date = null;
     private AppUser appUser = null;
     private List<PlacedStudent> placedStudentList = null;
-    
+
     @RequestMapping(method = RequestMethod.GET)
     public String showSuccessStories() {
-        
+
         return "/master/successStoriesHome";
     }
-    
+
     @RequestMapping(method = RequestMethod.GET, value = "/createSuccessStories")
     public String showCreateSuccessStories(@ModelAttribute SuccessStoryCreationForm successStoryCreationForm) {
         return "/master/createSuccessStory";
     }
-    
+
     @RequestMapping(method = RequestMethod.GET, value = "viewAllSuccessStories")
     public String viewAllSuccessStories(WebRequest request) {
-        
+
         placedStudentService = (PlacedStudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.PLACED_STUDENT_SERVICE);
-        
+
         placedStudentList = placedStudentService.getAll();
-        
-        
+
+
         request.setAttribute("placeStudentList", placedStudentList, WebRequest.SCOPE_REQUEST);
-        
+
         return "/master/viewAllSuccessStories";
     }
-    
+
     @RequestMapping(method = RequestMethod.GET, value = "/getPersonName", params = {"enrollmentNumber"})
     @ResponseBody
     public String showFirstNameLastName(@ModelAttribute SuccessStoryCreationForm successStoryCreationForm, @RequestParam String enrollmentNumber) {
-        
+
         studentService = (StudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.STUDENT_SERVICE);
-        
+
         student = studentService.findStudentByEnrollmentNumber(enrollmentNumber);
-        
+
         String name = null;
-        
+
         if (student != null) {
-            name = student.getFirstName() + student.getLastName();
+            name = student.getFirstName() + " " + student.getLastName();
             return name;
         }
         return "";
-        
+
     }
-    
+
     @RequestMapping(method = RequestMethod.POST, value = "/createSuccessStory")
     @ResponseBody
     public String createSuccessStories(@ModelAttribute SuccessStoryCreationForm successStoryCreationForm, WebRequest request) {
-        
+
         appUser = (AppUser) request.getAttribute("user", WebRequest.SCOPE_SESSION);
-        
+
         date = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
-        
+
         placedStudentService = (PlacedStudentService) AppContext.APPCONTEXT.getBean(ContextIdNames.PLACED_STUDENT_SERVICE);
-        
+
         placedStudent = (PlacedStudent) AppContext.APPCONTEXT.getBean(ContextIdNames.PLACED_STUDENT);
-        
+
         LOG.debug("EnrollmentNumber = " + successStoryCreationForm.getSucessStoriesEnrollmentNumber());
-        
+
         placedStudent.setEnrollmentNumber(successStoryCreationForm.getSucessStoriesEnrollmentNumber());
         placedStudent.setFirstName(successStoryCreationForm.getPersonName());
         placedStudent.setGender("");
@@ -110,9 +110,9 @@ public class SuccessStoryController {
         placedStudent.setModifiedBy(appUser.getModifiedBy());
         placedStudent.setModifiedOn(date);
         placedStudent.setActive(Short.parseShort("0"));
-        
+
         placedStudentService.create(placedStudent);
-        
+
         return "success";
     }
 }
