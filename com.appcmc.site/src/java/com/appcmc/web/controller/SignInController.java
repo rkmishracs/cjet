@@ -66,8 +66,8 @@ public class SignInController {
     public String doSigIn(@ModelAttribute SignInForm signInForm,
             @ModelAttribute EnrollmentForm enrollmentForm, WebRequest request, HttpServletResponse response, HttpServletRequest req) {
 
-        String userId = signInForm.getUserId();
-        String password = signInForm.getPassword();
+        String userId = signInForm.getUserId().trim();
+        String password = signInForm.getPassword().trim();
         String rememberMe = signInForm.getRememberMe();
         appUserService = (AppUserService) AppContext.APPCONTEXT
                 .getBean(ContextIdNames.APP_USER_SERVICE);
