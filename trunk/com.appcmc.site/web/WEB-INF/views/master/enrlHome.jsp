@@ -20,6 +20,7 @@
 
     </head>
     <body>
+        <input type="hidden" id="enrollmentFormHidden" value="${pageContext.request.contextPath}"/>
         <div class="logo" style="position: relative;top: 5px; left: 15px;">
             <a href="${pageContext.request.contextPath}/master"><img src="${pageContext.request.contextPath}/resources/images/CMC_LOGO.jpg"  alt="" style="border-color:#312e25 ;zIndex:600" /></a>
         </div>
@@ -33,24 +34,24 @@
             <div class="clr"></div>
         </div>
 
-
-        <input type="hidden" id="enrollmentFormHidden" value="${pageContext.request.contextPath}"/>
-
-        <div class="clear"></div>
         <div id="body">
             <div class="wrapper">
 
                 <div id="body1" class="col"> 
-                    <div id="validation" style="position:relative;top:90px;height:40px; ">
-                        <p class="validateTips" id="valid"></p>
-                    </div>    
+
 
                     <!--Begin Prediction Module-->
                     <div class="heading-review">
                         <form id="prdkt-compose-form" style="float:left; margin:10px 0 0 10px;">
                             <label class="title" style="width:371px;">Enrollment Process</label>
                         </form>
-                        <div class="name"></div>
+
+                        <div class="name">
+                            <div id="validation">
+                                <p class="validateTips" id="valid"></p>
+                            </div>
+                        </div>
+
 
                     </div>
                     <!--End Prediction Module--> 
@@ -64,6 +65,7 @@
                                     <li id="listOne"><a href="#tab1"><s:message code="lbl.enrollment.tabl"/></a></li>
                                     <li id="listTwo"><a href="#tab2"><s:message code="lbl.enrollment.tab2"/></a></li>
                                     <li id="listThree"><a href="#tab3"><s:message code="lbl.enrollment.tab3"/></a></li>
+                                    
 
                                 </ul>
 
@@ -73,13 +75,13 @@
                                         <div class="st-blocked2">
                                             <label for="tags"><s:message code="lbl.enrollment.tab1.enrollmentId"/></label>
                                             <sf:input readonly="true" cssClass="tags" path="enrollmentNumber" name="tags" type="text" id="enrollmentNumber"/>
-                                            <div id="loader" style="position: relative;left:10px;display:none;">
+                                            <div id="loader" style="position: relative;float:left;lleft:10px;display:none;">
 
                                                 <img src="${pageContext.request.contextPath}/resources/images/spinner.gif"/>
 
                                             </div>
 
-                                            <div style="position: relative;left: 40px;top:-5px;">
+                                            <div for="tags" style="position: relative;float:left;left: 40px;top:-5px;">
                                                 <a class="button-h" href="#" id="genEnrl"><span><s:message code="lbl.enrollment.tab1.genarate"/></span></a>
                                             </div>
 
