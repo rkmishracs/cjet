@@ -57,14 +57,14 @@ public class HomeController {
 
         eventsService = (EventsService) AppContext.APPCONTEXT.getBean(ContextIdNames.EVENT_SERVICE);
         List<Events> eventList = eventsService.getAll();
-        Date presentDate = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
+        Date date = (Date) AppContext.APPCONTEXT.getBean(ContextIdNames.DATE);
         Events eventsJobFair = null;
         Events canceledEvent = null;
 
         if (eventList != null) {
             for (Events evnt : eventList) {
                 if (evnt.getEventType().equalsIgnoreCase("Walk-In") && evnt.getActive().equals(Short.parseShort("1"))) {
-                    if (evnt.getEventOn().after(presentDate)) {
+                    if (evnt.getEventOn().after(date)) {
                         events = evnt;
                         break;
                     }
@@ -72,7 +72,7 @@ public class HomeController {
             }
             for (Events evnt : eventList) {
                 if (evnt.getEventType().equalsIgnoreCase("Job Fair") && evnt.getActive().equals(Short.parseShort("1"))) {
-                    if (evnt.getEventOn().after(presentDate)) {
+                    if (evnt.getEventOn().after(date)) {
                         eventsJobFair = evnt;
                         break;
                     }
