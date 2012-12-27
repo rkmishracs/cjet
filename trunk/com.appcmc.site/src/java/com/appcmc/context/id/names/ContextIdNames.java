@@ -8,7 +8,6 @@ package com.appcmc.context.id.names;
  *
  */
 public interface ContextIdNames {
-
    // Domains
    public static final String APP_USER = "appUser";
    public static final String STUDENT = "student";
@@ -20,7 +19,6 @@ public interface ContextIdNames {
    public static final String EVENTS = "events";
    public static final String PLACED_STUDENT = "placedStudent";
    public static final String FB_USER = "fbUser";
-   
    // Services
    public static final String APP_USER_SERVICE = "appUserService";
    public static final String STUDENT_SERVICE = "studentService";
